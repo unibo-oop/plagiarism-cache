@@ -1,0 +1,49 @@
+package it.unibo.cluedolite.view;
+
+import java.awt.Color;
+import java.awt.Font;
+
+/**
+ * Centralized color palette and font definitions for CluedoLite.
+ *
+ * <p>This utility class provides shared constants for UI styling.
+ * Use these values instead of hardcoding colors or fonts.
+ */
+public final class AppColorFont {
+
+    public static final Color BACKGROUND_DARK = new Color(80, 0, 0);
+    public static final Color BACKGROUND_MEDIUM = new Color(100, 0, 0);
+    public static final Color BACKGROUND_LIGHT = new Color(120, 0, 0);
+
+    public static final Color TEXT_PRIMARY = new Color(240, 240, 240);
+    public static final Color TEXT_SECONDARY = new Color(180, 180, 180);
+    public static final Color TEXT_DISABLED = new Color(100, 100, 100);
+
+    public static final Color ACCENT_PRIMARY = new Color(180, 30, 30);
+    public static final Color ACCENT_SECONDARY = new Color(255, 215, 0);
+    public static final Color ACCENT_HOVER = new Color(220, 60, 60);
+
+    public static final Color SUCCESS = new Color(60, 180, 60);
+    public static final Color WARNING = new Color(220, 160, 40);
+    public static final Color ERROR = new Color(200, 40, 40);
+
+    public static final Color BUTTON_BACKGROUND = ACCENT_PRIMARY;
+    public static final Color BUTTON_FOREGROUND = TEXT_PRIMARY;
+    public static final Color BUTTON_HOVER = ACCENT_HOVER;
+
+    public static final Color BORDER = new Color(100, 30, 30);
+    public static final Color PANEL_BACKGROUND = new Color(50, 0, 0);
+    public static final Color DROPDOWN_BACKGROUND = new Color(100, 15, 15);
+    public static final Color DROPDOWN_FOREGROUND = TEXT_PRIMARY;
+
+    private static final String FONT_FAMILY = "Serif";
+
+    public static final Font FONT_TITLE = new Font(FONT_FAMILY, Font.BOLD, 36);
+    public static final Font FONT_LABEL = new Font(FONT_FAMILY, Font.BOLD, 30);
+    public static final Font FONT_BUTTON = new Font(FONT_FAMILY, Font.BOLD, 30);
+    public static final Font FONT_DROPDOWN = new Font(FONT_FAMILY, Font.BOLD, 15);
+    public static final Font FONT_SMALL = new Font(FONT_FAMILY, Font.PLAIN, 12);
+    public static final Font FONT_BODY = new Font(FONT_FAMILY, Font.PLAIN, 16);
+
+    private AppColorFont() { }
+}
