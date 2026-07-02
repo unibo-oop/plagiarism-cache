@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane id="root2" prefHeight="325.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller.MenuController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="1.7976931348623157E308" vgrow="SOMETIMES" />
+    <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <BorderPane>
+         <center>
+            <Label fx:id="tanklabel" text="T A N K  W A R" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <BorderPane GridPane.rowIndex="1">
+         <top>
+            <Separator opacity="0.4" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <JFXButton fx:id="play" buttonType="RAISED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#playAction" ripplerFill="#008000" text="PLAY" BorderPane.alignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="50.0" translateX="-135.0">
+                     <image>
+                        <Image url="@../../res/images/giphy.gif" />
+                     </image>
+                  </ImageView>
+               </graphic>
+              </JFXButton>
+         </center>
+      </BorderPane>
+      <BorderPane GridPane.rowIndex="2">
+         <top>
+            <Separator opacity="0.4" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <JFXButton fx:id="settings" buttonType="RAISED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#settingsAction" ripplerFill="BLUE" text="SETTINGS" BorderPane.alignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="50.0" translateX="-100.0">
+                     <image>
+                        <Image url="@../../res/images/Chi_ri2_3d.gif" />
+                     </image>
+                  </ImageView>
+               </graphic></JFXButton>
+         </center>
+      </BorderPane>
+      <BorderPane GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER">
+         <top>
+            <Separator opacity="0.4" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <JFXButton fx:id="exit" buttonType="RAISED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#exitAction" ripplerFill="RED" text="EXIT" BorderPane.alignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="50.0" translateX="-135.0">
+                     <image>
+                        <Image url="@../../res/images/8bit_sherman_profile_by_muddyfudger-d8vhtzw.gif" />
+                     </image>
+                  </ImageView>
+               </graphic></JFXButton>
+         </center>
+      </BorderPane>
+   </children>
+</GridPane>

@@ -1,0 +1,133 @@
+#canvas{
+	-fx-background-color: blue;
+}
+
+#close{
+	-fx-text-fill: white ;
+	-fx-font-weight: bold ;
+	-fx-font-scale: 40.0 ;
+}
+
+#close:hover{
+	-fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 2, 5.0 , 0 , 0);
+	-fx-text-fill: white ;
+	-fx-font-weight: bold ;
+	-fx-font-scale: 40.0 ;
+}
+
+#back{
+	-fx-border-radius: 40.0, 40.0, 40.0, 40.0 ;
+	-fx-background-radius: 40.0, 40.0, 40.0, 40.0 ;
+}
+
+#tanklabel{
+	-fx-font-size: 50.0  ;
+	-fx-font-weight: bold;
+	-fx-font-style: italic ;
+}
+
+#play{
+	-fx-background-color: transparent ;
+	-fx-font-size: 30.0  ;
+	-fx-font-weight: bold;
+	-fx-text-fill: white ; 
+}
+
+#play:hover{
+	-fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 5, 10.0 , 0 , 0);
+	-fx-background-color: transparent ;
+	-fx-font-size: 30.0  ;
+	-fx-font-weight: bold;
+	-fx-text-fill: white ; 
+}
+
+#settings{
+	-fx-background-color: transparent ;
+	-fx-font-size: 30.0  ;
+	-fx-font-weight: bold;
+	-fx-text-fill: white ;
+}
+
+#settings:hover{
+	-fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 0, 0.0 , 0 , 1);
+	-fx-background-color: transparent ;
+	-fx-font-size: 30.0  ;
+	-fx-font-weight: bold;
+	-fx-text-fill: white ;
+}
+
+#exit{
+	-fx-background-color: transparent ;
+	-fx-font-size: 30.0  ;
+	-fx-font-weight: bold;
+	-fx-text-fill: white ;
+}
+
+#exit:hover{
+	-fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 5, 10.0 , 0 , 0);
+	-fx-background-color: transparent ;
+	-fx-font-size: 30.0  ;
+	-fx-font-weight: bold;
+	-fx-text-fill: white ;
+}
+
+#tanklabel{
+	-fx-effect: dropshadow( one-pass-box , rgba(255,255,255,0.5) , 5, 10.0 , 0 , 0);
+}
+
+#root2{
+	-fx-background-image: url(../../res/images/tankMenu.jpg) ;
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: 100% 100% ;
+}
+
+#loaderGrid{
+	-fx-background-image: url(../../res/images/tankLogin.jpg) ;
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: 100% 100% ;
+}
+
+#instructionGrid{
+	-fx-background-image: url(../../res/images/instructionTank.jpg) ;
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: 100% 100% ;
+}
+
+#settingsGrid{
+	-fx-background-image: url(../../res/images/tankSetting.jpg) ;
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: 100% 100% ;
+}
+
+#endLevelGrid{
+	-fx-background-image: url(../../res/images/endLevel.jpg) ;
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: 100% 100% ;
+}
+
+#endGameGrid{
+	-fx-background-image: url(../../res/images/youwin.jpg) ;
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: 100% 100% ;
+}
+
+#gameOverGrid{
+	-fx-background-image: url(../../res/images/gameOver.png) ;
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: 100% 100% ;
+}
+
+#menuPane{
+	-fx-background-image:url(../../res/images/options_1-512.png) ;
+	-fx-background-repeat: no-repeat ;
+	-fx-background-size: 100% 100% ;
+	-fx-opacity: 0.3 ;
+}
+
+#menuPane:hover{
+	-fx-opacity: 1.0 ;
+}
+
+#menuBar{
+	-fx-opacity: 0.0;
+}

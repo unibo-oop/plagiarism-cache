@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+
+<GridPane id = "gameWorld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller.GameWorldController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Group fx:id="worldGroup">
+         <children>
+            <Canvas fx:id="worldCanvas" height="400.0" width="600.0"/>
+            <ImageView fx:id="backGround" fitHeight="400.0" fitWidth="600.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
+               <image>
+                  <Image url="@../../res/images/level4_background.jpg" />
+               </image></ImageView>
+            <ImageView fx:id="playerTank" fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="175.0" pickOnBounds="true" preserveRatio="false">
+               <image>
+                  <Image url="@../../res/images/tankBlack.png" />
+               </image></ImageView>
+            <ImageView fx:id="enemyTank" fitHeight="25.0" fitWidth="25.0" layoutX="536.0" layoutY="175.0" pickOnBounds="true" preserveRatio="false">
+               <image>
+                  <Image url="@../../res/images/tankRed.png" />
+               </image></ImageView>
+            <ImageView fx:id="playerCannon" fitHeight="5" fitWidth="25" layoutX="26.5" layoutY="185" pickOnBounds="true">
+               <image>
+                  <Image url="@../../res/images/barrelBlack.png" />
+               </image></ImageView>
+            <ImageView fx:id="enemyCannon" fitHeight="5" fitWidth="25" layoutX="523.5" layoutY="185" pickOnBounds="true">
+               <image>
+                  <Image url="@../../res/images/barrelRed.png" />
+               </image></ImageView>
+         </children>
+      </Group>
+   </children>
+</GridPane>
