@@ -1,0 +1,123 @@
+\chapter{Analisi}
+
+\section{Descrizione e requisiti}
+
+Il software HearthCode ha l'obiettivo di realizzare una versione semplificata di
+un gioco di carte strategico a turni ispirato a Hearthstone. L'applicazione
+appartiene al dominio dei giochi in cui due partecipanti si affrontano
+utilizzando risorse limitate, carte con caratteristiche specifiche e un insieme
+di regole che stabilisce quali azioni possono essere eseguite in ogni momento
+della partita.
+
+A ogni partita partecipano due contendenti: il giocatore umano e un avversario
+controllato automaticamente dal sistema. Entrambi dispongono di un ammontare di
+punti vita, di una riserva di mana, di un mazzo da cui pescare e di una mano
+contenente le carte pescate e giocabili. Lo scontro inizia facendo pescare
+un determinato numero di carte iniziali a entrambi i giocatori.
+All'inizio di ogni turno il sistema esegue automaticamente le operazioni
+obbligatorie di preparazione: aggiorna e rifornisce
+il mana del giocatore attivo e pesca una carta dal suo mazzo. Se la mano ha
+raggiunto la capienza massima, la carta pescata non viene aggiunta alla mano e
+viene invece bruciata. In seguito il giocatore può schierare creature dalla
+mano al campo di gioco o utilizzare quelle già attive per attaccare il
+giocatore nemico, danneggiando le sue creature o i suoi punti vita.
+
+Una carta può essere giocata solo se il giocatore possiede una quantità di mana
+almeno pari al suo costo e se la sua armata non ha già raggiunto il numero massimo
+di creature consentite. Una creatura appena schierata entra in gioco in stato
+inattivo e può attaccare solo a partire dal turno successivo del suo
+proprietario. Dopo avere attaccato, la creatura viene esaurita e non può
+compiere ulteriori attacchi nello stesso turno.
+
+Per evitare situazioni di stallo, il gioco prevede una penalità nel caso in cui
+un giocatore debba pescare da un mazzo ormai esaurito. Poiché i mazzi hanno la
+stessa dimensione e il pescaggio è automatico e obbligatorio per entrambi,
+l'esaurimento avviene in modo bilanciato nello stesso ciclo di turni. Da quel
+momento, ogni tentativo di pescaggio a mazzo vuoto danneggia i punti vita
+dell'eroe con valori progressivamente crescenti, garantendo che la partita
+arrivi sempre a una conclusione.
+
+Il sistema è responsabile della gestione dello stato della partita e
+dell'applicazione coerente delle regole. Di conseguenza, deve impedire mosse non
+valide, come giocare una carta non presente nella mano, usare una creatura non
+ancora attiva, attaccare con una creatura già utilizzata o giocare una carta
+senza mana sufficiente. La partita prosegue attraverso l'alternanza dei turni
+fino al verificarsi di una condizione di conclusione: quando i punti vita di un
+giocatore scendono a zero, l'avversario viene dichiarato vincitore.
+
+\textbf{\\Requisiti funzionali}
+
+\begin{itemize}
+    \item Il sistema deve inizializzare una partita tra il giocatore umano e
+    l'avversario controllato automaticamente, assegnando a entrambi punti vita,
+    mazzo, mano iniziale e risorse di gioco.
+    \item Il sistema deve gestire l'alternanza dei turni, aggiornando
+    correttamente il giocatore attivo, il mana disponibile, il pescaggio
+    obbligatorio e lo stato di attivazione delle creature schierate.
+    \item Il sistema deve permettere al
+    giocatore di giocare carte rispettando le regole definite, in particolare il
+    costo in mana, la presenza della carta nella mano e lo spazio disponibile sul
+    campo.
+    \item Il sistema deve scartare la carta pescata quando la mano del giocatore
+    ha raggiunto la capienza massima.
+    \item Il sistema deve applicare una penalità incrementale ai punti vita del
+    giocatore quando il suo mazzo è esaurito e deve comunque pescare una carta.
+    \item Il sistema deve permettere alle creature attive di attaccare creature
+    avversarie o il giocatore nemico, aggiornando punti vita, stato delle
+    creature ed eventuale rimozione delle creature sconfitte.
+    \item Il sistema deve impedire l'esecuzione di mosse illecite, segnalando
+    l'errore senza compromettere lo stato della partita.
+    \item Il sistema deve gestire autonomamente il turno dell'avversario,
+    scegliendo ed eseguendo azioni valide sulla base dello stato corrente della
+    partita.
+    \item Il sistema deve determinare correttamente la conclusione della partita
+    e il vincitore quando uno dei due giocatori esaurisce i propri punti vita.
+\end{itemize}
+
+\textbf{\\Requisiti non funzionali}
+
+\begin{itemize}
+    \item Il sistema deve essere portabile: il comportamento dell'applicazione
+    deve rimanere indipendente dall'hardware e dal sistema operativo utilizzati.
+    \item L'applicazione deve rispondere in tempi rapidi alle azioni dell'utente
+    e ridurre i ritardi percepibili, in modo da garantire un'esperienza di gioco
+    fluida.
+    \item Il sistema deve mantenere uno stato di gioco consistente anche in
+    presenza di input non validi, evitando che errori di interazione producano
+    situazioni incoerenti.
+\end{itemize}
+
+\section{Modello del Dominio}
+
+Il sistema pone le basi del modello sulla \textit{Board Game},
+concetto che costituisce lo spazio condiviso della partita e coordina lo stato dei due
+partecipanti. La \textit{Board Game} mantiene il riferimento ai giocatori (\textit{Player}),
+alle rispettive armate (\textit{Army}) e al turno corrente; inoltre applica le regole
+principali della partita, come il posizionamento delle carte (\textit{Card}),
+la gestione degli attacchi, il cambio turno e la verifica delle condizioni di vittoria.
+
+Le carte schierate sul campo sono organizzate in due armate,
+una per ciascun giocatore. L'armata rappresenta l'insieme delle creature (\textit{Creature})
+controllate da un partecipante e distingue quelle attive da quelle dormienti,
+che devono attendere il turno successivo prima di poter attaccare.
+Si specifica che una creatura si dice dormiente se appena schierata nell'armata
+o utilizzata per attaccare.
+
+Ogni giocatore è caratterizzato dai propri punti vita, dalla quantità di mana
+disponibile, da una mano (\textit{Hand}) e da un mazzo (\textit{Deck}). La mano contiene
+le carte che il giocatore può scegliere di giocare durante il turno, mentre il
+mazzo rappresenta l'insieme delle carte non ancora pescate.
+
+Nella versione base del software, la creatura è l'unico tipo di carta realizzata e
+quindi giocabile. Una creatura è definita da un nome, un costo in mana, un valore di
+attacco e un numero di punti vita.
+
+Il concetto di intelligenza artificiale infine orchestra le mosse dell'avversario.
+Tuttavia non è rappresentato tra le entità principali del modello poiché rappresenta
+più un servizio di dominio e di decisione logica che una sua componente strutturale.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.80\textwidth]{UMLs/Dominio.pdf}
+    \caption{Schema UML del dominio dell'applicazione.}
+\end{figure}
