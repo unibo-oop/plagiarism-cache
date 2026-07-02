@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.control.PreGameMenuControl">
+   <center>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="208.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Player 3 (AI)" textFill="#e9ff00" />
+            <ComboBox fx:id="upperAIComboBox" prefWidth="150.0" promptText="Basic AI">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <ImageView fitHeight="122.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Label text="Player 1 (Human)" textFill="#e9ff00" />
+            <ComboBox fx:id="profilesComboBox" prefWidth="150.0" promptText="Human Player">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <Canvas height="89.0" width="200.0" />
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="205.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="86.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Label text="Player 4 (AI)" textFill="#e9ff00" />
+            <ComboBox fx:id="leftmostAIComboBox" prefWidth="150.0" promptText="Basic AI">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <ImageView fitHeight="139.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true" />
+            <Button mnemonicParsing="false" onAction="#backClicked" text="Back to Main Menu">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="182.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="86.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" text="Player 2 (AI)" textFill="#e9ff00" />
+            <ComboBox fx:id="rightmostAIComboBox" prefWidth="150.0" promptText="Basic AI">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <ImageView fitHeight="139.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true" />
+            <Button mnemonicParsing="false" onAction="#startClicked" text="Start">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <padding>
+            <Insets right="25.0" />
+         </padding>
+      </VBox>
+   </right>
+   <padding>
+      <Insets left="200.0" right="200.0" />
+   </padding>
+</BorderPane>

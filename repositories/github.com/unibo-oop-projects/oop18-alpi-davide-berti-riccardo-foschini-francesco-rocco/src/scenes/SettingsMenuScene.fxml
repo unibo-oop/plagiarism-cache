@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.control.SettingsMenuControl">
+   <left>
+      <VBox prefHeight="329.0" prefWidth="317.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="GAME" textFill="#e9ff00" />
+            <CheckBox fx:id="criccaBox" mnemonicParsing="false" text="Enable Extra Points for &quot;Cricca&quot;" textFill="#e9ff00" />
+         </children>
+         <padding>
+            <Insets left="75.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets top="100.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <top>
+      <Label text="Settings" textFill="#e9ff00" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="50.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <right>
+      <Button mnemonicParsing="false" onAction="#backClicked" text="Back to Main Menu" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="25.0" top="225.0" />
+         </BorderPane.margin>
+      </Button>
+   </right>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</BorderPane>

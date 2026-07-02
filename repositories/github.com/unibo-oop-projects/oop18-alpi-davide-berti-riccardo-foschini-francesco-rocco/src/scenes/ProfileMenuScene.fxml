@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu.control.ProfileMenuControl">
+   <center>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="277.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Profile Creation" textFill="#e9ff00" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Button mnemonicParsing="false" onAction="#backClicked" text="Back to Main Menu" />
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="234.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="nameField" prefHeight="31.0" prefWidth="228.0" promptText="New Profile Name" />
+         </children>
+         <padding>
+            <Insets left="25.0" right="25.0" />
+         </padding>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="207.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#createClicked" text="Create New Profile" />
+         </children>
+      </VBox>
+   </right>
+   <padding>
+      <Insets left="200.0" right="200.0" />
+   </padding>
+</BorderPane>
