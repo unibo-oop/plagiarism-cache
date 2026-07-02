@@ -1,0 +1,155 @@
+% -------------------------------- SVILUPPO -------------------------------------
+
+\chapter{Sviluppo}
+\section{Testing automatizzato}
+
+Per il seguente progetto software è stato largamente sfruttato il testing automatizzato, dal momento che è stato scelto un approccio TDD(test-driven-development). Il nostro gruppo ha considerato opportuno testare prevalentemente la componente di logica(model) oltre ai vari controller.
+Abbiamo inoltre attribuito importanza alla "pulizia" dei test, per garantire la loro manutenibilità, effettuando i seguenti accorgimenti : 
+
+\begin{itemize}
+	\item Utilizzo di una struttura fissa secondo il quale in primis si preparano i dati del test, successivamente si opera su di essi ed infine si controlla che i risultati siano quelli previsti. 
+	\item Tentativo di mantenere i test indipendenti, in modo da poter individuare gli errori in modo preciso ed analitico.
+	\item Dichiarazione dei metodi di test con nomi autoesplicativi, in modo da poter individuare lo scopo del test senza la necessità di inserire commenti ridondanti e voluminosi.
+\end{itemize}
+
+\subsection*{Alessandro Pioggia}
+
+\begin{itemize}
+	\item GameEntityTest;
+	\item ObstacleTest;
+	\item SpeedVector2DTest;
+	\item Dimension2DTest;
+\end{itemize}
+
+\subsection*{Leon Baiocchi}
+
+\begin{itemize}
+	\item SpriteContainerTest;
+	\item GameEnvironmentTest;
+\end{itemize}
+
+\subsection*{Federico Brunelli}
+    
+
+\begin{itemize}
+	\item WeaponTest;
+\end{itemize}
+
+\subsection*{Luca Rengo}
+
+\begin{itemize}
+	\item \textsf{\small CharactersTest}
+	\item \textsf{\small MapTest}
+	\item \textsf{\small SaveTest}
+	\item \textsf{\small SecureDataTest}
+\end{itemize}
+
+
+
+\section{Metodologia di lavoro}
+
+Nella prima fase di realizzazione del progetto ci siamo dedicati all'analisi, in cui abbiamo lavorato in maniera coordinata per definire la struttura e le funzionalità del progetto.
+Successivamente siamo passati al design, in cui è stato deciso di creare uno scheletro in UML che descrivesse a grandi linee le entità principali necessarie per il funzionamento, definendo già le dipendenze fra esse. Il processo descritto ci ha permesso di definire una suddivisione del lavoro in 4 parti, in modo da garantire la prosecuzione del lavoro individuale con la fase di design dettagliato. \\
+Per facilitare lo sviluppo abbiamo sfruttato un real-time-mantained UML, ovvero una repository in cui ciascun membro, una volta terminata una sessione di lavoro, aveva la premura di aggiornare uno schema UML, costruendo/modificando un diagramma delle classi che descrivesse il lavoro svolto. \\
+Per quanto riguarda il DVCS abbiamo optato per l'utilizzo di git, in accordo con le nozioni apprese a lezione. La metodologia utilizzata è stata la seguente:
+
+\begin{itemize}
+	\item Sviluppo in feature-branches, ovvero branches in cui venivano realizzate singolarmente le feature dell'applicativo;
+	\item Ognuno di noi aveva a disposizione un numero definito di branches indipendenti dagli altri;
+	\item I feature-branches venivano poi confluiti nel main-branch.
+\end{itemize}
+
+\subsection*{Alessandro Pioggia}
+Lavoro svolto : 
+\begin{itemize}
+	\item Realizzazione del menù principale con relativi reindirizzamenti.
+	\item Creazione dello scheletro per l'implementazione delle entità di gioco fisiche, ovvero la creazione dell'interfaccia PhysicalObject la relativa implementazione;
+	\item Implementazione di oggetti di gioco pickable (Item) e di ostacoli(Obstacles), realizzazione di sprites compresa;
+	\item Creazione di commons, quali Dimension2D e SpeedVector2D;
+	\item Creazione dello scheletro PhysicalObjectSprite, per la creazione delle sprite (aspetto di view);
+	\item Gestione dei suoni.
+\end{itemize}
+
+
+\subsection*{Leon Baiocchi}
+    
+\begin{itemize}
+	\item Sistema di gestione delle entità di gioco e delle sprites(EntityContainer, SpriteContainer);
+	\item Realizzazione HUD;
+	\item Creazione e gestione di effetti;
+	\item Modellazione e generazione dell'ambiente di gioco;
+	\item Scheletro per la gestione degli eventi e sviluppo di un sistema di rilevazione collisioni(CollisionEventChecker) interno all'ambiente di gioco.
+	\item Scheletro per creazione e gestione di comandi in input.
+	\item Scheletro per gestione di entità di gioco e sprites(Container, AbstractContainer).
+	\item Sviluppo del game engine.
+\end{itemize}
+
+\subsection*{Federico Brunelli}
+
+\begin{itemize}
+    \item  Ideazione e sviluppo della logica delle armi e dei proiettili, e loro rappresentazione grafica;
+    \item Creazione classe statica per la verifica delle interazioni tra entità;
+    \item Gestione del menù di pausa
+\end{itemize}
+
+\subsection*{Luca Rengo}
+
+\begin{itemize}
+	\item  \textsf{\small Modellazione del \emph{giocatore} e dei \emph{nemici}.}
+	\item \textsf{\small Composizione di una classe astratta per la formazione di una generica scena di gioco.}
+	\item \textsf{\small Generazione della Mappa di gioco e delle relative entità dal punto di vista della \emph{View} come le \emph{piattaforme}, \emph{monete}, il \emph{giocatore} e i \emph{nemici}.}
+	\item \textsf{\small Implementazione dell'animazione del player.}
+	\item \textsf{\small Creazione di una classe per il salvataggio dei dati e delle statistiche di gioco.}
+\end{itemize}
+
+\section{Note di sviluppo}
+
+\subsection*{Alessandro}
+
+\begin{itemize}
+	\item  \textbf{\textit{JavaFx}} : utilizzato per la realizzazione del menù;
+	\item \textbf{\textit{Optionals}} : per evitare di ritornare valori null;
+	\item \textbf{\textit{Apache library}} : libreria che ho importato per l'utilizzo delle classi Pair preimplementate;
+	\item \textbf{\textit{Gradle}} : strumento che ho utilizzato per importare le varie componenti di javafx;
+	\item \textbf{\textit{Reflection}} : utilizzata per la creazione delle statistiche, perchè richiesta da javafx;
+	\item \textbf{\textit{JUnit}} : utilizzata per il testing;
+	\item \textbf{\textit{Streams e lambda}} : utilizzate dove possibile, per migliorare la leggibilità e l'efficienza.
+\end{itemize}
+
+\subsection*{Leon Baiocchi}
+
+\begin{itemize}
+	\item \textbf{\textit{JavaFX}}: utilizzato per realizzare l'HUD e gestire le varie sprites.
+	\item \textbf{\textit{Optionals}}: utili per evitare NullPointerException.
+	\item \textbf{\textit{Apache Commons}}: libreria importata per accedere alle classi MutablePair/ImmutablePair.
+	\item \textbf{\textit{Gradle}}: strumento usato per importare e lavorare con tutte le varie dipendenze.
+	\item \textbf{\textit{JUnit}}: per fare unit testing.
+	\item \textbf{\textit{Lambda e Streams}}: utilizzo lambda e stream per rendere il codice più efficente.
+	\item \textbf{\textit{Repository references}}: \href{https://bitbucket.org/aricci303/2021-game-prog-basics/src/master/}{game-programming-basics}
+	repository di riferimento durante le fasi iniziali del progetto.
+\end{itemize}
+
+\subsection*{Federico Brunelli}
+
+\begin{itemize}
+    \item \textbf{\textit{JavaFx}} : utilizzato per il menuù di pausa e realizzazione delle sprite;
+    \item \textbf{\textit{Optionals}} : per gestire le assenze di oggetti;
+    \item \textbf{\textit{Streams}} : utilizzate per alleggerire il codice in diverse situazioni;
+    \item \textbf{\textit{JUnit}} : sfruttata per l'esecuzione di test;
+\end{itemize}
+
+\subsection*{Luca Rengo}
+
+\begin{itemize}
+	\item \textsf{\small \textbf{JavaFX}: sfruttato per la realizzazione della mappa e delle sue componenti.}
+	\item \textsf{\small \textbf{Factory}: adoperata per raggruppare le mie classi ed instanziarle più facilmente.}
+	\item \textsf{\small \textbf{JUnit}: beneficiata per l'esaminazione delle parti di codice create.}
+	\item \textsf{\small \textbf{Lambda}: utilizzate per semplificare alcune parti del programma.}
+	\item \textsf{\small \textbf{Gradle}: impiegato per importare i vari moduli di JavaFX, JUnit e le varie dipendenze e per tenere il progetto ben organizzato.}
+	\item \textsf{\small \textbf{Apache library}: utilizzata per usufruire delle classi dei Pair.}
+	\item \textsf{\small \textbf{json-simple}: adoperata per salvare i file in formato .json}
+	\item \textsf{\small \textbf{JavaFX Internazionalization}: usata per la traduzione del gioco in diverse lingue.}
+	\item \textsf{\small \textbf{Optionals}: usati quando avevo valori opzionali.}
+	\item \textsf{\small \textbf{javax.crypto, java.security}: per encriptare e decriptare i files.}
+	\item \textsf{\small \textbf{Regex} : utilizzato per separare riga per riga nel caricamento dei dati dei livelli.}
+\end{itemize}
