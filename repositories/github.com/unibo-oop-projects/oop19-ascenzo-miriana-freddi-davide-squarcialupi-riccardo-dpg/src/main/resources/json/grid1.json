@@ -1,0 +1,234 @@
+[
+  {
+    "id": 0,
+    "x_coordinate" : 1,
+    "y_coordinate" : 0,
+    "next" : [1],
+    "prev" : 0,
+    "cell_type" : "START"
+  },
+  {
+    "id" : 1,
+    "x_coordinate" : 1,
+    "y_coordinate" : 1,
+    "next" : [2, 5],
+    "prev" : 0,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 2,
+    "x_coordinate" : 1,
+    "y_coordinate" : 2,
+    "next" : [3],
+    "prev" : 1,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 3,
+    "x_coordinate" : 1,
+    "y_coordinate" : 3,
+    "next" : [4, 6],
+    "prev" : 2,
+    "cell_type" : "GO_BACK"
+  },
+  {
+    "id" : 4,
+    "x_coordinate" : 1,
+    "y_coordinate" : 5,
+    "next" : [8],
+    "prev" : 3,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 5,
+    "x_coordinate" : 0,
+    "y_coordinate" : 4,
+    "next" : [4],
+    "prev" : 1,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 6,
+    "x_coordinate" : 2,
+    "y_coordinate" : 4,
+    "next" : [7],
+    "prev" : 3,
+    "cell_type" : "GO_BACK"
+  },
+  {
+    "id" : 7,
+    "x_coordinate" : 2,
+    "y_coordinate" : 6,
+    "next" : [8],
+    "prev" : 6,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 8,
+    "x_coordinate" : 1,
+    "y_coordinate" : 7,
+    "next" : [9,12],
+    "prev" : 7,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 9,
+    "x_coordinate" : 0,
+    "y_coordinate" : 8,
+    "next" : [10],
+    "prev" : 8,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 10,
+    "x_coordinate" : 0,
+    "y_coordinate" : 9,
+    "next" : [11],
+    "prev" : 9,
+    "cell_type" : "GO_BACK"
+  },
+  {
+    "id" : 11,
+    "x_coordinate" : 0,
+    "y_coordinate" : 10,
+    "next" : [14],
+    "prev" : 10,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 12,
+    "x_coordinate" : 2,
+    "y_coordinate" : 8,
+    "next" : [13],
+    "prev" : 8,
+    "cell_type" : "GO_BACK"
+  },
+  {
+    "id" : 13,
+    "x_coordinate" : 2,
+    "y_coordinate" : 10,
+    "next" : [14],
+    "prev" : 12,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 14,
+    "x_coordinate" : 1,
+    "y_coordinate" : 11,
+    "next" : [15],
+    "prev" : 13,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 15,
+    "x_coordinate" : 1,
+    "y_coordinate" : 12,
+    "next" : [16, 17],
+    "prev" : 14,
+    "cell_type" : "GO_BACK"
+  },
+  {
+    "id" : 16,
+    "x_coordinate" : 0,
+    "y_coordinate" : 14,
+    "next" : [19],
+    "prev" : 15,
+    "cell_type" : "GO_BACK"
+  },
+  {
+    "id" : 17,
+    "x_coordinate" : 1,
+    "y_coordinate" : 13,
+    "next" : [18],
+    "prev" : 15,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 18,
+    "x_coordinate" : 1,
+    "y_coordinate" : 14,
+    "next" : [19],
+    "prev" : 17,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 19,
+    "x_coordinate" : 1,
+    "y_coordinate" : 15,
+    "next" : [20],
+    "prev" : 18,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 20,
+    "x_coordinate" : 1,
+    "y_coordinate" : 16,
+    "next" : [21],
+    "prev" : 19,
+    "cell_type" : "GO_BACK"
+  },
+  {
+    "id" : 21,
+    "x_coordinate" : 1,
+    "y_coordinate" : 17,
+    "next" : [22, 23],
+    "prev" : 20,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 22,
+    "x_coordinate" : 1,
+    "y_coordinate" : 18,
+    "next" : [24],
+    "prev" : 21,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 23,
+    "x_coordinate" : 0,
+    "y_coordinate" : 22,
+    "next" : [28],
+    "prev" : 21,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 24,
+    "x_coordinate" : 1,
+    "y_coordinate" : 19,
+    "next" : [25, 27],
+    "prev" : 22,
+    "cell_type" : "GO_BACK"
+  },
+  {
+    "id" : 25,
+    "x_coordinate" : 2,
+    "y_coordinate" : 20,
+    "next" : [26],
+    "prev" : 24,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 26,
+    "x_coordinate" : 2,
+    "y_coordinate" : 22,
+    "next" : [28],
+    "prev" : 25,
+    "cell_type" : "NORMAL"
+  },
+  {
+    "id" : 27,
+    "x_coordinate" : 1,
+    "y_coordinate" : 21,
+    "next" : [28],
+    "prev" : 24,
+    "cell_type" : "GO_BACK"
+  },
+  {
+    "id" : 28,
+    "x_coordinate" : 1,
+    "y_coordinate" : 23,
+    "next" : [],
+    "prev" : 27,
+    "cell_type" : "END"
+  }
+]
