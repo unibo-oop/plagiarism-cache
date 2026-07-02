@@ -1,0 +1,41 @@
+{
+  "type": "PIECE",
+  "name" : "Pawn",
+  "id" : "pawn",
+  "imagePath" : "classpath:/assets/images/",
+  "pieceType" : "PAWN",
+  "weight" : 1,
+  "moveRules" : [ {
+    "direction" : {
+      "x" : 0,
+      "y" : 1
+    },
+    "restriction" : "MOVE_ONLY",
+    "moveStrategy" : "JUMPING",
+    "hasMoved" : false
+  }, {
+    "direction" : {
+      "x" : -1,
+      "y" : 1
+    },
+    "restriction" : "EAT_ONLY",
+    "moveStrategy" : "JUMPING",
+    "hasMoved" : false
+  }, {
+    "direction" : {
+      "x" : 1,
+      "y" : 1
+    },
+    "restriction" : "EAT_ONLY",
+    "moveStrategy" : "JUMPING",
+    "hasMoved" : false
+  },  {
+    "direction" : {
+      "x" : 0,
+      "y" : 2
+    },
+    "restriction" : "MOVE_ONLY",
+    "moveStrategy" : "STEPPING",
+    "hasMoved" : true
+  } ]
+}

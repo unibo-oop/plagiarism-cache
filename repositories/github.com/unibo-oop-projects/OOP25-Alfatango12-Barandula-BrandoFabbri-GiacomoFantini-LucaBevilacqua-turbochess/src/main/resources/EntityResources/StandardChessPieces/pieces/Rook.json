@@ -1,0 +1,41 @@
+{
+  "type": "PIECE",
+  "name" : "Rook",
+  "id" : "rook",
+  "imagePath" : "classpath:/assets/images/",
+  "pieceType" : "TOWER",
+  "weight" : 5,
+  "moveRules" : [ {
+    "direction" : {
+      "x" : 0,
+      "y" : 1
+    },
+    "restriction" : "MOVE_AND_EAT",
+    "moveStrategy" : "SLIDING",
+    "hasMoved" : false
+  }, {
+    "direction" : {
+      "x" : 0,
+      "y" : -1
+    },
+    "restriction" : "MOVE_AND_EAT",
+    "moveStrategy" : "SLIDING",
+    "hasMoved" : false
+  }, {
+    "direction" : {
+      "x" : 1,
+      "y" : 0
+    },
+    "restriction" : "MOVE_AND_EAT",
+    "moveStrategy" : "SLIDING",
+    "hasMoved" : false
+  }, {
+    "direction" : {
+      "x" : -1,
+      "y" : 0
+    },
+    "restriction" : "MOVE_AND_EAT",
+    "moveStrategy" : "SLIDING",
+    "hasMoved" : false
+  } ]
+}

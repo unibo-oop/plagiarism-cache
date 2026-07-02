@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" maxWidth="Infinity" minHeight="0.0" minWidth="0.0" spacing="20.0" stylesheets="@../css/SaveSlot.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unibo.turbochess.controller.uicontroller.impl.SaveSlotController">
+   <children>
+      <Label fx:id="saveNameLabel" maxWidth="Infinity" minWidth="0.0" wrapText="true" text="Save Name" textFill="WHITE" HBox.hgrow="ALWAYS">
+         <font>
+            <Font name="Segoe UI" size="20.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#onLoad" minWidth="0.0" wrapText="true" style="-fx-background-color: #1e88e5; -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold;" text="Load">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="8.0" left="20.0" right="20.0" top="8.0" />
+         </padding>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#onDelete" minWidth="0.0" wrapText="true" styleClass="delete-button" text="Delete">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <padding>
+            <Insets bottom="8.0" left="20.0" right="20.0" top="8.0" />
+         </padding>
+         <HBox.margin>
+            <Insets right="20.0" />
+         </HBox.margin>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</HBox>

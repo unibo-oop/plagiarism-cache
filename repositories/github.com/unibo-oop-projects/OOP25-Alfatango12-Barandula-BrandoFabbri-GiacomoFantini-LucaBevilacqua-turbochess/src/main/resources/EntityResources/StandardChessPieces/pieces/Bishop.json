@@ -1,0 +1,41 @@
+{
+  "type": "PIECE",
+  "name" : "Bishop",
+  "id" : "bishop",
+  "imagePath" : "classpath:/assets/images/",
+  "pieceType" : "INFERIOR",
+  "weight" : 3,
+  "moveRules" : [ {
+    "direction" : {
+      "x" : 1,
+      "y" : 1
+    },
+    "restriction" : "MOVE_AND_EAT",
+    "moveStrategy" : "SLIDING",
+    "hasMoved" : false
+  }, {
+    "direction" : {
+      "x" : 1,
+      "y" : -1
+    },
+    "restriction" : "MOVE_AND_EAT",
+    "moveStrategy" : "SLIDING",
+    "hasMoved" : false
+  }, {
+    "direction" : {
+      "x" : -1,
+      "y" : 1
+    },
+    "restriction" : "MOVE_AND_EAT",
+    "moveStrategy" : "SLIDING",
+    "hasMoved" : false
+  }, {
+    "direction" : {
+      "x" : -1,
+      "y" : -1
+    },
+    "restriction" : "MOVE_AND_EAT",
+    "moveStrategy" : "SLIDING",
+    "hasMoved" : false
+  } ]
+}
