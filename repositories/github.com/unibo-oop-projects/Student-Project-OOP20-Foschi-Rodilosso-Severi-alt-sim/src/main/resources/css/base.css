@@ -1,0 +1,66 @@
+
+#bg {
+    -fx-background-color: #ad9380;
+}
+
+#button {
+    -fx-border-style: solid;
+    -fx-min-width: 153;
+    -fx-min-height: 40;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-opacity: 0.8;
+	-fx-cursor: hand;
+}
+
+#button:hover, #pause-btn:hover {
+    -fx-opacity: 1;
+}
+
+.red-btn {
+    -fx-background-color: #b6393a;
+}
+
+.blue-btn {
+    -fx-background-color: #4e8ad5;
+}
+
+#go-back {
+    -fx-border-color: transparent;
+}
+
+#button:pressed, #go-back:pressed, #pause-btn:pressed {
+    -fx-translate-y: 2px;
+}
+
+.transparent {
+    -fx-background-color: transparent;
+}
+
+.img-btn, .transparent-btn {
+    -fx-cursor: hand;
+}
+
+#popup-bg {
+    -fx-background-color: #ad9380;
+    -fx-border-color: #d6d6cb;
+    -fx-border-width: 3px;
+}
+
+#pause-btn {
+    -fx-border-style: solid;
+    -fx-min-width: 20;
+    -fx-min-height: 20;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-opacity: 0.8;
+    -fx-cursor: hand;
+}
+
+.opacity {
+    -fx-opacity: 1;
+}
+
+.hyperlink {
+    -fx-border-color: transparent;
+}
