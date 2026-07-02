@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.start.Gui">
+   <children>
+      <Button fx:id="GoToPlayerSelect" layoutX="251.0" layoutY="351.0" mnemonicParsing="false" onAction="#SelectPawns" text="Continue" />
+      <ImageView fx:id="Logo" fitHeight="157.0" fitWidth="656.0" layoutX="75.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../res/snl_logo.png" />
+         </image>
+      </ImageView>
+      <ChoiceBox fx:id="numPlayer" layoutX="225.0" layoutY="286.0" prefWidth="150.0" />
+      <Text fx:id="Text1" layoutX="218.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Number">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Button fx:id="Exit" layoutX="463.0" layoutY="351.0" mnemonicParsing="false" onAction="#Exit" text="Exit" />
+      <Button fx:id="Back" layoutX="75.0" layoutY="351.0" mnemonicParsing="false" onAction="#Back" text="Back" />
+      <ChoiceBox fx:id="PawnP1" layoutX="75.0" layoutY="102.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="PawnP3" layoutX="75.0" layoutY="199.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="PawnP2" layoutX="375.0" layoutY="102.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="PawnP4" layoutX="375.0" layoutY="199.0" prefWidth="150.0" />
+      <Text fx:id="PawnSelection" layoutX="220.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pawn Selection">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="TextP1" layoutX="119.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" />
+      <Text fx:id="TextP3" layoutX="119.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3" />
+      <Text fx:id="TextP2" layoutX="419.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" />
+      <Text fx:id="TextP4" layoutX="419.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4" />
+      <Button fx:id="GoToDiceSelect" layoutX="251.0" layoutY="351.0" mnemonicParsing="false" onAction="#SelectDice" text="Continue" />
+      <ChoiceBox fx:id="DiceNumber" layoutX="225.0" layoutY="70.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="Dice1" layoutX="75.0" layoutY="141.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="Dice2" layoutX="226.0" layoutY="141.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="Dice3" layoutX="375.0" layoutY="141.0" prefWidth="150.0" />
+      <Button fx:id="Update" layoutX="443.0" layoutY="56.0" mnemonicParsing="false" onAction="#Update" text="Update" />
+      <Button fx:id="Update1" layoutX="443.0" layoutY="90.0" mnemonicParsing="false" onAction="#Update1" text="Update" />
+      <TextField fx:id="FaceN1" layoutX="86.0" layoutY="181.0" prefHeight="6.0" prefWidth="129.0" promptText="Face Number" />
+      <TextField fx:id="FaceN2" layoutX="237.0" layoutY="181.0" prefHeight="8.0" prefWidth="129.0" promptText="Face Number" />
+      <TextField fx:id="FaceN3" layoutX="386.0" layoutY="181.0" prefHeight="8.0" prefWidth="129.0" promptText="Face Number" />
+      <Button fx:id="StartGame" layoutX="245.0" layoutY="351.0" mnemonicParsing="false" onAction="#StartGame" text="Start Game" />
+      <Text fx:id="DiceSelection" layoutX="227.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dice Selection">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.end.EndGuiShereKhan">
+   <children>
+      <Button fx:id="Exit" layoutX="47.0" layoutY="335.0" mnemonicParsing="false" onAction="#Exit" text="Exit" />
+      <Button fx:id="Return" layoutX="285.0" layoutY="335.0" mnemonicParsing="false" onAction="#Return" text="Return" />
+      <ImageView fitHeight="220.0" fitWidth="232.0" layoutX="91.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../res/Pawns/shereKhan.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="63.0" layoutY="39.0" prefHeight="27.0" prefWidth="275.0" text="Shere Khan ha mangiato Mowgli!!" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
