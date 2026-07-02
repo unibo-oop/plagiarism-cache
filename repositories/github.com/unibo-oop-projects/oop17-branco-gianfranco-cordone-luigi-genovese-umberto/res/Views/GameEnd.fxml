@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unibo.arkanoid.view.controllers.EndGameController">
+   <bottom>
+      <Button mnemonicParsing="false" onMouseClicked="#continueClicked" text="CONTINUE" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <top>
+      <Label fx:id="endGameMessage" text="&lt;TO DO&gt;" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" spacing="6.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="INSERT YOUR NAME:">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameField" promptText="Write Here" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets top="60.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

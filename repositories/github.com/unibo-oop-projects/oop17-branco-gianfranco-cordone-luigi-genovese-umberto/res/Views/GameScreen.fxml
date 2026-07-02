@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyReleased="#onKeyReleased" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unibo.arkanoid.view.controllers.GameScreenController">
+   <children>
+      <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0">
+         <top>
+            <BorderPane BorderPane.alignment="CENTER">
+               <left>
+                  <HBox BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="pauseButton" disable="true" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#pauseClicked" text="Pause" />
+                        <HBox fx:id="lifeContainer" maxHeight="-Infinity" prefHeight="30.0" />
+                     </children>
+                  </HBox>
+               </left>
+               <right>
+                  <Label fx:id="score" maxHeight="1.7976931348623157E308" text="Score" BorderPane.alignment="CENTER">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </right>
+            </BorderPane>
+         </top>
+         <center>
+            <StackPane minHeight="0.0" minWidth="0.0" BorderPane.alignment="CENTER">
+               <children>
+                  <BorderPane fx:id="containerCanvas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                     <center>
+                        <Canvas fx:id="canvas" height="200.0" onMouseMoved="#onMouseMoved" width="200.0" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+                  <VBox fx:id="instructions" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Press space to start the game " textFill="WHITE">
+                           <font>
+                              <Font name="Bauhaus 93" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="then move the mouse to move the paddle" textFill="WHITE">
+                           <font>
+                              <Font name="Bauhaus 93" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
+      <BorderPane fx:id="pauseView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0,0.8);" visible="false">
+         <center>
+            <VBox alignment="CENTER" maxWidth="-Infinity" prefHeight="300.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#resumeClicked" text="Resume" />
+                  <Button fx:id="menuClicked" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#menuClicked" text="Menu" />
+                  <Button id="audioButton" fx:id="audioButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#audioClicked" text="Audio OFF" />
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>
