@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="620.0" minWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bomberone.views.rules.RulesViewImpl">
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <ImageView fx:id="rulesLogo" fitHeight="145.0" fitWidth="276.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/rules_logo.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="backToHome" fitHeight="54.0" fitWidth="60.0" onMouseClicked="#switchToHome" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/quitGame.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="383.0" prefWidth="600.0" spacing="6.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label fx:id="rules" alignment="CENTER" contentDisplay="CENTER" minHeight="330.0" prefHeight="438.0" prefWidth="560.0" style="-fx-border-color: gold; -fx-border-width: 3;" textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </HBox>
+                  <Label fx:id="textPU" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="21.0" prefWidth="495.0" text="PowerUps:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="firePower" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/power_firepower.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="textPU2" prefHeight="40.0" prefWidth="180.0" text="Increases the fire-power of your bomb." textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fx:id="speedPower" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/power_speed.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="60.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label fx:id="textPU4" prefHeight="40.0" prefWidth="180.0" text="Increases your movement speed." textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="bombPower" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/power_bomb.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="textPU1" prefHeight="40.0" prefWidth="180.0" text="Increases the number of bombs can be placed at a time." textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fx:id="piercePower" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/power_pierce.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="60.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label fx:id="textPU3" prefHeight="40.0" prefWidth="180.0" text="Make your bomb's fire able to pierce boxes." textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="timePower" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/power_timer.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="textPU5" prefHeight="40.0" prefWidth="180.0" text="Increases by 30sec the game-timer." textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
