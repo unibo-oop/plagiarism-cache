@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="resourcesMenuAnchorPane" prefHeight="267.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane fx:id="resourcesMenuSplitPane" dividerPositions="0.20481927710843373" orientation="VERTICAL" prefHeight="500.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane fx:id="resourcesMenuTitlePane" minHeight="0.0" minWidth="0.0" prefHeight="82.0" prefWidth="598.0">
+               <children>
+                  <ImageView fx:id="resourcesMenuTitleImage" fitHeight="104.0" fitWidth="598.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  	<image>
+            			<Image url="@../logo/TinyTownLogoHD_ForResourcesMenu.gif" />
+         			</image>
+      			  </ImageView>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="resourcesMenuBodyPane" minHeight="0.0" minWidth="0.0" prefHeight="208.0" prefWidth="598.0">
+               <children>
+                  <SplitPane fx:id="resourcesMenuSplitBodyPane" dividerPositions="0.5242718446601942" orientation="VERTICAL" prefHeight="208.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane fx:id="resourcesMenuBodyPaneTop" minHeight="0.0" minWidth="0.0" prefHeight="78.0" prefWidth="596.0">
+                           <children>
+                              <TableView fx:id="resourcesMenuBigTable" prefHeight="130.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                    <TableColumn fx:id="resourcesMenuBigTableIconColumn" prefWidth="42.0" />
+                                    <TableColumn fx:id="resourcesMenuBigTableTypeColumn" prefWidth="94.0" text="Tipo" />
+                                    <TableColumn fx:id="resourcesMenuBigTableCurrentColumn" prefWidth="195.0" text="Quantità" />
+                                    <TableColumn fx:id="resourcesMenuBigTableDailyIncomeColumn" minWidth="0.0" prefWidth="91.0" text="Entrate" />
+                                    <TableColumn fx:id="resourcesMenuBigTableDailyCostColumn" prefWidth="84.0" text="Uscite" />
+                                    <TableColumn fx:id="resourcesMenuBigTableDailyTotalColumn" prefWidth="91.0" text="Netto" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane fx:id="resourcesMenuBodyPaneBottom" minHeight="0.0" minWidth="0.0" prefHeight="104.0" prefWidth="596.0">
+                           <children>
+                              <Label fx:id="resourcesMenuPopulationTitle" layoutX="62.0" layoutY="11.0" prefHeight="20.0" prefWidth="80.0" text="Popolazione">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="resourcesMenuPopulation" layoutX="142.0" layoutY="11.0" prefHeight="20.0" prefWidth="80.0">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="resourcesMenuWelfare" layoutX="142.0" layoutY="132.0" prefHeight="20.0" prefWidth="80.0">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="resourcesMenuFreeWorkersTitle" layoutX="62.0" layoutY="48.0" prefHeight="20.0" prefWidth="137.0" text="Lavoratori disocuppati">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="resourcesMenuFreeWorkers" layoutX="199.0" layoutY="48.0" prefHeight="20.0" prefWidth="80.0">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

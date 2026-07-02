@@ -1,0 +1,4 @@
+#gameMap {
+	-fx-background-image: url("../backgrounds/Map.png");
+	-fx-background-size: 100% 100%;
+}
