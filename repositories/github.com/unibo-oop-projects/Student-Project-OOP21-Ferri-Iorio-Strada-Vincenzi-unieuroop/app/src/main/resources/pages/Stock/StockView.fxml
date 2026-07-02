@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@../styles.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Button fx:id="btnBuyProducts" mnemonicParsing="false" onAction="#btnBuyProductsHandler" text="Buy Products">
+               <GridPane.margin>
+                  <Insets bottom="15.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="btnDeleteProducts" mnemonicParsing="false" onAction="#btnDeleteProductsHandler" text="Delete Products" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="15.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </bottom>
+   <top>
+      <GridPane alignment="CENTER" BorderPane.alignment="TOP_CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="550.0" minWidth="10.0" prefWidth="253.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="272.0" minWidth="10.0" prefWidth="247.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="272.0" minWidth="10.0" prefWidth="247.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <TextField fx:id="txtSearchProducts" alignment="BOTTOM_LEFT" onKeyTyped="#txtSearchProductsHandler" prefHeight="12.0" prefWidth="282.0">
+               <GridPane.margin>
+                  <Insets left="5.0" top="10.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnSearchFilters" mnemonicParsing="false" onAction="#btnSearchFiltersHandler" prefHeight="24.0" prefWidth="165.0" text="Set Search Filters" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets left="5.0" top="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="btnResetFilters" mnemonicParsing="false" onAction="#btnResetFiltersHandler" prefHeight="24.0" prefWidth="165.0" text="Reset Search Filters" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets left="5.0" top="10.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </top>
+   <right>
+      <TextArea fx:id="txtAreaInfoProducts" editable="false" prefHeight="400.0" prefWidth="258.0" wrapText="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="-50.0" right="15.0" top="10.0" />
+         </BorderPane.margin>
+      </TextArea>
+   </right>
+   <center>
+      <ListView fx:id="listProductsStocked" onMouseClicked="#listProductsStockedHandler" prefHeight="400.0" prefWidth="533.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="5.0" right="70.0" top="10.0" />
+         </BorderPane.margin>
+      </ListView>
+   </center>
+</BorderPane>

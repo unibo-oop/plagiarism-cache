@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane prefHeight="551.0" prefWidth="859.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+   <top>
+      <GridPane prefHeight="38.0" prefWidth="859.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="lblDepartmentName" contentDisplay="CENTER" prefHeight="20.0" prefWidth="254.0" text="Department Name:" GridPane.halignment="LEFT">
+               <GridPane.margin>
+                  <Insets left="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
+   </top>
+   <bottom>
+      <GridPane prefHeight="41.0" prefWidth="859.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+   </bottom>
+   <left>
+      <ListView fx:id="listStockProducts" prefHeight="472.0" prefWidth="564.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="5.0" right="5.0" />
+         </BorderPane.margin>
+      </ListView>
+   </left>
+   <center>
+      <ListView fx:id="listDepartmentProducts" prefHeight="469.0" prefWidth="429.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="5.0" right="5.0" />
+         </BorderPane.margin></ListView>
+   </center>
+</BorderPane>

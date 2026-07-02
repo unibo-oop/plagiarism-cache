@@ -1,0 +1,345 @@
+[ {
+  "name" : "Supplier Tablet",
+  "keys" : [ {
+    "productCode" : 103,
+    "name" : "Mediacom SmartPad Iyo 10",
+    "brand" : "Mediacom",
+    "sellingPrice" : 45.0,
+    "purchasePrice" : 119.99,
+    "description" : "16 GB 25,6 cm (10.1 inches) ARM 2 GB Wi-Fi 4 (802.11n) Android 11 Black",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 102,
+    "name" : "New Majestic TAB-911",
+    "brand" : "New Majestic",
+    "sellingPrice" : 20.0,
+    "purchasePrice" : 99.99,
+    "description" : "3G 16 GB 25,6 cm (10.1 inches) Mediatek 2 GB Wi-Fi 4 (802.11n) Android 10 Black",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 93,
+    "name" : "Samsung Galaxy Tab A8",
+    "brand" : "Samsung",
+    "sellingPrice" : 90.0,
+    "purchasePrice" : 249.9,
+    "description" : "10.5 inches Wifi, Android 11, RAM 3 GB, 32 GB - Grey",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 92,
+    "name" : "Apple iPad Air 10.9",
+    "brand" : "Apple",
+    "sellingPrice" : 120.0,
+    "purchasePrice" : 809.0,
+    "description" : "10.9 inches (fourth gen.) Wi-Fi 256GB, Software: iOS14 - Space Grey",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 101,
+    "name" : "Rakuten Kobo Clara",
+    "brand" : "Kobo",
+    "sellingPrice" : 40.0,
+    "purchasePrice" : 139.0,
+    "description" : "HD lettore e-book Touch Screen, 8 GB Wi-Fi Black",
+    "category" : "TABLET"
+  } ],
+  "values" : [ 45.0, 20.0, 90.0, 120.0, 40.0 ]
+}, {
+  "name" : "Supplier Smartphone",
+  "keys" : [ {
+    "productCode" : 104,
+    "name" : "Brondi Amico S",
+    "brand" : "Brondi",
+    "sellingPrice" : 35.0,
+    "purchasePrice" : 149.0,
+    "description" : "14,5 cm (5.7 inches) Doppia SIM Android 8.1 4G USB type-C 1 GB 8 GB 2800 mAh - Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 106,
+    "name" : "Motorola Edge 30 Pro",
+    "brand" : "Motorola",
+    "sellingPrice" : 300.0,
+    "purchasePrice" : 849.9,
+    "description" : "16,9 cm (6.67 inches) Dual SIM Android 12 5G USB type-C 12 GB 256 GB 4800 mAh, Blue",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 105,
+    "name" : "Brondi Amico Flip",
+    "brand" : "Brondi",
+    "sellingPrice" : 20.0,
+    "purchasePrice" : 99.99,
+    "description" : "4G 8,89 cm (3.5 inches) 136 g Silver Smartphone Basic",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 4,
+    "name" : "Xiaomi 11 Lite",
+    "brand" : "Xiaomi",
+    "sellingPrice" : 100.0,
+    "purchasePrice" : 289.0,
+    "description" : "5G NE 16,6 cm (6.55 inch) Dual SIM Android 11 USB type-C 8 GB 128 GB 4250 mAh Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 3,
+    "name" : "Samsung Galaxy A13",
+    "brand" : "Samsung",
+    "sellingPrice" : 90.0,
+    "purchasePrice" : 199.99,
+    "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
+    "category" : "SMARTPHONE"
+  } ],
+  "values" : [ 35.0, 300.0, 20.0, 100.0, 90.0 ]
+}, {
+  "name" : "Supplier PC and Computer",
+  "keys" : [ {
+    "productCode" : 40,
+    "name" : "ASUS ROG Strix G10CE G10CE-711700123W",
+    "brand" : "Asus",
+    "sellingPrice" : 520.0,
+    "purchasePrice" : 1699.0,
+    "description" : "DDR4-SDRAM i7-11700 Tower Intel® Core™ i7 16 GB 512 GB SSD Windows 11 Grey",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 39,
+    "name" : "Acer NITRO 50 N50-620",
+    "brand" : "Acer",
+    "sellingPrice" : 650.0,
+    "purchasePrice" : 1099.0,
+    "description" : "DDR4-SDRAM i5-11400F Tower Intel Core i5 16 GB 512 GB SSD Windows 11 Black",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 17,
+    "name" : "Huawei MateBook D 15 2021",
+    "brand" : "Huawei",
+    "sellingPrice" : 220.0,
+    "purchasePrice" : 849.9,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i5 8 GB DDR4-SDRAM 512 GB SSD Wi-Fi 6 (802.11ax) Windows 11 Silver",
+    "category" : "PC"
+  }, {
+    "productCode" : 16,
+    "name" : "Samsung Galaxy Book Pro 15",
+    "brand" : "Samsung",
+    "sellingPrice" : 400.0,
+    "purchasePrice" : 1599.0,
+    "description" : "39,6 cm (15.6 inches) Full HD Intel® Core™ i7 16 GB LPDDR4x-SDRAM 512 GB SSD Wi-Fi 6E (802.11ax) Windows 11 Black",
+    "category" : "PC"
+  }, {
+    "productCode" : 112,
+    "name" : "HP Chromebook",
+    "brand" : "HP",
+    "sellingPrice" : 90.0,
+    "purchasePrice" : 349.9,
+    "description" : "35,6 cm (14 inches) Full HD Intel® Celeron® 4 GB, LPDDR4-SDRAM 64 GB, Wi-Fi 5 (802.11ac) Chrome OS - Silver",
+    "category" : "PC"
+  }, {
+    "productCode" : 111,
+    "name" : "Acer TravelMate P2",
+    "brand" : "Acer",
+    "sellingPrice" : 200.0,
+    "purchasePrice" : 749.9,
+    "description" : "35,6 cm (14 inches) Full HD Intel Core i5, 8 GB DDR4-SDRAM 512 GB SSD, Wi-Fi 6 (802.11ax) Windows 10 Pro - Black",
+    "category" : "PC"
+  }, {
+    "productCode" : 110,
+    "name" : "Lenovo IdeaPad 4 15IML05",
+    "brand" : "Lenovo",
+    "sellingPrice" : 300.0,
+    "purchasePrice" : 749.9,
+    "description" : "PC 39,6 cm (15.6 inches) Full HD Intel Core i5 8 GB DDR4-SDRAM 512 GB SSD, NVIDIA® GeForce® MX130 Wi-Fi 5 (802.11ac) Windows 10 - Grey",
+    "category" : "PC"
+  }, {
+    "productCode" : 109,
+    "name" : "HP EliteDesk 800 G6 Tower",
+    "brand" : "HP",
+    "sellingPrice" : 500.0,
+    "purchasePrice" : 1939.8,
+    "description" : "Windows 10 Pro, Intel® Core ™ i7-10700 (2.9 GHz), 16 MB L3 cache, 8 cores, 32GB DDR4-2933MHz, NVIDIA® Quadro® - Black",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 108,
+    "name" : "Agando Agua 1235",
+    "brand" : "Agando",
+    "sellingPrice" : 430.0,
+    "purchasePrice" : 1049.9,
+    "description" : "RTX Intel Core i5 12400F 6x 4.40GHz, 16 GB DDR4-RAM PC-3200, Nvidia GeForce RTX3050 8GB, Windows 10 Professional - Blue and Black",
+    "category" : "COMPUTER"
+  }, {
+    "productCode" : 107,
+    "name" : "Agando 5600",
+    "brand" : "Agando",
+    "sellingPrice" : 250.0,
+    "purchasePrice" : 549.0,
+    "description" : "Gamers Edition, AMD Ryzen 5 PRO, 4,4 GHz, 16 GB DDR4-RAM PC-3000, Windows 10 Professional - Black and Red",
+    "category" : "COMPUTER"
+  } ],
+  "values" : [ 520.0, 650.0, 220.0, 400.0, 90.0, 200.0, 300.0, 500.0, 430.0, 250.0 ]
+}, {
+  "name" : "Supplier All Smartphone & Tablet",
+  "keys" : [ {
+    "productCode" : 1,
+    "name" : "Samsung Galaxy A52",
+    "brand" : "Samsung",
+    "sellingPrice" : 100.00,
+    "purchasePrice" : 299.99,
+    "description" : "5G SM-A528B 16,5 cm (6.5 inch) Double SIM Android 11 USB type-C 6 GB 128 GB 4500 mAh Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 2,
+    "name" : "Samsung Galaxy A22",
+    "brand" : "Samsung",
+    "sellingPrice" : 70.00,
+    "purchasePrice" : 179.99,
+    "description" : "5G 6.6 inch 64 GB Expandable Gray",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 3,
+    "name" : "Samsung Galaxy A13",
+    "brand" : "Samsung",
+    "sellingPrice" : 90.0,
+    "purchasePrice" : 199.99,
+    "description" : "Display 6.6 inch FHD+ TFT LCD, Double SIM Android 12, RAM 4 GB, 128 GB, 5.000 mAh, Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 4,
+    "name" : "Xiaomi 11 Lite",
+    "brand" : "Xiaomi",
+    "sellingPrice" : 100.0,
+    "purchasePrice" : 289.0,
+    "description" : "5G NE 16,6 cm (6.55 inch) Dual SIM Android 11 USB type-C 8 GB 128 GB 4250 mAh Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 5,
+    "name" : "Samsung Galaxy A53",
+    "brand" : "Samsung",
+    "sellingPrice" : 200.0,
+    "purchasePrice" : 469.99,
+    "description" : "5G Display 6.5 inch FHD+ Super AMOLED Double SIM Android 12, RAM 6 GB, 128 GB, 5.000 mAh, Awesome Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 6,
+    "name" : "Samsung Galaxy S22",
+    "brand" : "Samsung",
+    "sellingPrice" : 450.0,
+    "purchasePrice" : 928.0,
+    "description" : "5G Display 6.1 inch Dynamic AMOLED 2X, 4 fotocamere, RAM 8 GB, 256 GB, 3.700mAh, Phantom Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 7,
+    "name" : "Apple iPhone 13 Pro",
+    "brand" : "Apple",
+    "sellingPrice" : 600.0,
+    "purchasePrice" : 1259.0,
+    "description" : "256GB Blue Sierra, 5G, iOS 15",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 8,
+    "name" : "Apple iPhone 13",
+    "brand" : "Apple",
+    "sellingPrice" : 400.0,
+    "purchasePrice" : 829.0,
+    "description" : "128GB (PRODUCT)RED, 5G, iOS 15",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 9,
+    "name" : "Apple iPhone 13 Pro Max",
+    "brand" : "Apple",
+    "sellingPrice" : 800.0,
+    "purchasePrice" : 1591.0,
+    "description" : "512GB Alpine Green 5G, iOS 15",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 10,
+    "name" : "OPPO A74 Smartphone",
+    "brand" : "Oppo",
+    "sellingPrice" : 70.0,
+    "purchasePrice" : 219.0,
+    "description" : "175g, Display 6.43 inch FHD+ AMOLED, 4 Fotocamere 48MP, RAM 6GB ROM 128GB, Battery 5000mAh, Rapid Charge, Dual Sim, Prism Black",
+    "category" : "SMARTPHONE"
+  }, {
+    "productCode" : 91,
+    "name" : "Apple iPad 10.2",
+    "brand" : "Apple",
+    "sellingPrice" : 100.0,
+    "purchasePrice" : 559.0,
+    "description" : "10.2 inch 256GB Wi-Fi, Software: IPadOS15 - Space Grey",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 92,
+    "name" : "Apple iPad Air 10.9",
+    "brand" : "Apple",
+    "sellingPrice" : 120.0,
+    "purchasePrice" : 809.0,
+    "description" : "10.9 inches (fourth gen.) Wi-Fi 256GB, Software: iOS14 - Space Grey",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 93,
+    "name" : "Samsung Galaxy Tab A8",
+    "brand" : "Samsung",
+    "sellingPrice" : 90.0,
+    "purchasePrice" : 249.9,
+    "description" : "10.5 inches Wifi, Android 11, RAM 3 GB, 32 GB - Grey",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 94,
+    "name" : "Samsung Galaxy Tab S6 Lite",
+    "brand" : "Samsung",
+    "sellingPrice" : 100.0,
+    "purchasePrice" : 399.9,
+    "description" : "10.4 inches, Wi-Fi 5 (802.11ac), 64GB, Android 11 - Space Grey",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 95,
+    "name" : "Samsung Galaxy Tab S7+",
+    "brand" : "Samsung",
+    "sellingPrice" : 300.0,
+    "purchasePrice" : 1149.0,
+    "description" : "Tablet S Pen, Snapdragon 865 Plus, Display 12.4 inches WQXGA SuperAMOLED, 128GB expandable, RAM 6GB, Battery 10.090 mAh, 5G, Android 10, Mystic Black",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 96,
+    "name" : "Lenovo Tab M10",
+    "brand" : "Lenovo",
+    "sellingPrice" : 60.0,
+    "purchasePrice" : 149.99,
+    "description" : "Tablet 2nd Gen 32 GB 25, 6 cm (10.1 inches) Mediatek 2 GB Wi-Fi 5 (802.11ac) Android 10 - Grey",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 97,
+    "name" : "Realme Pad",
+    "brand" : "Realme",
+    "sellingPrice" : 70.0,
+    "purchasePrice" : 349.9,
+    "description" : "Tablet 4G TD-LTE & FDD-LTE 128 GB 26.4 cm (10.4 inches) Mediatek 6 GB Wi-Fi 5 (802.11ac) Android 11 - Grey",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 98,
+    "name" : "Microsoft Surface Go 3",
+    "brand" : "Microsoft",
+    "sellingPrice" : 120.0,
+    "purchasePrice" : 599.99,
+    "description" : "Tablet 10.5 inches Processor Dual-Core Intel® Pentium® Gold 6500Y 8GB/128GB Wi-Fi - Black",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 99,
+    "name" : "Huawei MatePad T 10s",
+    "brand" : "Huawei",
+    "sellingPrice" : 60.0,
+    "purchasePrice" : 229.9,
+    "description" : "Tablet 4G TD-LTE & FDD-LTE 64 GB 25.6 cm (10.1 inches) Hisilicon Kirin 4 GB Wi-Fi 5 (802.11ac) EMUI 10.1 - Blue",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 100,
+    "name" : "Huawei Tab T10s",
+    "brand" : "Huawei",
+    "sellingPrice" : 80.0,
+    "purchasePrice" : 279.9,
+    "description" : "Tablet LTE 4G 64 GB 25.6 cm (10.1 inches) Hisilicon Kirin 4 GB Wi-Fi 5 (802.11ac) EMUI 10.1 - Blue",
+    "category" : "TABLET"
+  }, {
+    "productCode" : 101,
+    "name" : "Rakuten Kobo Clara",
+    "brand" : "Kobo",
+    "sellingPrice" : 40.0,
+    "purchasePrice" : 139.0,
+    "description" : "HD lettore e-book Touch Screen, 8 GB Wi-Fi Black",
+    "category" : "TABLET"
+  } ],
+  "values" : [ 100.00, 70.0, 90.0, 100.0, 200.0, 450.0, 600.0, 400.0, 800.0, 70.0, 100.0, 120.0, 90.0, 100.0, 300.0, 60.0, 70.0, 120.0, 60.0, 80.00, 40.0 ]
+} ]
