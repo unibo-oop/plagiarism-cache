@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #3F3F3F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SceneManager">
+   <children>
+      <Label layoutX="53.0" layoutY="87.0" text="GAME OVER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="50.0" />
+         </font>
+      </Label>
+      <Button layoutX="190.0" layoutY="417.0" mnemonicParsing="false" onAction="#goBack" prefHeight="78.0" prefWidth="155.0" style="-fx-background-color: #3F3F3F;" text="HOME" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+       <Button layoutX="50.0" layoutY="417.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="78.0" prefWidth="155.0" style="-fx-background-color: #3F3F3F;" text="EXIT GAME" textAlignment="CENTER" textFill="WHITE">
+   		<font>
+            <Font size="20.0" />
+         </font>
+      </Button>	
+   </children>
+</AnchorPane>

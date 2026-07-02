@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #3F3F3F;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerHighScore">
+   <padding>
+      <Insets bottom="50.0" left="50.0" />
+   </padding>
+   <children>
+      <Button fx:id="btnBack" layoutX="286.0" layoutY="519.0" mnemonicParsing="false" onAction="#goBack" prefHeight="38.0" prefWidth="90.0" style="-fx-background-color: #3F3F3F;" text="BACK" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <GridPane layoutX="26.0" layoutY="113.0" prefHeight="350.0" prefWidth="350.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>            
+         	<Label fx:id="Name1" prefHeight="38.0" prefWidth="174.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Name2" prefHeight="38.0" prefWidth="174.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Score2" prefHeight="38.0" prefWidth="174.0" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Name3" prefHeight="38.0" prefWidth="174.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Score3" prefHeight="38.0" prefWidth="174.0" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Name4" prefHeight="38.0" prefWidth="174.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Score4" prefHeight="38.0" prefWidth="174.0" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Name5" prefHeight="38.0" prefWidth="174.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Score5" prefHeight="38.0" prefWidth="174.0" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+               <image>
+                  <Image url="@../../Resources/3.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="35.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+               <image>
+                  <Image url="@../../Resources/4.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="35.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
+               <image>
+                  <Image url="@../../Resources/5.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="35.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../../Resources/1.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="35.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../../Resources/2.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="35.0" />
+               </GridPane.margin>
+            </ImageView>
+            <Label fx:id="Name11" prefHeight="38.0" prefWidth="174.0" text="Nickname" textFill="WHITE" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Name111" prefHeight="38.0" prefWidth="174.0" text="Score" textFill="WHITE" GridPane.columnIndex="2">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="Score1" prefHeight="38.0" prefWidth="174.0" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <ImageView fitHeight="65.0" fitWidth="350.0" layoutX="26.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Resources/highScores.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="26.0" layoutY="465.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="26.0" layoutY="345.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="26.0" layoutY="287.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="26.0" layoutY="230.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="26.0" layoutY="170.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="5.0" layoutX="26.0" layoutY="403.0" stroke="WHITE" strokeType="INSIDE" width="350.0" />
+     </children>
+</AnchorPane>
