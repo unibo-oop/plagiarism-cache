@@ -1,0 +1,3 @@
+[{"first":{"DUMB_CHILD":10},"second":1.5},
+{"first":{"FAT_CHILD":5}, "second":1.5},
+{"first":{"DUMB_CHILD":15, "FAT_CHILD": 5}, "second":1}]
