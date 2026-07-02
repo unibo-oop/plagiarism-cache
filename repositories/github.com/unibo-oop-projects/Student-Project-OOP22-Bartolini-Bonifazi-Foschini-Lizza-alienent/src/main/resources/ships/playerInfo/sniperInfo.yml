@@ -1,0 +1,5 @@
+!it.unibo.alienenterprises.view.PlayerClassInfoImpl
+name: "Fighter Pod"
+description: |
+  A powerfull and fast ship,
+  but it's weak to damage.

@@ -1,0 +1,5 @@
+!it.unibo.alienenterprises.view.PlayerClassInfoImpl
+name: "Corsair"
+description: |
+  A standard ship,
+  with balanced stats

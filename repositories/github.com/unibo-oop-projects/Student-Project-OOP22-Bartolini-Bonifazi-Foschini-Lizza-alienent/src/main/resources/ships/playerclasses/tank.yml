@@ -1,0 +1,33 @@
+!it.unibo.alienenterprises.controller.ShipProp
+stats:
+  HP: 400
+  SPEED: 80
+  DAMAGE: 20
+  DEFENCE: 5
+  PROJECTILESPEED: 150 
+  COOLDOWN: 2
+  RECOVERY: 2
+components:
+  PlayerInputComponentImpl:
+    -
+      type: CLASS
+      value: it.unibo.alienenterprises.model.impl.InputSupplierImpl
+  BasicShooterComponent:
+    -
+      type: BOOLEAN
+      value: "TRUE"
+    -
+      type: FACTORYMETHOD
+      callingClass: it.unibo.alienenterprises.model.impl.ProjectileSupplierFactoryImpl
+      value: getBasicProjectileSupplier
+  PlayerPowerUpComponent:
+  hitbox.SimpleShipHitboxComponentImpl:
+    -
+      type: BOOLEAN
+      value: "TRUE"
+    -
+      type: HITBOXTYPE
+      value: PLAYER
+    -
+      type: INT
+      value: "20"

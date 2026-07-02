@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.canvas.Canvas?>
+
+<StackPane 
+    fx:id="root"
+    xmlns="http://javafx.com/javafx/11.0.1" 
+    xmlns:fx="http://javafx.com/fxml/1"
+    StackPane.alignment="CENTER"
+    fx:controller="it.unibo.alienenterprises.view.controllers.GameStageController"
+    stylesheets="@/css/gameStageStyle.css">
+
+    <VBox>
+        <HBox alignment="TOP_RIGHT" prefWidth="-Infinity" minWidth="50" fx:id="topHbox" styleClass="statsLabelContainer">
+            <Label text="SCORE:" textAlignment="RIGHT" styleClass="statLabel"/>
+            <Label fx:id="currScore" text="0" textAlignment="RIGHT" styleClass="statLabel"/>
+        </HBox>
+        <StackPane id="canvasContainer" alignment="CENTER"
+            prefWidth="-Infinity">
+            <Canvas fx:id="canvas" id="canvas"/>
+            <VBox alignment="CENTER" visible="false" fx:id="pauseMenu" id="pauseMenu"
+                    prefWidth="400" prefHeight="300"
+                    minWidth="400" minHeight="300"
+                    maxWidth="400" maxHeight="300">
+                <Label text="PAUSED!"/>
+                <VBox alignment="CENTER">
+                    <Label text="Are you quitting? (chicken)"/>
+                    <Button text="Cluck cluck :( (yes)" onAction="#gameOver"/>
+                    <Button text="I AM NO CHICKEN (no)" onAction="#resume"/>
+                </VBox>
+            </VBox>
+        </StackPane>
+        <HBox alignment="BOTTOM_LEFT" prefWidth="-Infinity" minWidth="50" fx:id="bottomHbox" styleClass="statsLabelContainer">
+            <Label text="HEALTH:" textAlignment="LEFT"  styleClass="statLabel"/>
+            <Label fx:id="healthDisplay" textAlignment="LEFT" styleClass="statLabel"/>
+        </HBox>
+    </VBox>
+</StackPane>

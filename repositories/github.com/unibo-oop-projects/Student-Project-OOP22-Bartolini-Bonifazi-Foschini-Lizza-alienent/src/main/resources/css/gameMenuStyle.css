@@ -1,0 +1,64 @@
+#root {
+    -fx-background-image: url('/images/background.png');
+    background-image: url('/images/background.png');
+    -fx-background-repeat: stretch;
+    background-repeat: stretch;
+    -fx-background-position: center;
+    background-position: center;
+    -fx-alignment: center;
+}
+#innerBox{
+    -fx-alignment: center;
+    -fx-min-width: 400px;
+    min-width: 400px;
+    -fx-min-height: 400px;
+    min-height: 400px;
+}
+#title {
+    -fx-text-fill: #fca41c;
+    -fx-alignment: center;
+    -fx-font-size: 115;
+    font-size: 115;
+}
+
+#playBtn {
+    -fx-text-fill: #fca41c;
+    -fx-background-color: #247cec;
+    background-color: #247cec;
+    -fx-font-size: 25;
+    font-size: 25;
+    -fx-max-width: 150px;
+    max-width: 150px;
+    -fx-max-height: 40px;
+    max-height: 40px;
+    -fx-padding: 20px;
+    padding: 20px;
+}
+
+#shopBtn {
+    -fx-text-fill: #fca41c;
+    -fx-background-color: #247cec;
+    background-color: #247cec;
+    -fx-font-size: 25;
+    font-size: 25;
+    -fx-max-width: 150px;
+    max-width: 150px;
+    -fx-max-height: 40px;
+    max-height: 40px;
+    -fx-padding: 20px;
+    padding: 20px;
+}
+
+#tutorialBtn {
+    -fx-text-fill: #fca41c;
+    -fx-background-color: #247cec;
+    background-color: #247cec;
+    -fx-font-size: 25;
+    font-size: 25;
+    -fx-max-width: 150px;
+    max-width: 150px;
+    -fx-max-height: 40px;
+    max-height: 40px;
+    -fx-padding: 20px;
+    padding: 20px;
+}
