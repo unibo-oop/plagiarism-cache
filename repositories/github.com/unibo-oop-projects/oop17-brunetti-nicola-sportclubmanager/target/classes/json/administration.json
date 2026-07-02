@@ -1,0 +1,8 @@
+[
+{"name":"Franco","surname":"Bertini","birthDate":[2018,9,13],"birthPlace":"Torino","nationality":"Italiana",
+"residenceDistrict":"Piemonte","residenceAddress":"Via degli Ulivi 5","residenceCity":"Torino","residenceNation":"Italia",
+"fiscalCode":"bvfbvjbvj","administrationMemberId":3,"administrationMemberRole":"PRESIDENT"},
+{"name":"Giorgio","surname":"Rossi","birthDate":[2018,9,13],"birthPlace":"Ancona","nationality":"Italiana",
+"residenceDistrict":"Piemonte","residenceAddress":"Via degli Ulivi 8","residenceCity":"Torino","residenceNation":"Italia",
+"fiscalCode":"brevfj","administrationMemberId":4,"administrationMemberRole":"VICEPRESIDENT"}
+]

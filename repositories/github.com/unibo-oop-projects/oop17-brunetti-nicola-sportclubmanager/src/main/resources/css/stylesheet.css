@@ -1,0 +1,33 @@
+.sidebar {
+	-fx-background-color: #FFFFFF;
+}
+
+.sidebar-club-name {
+	-fx-background-color: transparent;
+	-fx-text-fill:#FFFFFF;
+}
+
+.sidebar-top-menu {
+	-fx-background-color: #4A9FE0;
+	-fx-font-size: 20px;
+}
+
+.sidebar-menu-label-text {
+	-fx-text-fill: #777777; 
+}
+
+.sidebar-menu-btn:hover {
+	-fx-background-color: #DCDCDC;
+	-fx-text-fill: #777777; 
+	-fx-border-color: #777777;
+	-fx-border-width: 0px 3px 0px 0px;
+}
+
+.top-bar {
+	-fx-background-color: #4A9FE0;
+	
+}
+
+.top-bar-btns:hover {
+	-fx-background-color: #2575b2;
+}

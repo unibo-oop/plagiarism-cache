@@ -1,0 +1,11 @@
+[
+{"name":"Luca","surname":"Borri","birthDate":[2018,9,6],"birthPlace":"Senigallia","nationality":"Italiana",
+"residenceDistrict":"Marche", "residenceAddress":"Via Garibaldi 3","residenceCity":"Ancona","residenceNation":"Italia",
+"fiscalCode":"dfdfdasfadsa","employeeMemberId":1,"employeeMemberRole":"WAREHOUSEMAN"},
+{"name":"Vincenzo","surname":"Sordoni","birthDate":[2018,9,6],"birthPlace":"Senigallia","nationality":"Italiana",
+"residenceDistrict":"Marche", "residenceAddress":"Via Garibaldi 3","residenceCity":"Ancona","residenceNation":"Italia",
+"fiscalCode":"dfdfdasfadsa","employeeMemberId":2,"employeeMemberRole":"GARDENENER"},
+{"name":"Paolo","surname":"Magri","birthDate":[2018,9,6],"birthPlace":"Senigallia","nationality":"Italiana",
+"residenceDistrict":"Marche", "residenceAddress":"Via Garibaldi 3","residenceCity":"Ancona","residenceNation":"Italia",
+"fiscalCode":"dfdfdasfadsa","employeeMemberId":3,"employeeMemberRole":"SECRETARY"}
+]

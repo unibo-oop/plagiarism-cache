@@ -1,0 +1,6 @@
+[
+{"facilityId":1,"name":"Sede","address":"Via Po 3","description":"Sede principale"},
+{"facilityId":2,"name":"Magazzino","address":"Via Po 5","description":"Magazzino società"},
+{"facilityId":3,"name":"Stadio San Siro","address":"Via San Siro 5","description":"Stadio di gioco"},
+{"facilityId":4,"name":"Campo allenamento 1","address":"Via Po 3","description":"Campo di allenamento"}
+]
