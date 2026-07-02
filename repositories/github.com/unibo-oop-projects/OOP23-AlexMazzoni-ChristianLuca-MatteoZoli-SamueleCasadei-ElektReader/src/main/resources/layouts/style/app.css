@@ -1,0 +1,139 @@
+/* COLORS: */
+* {
+  -fx-font-family: "sans-serif";
+}
+
+.root {
+  -fx-background-color: #000000;
+  -fx-mid-text-color: #ffffff;
+}
+
+.button {
+  -fx-background-color: transparent;
+}
+
+.button:hover {
+  -fx-mid-text-color: #3274e4;
+}
+
+.label {
+  -fx-mid-text-color: #ffffff;
+  -fx-font-size: 20px;
+}
+
+.selected {
+  -fx-mid-text-color: #3274e4 !important;
+  -fx-border-color: #3274e4 !important;
+}
+
+.separator {
+  -fx-background-color: #9900ff;
+}
+
+.menubutton {
+  -fx-mid-text-color: #ffffff;
+  -fx-font-weight: bold;
+  -fx-font-size: 22px;
+}
+
+.menubutton:hover {
+  -fx-background-color: #373737;
+  -fx-mid-text-color: #ffffff;
+}
+
+.title {
+  -fx-mid-text-color: #ffffff;
+  -fx-font-size: 60px;
+  -fx-font-weight: bold;
+}
+
+.subtitle {
+  -fx-mid-text-color: #ffffff;
+  -fx-font-size: 40px;
+}
+
+.playlistbtn {
+  -fx-font-size: 20px;
+  -fx-border-width: 3px;
+  -fx-border-color: #ffffff;
+}
+
+.playlistbtn:hover {
+  -fx-border-width: 3px;
+  -fx-border-color: #3274e4;
+  -fx-mid-text-color: #ffffff;
+}
+
+.selectedplaylist {
+  -fx-mid-text-color: #3274e4;
+}
+
+.scroll-pane {
+  -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+  -fx-background-color: #000000;
+}
+
+.scroll-bar:vertical {
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+  -fx-background-radius: 0em;
+}
+
+.scroll-bar:vertical .track {
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+  -fx-background-radius: 0em;
+  -fx-border-radius: 2em;
+}
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+  -fx-background-color: transparent;
+  -fx-background-radius: 0em;
+  -fx-padding: 0 0 10 0;
+  visibility: hidden;
+}
+
+.scroll-bar:vertical .thumb {
+  -fx-background-color: derive(#ffffff, 80%);
+  -fx-background-insets: 2, 0, 0;
+  -fx-background-radius: 2em;
+}
+
+.scroll-bar:vertical .thumb:hover {
+  -fx-background-color: derive(#9900ff, 10%);
+  -fx-background-insets: 2, 0, 0;
+  -fx-background-radius: 2em;
+}
+
+.songcontainer {
+  -fx-alignment: center;
+  -fx-background-color: transparent;
+  -fx-border-width: 3px;
+  -fx-border-color: #000000;
+}
+
+.songcontainer:hover {
+  -fx-alignment: center;
+  -fx-background-color: transparent;
+  -fx-border-width: 3px;
+  -fx-border-color: #ffffff;
+  -fx-mid-text-color: #ffffff;
+}
+
+.songbtn {
+  -fx-border-width: 2px;
+  -fx-border-radius: 2px;
+  -fx-border-color: #9900ff;
+}
+
+.songduration {
+  -fx-font-size: 14px;
+}
+
+.songtitle {
+  -fx-font-size: 20px;
+}

@@ -1,0 +1,18 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            ".gradle/**/*.jar"
+        ]
+    },
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/app/src/main/resources/layouts/style",
+            "savePathReplacementPairs": null
+        }
+    ]
+}
