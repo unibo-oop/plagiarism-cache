@@ -1,0 +1,28 @@
+!!it.unibo.model.level.loader.skeleton.ArenaSkeletonImpl
+lives: 3
+width: 1000
+height: 1000
+levelNumber: 2
+balls:
+  - x: 10
+    y: 2
+    paceX: 20
+    paceY: 10
+    ballType: "NORMAL"
+    id: 1
+  - x: 10
+    y: 2
+    paceX: 20
+    paceY: 10
+    ballType: "ATOMIC"
+    id: 1
+bricks:
+  - x: 3
+    y: 4
+    type: "RED"
+  - x: 3
+    y: 7
+    type: "RED"
+  - x: 3
+    y: 5
+    type: "RED"
