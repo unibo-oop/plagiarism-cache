@@ -1,0 +1,572 @@
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{alltt, fancyvrb, url}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+% Questo commentalo se vuoi scrivere in inglese.
+\usepackage[italian]{babel}
+
+\usepackage[italian]{cleveref}
+
+\title{Progetto di Programmazione ad Oggetti\\``The Exiled''}
+
+\author{Luca Casadei, Francesco Pazzaglia, Marco Magnani, Manuel Baldoni}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Analisi}
+
+\section{Requisiti}
+L'applicazione è un gioco che presenta un personaggio controllato dal giocatore con la possibilità di muoversi nella mappa in 4 direzioni e di combattere contro dei nemici utilizzando magie elementali. I nemici sconfitti potrebbero rilasciare delle cure o dei potenziamenti che favoriscono il giocatore. Per concludere il gioco, il giocatore deve entrare in possesso di 4 cristalli che vengono consegnati una volta sconfitti i 4 boss del gioco che sono nemici più difficili da sconfiggere.
+\subsection*{Requisiti funzionali}
+\begin{itemize}
+    \item Movimento del giocatore.
+    \item Movimento dei nemici.
+    \item Presenza di oggetti ottenibili dal giocatore (Cure, potenziamenti e cristalli).
+    \item Terminazione del gioco una volta raccolti 4 cristalli o se il giocatore viene sconfitto.
+    \item Rilascio degli oggetti da parte dei nemici.
+    \item Possibilità di fare battaglie tra giocatore e nemici.
+    \item Nemici più forti (boss) che se sconfitti rilasciano i cristalli per terminare il gioco.
+    \item Possibilità di utilizzo di magie in battaglia di diverso tipo (Fuoco, Acqua, Fulmine, Erba).
+    \item Aumento di livello tramite guadagno di esperienza sconfiggendo i nemici.
+\end{itemize}
+
+\subsection*{Requisiti non funzionali}
+\begin{itemize}
+    \item Il gioco deve essere multipiattaforma.
+    \item L'interfaccia deve essere ridimensionabile.
+\end{itemize}
+
+\section{Analisi e modello del dominio}
+
+\subsection{Inizio del gioco} \label{ss:iniziogioco}
+All'inizio al giocatore viene chiesto di che tipo elementale sarà il personaggio da controllare (vedi \textit{\nameref{ss:tipi}}), quando verrà posizionato sulla mappa gli verrà assegnata una mossa generica di tipo normale, quelle invece del suo stesso tipo potranno essere imparate in maniera automatica all'aumentare di livello.\\
+
+\subsection{Movimento}
+Il giocatore può muoversi di una cella alla volta in una mappa a griglia in 4 direzioni (Nord, Est, Sud, Ovest), mentre si muove il giocatore, si muovono sempre di cella in cella anche i nemici, che non seguono un pattern di movimento specifico ma seguono una direzione casuale, questo a meno che non sia presente il giocatore nel loro range di visibilità (Configurabile da costante), in tal caso seguiranno il giocatore.\\ Il movimento del giocatore è libero su tutta la mappa, mentre i nemici sono costretti a stare nella zona del loro stesso tipo e non ne potranno uscire anche se in fase di inseguimento del player.\\
+
+\subsection{Battaglia}
+Una battaglia inizia se il giocatore e un nemico si ritrovano nella stessa cella a seguito di un movimento. Per affrontare un nemico in battaglia il giocatore ha a disposizione massimo 4 mosse (non per forza dello stesso tipo del giocatore). Il combattimento avviene a turni alternati, il primo è il giocatore, poi il nemico e così via finché uno dei due viene sconfitto, se è il giocatore, il gioco termina.\\
+Allo sconfiggere dei nemici viene conferita al giocatore una certa quantità di esperienza (a seconda del nemico sconfitto) che serve ad aumentare di livello e vi è una certa probabilità che il nemico possa rilasciare un oggetto casuale (la probabilità maggiore è però quella di non ricevere nulla).
+
+\subsection{Oggetti} \label{ss:oggetti}
+Qualora venga rilasciato, l'oggetto verrà automaticamente messo nell'inventario del giocatore e potrà essere usato direttamente dalla mappa oppure in battaglia. Ci sono diversi tipi di oggetto, quelli utilizzabili dalla mappa generalmente sono oggetti di cura (rappresentati con il colore \colorbox{green}{verde}), altri possono essere oggetti che aumentano il danno del giocatore (colore \colorbox{red}{rosso}) oppure la difesa (colore \colorbox{cyan}{blu-azzurro}). Nessun nemico generico potrà rilasciare un \textit{Cristallo}, che è un oggetto esclusivo dei boss e serve per concludere il gioco.
+
+\subsection{Livello ed esperienza}
+L'aumento di livello comporta un incremento generale delle statistiche del giocatore, ovvero attacco, difesa e vita di un valore moltiplicativo o incrementale costante. Ogni $\mathit{n}$ livelli verrà presentata al giocatore la possibilità di imparare una nuova mossa, dove $\mathit{n}$ è una costante configurabile. se il giocatore ha già 4 mosse potrà decidere di scambiare quella nuova con una di quelle che conosce già. All'aumentare di livello sarà richiesta sempre più esperienza per passare a quello successivo.
+
+\subsection{Nemici}
+I nemici si dividono in nemici generici, ovvero quelli presenti sulla mappa con capacità di movimento, questi possono essere anche ripetuti e una volta sconfitti non ricompaiono. Ciascuno di questi ha un suo tipo elementale e quindi un'area della mappa a cui è confinato.
+Per vedere i possibili oggetti rilasciati dai nemici, vedi \textit{\nameref{ss:oggetti}}.\\
+I 4 boss sono posizionati agli angoli della mappa, e ciascuno di loro si trova nella parte di mappa che corrisponde al tipo elementale che rappresentano, i boss non hanno capacità di movimento e staranno in quella posizione finché non verranno sconfitti dal giocatore.
+
+\subsection{Elenco dei tipi elementali} \label{ss:tipi}
+I seguenti sono i tipi elementali presenti, ognuno è efficace rispetto ad un altro, quindi quando vengono usate mosse di un certo tipo risultante essere efficace rispetto al tipo di un nemico (non delle mosse che ha, proprio il tipo del nemico), si avranno dei moltiplicatori del danno. Lo stesso vale per i nemici che usano mosse di un tipo efficace rispetto a quello scelto dal giocatore all'inizio (la sua classe, vedi \textit{\nameref{ss:iniziogioco}}).
+\\
+Ad esempio, nel seguente schema si vede che Fulmine è efficace contro Acqua, Erba contro Fulmine etc\dots Se si capovolge la freccia si notano invece le debolezze di un tipo rispetto ad un altro.
+
+\begin{center}
+\begin{tabular}{ c c c }
+    Fulmine & $\longrightarrow$ & Acqua \\
+    Erba & $\longrightarrow$ & Fulmine \\
+    Acqua & $\longrightarrow$ & Fuoco \\
+    Fuoco & $\longrightarrow$ & Erba \\
+\end{tabular}
+\end{center}
+
+\subsection{UML}
+\begin{figure}[H]
+	\centering
+	\input{the-exiled-uml.tex}
+	\caption{Schema UML del dominio.} \label{fig:Schema UML del dominio.}
+\end{figure}
+
+\chapter{Design}
+
+Qui entriamo nel dettaglio della struttura ad alto livello del gioco.
+
+\section{Architettura}
+\subsection{Model entry point}
+La struttura del progetto segue il modello MVC, questa divisione ha come entry point del model la classe \textit{GameModelImpl} che implementa \textit{GameModel}, essa ha il ruolo di dare accesso agli altri componenti del model, tra cui:
+\begin{itemize}
+	\item \textit{CharacterModel}: Model che gestisce il player, nemici e relativi attributi.
+	\item \textit{CombatModel}: Fornisce la gestione del combattimento tra player e nemico.
+	\item \textit{ItemsModel}: Fornisce la gestione degli item del gioco.
+	\item \textit{MapModel}: Fornisce la gestione della mappa e le relative celle.
+	\item \textit{MenuModel}: Fornisce la gestione interna del menu di gioco.
+\end{itemize}
+\subsection{Controller entry point}
+A questo punto di accesso si collega il controller, che è composto anch'esso da un punto di accesso principale che è \textit{GameController}, questo fornisce accesso alle seguenti sottoparti del controller:
+\begin{itemize}
+	\item \textit{CharacterController}: Gestisce il collegamento tra view e model per movimento azioni compibili dalle entità del gioco (nemici e giocatore).
+	\item \textit{CombatController}: Collega la view con il model per il combattimento.
+	\item \textit{ItemsController}: Collega la view con il model per la gestione degli oggetti dell'inventario.
+	\item \textit{MapController}: Collega la view con il model gestendo la mappa e le celle.
+	\item \textit{MenuController}: Collega view e model per la gestione del menu di gioco.
+\end{itemize}
+\subsection{Relazione tra View e Controller}
+La view viene suddivisa in diverse sottoparti come le precedenti componenti architetturali, l'entry point è la classe \textit{GameView} che è quella che fa partire il motore grafico del gioco. Le sottoparti sono:
+\begin{itemize}
+	\item \textit{CharacterView}: Visualizzazione dei nemici e del giocatore.
+	\item \textit{CombatView}: Visualizzazione del combattimento tra un giocatore e un nemico.
+	\item \textit{InventoryView}: Visualizzazione dell'inventario e uso degli item.
+	\item \textit{PlayerClassView}: Visualizzazione iniziale per la scelta della classe del giocatore tra gli elementi disponibili.
+	\item \textit{GameOverView}: Schermata di Game Over.
+	\item \textit{GameVictoryView}: Schermata di vittoria del gioco.
+	\item \textit{NewGameView}: Schermata di avvio.
+\end{itemize}
+Alcuni elementi grafici sono stati realizzati con apposite classi di view che hanno quindi un comportamento molto specifico e non comportano necessariamente un collegamento con il controller, ad esempio: \textit{HUDView}, \textit{GameGridView}, \textit{GameMoveChangeView}.
+
+\subsection{Schema MVC}
+\begin{figure}[H]
+	\centering
+	\input{exiled-architecture-uml.tex}
+	\caption{Schema UML che rappresenta l'architettura MVC} 
+	\label{fig:Schema UML che rappresenta l'architettura MVC}
+\end{figure}
+
+In conclusione, anche rimpiazzando totalmente il framework di Swing per la view con un altro (es. JavaFX) non è necessario fare alcun tipo di alterazione al controller e tantomeno al model.
+
+\section{Design dettagliato}
+\subsection{Luca Casadei}
+Personalmente mi sono occupato di parte della realizzazione delle mosse, della realizzazione di parte dell'entità \textit{GameCharacter}, della realizzazione dei nemici e della loro distribuzione sulla mappa in base al tipo, della creazione della mappa e relativa suddivisione in aree, della creazione ed assegnazione degli attributi dei \textit{GameCharacter}. Per ciascuno di questi elementi del model è stato realizzato un controller apposito per poter utilizzare il pattern MVC.
+\subsubsection{Entità "Nemico"} \label{ss:enemy}
+\textbf{Problema:} Definire il concetto di nemico e come omologarlo al giocatore per evitare ripetizioni di codice (DRY).
+Questa difficoltà è riassumibile nel dover suddividere i nemici in comuni e boss finali, divisi ciascuno in base al proprio "tipo elementale" e con la propria quantità di esperienza rilasciata alla sconfitta. Ogni nemico deve inoltre avere un set di mosse personalizzato che varia anch'esso in base al tipo.\\
+\textbf{Soluzione:} La soluzione adottata è stata quella di estendere un concetto di \textit{GameCharacter}, che contenesse tutte le informazioni e le azioni condivise tra giocatore e nemici, e successivamente effettuare la relativa divisione costruendo due interfacce diverse, una per il giocatore e una per il nemico. Per quest'ultimo è stata realizzata un'apposita interfaccia implementata da una classe astratta, che poi verrà utilizzata attraverso un pattern creazionale descritto successivamente per generare e distribuire i nemici sulla mappa. I nemici vengono infine divisi ulteriormente in generici e boss.
+\subsubsection{UML dell'entità "Nemico"}
+\begin{figure}[H]
+	\centering
+	\input{character/enemy/enemy-uml.tex}
+	\caption{Schema UML che rappresenta la gestione dell'entità "Nemico"} 
+	\label{fig:Schema UML dell'entità nemico}
+\end{figure}
+La classe \textit{EnemyImpl} contiene metodi astratti in modo tale da poter gestire la singola implementazione a seconda del diverso nemico del gioco, come spiegato successivamente.
+
+\subsubsection{Creazione dei nemici}
+\textbf{Problema}: Generare i nemici in modo scalabile (l'aggiunta di un nuovo nemico al gioco deve essere meno complesso e tedioso possibile).\\
+\textbf{Soluzione:} Come introdotto precedentemente, il nemico è rappresentato da una classe astratta \textit{EnemyImpl} che viene sfruttata attraverso l'uso del pattern \href{https://refactoring.guru/design-patterns/factory-method}{\textit{Factory Method}}.
+Ci sono diversi tipi di nemico nel gioco, quelli generici e i Boss. La classe che fa uso di questo pattern è \textit{EnemyFactory} e la relativa implementazione \textit{EnemyFactoryImpl}.\\ \textbf{Alternative:} Un'alternativa possibile era quella di creare una classe che ereditasse da \textit{EnemyImpl} per ogni nemico presente nel gioco ed assegnarli manualmente le mosse, l'esperienza rilasciata ecc..., in questo caso il codice sarebbe risultato meno scalabile e avrebbe reso l'aggiunta di nemici tediosa.\\
+Segue uno schema UML che rappresenta il metodo generazionale dei nemici (Esclusa la divisione tra nemici generici e Boss che viene trattata separatamente in una sottosezione successiva).\\
+
+\begin{figure}[H]
+	\centering
+	\input{character/enemy/enemyfactory-uml.tex}
+	\caption{Schema UML della factory di nemici (Boss esclusi)}
+	\label{fig:Schema UML della factory di nemici}
+\end{figure}
+
+\textbf{Problema:} Divisione dei boss dai nemici generici, per evitare che l'oggetto rilasciato al giocatore venga scelto casualmente.\\
+\textbf{Soluzione:} In questo caso è stato necessario considerare i boss come una specializzazione di nemici generici, quindi come sottoclassi di \textit{EnemyImpl} ma con una loro classe specifica dedicata che consenta di scegliere manualmente il tipo di oggetto rilasciato alla sconfitta. Segue uno schema UML che aggiunge il concetto di nemico.\\
+
+\begin{figure}[H]
+	\centering
+	\input{character/enemy/boss-enemy-uml.tex}
+	\caption{Schema UML della gestione dei Boss.}
+	\label{fig:Schema UML della gestione dei boss.}
+\end{figure}
+
+In maniera analoga nella "Factory" di nemici descritta precedentemente vengono utilizzate le classi dei boss per la loro generazione.
+
+\subsubsection{Raggruppare i nemici in collezione}
+\textbf{Problema:} Come raggruppare assieme tutti i nemici generati per poterli disporre sulla mappa?\\
+\textbf{Soluzione:} In questo caso ho creato un'interfaccia apposita \textit{EnemyCollection} che segue il pattern \href{https://refactoring.guru/design-patterns/iterator}{Iterator} per poter scorrere tutti i nemici indipendentemente da come venga implementata la collezione. Segue uno schema UML della struttura.\\
+
+\begin{figure}[H]
+	\centering
+	\input{character/enemy/enemycollection-uml.tex}
+	\caption{Schema UML della collezione di nemici per gestire la mappa.}
+	\label{fig:Schema UML della collezione di nemici per gestire la mappa.}
+\end{figure}
+
+\subsubsection{Attributi di un Character (Nemico o player)}
+\textbf{Problema:} Bisogna fare una distinzione tra attributi che aggiungono una quantità ad una caratteristica del \textit{GameCharacter}, quelli che invece contengono una costante moltiplicativa per ridurre od aumentare una caratteristica che non riguarda una quantità specifica, ma va applicata al momento della battaglia, e di quelli invece che fanno entrambe queste due cose.\\
+\textbf{Soluzione:} Gli attributi vengono gestiti mediante un'interfaccia Attribute che contiene due metodi che consentono di stabilire di che tipo di attributo si tratti. Questi due metodi vengono implementati nelle classi che implementano le sotto interfacce \textit{AdditiveAttribute}, \textit{MultiplierAttribute} e \textit{CombinedAttribute}.\\
+Qui presento uno schema UML che rappresenta come sono gestite le distinzioni tra attributi moltiplicativi e additivi o combinati.\\
+
+\begin{figure}[H]
+	\centering
+	\input{character/attributes/attributes-uml.tex}
+	\caption{Schema UML della divisione degli attributi}
+	\label{fig:Schema UML della divisione degli attributi}
+\end{figure}
+
+\textbf{Problema:} Come gestire tutte le caratteristiche di gioco del giocatore o di un nemico in modo tale da non avere una quantità eccessiva di campi all'interno di una classe e in modo tale da gestire la scalabilità? E come identificare ciascun attributo esistente?\\
+\textbf{Soluzione:} È stato introdotto un enumeratore con tutti gli identificatori di attributi necessari al gioco, questo si chiama \textit{AttributeIdentifier} e contiene l'associazione di ciascun elemento dell'enumeratore al corrispettivo nome in stringa così da poter facilmente essere interpretato dal controller e successivamente la view.
+Per la generazione degli attributi di un \textit{GameCharacter} invece è stato utilizzato il pattern \href{https://refactoring.guru/design-patterns/factory-method}{\textit{Factory Method}} attraverso l'interfaccia denominata \textit{AttributeFactory} e la sua implementazione \textit{AttributeFactoryImpl} che creano una mappatura di tutti gli attributi necessari per ciascun \textit{GameCharacter}, così da poter diversificare gli attributi di ognuno senza aggiungere campi eccessivi alle classi.\\
+In tal modo un \textit{GameCharacter} contiene al suo interno una mappatura tra \textit{AttributeIdentifier} e relativo \textit{Attribute} in modo tale da poter definire attraverso la factory gli attributi di ciascuno.\\ Segue uno schema UML della factory.\\
+
+\begin{figure}[H]
+	\centering
+	\input{character/attributes/attribute-factory-uml.tex}
+	\caption{Schema UML con la factory degli attributi.}
+	\label{fig:Schema UML con la factory degli attributi.}
+\end{figure}
+
+\subsubsection{Piazzamento dei nemici sulla mappa : \textit{CharacterModel}}
+\textbf{Problema:} Mettere in relazione la mappa e i nemici attraverso un'unico concetto nel model.\\
+\textbf{Soluzione:} Effettuare lo scattering dei nemici durante la loro inizializzazione, al momento della creazione del model.
+Una delle parti da me gestite è stata quella dell'inizializzazione dei nemici utilizzando le classi sopradescritte, e il loro posizionamento sulla mappa attraverso alcuni metodi all'interno dell'implementazione dell'interfaccia \textit{CharacterModel}.\\
+In particolare, nella classe \textit{CharacterModelImpl} è contenuta la \textit{EnemyCollection} che servirà al controller per scorrere su ogni nemico presente, vi è anche un metodo di inizializzazione in cui si prende il numero di nemici da configurazione, e si generano tutti attraverso la \textit{EnemyFactory} e vengono man mano posizionati in celle (e aggiunti alla collezione) a patto che:
+\begin{itemize}
+	\item Non vengano posizionati in uno dei 4 vertici della mappa. (Lì ci sono i boss)
+	\item Non vengano posizionati in una cella il cui tipo non corrisponde a quello del nemico.
+	\item Non vengano posizionati in una cella in cui sia già presente un nemico o il giocatore (cella piena)
+\end{itemize}
+Una volta generati tutti i nemici generici, vengono creati i 4 boss sempre attraverso la factory e vengono aggiunti anch'essi alla \textit{EnemyCollection} perché si tratta sempre di nemici e vengono spostati manualmente ai quattro vertici della mappa, attraverso un apposito metodo che dato il tipo di cella ne ricava l'angolo della mappa (Spiegato nella prossima sezione relativa alla mappa).
+
+\subsubsection{Mappa di gioco nel \textit{Model}}
+\textbf{Problema:} Come gestire la mappa di gioco a livello di divisione delle celle? Come dare un certo tipo ad ogni cella?\\
+\textbf{Soluzione:} Ho utilizzato un enumeratore per elencare tutti i possibili tipi di cella, e a seconda della loro quantità questi vengono distribuiti in maniera omogenea sulla mappa attraverso i metodi di inizializzazione all'interno di \textit{GameMap} e la sua implementazione \textit{GameMapImpl}.\\ Quest'ultima inoltre si occupa di definire quali sono i 4 angoli della mappa dove posizionare i boss in base al loro relativo tipo. La mappa ha ovviamente una dimensione stabilita dalla classe di configurazione dove sono presenti tutte le costanti.
+Le macroaree della mappa vengono posizionate in maniera casuale, questo significa che se la parte con tipo elementale "Acqua" si trovava in alto a destra in una partita, nella successiva la stessa potrebbe trovarsi in quella in alto a sinistra o in qualsiasi altra partizione della mappa a griglia.\\
+Segue uno schema UML che descrive il modello della mappa.
+
+\begin{figure}[H]
+	\centering
+	\input{map/exiled-map-uml.tex}
+	\caption{Schema UML della mappa e parte di model.}
+	\label{fig:Schema UML della mappa e parte di model.}
+\end{figure}
+
+La parte che mette in interazione sia i nemici che il player e il controller è parte condivisa ed è gestita all'interno della classe \textit{CharacterModelImpl}, mentre la sopradescritta \textit{MapModelImpl} è una parte di model specificatamente pensata per la mappa.
+
+\subsection{Francesco Pazzaglia}
+La mia parte di progetto si concentra sull'implementazione dettagliata del giocatore, comprendendo la definizione delle sue caratteristiche quali attributi(la vita, l'esperienza, la relativa classe...) e le sue meccaniche in gioco. Mi sono anche occupato della gestione del movimento del giocatore e delle altre entità (i nemici) all'interno della mappa di gioco. Infine, ho implementato la gestione delle condizioni di chiusura del gioco(vittoria e game over), che includevano la definizione delle regole e dei possibili eventi che portavano al termine del gioco, nonché la gestione delle rispettive schermate.
+
+\subsubsection{Player} \label{ss:player}
+Nella parte inerente al giocatore, il problema principale consisteva nell'identificare e gestire in modo efficiente le caratteristiche comuni con i nemici, al fine di evitare ripetizioni e mantenere il codice conciso. 
+Pertanto, in collaborazione con \textit{Luca Casadei}, responsabile della parte relativa ai nemici, abbiamo deciso di introdurre nel Model un'interfaccia denominata \textit{GameCharacter}. Questa interfaccia contiene i metodi principali che definiscono le caratteristiche fondamentali comuni a tutte le entità nel gioco, come la vita, la posizione, il movimento e gli attributi.
+In aggiunta all'interfaccia, è stata implementata la classe astratta \textit{GameCharacterImpl}, che concretizza l'interfaccia \textit{GameCharacter}. Questa classe è stata progettata in modo che il giocatore possa estenderla e acquisire le caratteristiche comuni menzionate in precedenza. Questa architettura ci ha consentito di gestire in modo efficiente le proprietà condivise tra il giocatore e i nemici, garantendo una maggiore coerenza e facilità di estensione del codice senza ripetizioni.
+
+\begin{figure}[H]
+	\centering
+	\input{character/player/the-exiled-player-uml.tex}
+	\caption{Schema UML del Model del Player e del GameCharacter}
+	\label{fig:the-exiled-player-uml}
+\end{figure}
+
+In maniera più approfondita, per la gestione del giocatore, ho introdotto un'interfaccia denominata \textit{Player}, che estende l'interfaccia preesistente \textit{GameCharacter}. 
+L'interfaccia \textit{Player} viene implementata da una classe chiamata \textit{PlayerImpl} che ne definisce ulteriori metodi specifici del giocatore per il livello, l'esperienza, l'inventario ecc. 
+
+Per quanto riguarda la parte inerente alla View sia il giocatore che i nemici sono stati gestiti attraverso una classe chiamata \textit{CharacterView}. Questa classe è stata progettata per utilizzare immagini al fine di rappresentare graficamente le entità del gioco. In particolare, sono state gestite delle animazioni mediante l'utilizzo di due immagini per ciascuna direzione (NORD, SUD, EST e OVEST). Oltretutto sia per il \textit{Player} che per i nemici, viene scelta un'immagine colorata in base alla tipologia di appartenenza. La \textit{CharacterView} ha permesso una gestione separata della scalabilità delle entità all'interno della griglia di gioco in caso di ridimensionamento della finestra e ci ha permesso inoltre di effettuare il cambio di immagine per le animazioni.
+
+Per garantire la comunicazione tra il Model e la View del \textit{Player} è stato introdotto un Controller, denominato \textit{CharacterController} dove, al suo interno sono stati definiti i metodi per il controllo del \textit{Player}, tra cui quelli relativi al movimento, all'assegnazione della tipologia, all'uso di modificatori di esperienza e di livello, nonché i relativi metodi getter necessari per l'interfaccia grafica.
+Oltre a questi, sono stati definiti metodi generali applicabili a qualsiasi entità presente nel gioco. 
+Per tale motivo, è stata introdotta un'ulteriore interfaccia denominata \textit{CharacterModel} e la relativa classe \textit{CharacterModelImpl} che contiene le entità del gioco, ovvero il Player e una collezione di nemici. Oltre a ciò sono stati inseriti i metodi della parte di Model per la gestione di entrambe le entità consentendo al Controller di avere una organizzazione uniforme e coerente.
+
+Il design pattern utilizzato per gestire la parte del \textit{Player} è Template Method. Questo pattern consente di definire uno scheletro di comportamento comune per il \textit{Player}, infatti la classe astratta \textit{GameCharacterImpl} costituisce la base per tutte le entità di gioco, ad esempio definisce il metodo \textit{move(Position)}, ossia la struttura generica per il movimento di un'entità.
+
+\subsubsection{Gestione del movimento}
+Nella gestione del movimento, il problema principale è stato comprendere come distinguere e concretizzare il movimento del giocatore da quello dei nemici sulla mappa di gioco. Inoltre, anche la scelta di utilizzare l'input da tastiera o tramite mouse ha generato incertezze riguardo a come realizzare la griglia relativa alla mappa.
+
+In merito a quanto detto, per l'implementazione del movimento delle entità all'interno della mappa di gioco, ho adottato due distinzioni principali. Per il movimento del giocatore ho progettato un sistema basato sull'input dell'utente tramite tastiera. D'altra parte, per i nemici, ho sviluppato un meccanismo autonomo di movimento. In pratica, i nemici si spostano in maniera pseudo-casuale all'interno di un'area definita dalla loro tipologia(Fire, Bolt, Water e Grass) e qualora il giocatore si dovesse avvicinare, entro un certo raggio, ad un nemico, quest'ultimo inizierà a inseguirlo per combattere. Ho scelto questo approccio perché rende sicuramente il gioco più interessante e stimolante per il giocatore, dato che per poterlo completare bisogna sconfiggere i quattro Boss che sono situati agli estremi della mappa di gioco.
+
+Considerando la decisione di non utilizzare i Thread nel nostro progetto, i nemici si sposteranno esclusivamente in risposta all'input dell'utente. Di conseguenza, i nemici si muoveranno solamente quando l'utente eseguirà uno spostamento nella mappa.
+
+In particolare, ho utilizzato il \textit{CharacterModel} per definire il meccanismo di movimento sia per il personaggio che per i nemici. Successivamente, all'interno del \textit{CharacterController}, ho implementato un metodo di movimento che ha richiamato le funzioni precedentemente definite nel Model. 
+
+E' stata realizzata una classe \textit{GameKeyListener} della View, dove ho gestito l'input dell'utente associando i movimenti alle direzioni corrispondenti ai tasti premuti (ad esempio, W per su, S per giù, A per sinistra e D per	destra). La \textit{GameView} rappresenta la schermata principale dov'è inserita la mappa e l'HUD che visualizza gli attributi principali del personaggio.
+Quando l'utente preme un tasto specifico sulla tastiera tra quelli elencati prima, all'interno della \textit{GameView}, il \textit{CharacterView} associato al giocatore si sposterà in una cella corrispondente. Di conseguenza, come precedentemente descritto, tutti i nemici, a meno che non siano vicini al giocatore, si sposteranno anch'essi, in una direzione scelta in modo pseudo-casuale.
+
+\begin{figure}[H]
+	\centering
+	\include{movement/the-exiled-movement-uml.tex}
+	\caption{Schema UML inerente al meccanismo di movimento}
+	\label{fig:the-exiled-movement-uml}
+\end{figure}
+
+Oltre ai \textit{KeyListener} di base per il movimento del giocatore, ho integrato la funzionalità che permette di utilizzare il tasto E per aprire l'inventario quando si è in gioco e il tasto ESC per aprire/chiudere il menu di gioco. Questa scelta è stata fatta per migliorare l'esperienza di gioco e rendere l'interfaccia più intuitiva e user-friendly, consentendo ai giocatori di navigare facilmente tra le diverse funzionalità senza forzare l'utilizzo del mouse.
+
+Inoltre, ho implementato la gestione della visibilità della mappa in base allo spostamento del giocatore. È stato definito un range di visibilità, in modo che l'utente possa vedere solo le celle adiacenti al giocatore all'interno di tale intervallo.
+
+Avendo separato la gestione del movimento e dell'ascolto dei \textit{KeyListener} in una classe dedicata, è stato adottato il design pattern Observer. Questo pattern ha consentito di definire un meccanismo di notifica personalizzato attraverso la classe \textit{GameKeyListener}, che funge da Observer. \textit{GameKeyListener} implementa l'interfaccia \textit{KeyListener} e si occupa di ricevere notifiche sugli eventi di pressione dei tasti. In questo modo, sono stato in grado di gestire dinamicamente il movimento delle entità di gioco in risposta all'input dell'utente.
+
+\subsubsection{Meccanismo di fine gioco}
+Il problema relativo al meccanismo di fine gioco riguardava l'interfacciamento e la visualizzazione delle relative schermate, a tal proposito mi sono occupato di gestire la conclusione del gioco attraverso due scenari distinti: la vittoria e la sconfitta).
+
+In entrambi gli esiti, ho realizzato la gestione di fine gioco attraverso il \textit{GameController}. 
+
+Utilizzando il metodo \textit{isOver()}, viene deciso quando il gioco è terminato e di conseguenza quando deve essere visualizzata l'immagine inerente al game over. Avendo un unico metodo per determinare la sconfitta del giocatore, ho potuto facilmente definire il suo criterio. Essendo un gioco centrato su un singolo giocatore principale, è stato naturale impostare il game over nel caso in cui la sua vita dovesse azzerarsi o scendere sotto lo zero, a seguito di un combattimento con un nemico. 
+
+Lo stesso principio si applica alla vittoria, la quale rappresenta la schermata che compare quando il gioco è completato con successo. Questa viene visualizzata quando il metodo \textit{isWon()} restituisce un valore che indica se il giocatore ha vinto il gioco. Per poter vincere il gioco, il personaggio deve riuscire a sconfiggere i Boss finali e quindi ad ottenere i quattro cristalli della redenzione.\\
+
+All'interno della \textit{GameView}, la principale vista definita in precedenza, è presente il metodo \textit{draw()}, dove viene controllato lo stato del gioco. In caso di fine gioco, viene istanziata una vista chiamata \textit{EndGameView}, che rappresenta in modo generico la schermata di fine gioco. Se il gioco è stato vinto, la \textit{EndGameView} mostrerà l'immagine di vittoria, mentre in caso di sconfitta verrà visualizzata l'immagine relativa al game over. Questa gestione delle immagini avviene attraverso l'utilizzo dell'enumeratore \textit{EndState}, che permette di identificare lo stato di fine gioco.
+
+All'interno della \textit{GameView} è anche contenuto il \textit{GameController}, che facilita il collegamento tra il Model e la View stessa. Grazie a questo Controller, è possibile determinare quando la schermata principale deve essere sostituita dalla quella di vincita o perdita del gioco.
+
+\begin{figure}[H]
+	\centering
+	\include{victory_gameover/the-exiled-victory_gameover-uml.tex}
+	\caption{Schema UML dell'End Game con relativa vista sulle schermate}
+	\label{fig:the-exiled-victory_gameover-uml}
+\end{figure}
+
+\subsection{Marco Magnani}
+La parti del progetto in cui ho impiegato la maggior parte del tempo sono l'inventario del player, gli oggetti da cui esso è composto, la hud, la logica per l'aumento di livello del player e le mosse magiche.
+
+\subsubsection{Item e Inventory}
+
+Per implementare la gestione delle entità degli oggetti, ho adottato un approccio di astrazione mirato a massimizzare la riutilizzabilità del codice e a eliminare duplicazioni non necessarie. Nel contesto del gioco, gli oggetti possono essere categorizzati in tre tipologie distinte: curativi, di potenziamento e risorse (ad esempio, cristalli).
+L'obiettivo era creare un sistema in cui l'inventario potesse accogliere tutti questi tipi di oggetti diversi, trattandoli però uniformemente come se appartenessero tutti alla stessa categoria.
+\begin{figure}[H]
+	\centering
+	\input{item/the-exiled-item-uml.tex}
+	\caption{Schema UML del Model degli Item e dell'Inventory}
+	\label{fig:the-exiled-item-uml}
+\end{figure}
+
+La struttura che ho concepito prevede che tutti gli oggetti estendano un'interfaccia astratta, garantendo uniformità nei campi essenziali. Un ostacolo che ho affrontato riguardava la suddivisione tra oggetti curativi e di potenziamento, poiché entrambi possono essere utilizzati nel gioco, ma la logica di implementazione per i due utilizzi è differente.
+
+Per superare questa sfida, ho introdotto l'interfaccia \textit{UsableItem}, seguendo il design pattern \textit{Template Method}. Questa interfaccia consente ad entrambe le categorie di implementare la propria logica di utilizzo, differenziandosi attraverso il metodo \textit{"use()"}.
+
+L'astrazione fornita da UsableItem aiuta anche per la visualizzazione dell'inventario, in quanto consente di rendere cliccabili solo gli oggetti effettivamente utilizzabili.
+
+\begin{figure}[H]
+	\centering
+	\input{item/the-exiled-itemFactory_itemContainer-uml.tex}
+	\caption{Schema UML della ItemFactory e dell'ItemContainer}
+	\label{fig:the-exiled-itemFactory_itemContainer-uml}
+\end{figure}
+
+Per risolvere un altro problema legato alla creazione degli oggetti, ho voluto garantire che qualsiasi classe che necessiti di creare un oggetto non dovesse conoscere la logica specifica di creazione. A questo scopo, ho implementato una Factory utilizzando il design pattern \textit{Factory} per la creazione degli item. Questa Factory viene utilizzata dall'Item Container per gestire la creazione di tutti gli oggetti di gioco. L'enum \textit{ItemNames} è stato introdotto per contenere i nomi di tutti gli oggetti del gioco, svolgendo il ruolo di "chiavi" per identificare gli item.
+
+\begin{figure}[H]
+	\centering
+	\input{item/the-exiled-inventory-uml.tex}
+	\caption{Schema UML dell'inventario}
+	\label{fig:the-exiled-inventory-uml}
+\end{figure}
+
+Gli oggetti sono tutti generalizzati attraverso l'interfaccia Item, semplificando notevolmente la gestione, specialmente all'interno dell'inventario. Per la View dell'inventario, ho adottato il pattern \textit{Strategy}, in particolare mediante l'interfaccia \textit{ItemController} e la sua implementazione, \textit{ItemControllerImpl}. Quest'ultima è responsabile dell'effettiva logica di gestione degli oggetti nel gioco e interagisce con il modello degli item per gestire l'inventario.
+
+L'utilizzo di questo pattern è stato pensato per rendere il progetto aperto a future estensioni. Se si dovesse aggiungere un'altra visualizzazione degli oggetti, sarebbe possibile creare un'altra implementazione dell'interfaccia ItemController, utilizzando una logica specifica per la gestione degli oggetti in quella particolare vista.
+\subsubsection{Hud}
+\begin{figure}[H]
+	\centering
+	\input{hud/the-exiled-hud-uml.tex}
+	\caption{Schema UML della HUD}
+	\label{fig:the-exiled-hud-uml}
+\end{figure}
+
+Passando all'HUD (head-up display), quest'ultimo mostra le informazioni di base del giocatore sia sulla pagina principale che durante gli scontri con i nemici. Queste informazioni includono la vita, il livello, la classe e l'esperienza del giocatore. Ho gestito l'HUD come una classe di visualizzazione separata e indipendente, la quale può essere resa visibile e aggiornata quando necessario.
+
+Dal momento che l'HUD è sempre visibile, anche durante i combattimenti, una problematica è stata quella di mantenere costantemente aggiornate le statistiche del giocatore in base ai suoi cambiamenti di stato, come la diminuzione della vita o l'aumento di livello. Per risolvere questo problema, ho optato per un'implementazione simile ad un \textit{Observer}. Ogni volta che il modello del giocatore subisce una modifica, ad esempio quando la vita diminuisce, l'HUD viene notificato attraverso il metodo initialize dei cambiamenti, consentendogli di aggiornare la visualizzazione dell'HUD di conseguenza.
+\subsubsection{Levelling} \label{ss:leveling}
+Infine, ho gestito il processo di aumento di livello del giocatore, che coinvolge la logica di incremento del livello raggiungendo una certa quantità di esperienza. Ho implementato anche il calcolo dell'esperienza necessaria per il prossimo livello, l'aumento delle statistiche ad ogni livello e la logica secondo cui il giocatore apprende nuove mosse ad intervalli specifici.
+Per quanto riguarda l'aumento delle statistiche ad ogni incremento di livello, ho scelto di utilizzare un approccio randomizzato al fine di rendere il gioco meno monotono.
+
+Per la logica delle nuove mosse apprese, ho adottato uno schema specifico: il giocatore di base apprende mosse della sua classe (ad esempio, mosse di tipo acqua se la classe è acqua). Se il giocatore conosce già tutte le mosse di quel tipo, imparerà casualmente una mossa di qualsiasi tipo. Questa scelta è stata fatta per rendere la gestione delle mosse più scalabile, in considerazione della possibilità di creare nuovi tipi elementali. Ad esempio, se venisse introdotto un tipo con una singola mossa, il giocatore comunque apprenderebbe nuove mosse.
+
+\subsection{Manuel Baldoni}
+All'interno del progetto mi sono occupato principalmente della realizzazione del combattimento e del menu di gioco. Ho contribuito alla realizzazione di alcuni metodi del Character e delle mosse e della gestione del toggle dei pannelli all'interno della view del gioco. Ho implementato la gestione del cambio della mossa del player al level up in collaborazione con \textit{Francesco Pazzaglia}.
+
+\subsubsection{Combat}
+Nella gestione del combattimento ci sono state principalmente due sfide: oggettificazione del concetto di combattimento, gestione del timing di attacco.
+Per quanto riguarda la prima sfida, la difficoltà stava nel fatto che il combattimento di fatto non è un oggetto simile agli altri. Il combattimento al suo interno ha il \textit{\nameref{ss:player}}, che è sempre lo stesso e un \textit{\nameref{ss:enemy}}, che varia in ogni combattimento. Proprio perché un combattimento è un concetto astratto va inizializzato ogni volta che il player incontra un nemico, tramite il metodo initializeCombat nel CombatController.
+Per quanto riguarda la seconda sfida, l'obiettivo era quello di avere un'interfaccia e un comportamento simile a quella del gioco \textit{Pokemon}. Nel quale una volta che il player ha effettuato la sua mossa il nemico aspetta qualche istante prima di effettuare la sua e vi è inoltre, una descrizione di quello che avviene durante la battaglia.
+Per avere questo comportamento ho utilizzato il design pattern \href{https://refactoring.guru/design-patterns/state}{State} in combinazione con l'oggetto \href{https://docs.oracle.com/javase/8/docs/api/javax/swing/Timer.html}{Timer} di Java Swing. Quando il giocatore effettua una mossa viene cambiato immediatamente lo stato del combattimento, viene effettuata la routine di attacco e vengono modificate le proprietà necessarie. Tuttavia l'aggiornamento della view viene effettuato in un secondo momento. Come anche il conseguente attacco del nemico, che viene appunto \textit{triggerato} in un secondo momento.
+Nella view del combattimento c'è una sezione apposita alla descrizione di cosa sta succedendo.\\
+\textbf{Stati del combattimento:}
+\begin{itemize}
+	\item \textit{IDLE}: Lo stato iniziale del combattimento. In questo stato all'inizio viene mostrato nella sezione di descrizione una stringa di questo tipo "---------" successivamente viene mostrata l'ultima mossa effettuata dal nemico;
+	\item \textit{ATTACKING}: In questo stato viene mostrata la stringa (nome attaccante) attacking...;
+	\item \textit{DEFEATING}: Questo stato consente di fa visualizzare al player se è stato sconfitto o se ha sconfitto il nemico;
+	\item \textit{DEFEATED}: Nello stato defeated viene effettuata la routine di sconfitta del player o del nemico.
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\input{combat/the-exiled-combat-uml.tex}
+	\caption{Schema UML del Combat}
+	\label{fig:the-exiled-combat-uml}
+\end{figure}
+
+\subsubsection{Menu}
+La difficoltà maggiore nell'implementazione del menu è stata la gestione di diversi menu. Infatti all'interno del gioco sono presenti più menu, ognuno con i suoi pulsanti. I pulsanti posso variare per ogni menu. Per risolvere questo problema ho utilizzato il design pattern \href{https://refactoring.guru/design-patterns/command}{Command}. Quando viene creato un nuovo menu esso può avere dei bottoni con dei comandi prestabiliti e finiti. Questi comandi vengono poi gestiti dal listener.
+Nel gioco sono implementati due menu principali: NewGameMenu e InGameMenu.
+\begin{figure}[H]
+	\centering
+	\input{menu/the-exiled-menu-uml.tex}
+	\caption{Schema UML del Menu}
+	\label{fig:the-exiled-menu-uml}
+\end{figure}
+
+\subsubsection{ChangeMove}
+Il giocatore al \textit{\nameref{ss:leveling}}, impara una mossa se il livello è un multiplo di 5. Nel caso in cui il numero di mosse del player sia maggiore di 4, l'utente può scegliere se imparare una nuova mossa (sostituendola con una del suo move set) oppure no. Ho creato un campo flag nel combat che mi permette di verificare se il player deve imparare una nuova mossa oppure no. Quando vengono soddisfatte le condizione il flag si attiva e viene mostrata la \textit{GameChangeMoveView}. Alla decisione del player il flag viene disattivato. Il cambio della mossa e la generazione della mossa sono metodi del player.
+
+\subsection{Elementi di design condivisi}
+In questa sezione verranno elencate parti di codice create con il contributo di tutti i membri del gruppo.
+
+\subsubsection{Mosse dei character}
+Una mossa è presente all'interno di un'enumerazione denominata \textit{MagicMove}, quest'ultima contiene tutte le informazioni necessarie per rappresentare una mossa (nome, descrizione, potenza, tipo elementale etc\dots). Per utilizzare queste mosse però è necessario immagazzinarle in una qualche collezione per poter essere facilmente ottenibile dal giocatore o da un nemico, per questo è stato introdotto il concetto di interfaccia \textit{MoveSet} che ha tutti i metodi necessari per aggiungere, rimuovere e rimpiazzare le mosse di una collezione, che a sua volta viene implementata nella realizzazione della suddetta interfaccia, \textit{MoveSetImpl}.\\
+I \textit{MoveSet} dei diversi \textit{GameCharacter} sono generati attraverso l'uso del pattern \href{https://refactoring.guru/design-patterns/factory-method}{Factory Method} nell'interfaccia \textit{MoveSetFactory} implementata dalla classe \textit{MoveSetFactoryImpl} che contiene i metodi di creazione di MoveSet basilari di default o specifici (come quelli dei nemici o dei boss).\\
+
+Segue uno schema UML che rappresenta come vengono gestite le mosse.
+
+\begin{figure}[H]
+	\centering
+	\input{character/moves/moves-uml.tex}
+	\caption{Schema UML di come sono gestite le mosse.}
+	\label{fig:Schema UML di come sono gestite le mosse.}
+\end{figure}
+
+\subsubsection{Elementi della View}
+Alcune parti di come vengono mostrati i componenti grafici dell'applicativo sono stati realizzati insieme, per esempio:
+\begin{itemize}
+	\item La classe \textit{GameView} spiegata sopra.
+	\item La classe \textit{PlayerClassView} che mostra la finestra di selezione del tipo elementale del giocatore all'inizio del gioco.
+	\item La classe \textit{GameGridView} che mostra la griglia.
+	\item Elementi grafici della View come i bottoni, delle label particolari che compongono l'interfaccia.
+\end{itemize}
+
+Tutta la realizzazione delle sprites dei nemici, del carattere giocante e degli oggetti resa possibile da applicazioni di terze parti come \textit{Gimp}.
+
+\chapter{Sviluppo}
+
+\section{Testing automatizzato}
+Per realizzare test automatici è stata utilizzata la libreria \href{https://junit.org/junit5/}{JUnit 5} con l'ausilio della libreria di Mocking \href{https://github.com/mockito/mockito}{Mockito}. Per la copertura del codice dai test abbiamo fatto uso dello strumento di verifica \href{https://www.eclemma.org/jacoco/}{JaCoCo}, le classi che quindi sono state sottoposte a test automatizzati sono:
+
+\begin{itemize}
+	\item \textit{ItemFactoryImpl} $\longrightarrow$ 100\% della copertura.
+	\item \textit{MoveSetFactoryImpl} $\longrightarrow$ 100\% della copertura.
+	\item \textit{GameLauncher} che è il launcher del gioco: $\longrightarrow$ 100\% della copertura.
+	\item \textit{CellType, GameMapImpl, MapModelImpl} $\longrightarrow$ 95\% della copertura.
+	\item \textit{EnemyFactoryImpl} $\longrightarrow$ 95\% della copertura.
+	\item \textit{Command, MenuImpl, MenuModelImpl, MenuItem} $\longrightarrow$ 94\% della copertura.
+	\item ...
+\end{itemize}
+
+Qui verrà allegato il report di JaCoCo con le parti testate per brevità.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{jacoco-report.png}
+\end{figure}
+
+\section{Note di sviluppo}
+
+\subsection{Luca Casadei}
+Elencherò solamente un'occasione in cui si presentano queste parti di codice più avanzato, questo non impedisce che siano state usate anche in altre parti del progetto.
+\begin{itemize}
+	\item \textbf{Espressioni Lambda} e \textbf{Optional}: Utilizzati nella classe \textit{CharacterModel} nel metodo \textit{isCellEmpty} per verificare se una cella della mappa contiene qualcuno.\\
+	\url{https://github.com/luca-casadei/the-exiled/blob/9a97a74beb0dd351cf5b1f72e6dd4cbeed1acc43/src/main/java/unibo/exiled/model/character/CharacterModelImpl.java#L99-L100}
+	\item \textbf{Record}: Gli attributi sono gestiti come dei \textit{Java Records}, in particolare \textit{AdditiveAttributeImpl} e \textit{MultiplierAttributeImpl}.\\
+	\url{https://github.com/luca-casadei/the-exiled/blob/9a97a74beb0dd351cf5b1f72e6dd4cbeed1acc43/src/main/java/unibo/exiled/model/character/attributes/AdditiveAttributeImpl.java#L8}
+	\item \textbf{Libreria Mockito}: Usata per alcuni tests di JUnit, in particolare il test della classe \textit{CharacterControllerImpl}. Il permalink è relativo ad una piccola parte del codice dove viene usata questa libreria.\\
+	\url{https://github.com/luca-casadei/the-exiled/blob/506d8a5ed7be7028e52f6b9613cb84fc03198110/src/test/java/unibo/exiled/controller/TestCharacterControllerImpl.java#L49}
+	\item \textbf{\textit{AtomicReference}, \textit{Optional} e Stream}: Ho utilizzato \textit{AtomicReference\textlangle MagicMove\textrangle} per poter avere un riferimento modificabile in maniera atomica in un contesto in cui ho usato ifPresent() di optional per poter utilizzare gli stream. In questo caso mi è servito per poter ritornare il valore desiderato al metodo.
+	\url{https://github.com/luca-casadei/the-exiled/blob/4213b41b965a44db1f1a6ffffef8d3c11aab9434/src/main/java/unibo/exiled/model/move/Moves.java#L29-L34}
+\end{itemize}
+
+\subsection{Francesco Pazzaglia}
+
+\begin{itemize}
+	\item \textbf{Espressioni Lambda}: Utilizzate per le \textit{ActionListener} dei JButton in \textit{EndGameView}. \\
+	(Commit hash: cd059e5644230a791df2c09c787618c38d8383e7) \\
+	\url{https://github.com/luca-casadei/the-exiled/blob/a59eb1a55ef30e4a8236a7833d634999110a64a6/src/main/java/unibo/exiled/view/EndGameView.java#L62}
+	
+	\item \textbf{Optional}: Utilizzati in \textit{NewGameView}, \textit{GameView} e \textit{MenuView} per evitare l'utilizzo di \textit{null} nel passaggio di parametri delle View.\\
+	(Commit hash: ff875623f1167e0d13a2eb4ddd349d13e46523b6) \\
+	\url{https://github.com/luca-casadei/OOP23-the-exiled/blob/cf21d9c06eb9c5d18cb5b742c33f043e4b45e39d/src/main/java/unibo/exiled/view/NewGameView.java#L29}\\
+	\url{https://github.com/luca-casadei/OOP23-the-exiled/blob/cf21d9c06eb9c5d18cb5b742c33f043e4b45e39d/src/main/java/unibo/exiled/view/GameView.java#L92} \\
+	\url{https://github.com/luca-casadei/OOP23-the-exiled/blob/cf21d9c06eb9c5d18cb5b742c33f043e4b45e39d/src/main/java/unibo/exiled/view/MenuView.java#L38}
+	
+	\item \textbf{Stream}: Utilizzati nei Controller per controllare che il \textit{Player} abbia vinto il gioco. \\
+	(Commit hash: 7922ad177ce45d6b2c71743f39dcc260b7c44c0b)\\
+	\url{https://github.com/luca-casadei/the-exiled/blob/b5d735949ba7e010ffae414b746d4d7f464148ba/src/main/java/unibo/exiled/controller/CharacterControllerImpl.java#L197}
+	
+	\item \textbf{Font}: Utilizzato nella classe \textit{FontManager} per poter cambiare il font-style del gioco inserendo un font personalizzato. \\
+	(Commit hash: d21a30943434d99d77836f6705f9c5b0a9b9438c) \\ 
+	\url{https://github.com/luca-casadei/OOP23-the-exiled/blob/884364614a6dbfb22a62d7c36e7baecd75401f6a/src/main/java/unibo/exiled/utilities/FontManager.java#L12} \\
+	Ho preso spunto dalla documentazione Oracle: \\ \url{https://docs.oracle.com/javase/tutorial/2d/text/fonts.html}.
+\end{itemize}
+
+\subsection{Marco Magnani}
+\begin{itemize}
+	\item \textbf{Stream e Optional}: Utilizzati sia nell' \textit{ItemContainer} che nelle \textit{Moves} per ricavare esempio un item in base al tipo.\\ \url{https://github.com/luca-casadei/the-exiled/blob/71356cacbbef08c33f96d68802a33514823d3571/src/main/java/unibo/exiled/model/item/utilities/ItemsContainer.java#L76C7-L76C8}
+	\item \textbf{Stream}: In \textit{CharacterModelImpl} utilizzato per evitare la compenetrazione di enemy all'interno della mappa, aggiunto nel commit con hash: f25b577fb319fbbcb38154b3f2b8a3233d5c561b\\
+	\url{https://github.com/luca-casadei/the-exiled/blob/71356cacbbef08c33f96d68802a33514823d3571/src/main/java/unibo/exiled/model/character/CharacterModelImpl.java#L159C1-L160C1} 
+	\item \textbf{Optional}: In \textit{ElementalType} e \textit{ItemNames} il metodo per prendere le relative immagini ritorna un Optional per gestire il caso in cui la mossa non sia presente nel progetto\\
+	\url{https://github.com/luca-casadei/the-exiled/blob/71356cacbbef08c33f96d68802a33514823d3571/src/main/java/unibo/exiled/model/item/utilities/ItemNames.java#L83C1-L84C55}
+	\item \textbf{Stream}: Nella \textit{ItemsModel} utilizzata per la conversione da \textit{Map\textless Item,Integer\textgreater} a \textit{Map\textless String,Integer\textgreater} ed anche per filtrare gli oggetti in base al nome, aggiunto nel GameModel commit con hash: 2e72b6911f473bfa3ee8685cd61f14ae8922f936\\
+	\url{https://github.com/luca-casadei/the-exiled/blob/71356cacbbef08c33f96d68802a33514823d3571/src/main/java/unibo/exiled/model/item/ItemsModelImpl.java#L28C1-L28C90}
+	\item \textbf{Stream}: In \textit{InventoryView} quando vengono aggiornati i bottoni contenenti gli item li ordino in modo da migliorarne la visualizzazione.
+	\url{https://github.com/luca-casadei/the-exiled/blob/b0f1e9a189dbf365a0413e7249402b7342fd88a7/src/main/java/unibo/exiled/view/InventoryView.java#L106C1-L108C47}
+\end{itemize}
+
+
+\subsection{Manuel Baldoni}
+\begin{itemize}
+	\item \textbf{Stream}: Utilizzato nel metodo \textit{getEnemyRandomMoveName}. Per avere il nome di una mossa randomica.\\ \url{https://github.com/luca-casadei/OOP23-the-exiled/blob/2607859d3adef7b5c23090199e0807cd852fc256/src/main/java/unibo/exiled/controller/CombatControllerImpl.java#L137C5-L148C6}
+	\item \textbf{Stream}: Utilizzato nel metodo \textit{attack}. Per trovare la mossa effettuata dall'attaccante dal suo moveset.\\ \url{https://github.com/luca-casadei/OOP23-the-exiled/blob/2607859d3adef7b5c23090199e0807cd852fc256/src/main/java/unibo/exiled/controller/CombatControllerImpl.java#L156C2-L259C6}
+	\item \textbf{Optional ed Espressioni Lambda}: Utilizzate per le verificare la presenza dell'item droppato dal nemico e per aggiungerlo all'inventario.
+	\url{https://github.com/luca-casadei/OOP23-the-exiled/blob/2607859d3adef7b5c23090199e0807cd852fc256/src/main/java/unibo/exiled/controller/CombatControllerImpl.java#L203C9-L214C10}
+	\item \textbf{Espressione Lambda}: Utilizzata per gestire il listener del comando del menu.
+	\url{https://github.com/luca-casadei/OOP23-the-exiled/blob/2607859d3adef7b5c23090199e0807cd852fc256/src/main/java/unibo/exiled/view/MenuView.java#L67C9-L91C12}
+	\url{https://github.com/luca-casadei/OOP23-the-exiled/blob/2607859d3adef7b5c23090199e0807cd852fc256/src/main/java/unibo/exiled/view/CombatView.java#L95C17-L99C20}
+\end{itemize}
+
+\subsection{Codice preso da esterni}
+\begin{itemize}
+	\item \textbf{Wrap Layout}: E' un componente che estende il FlowLayout di \textit{java.awt}, consente ai componenti del Layout stesso di "andare a capo" quando occupano troppo spazio rispetto alla dimensione(altezza e larghezza) della finestra.\\ 
+	\url{https://gist.github.com/jirkapenzes/4560255}
+\end{itemize}
+
+\chapter{Commenti finali}
+
+\section{Autovalutazione e lavori futuri}
+
+\subsection{Luca Casadei}
+Personalmente ritengo che il mio contributo all'interno del team di sviluppo sia stato importante, sia per la parte realizzativa che per quella decisionale, ma non più importante di quella degli altri componenti del gruppo, con i quali è stato possibile lo confrontare le proprie idee di realizzazione, la corretta suddivisione dei compiti e uno sviluppo continuativo dell'applicazione anche se non necessariamente tutti presenti allo stesso momento o nello stesso luogo. Anche il caricamento del codice in parallelo con sistemi di controllo della versione è avvenuto in maniera secondo me pulita, perché tutti sono stati in grado di adottare questi strumenti in modo efficace senza creare troppi intoppi. Siccome la progettazione finale del progetto secondo me risulta abbastanza scalabile, non è esclusa l'ipotesi di arricchire ulteriormente il contenuto del gioco e le sue componenti, anche prendendo in forte considerazione la valutazione dei docenti.
+
+\subsection{Francesco Pazzaglia}
+
+Nonostante le parti complesse del progetto e il fatto di sviluppare un progetto in team mi avesse inizialmente intimorito, sono soddisfatto di come siamo riusciti a completare e consegnare il gioco. Di solito sono abituato a lavorare da solo, ma ho trovato la collaborazione del team piuttosto soddisfacente. Lo scambio di idee e il confronto ci hanno aiutato a coordinarci efficacemente, individuando i metodi e le classi necessarie per varie parti del progetto. Lavorare in team è stato molto formativo e mi ha permesso di apprezzare come si possa realizzare un progetto insieme, nonostante stili di programmazione talvolta diversi.
+
+\subsection{Marco Magnani}
+Il progetto è stato svolto con colleghi con cui ho avuto modo di collaborare già in precedenza alle superiori, quindi sapevo già prima cosa aspettarmi. La centralità della collaborazione e della discussione di idee è stata una costante durante lo sviluppo di questo progetto. Nel complesso, ritengo che il nostro lavoro sia stato soddisfacente, e in particolare, credo di aver gestito una buona parte del progetto sfruttando le competenze acquisite durante le lezioni.
+
+\subsection{Manuel Baldoni}
+Credo che tutti i componenti del gruppo siano individualmente molto preparati a livello di competenze di sviluppo e credo che siamo riusciti a collaborare in maniera efficace. Personalmente credo di aver svolto la mia parte di progetto in maniera efficace ed efficiente. Il mio contributo nelle altri parti del progetto sicuramente non è stato nel volume degli altri componenti del gruppo, tuttavia penso che alcuni miei interventi siano stati fondamentali per la realizzazione del progetto.
+
+\section{Difficoltà incontrate e commenti per i docenti}
+Nessun commento o difficoltà da segnalare.
+
+\appendix
+\chapter{Guida utente}
+Per la maggior parte delle azioni compibili nel gioco sono presenti bottoni sull'interfaccia, non è quindi necessario conoscere nessun particolare comando. Ne sono stati aggiunti alcuni aggiuntivi nell'inventario per l'apertura e la chiusura, come sottodescritto.
+\section{Movimento}
+Per muoversi sulla mappa a celle si usano i comandi:
+\begin{itemize}
+	\item \textit{W} per andare su.
+	\item \textit{S} per andare giù.
+	\item \textit{A} per andare a sinistra.
+	\item \textit{D} per andare a destra.
+\end{itemize}
+\section{Inventario}
+Si può aprire l'inventario con \textit{E} e richiuderlo con \textit{ESC}
+\section{Menu}
+Si può aprire il menu di gioco utilizzando \textit{ESC} quando si visualizza la mappa, e richiuderlo in maniera analoga.
+
+\chapter{Esercitazioni di laboratorio}
+Elenco dei Permalink delle consegne nel forum studenti del modulo di laboratorio.
+\section*{Consegne}
+\subsection{luca.casadei27@studio.unibo.it}
+\begin{itemize}
+	\item Laboratorio 06: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=146511#p208401}
+	\item Laboratorio 07: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=147598#p209323}
+	\item Laboratorio 08: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=148025#p209782}
+	\item Laboratorio 09: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=149231#p211336}
+	\item Laboratorio 10: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=150252#p212475}
+\end{itemize}
+
+\end{document}
