@@ -1,0 +1,222 @@
+/* Default components Style */
+/* Button */
+Button,CheckBox,RadioButton {
+	-fx-background-color : transparent;
+	-fx-border-color : linear-gradient(from 25% 25% to 100% 100%, #9630E6, #091970);
+	-fx-text-fill: linear-gradient(from 25% 25% to 100% 100%, #a8c0ff, #3f2b96);
+	-fx-border-radius : 50px;
+	-fx-padding: 10px;
+	-fx-effect: dropshadow(gaussian, rgba(150,48,230,0.8), 1, 1, 1, 1);
+}
+
+Button:hover {
+	-fx-background-color : linear-gradient(from 25% 25% to 100% 100%, #9630E6, #091970);
+	-fx-text-fill: #000000;
+	-fx-background-radius : 50px;
+}
+
+#lblTitle {
+	-fx-text-fill: linear-gradient(from 25% 25% to 100% 100%, #ff3d7c, #ffc549);
+	-fx-alignment: center;
+}
+
+Label {
+	-fx-text-fill: linear-gradient(from 25% 25% to 100% 100%, #ff3d7c, #ffc549);
+	-fx-alignment: center;
+}
+
+Panel{
+	-fx-background-color : #212121;
+}
+
+#canvas{
+	-fx-background-color : #212121;
+}
+
+TextField {
+	-fx-background-color : transparent;
+	-fx-border-color : linear-gradient(from 25% 25% to 100% 100%, #9630E6, #091970);
+	-fx-text-fill: linear-gradient(from 25% 25% to 100% 100%, #a8c0ff, #3f2b96);
+	-fx-prompt-text-fill: linear-gradient(from 25% 25% to 100% 100%, #a8c0ff, #3f2b96);
+	-fx-border-radius : 50px;
+	-fx-padding: 20px;
+}
+/* Check box */
+.check-box .box {
+	
+	-fx-background-color: transparent;
+	-fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #9630E6, #091970);
+	-fx-border-radius: 30px; 
+	-fx-background-radius : 30px;
+
+}
+
+.check-box:selected .mark {
+	
+	-fx-background-radius : 30px;
+	-fx-background-color: white;
+
+}
+
+.check-box:selected .box {
+	
+	-fx-background-radius : 30px;
+	-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #9630E6, #091970);
+}
+
+/* Radio Button  */
+
+.radio-button .radio {
+    -fx-border-width: 1px;
+	-fx-border-color: linear-gradient(from 25% 25% to 100% 100%, #9630E6, #091970);
+    -fx-background-color: transparent;
+    -fx-background-image: null;
+    -fx-border-radius: 15px;
+    -fx-padding: 4px;
+}
+.radio-button .radio:selected {
+	-fx-border-color: transparent;
+    -fx-background-image: null;
+}
+.radio-button -radio:armed {
+	-fx-border-color: white;
+    -fx-background-image: null;
+}
+.radio-button -radio:determinate {
+	-fx-border-color: white;
+    -fx-background-image: null;
+}
+.radio-button -radio:indeterminate {
+	-fx-border-color: white;
+    -fx-background-image: null;
+}
+.radio-button .dot {
+    -fx-background-radius: 50px;
+    -fx-padding: 8px;
+    -fx-mark-highlight-color:  linear-gradient(from 25% 25% to 100% 100%, #9630E6, #091970);
+    -fx-mark-color: linear-gradient(from 25% 25% to 100% 100%, #9630E6, #091970);
+}
+
+.table-view{
+   -fx-background-color: transparent;
+   -fx-text-background-color: linear-gradient(from 25% 25% to 100% 100%, #ff3d7c, #ffc549);
+}
+
+.table-view .table-column{
+	-fx-alignment: CENTER;	
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: transparent;
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-background-insets: 0 11px 0 0;
+    -fx-padding: 0 0 5px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-font-size: 24px;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+    
+}
+.table-row-cell:hover {
+   -fx-background-color: transparent;
+    -fx-text-background-color: linear-gradient(from 25% 25% to 100% 100%, #a8c0ff, #3f2b96);
+}
+.table-row-cell:odd{
+   -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+   -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+/* Scroll Bar */
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  linear-gradient(to bottom, #1dbbdd44, #93f9b944);
+}
+
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  linear-gradient(to right, #1dbbdd44, #93f9b944);
+}
+
+/* All View  */
+/* Menu View */
+.mainPanelMenu {
+	-fx-background-image: url("/Images/mainMenuImg/background.png");
+	-fx-background-position: 1%;
+	-fx-background-repeat: stretch;
+	-fx-background-size: cover;
+}
+
+/* Settings View */
+.mainPanelSettings {
+	-fx-background-image: url("/Images/mainMenuImg/background.png");
+	-fx-background-position: 1%;
+	-fx-background-size: cover;
+}
+
+/* Tutorial View */
+.mainPanelTutorial {
+	-fx-background-image: url("/Images/mainMenuImg/background.png");
+	-fx-background-position: 1%;
+	-fx-background-size: cover;
+}
+
+/* Ranking View */
+.mainPanelRanking {
+	-fx-background-image: url("/Images/mainMenuImg/background.png");
+	-fx-background-position: 1%;
+	-fx-background-repeat: stretch;
+	-fx-background-size: cover;
+}
+
+#lblColumnTitle {
+	
+}
+
+/* Character View */
+.mainPanelCharacter {
+	-fx-background-image: url("/Images/mainMenuImg/background.png");
+	-fx-background-position: 1%;
+	-fx-background-repeat: stretch;
+	-fx-background-size: cover;
+}
+
+/* Difficulty View */
+.mainPanelDifficulty {
+	-fx-background-image: url("/Images/mainMenuImg/background.png");
+	-fx-background-position: 1%;
+	-fx-background-repeat: stretch;
+	-fx-background-size: cover;
+}

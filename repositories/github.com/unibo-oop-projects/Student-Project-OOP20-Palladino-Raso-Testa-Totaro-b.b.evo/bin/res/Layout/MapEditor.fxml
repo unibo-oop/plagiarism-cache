@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane fx:id="panel" dividerPositions="0.7456" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.scene.ControllerMapEditor">
+  <items>
+      <Pane prefHeight="700.0" prefWidth="400.0" style="-fx-background-image: url(&quot;/Images/mainMenuImg/background.png&quot;);">
+         <children>
+            <Label fx:id="creativeModeLbl" layoutX="136.0" layoutY="22.0" text="CREATIVE MODE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="soundtrackLbl" layoutX="20.0" layoutY="59.0" prefHeight="29.0" prefWidth="166.0" text="SELECT THE SOUNDTRACK">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="soundtrack" layoutX="28.0" layoutY="98.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FB7DFF);">
+               <effect>
+                  <DropShadow height="20.0" radius="9.5" width="20.0" />
+               </effect>
+            </ComboBox>
+            <Label fx:id="backGroundLlb" layoutX="205.0" layoutY="58.0" prefHeight="30.0" prefWidth="170.0" text="SELECT THE BACKGROUND">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="backGround" layoutX="222.0" layoutY="98.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FB7DFF);">
+               <effect>
+                  <DropShadow height="20.0" radius="9.5" width="20.0" />
+               </effect>
+            </ComboBox>
+            <Label fx:id="ballLbl" layoutX="86.0" layoutY="150.0" text="BALL">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="ballTexture" layoutX="28.0" layoutY="177.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FB7DFF);">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <Label fx:id="paddleLbl" layoutX="263.0" layoutY="150.0" text="PADDLE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="paddleTexture" layoutX="222.0" layoutY="177.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FB7DFF);">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <Label fx:id="brickLbl" layoutX="150.0" layoutY="264.0" text="BRICK  SETUP">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="brickTexture" layoutX="28.0" layoutY="308.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FB7DFF);">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <CheckBox fx:id="powerupTexture" layoutX="226.0" layoutY="301.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="153.0" text="POWERUP">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="unbreakableCheck" layoutX="226.0" layoutY="360.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="153.0" text="UNBREAKABLE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </CheckBox>
+            <Label fx:id="durabilityLbl" layoutX="77.0" layoutY="349.0" prefHeight="30.0" prefWidth="79.0" text="DURABILITY">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Slider fx:id="durabilitySet" blockIncrement="5.0" layoutX="20.0" layoutY="387.0" max="20.0" min="1.0" prefHeight="40.0" prefWidth="166.0" showTickLabels="true" showTickMarks="true" style="-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FB7DFF); -fx-background-radius: 10;" />
+            <Label fx:id="levelNameLbl" layoutX="155.0" layoutY="512.0" prefHeight="27.0" prefWidth="81.0" text="LEVEL NAME">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="levelName" layoutX="32.0" layoutY="557.0" prefHeight="27.0" prefWidth="328.0" style="-fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FB7DFF); -fx-background-radius: 30;" />
+            <Button fx:id="menu" layoutX="29.0" layoutY="625.0" mnemonicParsing="false" onMouseClicked="#backToMenu" text="MENU CREATIVE" textFill="#1b1919">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="build" layoutX="169.0" layoutY="625.0" mnemonicParsing="false" onMouseClicked="#buildLvl" text="BUILD" textFill="#171616">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <effect>
+                  <DropShadow height="20.0" radius="9.5" width="20.0" />
+               </effect>
+            </Button>
+            <Button fx:id="clear" layoutX="264.0" layoutY="625.0" mnemonicParsing="false" onMouseClicked="#clearAll" text="CLEAR" textFill="#111010">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+      </Pane>
+      <Canvas fx:id="canvas" height="700.0" width="400.0" SplitPane.resizableWithParent="false" />
+  </items>
+</SplitPane>

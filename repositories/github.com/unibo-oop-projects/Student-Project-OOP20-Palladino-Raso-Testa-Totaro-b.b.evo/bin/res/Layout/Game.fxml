@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.scene.ControllerGame">
+   <items>
+      <VBox fx:id="dashboard" alignment="CENTER" prefHeight="410.0" prefWidth="188.0" spacing="20.0" style="-fx-background-image: url(&quot;/Images/background/GalagaBackground.png&quot;); -fx-background-size: stretch;">
+         <children>
+            <Label fx:id="lblTitle" text="BRICK-BREAKER" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label />
+            <Label />
+            <Label fx:id="lblScore" text="SCORE:" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblPowerUp" text="LAST ACTIVE POWERUP:" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblLives" text="LIVES:" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEsc" text="Press esc to return to menu" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblPlay" text="-- Insert coin to start using space--" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Pane fx:id="panel">
+         <children>
+            <Canvas fx:id="canvas" focusTraversable="true" />
+         </children>
+      </Pane>
+   </items>
+</SplitPane>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainPanelDifficulty" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.scene.ControllerDifficulty">
+   <children>
+      <BorderPane fx:id="panel" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox fx:id="titleContainer" alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lblTitle" text="choose difficulty">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
+            </HBox>
+         </top>
+         <center>
+            <VBox fx:id="radioButtonContainer" alignment="CENTER" spacing="50.0" BorderPane.alignment="CENTER">
+               <children>
+                  <RadioButton fx:id="ckNormalDifficulty" mnemonicParsing="false" prefHeight="100.0" prefWidth="309.0" styleClass="menuButton" text="NORMAL" textAlignment="CENTER">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Difficulty" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="ckHardDifficulty" mnemonicParsing="false" prefHeight="100.0" prefWidth="304.0" styleClass="menuButton" text="HARD" textAlignment="CENTER" toggleGroup="$Difficulty" />
+                  <Button fx:id="btnStartGame" mnemonicParsing="false" prefHeight="40.0" styleClass="menuButton" text="Start Game" />
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
+            </VBox>
+         </center>
+         <bottom>
+            <HBox fx:id="btnBackContainer" alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnBack" mnemonicParsing="false" styleClass="menuButton" text="Back">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="30.0" top="30.0" />
+               </padding>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

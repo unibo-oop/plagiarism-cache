@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane fx:id="window" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.scene.ControllerGameOver">
+   <items>
+      <BorderPane fx:id="panel" style="-fx-background-image: url(&quot;/Images/background/GameOverBackground.png&quot;); -fx-background-size: stretch;">
+         <top>
+            <HBox fx:id="titleContainer" alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lblTitle" text="GAME OVER!" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="70.0" />
+                     </font>
+                     <padding>
+                        <Insets top="50.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+         </top>
+         <center>
+            <VBox fx:id="buttonContainer" alignment="CENTER" prefHeight="270.0" prefWidth="471.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lblScore" text="YOUR SCORE: ">
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin></Label>
+                  <Button fx:id="btnMenu" mnemonicParsing="false" prefHeight="90.0" prefWidth="557.0" styleClass="menuButton" text="Return to menu" />
+                  <Button fx:id="btnRanking" mnemonicParsing="false" prefHeight="90.0" prefWidth="557.0" styleClass="menuButton" text="Ranking" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+         <bottom>
+            <HBox fx:id="coinContainer" alignment="TOP_CENTER" prefHeight="46.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lblCoins" prefHeight="46.0" text="Insert Coin : 0/2">
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin></Label>
+                  <Label fx:id="lblHighscore" prefHeight="46.0" text="HIGHSCORE:" />
+               </children>
+               <padding>
+                  <Insets bottom="20.0" />
+               </padding>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </items>
+</SplitPane>
