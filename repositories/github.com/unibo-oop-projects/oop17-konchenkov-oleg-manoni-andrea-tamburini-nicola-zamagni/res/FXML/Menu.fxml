@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="backgroundImage" fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <Rectangle fx:id="screenBackGround" arcHeight="5.0" arcWidth="5.0" height="768.0" opacity="0.51" stroke="BLACK" strokeType="INSIDE" visible="false" width="1024.0" />
+      <Pane fx:id="paneTot" layoutY="6.0" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0">
+         <children>
+            <Button fx:id="newGame" focusTraversable="false" layoutX="387.0" layoutY="435.0" mnemonicParsing="false" onAction="#actionNewGame" prefHeight="31.0" prefWidth="251.0" text="New Game" textAlignment="CENTER">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
+            <Button fx:id="Options" focusTraversable="false" layoutX="387.0" layoutY="532.0" mnemonicParsing="false" onAction="#actionOption" prefHeight="31.0" prefWidth="251.0" text="Options" textAlignment="CENTER">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
+            <Button fx:id="Quit" focusTraversable="false" layoutX="387.0" layoutY="633.0" mnemonicParsing="false" onAction="#actionQuit" prefHeight="31.0" prefWidth="251.0" text="Quit" textAlignment="CENTER">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
+            <ImageView fx:id="optionButton" fitHeight="35.0" fitWidth="251.0" layoutX="387.0" layoutY="532.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/menuoptionoff.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="newGameButton" fitHeight="35.0" fitWidth="251.0" layoutX="387.0" layoutY="435.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/menunewgamenoff.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="quitButton" fitHeight="35.0" fitWidth="251.0" layoutX="387.0" layoutY="633.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/menuquitoff.png" />
+               </image>
+            </ImageView>
+            <Rectangle fx:id="optionRect" arcHeight="5.0" arcWidth="5.0" fill="#000000d9" height="350.0" layoutX="658.0" layoutY="318.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="224.0" />
+            <Rectangle fx:id="musicRect" arcHeight="5.0" arcWidth="5.0" height="34.0" layoutX="671.0" layoutY="443.0" stroke="BLACK" strokeType="INSIDE" width="196.0" />
+            <Rectangle fx:id="resolutionRect" arcHeight="5.0" arcWidth="5.0" height="34.0" layoutX="671.0" layoutY="333.0" stroke="BLACK" strokeType="INSIDE" width="196.0" />
+            <Label fx:id="lblRes" focusTraversable="false" layoutX="680.0" layoutY="327.0" prefHeight="46.0" prefWidth="187.0" text="Resolution" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMusic" focusTraversable="false" layoutX="684.0" layoutY="437.0" prefHeight="46.0" prefWidth="117.0" text="Music" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="optionCombo" layoutX="694.0" layoutY="373.0" prefWidth="150.0" style="-fx-background-color: #000000;" />
+            <Slider fx:id="musicSlider" layoutX="671.0" layoutY="486.0" minorTickCount="1" onMouseClicked="#changedMusic" onMouseDragged="#changedMusic" prefHeight="14.0" prefWidth="206.0" showTickLabels="true" showTickMarks="true" value="75.0" />
+            <Button fx:id="QuitOption" focusTraversable="false" layoutX="802.0" layoutY="621.0" mnemonicParsing="false" onAction="#actionOptionQuit" prefHeight="31.0" prefWidth="68.0" text="Quit" textAlignment="CENTER">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
+            <Button fx:id="SaveOption" focusTraversable="false" layoutX="677.0" layoutY="621.0" mnemonicParsing="false" onAction="#actionOptionSave" prefHeight="31.0" prefWidth="68.0" text="Save" textAlignment="CENTER">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
+            <Label fx:id="lblChangeMusic" layoutX="800.0" layoutY="443.0" onMousePressed="#changedMusic" prefHeight="34.0" prefWidth="68.0" text="15" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="saveOptionButton" fitHeight="33.0" fitWidth="68.0" layoutX="677.0" layoutY="621.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/menusaveoptionoff.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="quitOptionButton" fitHeight="33.0" fitWidth="68.0" layoutX="802.0" layoutY="621.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/menuquitoptionoff.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="arrowsKey" fitHeight="258.0" fitWidth="309.0" layoutX="78.0" layoutY="437.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/images/freccette.png" />
+               </image>
+            </ImageView>
+            <CheckBox fx:id="checkFull" focusTraversable="false" layoutX="721.0" layoutY="410.0" mnemonicParsing="false" text="Fullscreen" textFill="WHITE" />
+            <Button fx:id="Demo" focusTraversable="false" layoutX="387.0" layoutY="485.0" mnemonicParsing="false" onAction="#actionDemo" prefHeight="31.0" prefWidth="251.0" text="Demo" textAlignment="CENTER">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
+            <ImageView fx:id="demoButton" fitHeight="35.0" fitWidth="251.0" layoutX="387.0" layoutY="485.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/menudemooff.png" />
+               </image>
+            </ImageView>
+            <Rectangle fx:id="soundRect" arcHeight="5.0" arcWidth="5.0" height="34.0" layoutX="670.0" layoutY="530.0" stroke="BLACK" strokeType="INSIDE" width="196.0" />
+            <Label fx:id="lblSound" focusTraversable="false" layoutX="683.0" layoutY="524.0" prefHeight="46.0" prefWidth="117.0" text="Sound" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Slider fx:id="soundSlider" layoutX="670.0" layoutY="573.0" minorTickCount="1" onMouseClicked="#changedSound" onMouseDragged="#changedSound" prefHeight="14.0" prefWidth="206.0" showTickLabels="true" showTickMarks="true" value="75.0" />
+            <Label fx:id="lblChangeSound" layoutX="799.0" layoutY="530.0" onMousePressed="#changedSound" prefHeight="34.0" prefWidth="68.0" text="15" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Rectangle fx:id="rectExitScreen" arcHeight="5.0" arcWidth="5.0" height="768.0" opacity="0.51" stroke="BLACK" strokeType="INSIDE" visible="false" width="1024.0" />
+      <Pane fx:id="paneDialog" layoutX="329.0" layoutY="211.0" prefHeight="277.0" prefWidth="387.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2c2c2c" height="277.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
+            <Label id="labeldialog" layoutX="130.0" layoutY="44.0" prefHeight="50.0" prefWidth="117.0" text="QUIT?" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label id="labeldialog" layoutY="98.0" prefHeight="103.0" prefWidth="372.0" text="Are you sure you want to quit the game?" textFill="WHITE">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnYes" layoutX="62.0" layoutY="204.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="85.0" text="Yes" />
+            <Button fx:id="btnNo" layoutX="241.0" layoutY="204.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="85.0" text="No" />
+            <ImageView fx:id="yesButton" fitHeight="43.0" fitWidth="85.0" layoutX="62.0" layoutY="204.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/dialogyesoff.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="noButton" fitHeight="43.0" fitWidth="85.0" layoutX="241.0" layoutY="204.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/dialognooff.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #c0c0c0;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="backgroundImage" fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../scorchalfa/res/images/sfondo1920x1080.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="screenBackGround" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="768.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="1024.0" />
+      <Pane fx:id="paneTot" maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0">
+         <children>
+            <Rectangle fx:id="recPlayers" arcHeight="5.0" arcWidth="5.0" height="720.0" layoutX="27.0" layoutY="14.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="503.0" />
+            <Rectangle fx:id="recData" arcHeight="5.0" arcWidth="5.0" height="200.0" layoutX="566.0" layoutY="415.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="385.0" />
+            <Label layoutX="40.0" layoutY="35.0" text="Name" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="107.0" text="Name" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labname3" layoutX="40.0" layoutY="179.0" text="Name" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labname4" layoutX="40.0" layoutY="251.0" text="Name" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labname5" layoutX="40.0" layoutY="323.0" text="Name" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labname6" layoutX="40.0" layoutY="395.0" text="Name" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labname7" layoutX="40.0" layoutY="467.0" text="Name" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labname8" layoutX="40.0" layoutY="539.0" text="Name" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labname9" layoutX="40.0" layoutY="611.0" text="Name" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labname10" layoutX="40.0" layoutY="683.0" text="Name" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="270.0" layoutY="35.0" text="Color" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="270.0" layoutY="107.0" text="Color" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labcol3" layoutX="270.0" layoutY="179.0" text="Color" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labcol4" layoutX="270.0" layoutY="251.0" text="Color" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labcol5" layoutX="270.0" layoutY="323.0" text="Color" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labcol6" layoutX="270.0" layoutY="395.0" text="Color" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labcol7" layoutX="270.0" layoutY="467.0" text="Color" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labcol8" layoutX="270.0" layoutY="539.0" text="Color" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labcol9" layoutX="270.0" layoutY="611.0" text="Color" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labcol10" layoutX="270.0" layoutY="683.0" text="Color" textFill="WHITE" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonless3" layoutX="471.0" layoutY="153.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="-" visible="false" />
+            <Button fx:id="buttonless4" layoutX="471.0" layoutY="225.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="-" visible="false" />
+            <Button fx:id="buttonless5" layoutX="471.0" layoutY="297.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="-" visible="false" />
+            <Button fx:id="buttonless6" layoutX="471.0" layoutY="369.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="-" visible="false" />
+            <Button fx:id="buttonless7" layoutX="471.0" layoutY="441.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="-" visible="false" />
+            <Button fx:id="buttonless8" layoutX="471.0" layoutY="513.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="-" visible="false" />
+            <Button fx:id="buttonless9" layoutX="471.0" layoutY="585.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="-" visible="false" />
+            <Button fx:id="buttonless10" layoutX="471.0" layoutY="657.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="-" visible="false" />
+            <TextField fx:id="text1" layoutX="105.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0" />
+            <TextField fx:id="text2" layoutX="105.0" layoutY="105.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0" />
+            <TextField fx:id="text3" layoutX="105.0" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0" visible="false" />
+            <TextField fx:id="text4" layoutX="105.0" layoutY="249.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0" visible="false" />
+            <TextField fx:id="text5" layoutX="105.0" layoutY="321.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0" visible="false" />
+            <TextField fx:id="text6" layoutX="105.0" layoutY="393.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0" visible="false" />
+            <TextField fx:id="text7" layoutX="105.0" layoutY="465.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0" visible="false" />
+            <TextField fx:id="text8" layoutX="105.0" layoutY="537.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0" visible="false" />
+            <TextField fx:id="text9" layoutX="105.0" layoutY="609.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0" visible="false" />
+            <TextField fx:id="text10" layoutX="105.0" layoutY="681.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0" visible="false" />
+            <ComboBox fx:id="combo1" focusTraversable="false" layoutX="342.0" layoutY="33.0" prefHeight="25.0" prefWidth="124.0" />
+            <ComboBox fx:id="combo2" focusTraversable="false" layoutX="342.0" layoutY="105.0" prefHeight="25.0" prefWidth="124.0" />
+            <ComboBox fx:id="combo3" focusTraversable="false" layoutX="342.0" layoutY="177.0" prefHeight="25.0" prefWidth="124.0" visible="false" />
+            <ComboBox fx:id="combo4" focusTraversable="false" layoutX="342.0" layoutY="249.0" prefHeight="25.0" prefWidth="124.0" visible="false" />
+            <ComboBox fx:id="combo5" focusTraversable="false" layoutX="342.0" layoutY="321.0" prefHeight="25.0" prefWidth="124.0" visible="false" />
+            <ComboBox fx:id="combo6" focusTraversable="false" layoutX="342.0" layoutY="393.0" prefHeight="25.0" prefWidth="124.0" visible="false" />
+            <ComboBox fx:id="combo7" focusTraversable="false" layoutX="342.0" layoutY="465.0" prefHeight="25.0" prefWidth="124.0" visible="false" />
+            <ComboBox fx:id="combo8" focusTraversable="false" layoutX="342.0" layoutY="537.0" prefHeight="25.0" prefWidth="124.0" visible="false" />
+            <ComboBox fx:id="combo9" focusTraversable="false" layoutX="342.0" layoutY="609.0" prefHeight="25.0" prefWidth="124.0" visible="false" />
+            <ComboBox fx:id="combo10" focusTraversable="false" layoutX="342.0" layoutY="681.0" prefHeight="25.0" prefWidth="124.0" visible="false" />
+            <Button fx:id="buttonplus3" layoutX="242.0" layoutY="161.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="56.0" text="+">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonplus4" layoutX="242.0" layoutY="233.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="56.0" text="+" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonplus5" layoutX="242.0" layoutY="305.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="56.0" text="+" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonplus6" layoutX="242.0" layoutY="377.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="56.0" text="+" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonplus7" layoutX="242.0" layoutY="449.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="56.0" text="+" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonplus8" layoutX="242.0" layoutY="521.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="56.0" text="+" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonplus9" layoutX="242.0" layoutY="593.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="56.0" text="+" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonplus10" layoutX="242.0" layoutY="665.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="56.0" text="+" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="plusImage3" fitHeight="57.0" fitWidth="57.0" layoutX="241.0" layoutY="161.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/+off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="plusImage4" fitHeight="57.0" fitWidth="57.0" layoutX="241.0" layoutY="233.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/+off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="plusImage5" fitHeight="57.0" fitWidth="57.0" layoutX="241.0" layoutY="305.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/+off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="plusImage6" fitHeight="57.0" fitWidth="57.0" layoutX="241.0" layoutY="377.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/+off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="plusImage7" fitHeight="57.0" fitWidth="57.0" layoutX="241.0" layoutY="449.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/+off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="plusImage8" fitHeight="57.0" fitWidth="57.0" layoutX="241.0" layoutY="521.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/+off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="plusImage9" fitHeight="57.0" fitWidth="57.0" layoutX="241.0" layoutY="593.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/+off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="plusImage10" fitHeight="57.0" fitWidth="57.0" layoutX="241.0" layoutY="665.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/+off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="lessImage3" fitHeight="26.0" fitWidth="21.0" layoutX="471.0" layoutY="153.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/-off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="lessImage4" fitHeight="26.0" fitWidth="21.0" layoutX="471.0" layoutY="225.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/-off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="lessImage5" fitHeight="26.0" fitWidth="21.0" layoutX="471.0" layoutY="297.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/-off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="lessImage6" fitHeight="26.0" fitWidth="21.0" layoutX="471.0" layoutY="369.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/-off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="lessImage7" fitHeight="26.0" fitWidth="21.0" layoutX="471.0" layoutY="441.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/-off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="lessImage8" fitHeight="26.0" fitWidth="21.0" layoutX="471.0" layoutY="513.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/-off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="lessImage9" fitHeight="26.0" fitWidth="21.0" layoutX="471.0" layoutY="585.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/-off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="lessImage10" fitHeight="26.0" fitWidth="21.0" layoutX="471.0" layoutY="657.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/-off.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonStart" focusTraversable="false" layoutX="767.0" layoutY="653.0" mnemonicParsing="false" onAction="#actionStart" prefHeight="41.0" prefWidth="94.0" text="Start" />
+            <Button fx:id="buttonQuit" layoutX="880.0" layoutY="653.0" mnemonicParsing="false" onAction="#actionBack" prefHeight="41.0" prefWidth="100.0" text="Quit" />
+            <Label layoutX="609.0" layoutY="432.0" prefHeight="32.0" prefWidth="113.0" text="Location" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="652.0" layoutY="476.0" prefHeight="32.0" prefWidth="79.0" text="Fluid" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="586.0" layoutY="519.0" prefHeight="32.0" prefWidth="147.0" text="Fluid Flow" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="665.0" layoutY="565.0" prefHeight="32.0" prefWidth="64.0" text="Seed" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox id="combospec" fx:id="comboLocation" layoutX="731.0" layoutY="435.0" prefHeight="25.0" prefWidth="176.0" />
+            <ComboBox id="combospec" fx:id="comboFluid" layoutX="731.0" layoutY="479.0" prefHeight="25.0" prefWidth="176.0" />
+            <RadioButton fx:id="radioWind1" layoutX="751.0" layoutY="524.0" mnemonicParsing="false" text="On" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="radioWind2" layoutX="838.0" layoutY="524.0" mnemonicParsing="false" text="Off" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </RadioButton>
+            <TextField fx:id="textSeed" layoutX="731.0" layoutY="568.0" prefHeight="25.0" prefWidth="176.0" />
+            <ImageView fx:id="startButton" fitHeight="46.0" fitWidth="94.0" layoutX="767.0" layoutY="653.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/newgamestartoff.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="quitButton" fitHeight="46.0" fitWidth="102.0" layoutX="880.0" layoutY="653.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/newgamequitoff.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tick1" fitHeight="46.0" fitWidth="47.0" layoutX="479.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/images/tick.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tick2" fitHeight="46.0" fitWidth="47.0" layoutX="479.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/images/tick.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tick3" fitHeight="46.0" fitWidth="47.0" layoutX="479.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/images/tick.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tick4" fitHeight="46.0" fitWidth="47.0" layoutX="479.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/images/tick.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tick5" fitHeight="46.0" fitWidth="47.0" layoutX="479.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/images/tick.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tick6" fitHeight="46.0" fitWidth="47.0" layoutX="479.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/images/tick.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tick7" fitHeight="46.0" fitWidth="47.0" layoutX="479.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/images/tick.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tick8" fitHeight="46.0" fitWidth="47.0" layoutX="479.0" layoutY="545.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/images/tick.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tick9" fitHeight="46.0" fitWidth="47.0" layoutX="479.0" layoutY="621.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/images/tick.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tick10" fitHeight="46.0" fitWidth="47.0" layoutX="479.0" layoutY="693.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../scorchalfa/res/images/tick.png" />
+               </image>
+            </ImageView>
+            <Rectangle fx:id="recBlock1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="342.0" layoutY="32.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+            <Rectangle fx:id="recBlock2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="342.0" layoutY="104.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+            <Rectangle fx:id="recBlock3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="342.0" layoutY="176.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+            <Rectangle fx:id="recBlock4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="342.0" layoutY="248.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+            <Rectangle fx:id="recBlock5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="342.0" layoutY="320.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+            <Rectangle fx:id="recBlock6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="342.0" layoutY="392.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+            <Rectangle fx:id="recBlock7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="342.0" layoutY="464.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+            <Rectangle fx:id="recBlock8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="342.0" layoutY="536.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+            <Rectangle fx:id="recBlock9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="342.0" layoutY="608.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+            <Rectangle fx:id="recBlock10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="27.0" layoutX="342.0" layoutY="680.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+         </children>
+      </Pane>
+      <Rectangle fx:id="rectExitScreen" arcHeight="5.0" arcWidth="5.0" height="768.0" opacity="0.51" stroke="BLACK" strokeType="INSIDE" visible="false" width="1024.0" />
+      <Pane fx:id="paneDialog" layoutX="331.0" layoutY="211.0" prefHeight="277.0" prefWidth="387.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2c2c2c" height="277.0" stroke="BLACK" strokeType="INSIDE" width="387.0" />
+            <Label layoutX="147.0" layoutY="44.0" prefHeight="50.0" prefWidth="94.0" text="QUIT?" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="114.0" prefHeight="50.0" prefWidth="372.0" text="Are you sure you want to quit the game?" textFill="WHITE">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnYes" layoutX="62.0" layoutY="191.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="85.0" text="Yes" />
+            <Button fx:id="btnNo" layoutX="241.0" layoutY="191.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="85.0" text="No" />
+            <ImageView fx:id="yesButton" fitHeight="43.0" fitWidth="85.0" layoutX="62.0" layoutY="191.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/dialogyesoff.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="noButton" fitHeight="43.0" fitWidth="85.0" layoutX="241.0" layoutY="191.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../scorchalfa/res/buttons/dialognooff.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

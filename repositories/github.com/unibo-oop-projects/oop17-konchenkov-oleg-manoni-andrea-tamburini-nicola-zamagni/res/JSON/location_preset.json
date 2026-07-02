@@ -1,0 +1,53 @@
+{
+	"locations": [{
+			"name": "Earth",
+			"surfaceGravity": 9.80665,
+			"battlefieldWidth":1000,
+			"battlefieldHeight":300,
+			"battlefieldWaveLength":100,
+			"fluids": [{
+					"name": "Air",
+					"density": 1.225,
+					"maxFluidSpeed": 100.0,
+					"maxProjectileInitialSpeed": 100,
+					"backgroundImage": "earth_air.png"
+				},
+				{
+					"name": "Water",
+					"density": 9.99906,
+					"maxFluidSpeed": 10.0,
+					"maxProjectileInitialSpeed": 200,
+					"backgroundImage": "earth_water.png"
+				}
+			]
+		},
+		{
+			"name": "Moon",
+			"surfaceGravity": 1.624,
+			"battlefieldWidth":2000,
+			"battlefieldHeight":600,
+			"battlefieldWaveLength":400,
+			"fluids": [{
+				"name": "None",
+				"density": 0.0,
+				"maxFluidSpeed": 0.0,
+				"maxProjectileInitialSpeed": 55,
+				"backgroundImage": "moon.png"
+			}]
+		},
+		{
+			"name": "Mars",
+			"surfaceGravity": 3.71,
+			"battlefieldWidth":1000,
+			"battlefieldHeight":300,
+			"battlefieldWaveLength":150,
+			"fluids": [{
+				"name": "CO2",
+				"density": 0.015029,
+				"maxFluidSpeed": 600.0,
+				"maxProjectileInitialSpeed": 60,
+				"backgroundImage": "mars.png"
+			}]
+		}
+	]
+}
