@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="430.0" prefWidth="590.0" spacing="10.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rogue.view.menu.MenuViewImpl">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="82.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Torch_Gif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="224.0" fitWidth="352.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/RogueMenu.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="82.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Torch_Gif.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label fx:id="insertNameLabel" alignment="CENTER" prefHeight="45.0" prefWidth="447.0" text="PLEASE ENTER YOUR NAME" textFill="#d98811">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTextField" alignment="CENTER" maxHeight="53.0" maxWidth="500.0" onKeyPressed="#onNameEnter" opacity="0.61" prefHeight="53.0" prefWidth="456.0" style="-fx-background-color: white;">
+         <font>
+            <Font name="System Italic" size="17.0" />
+         </font>
+      </TextField>
+      <Label text="PRESS ENTER TO BEGIN" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="100.0" right="100.0" />
+   </padding>
+</VBox>
