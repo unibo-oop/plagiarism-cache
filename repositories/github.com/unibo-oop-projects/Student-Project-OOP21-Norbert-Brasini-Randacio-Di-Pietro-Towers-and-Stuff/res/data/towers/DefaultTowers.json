@@ -1,0 +1,135 @@
+{
+    "basicarcher" : {
+        "damage": 60,
+        "radius": 650,
+        "delay" : 500,
+        "cost": 200,
+        "name": "archer"
+    },
+    "biarcher": {
+        "damage": 65,
+        "radius": 650,
+        "delay" : 500,
+        "cost": 250,
+        "name": "biarcher"
+    },
+    "triarcher": {
+        "damage": 70,
+        "radius": 650,
+        "delay" : 500,
+        "cost": 300,
+        "name": "triarcher"
+    },
+    "quadarcher": {
+        "damage": 75,
+        "radius": 650,
+        "delay" : 500,
+        "cost": 350,
+        "name": "quadarcher"
+    },
+    "basiccannon": {
+        "damage": 50,
+        "radius": 400,
+        "delay" : 500,
+        "cost": 200,
+        "name": "cannon"
+    },
+    "bicannon": {
+        "damage": 55,
+        "radius": 400,
+        "delay" : 500,
+        "cost": 250,
+        "name": "bicannon"
+    },
+    "tricannon": {
+        "damage": 60,
+        "radius": 400,
+        "delay" : 500,
+        "cost": 300,
+        "name": "tricannon"
+    },
+    "quadcannon": {
+        "damage": 65,
+        "radius": 400,
+        "delay" : 500,
+        "cost": 350,
+        "name": "quadcannon"
+    },
+    "basicflame": {
+        "damage": 62,
+        "radius": 250,
+        "delay" : 100,
+        "cost": 500,
+        "name": "flame"
+    },
+    "biflame": {
+        "damage": 75,
+        "radius": 250,
+        "delay" : 100,
+        "cost": 750,
+        "name": "biflame"
+    },
+    "triflame": {
+        "damage": 100,
+        "radius": 250,
+        "delay" : 100,
+        "cost": 1000,
+        "name": "triflame"
+    },
+    "quadflame": {
+        "damage": 125,
+        "radius": 250,
+        "delay" : 100,
+        "cost": 1500,
+        "name": "quadflame"
+    },
+    "gastower": {
+        "damage": 75,
+        "radius": 250,
+        "delay" : 100,
+        "cost": 1000,
+        "name": "gas"
+    },
+    "basicmortar": {
+        "damage": 200,
+        "radius": 750,
+        "delay" : 5000,
+        "cost": 700,
+        "name": "mortar"
+    },
+    "supermortar": {
+        "damage": 300,
+        "radius": 750,
+        "delay" : 5000,
+        "cost": 900,
+        "name": "supermortar"
+    },
+    "godmortar": {
+        "damage": 700,
+        "radius": 750,
+        "delay" : 5000,
+        "cost": 2000,
+        "name": "godmortar"
+    },
+    "basictesla": {
+        "damage": 100,
+        "radius": 500,
+        "delay" : 1100,
+        "cost": 300,
+        "name": "tesla"
+    },
+    "supertesla": {
+        "damage": 200,
+        "radius": 500,
+        "delay" : 1100,
+        "cost": 400,
+        "name": "supertesla"
+    },
+    "godtesla": {
+        "damage": 300,
+        "radius": 500,
+        "delay" : 1100,
+        "cost": 600,
+        "name": "godtesla"
+    }
+}
