@@ -1,0 +1,170 @@
+package it.unibo.progetto_oop.overworld.enemy.creation_pattern.factory_impl;
+
+import java.util.Objects;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import it.unibo.progetto_oop.overworld.enemy.state_pattern.GenericEnemyState;
+import it.unibo.progetto_oop.overworld.enemy.state_pattern.SleeperState;
+import it.unibo.progetto_oop.overworld.grid_notifier.GridNotifier;
+import it.unibo.progetto_oop.overworld.player.Player;
+import it.unibo.progetto_oop.overworld.playground.data.Position;
+
+/**
+ * Generic implementation of the Enemy interface.
+ */
+@SuppressFBWarnings("EI_EXPOSE_REP2")
+public class GenericEnemy implements Enemy {
+    /**
+     * maxHealth of the enemy.
+     */
+    private final int maxHealth;
+
+    /**
+     * power of the enemy.
+     */
+    private final int power;
+
+    /**
+     * current position of the enemy.
+     */
+    private Position currentPosition;
+
+    /**
+     * current health of the enemy.
+     */
+    private int currentHealth;
+
+    /**
+     * current state of the enemy.
+     */
+    private GenericEnemyState currentState;
+
+    /**
+     * grid notifier to notify the grid of changes.
+     */
+    private GridNotifier gridNotifier;
+
+    /**
+     * Constructor of the GenericEnemy class.
+     *
+     * @param newMaxHealth max health
+     * @param newCurrentHealth current health
+     * @param newPower power
+     * @param newInitialPosition initial position
+     * @param newGridNotifier grid notifier
+     */
+    public GenericEnemy(final int newMaxHealth, final int newCurrentHealth,
+            final int newPower, final Position newInitialPosition,
+            final GridNotifier newGridNotifier) {
+        if (newMaxHealth <= 0) {
+            throw new IllegalArgumentException("hp must be > 0");
+        }
+        if (newPower <= 0) {
+            throw new IllegalArgumentException("power must be > 0");
+        }
+
+        Objects.requireNonNull(
+            newInitialPosition, "spawnPosition cannot be null");
+        Objects.requireNonNull(newGridNotifier, "gridNotifier cannot be null");
+
+        this.maxHealth = newMaxHealth;
+        this.power = newPower;
+        this.currentHealth = newCurrentHealth;
+        this.currentPosition = newInitialPosition;
+        this.gridNotifier = newGridNotifier;
+        this.currentState = new SleeperState(); // default state
+    }
+
+    /**
+     * Copy constructor of the GenericEnemy class.
+     *
+     * @param enemy the enemy to copy
+     */
+    public GenericEnemy(final Enemy enemy) {
+        Objects.requireNonNull(enemy, "enemy cannot be null");
+        this.maxHealth = enemy.getMaxHp();
+        this.power = enemy.getPower();
+        this.currentHealth = enemy.getCurrentHp();
+        this.currentPosition = enemy.getCurrentPosition();
+        this.gridNotifier = enemy.getGridNotifier();
+        this.currentState = enemy.getState();
+    }
+
+    //----getters----//
+    @Override
+    public final int getCurrentHp() {
+        return this.currentHealth;
+    }
+
+    @Override
+    public final int getMaxHp() {
+        return this.maxHealth;
+    }
+
+    @Override
+    public final int getPower() {
+        return this.power;
+    }
+
+    @Override
+    public final Position getCurrentPosition() {
+        return this.currentPosition;
+    }
+
+    @Override
+    public final GenericEnemyState getState() {
+        return this.currentState;
+    }
+
+    @Override
+    public final GridNotifier getGridNotifier() {
+        return this.gridNotifier.copy();
+    }
+
+
+    // ----setters---- //
+
+    @Override
+    public final void setPosition(final Position newPosition) {
+        this.currentPosition = newPosition;
+    }
+
+    @Override
+    public final void setState(final GenericEnemyState newState) {
+        if (newState == null || newState.equals(this.currentState)) {
+            return;
+        }
+
+        if (this.currentState != null) {
+            this.currentState.exitState(this);
+        }
+
+        this.currentState = newState;
+
+        this.currentState.enterState(this);
+    }
+
+    @Override
+    public final void setGridNotifier(final GridNotifier newGridNotifier) {
+        this.gridNotifier = newGridNotifier;
+    }
+
+    @Override
+    public final void setHp(final int health) {
+        if (health < 0) {
+            this.currentHealth = 0;
+        } else if (health > this.maxHealth) {
+            this.currentHealth = this.maxHealth;
+        } else {
+            this.currentHealth = health;
+        }
+    }
+
+
+    // ----methods---- //
+
+    @Override
+    public final void takeTurn(final Player player) {
+        this.currentState.update(this, player);
+    }
+}

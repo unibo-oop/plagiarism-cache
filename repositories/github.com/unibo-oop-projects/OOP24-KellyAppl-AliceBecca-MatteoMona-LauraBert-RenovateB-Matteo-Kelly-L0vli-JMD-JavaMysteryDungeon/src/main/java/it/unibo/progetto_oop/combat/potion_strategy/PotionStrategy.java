@@ -1,0 +1,16 @@
+package it.unibo.progetto_oop.combat.potion_strategy;
+
+import it.unibo.progetto_oop.overworld.player.adapter_pattern.PossibleUser;
+
+/**
+ * Functional interface representing a strategy for applying potion effects.
+ */
+@FunctionalInterface
+public interface PotionStrategy {
+    /**
+     * Applies the potion effect to the user.
+     *
+     * @param user the CombatModel representing the user of the potion
+     */
+    void applyEffect(PossibleUser user);
+}

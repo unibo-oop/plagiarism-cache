@@ -1,0 +1,79 @@
+
+plugins {
+    // Apply the java plugin to add support for Java
+    java
+
+    // Apply the application plugin to add support for building a CLI application
+    // You can run your app via task "run": ./gradlew run
+    application
+
+    /*
+     * Adds tasks to export a runnable jar.
+     * In order to create it, launch the "shadowJar" task.
+     * The runnable jar will be found in build/libs/projectname-all.jar
+     */
+    id("com.gradleup.shadow") version "9.1.0"
+    id("org.danilopianini.gradle-java-qa") version "1.125.0"
+
+    id("org.danilopianini.unibo-oop-gradle-plugin") version "1.1.71"
+}
+
+java { toolchain { languageVersion.set(JavaLanguageVersion.of(21)) } }
+
+
+
+repositories { // Where to search for dependencies
+    mavenCentral()
+}
+
+dependencies {
+    // Suppressions for SpotBugs
+    compileOnly("com.github.spotbugs:spotbugs-annotations:4.9.3")
+
+    // Maven dependencies are composed by a group name, a name and a version, separated by colons
+    implementation("com.omertron:API-OMDB:1.5")
+    implementation("org.jooq:jool:0.9.15")
+
+    /*
+     * Simple Logging Facade for Java (SLF4J) with Apache Log4j
+     * See: http://www.slf4j.org/
+     */
+    val slf4jVersion = "2.0.17"
+    implementation("org.slf4j:slf4j-api:$slf4jVersion")
+    // Logback backend for SLF4J
+    runtimeOnly("ch.qos.logback:logback-classic:1.5.18")
+
+    // when dependencies share the same version, grouping in a val helps to keep them in sync
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.4")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.4")
+
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+    testImplementation("org.mockito:mockito-core:5.19.0")    
+    testImplementation("org.easytesting:fest-swing:1.2")
+
+    //testImplementation("org.assertj:assertj-swing-junit:3.17.1") test per GUI
+    
+}
+
+application {
+    // Define the main class for the application.
+    mainClass.set("it.unibo.progetto_oop.Main")
+}
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events(*org.gradle.api.tasks.testing.logging.TestLogEvent.values())
+        showStandardStreams = true
+    }
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
+tasks.withType<JavaCompile> {
+    options.release.set(21)
+}
