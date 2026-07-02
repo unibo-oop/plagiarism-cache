@@ -1,0 +1,116 @@
+package model.entity;
+
+import model.Area;
+
+//CHECKSTYLE: MagicNumber OFF
+/**
+ * Enum for power up.
+ *
+ */
+public enum PowerUp {
+    /**
+     * Guitar.
+     *
+     */
+    CHITARRA {
+
+        @Override
+        public Area getArea() {
+            return new Area(0.04, 0.1);
+        }
+
+        @Override
+        public String getImage() {
+            return "pw1/chitarra.png";
+        }
+
+        @Override
+        public int getCost() {
+            return 135;
+        }
+    },
+
+    /**
+     * cigarette.
+     *
+     */
+    SIGARETTA {
+        @Override
+        public Area getArea() {
+            return new Area(0.03, 0.03);
+        }
+
+        @Override
+        public String getImage() {
+            return "pw1/sigaretta.png";
+        }
+
+        @Override
+        public int getCost() {
+            return 35;
+        }
+    },
+
+    /**
+     * sugar.
+     *
+     */
+    ZUCCHERO {
+        @Override
+        public Area getArea() {
+            return new Area(0.02, 0.05);
+        }
+
+        @Override
+        public String getImage() {
+            return "pw1/stecca.png";
+        }
+
+        @Override
+        public int getCost() {
+            return 135;
+        }
+    },
+
+    /**
+     * hand gun.
+     *
+     */
+    PISTOLA {
+        @Override
+        public Area getArea() {
+            return new Area(0.06, 0.04);
+        }
+
+        @Override
+        public String getImage() {
+            return "pw1/gun.png";
+        }
+
+        @Override
+        public int getCost() {
+            return 135;
+        }
+    };
+
+    /**
+     * Getter for power up area.
+     * 
+     * @return the PowerUp area
+     */
+    public abstract Area getArea();
+
+    /**
+     * getter for power up image.
+     * 
+     * @return powerUpImage
+     */
+    public abstract String getImage();
+
+    /**
+     * getter for power up cost.
+     * 
+     * @return power up cost
+     */
+    public abstract int getCost();
+}

@@ -1,0 +1,76 @@
+@font-face {
+    font-family: Arcade;
+    src:url('/font/arcade.ttf');
+}
+
+#mainPane {
+	-fx-background-image:url("/images/menu/tunnel_1.gif");
+	-fx-background-size: cover;
+    -fx-font-size: 15.0pt;
+    
+}
+#helpPane {
+	-fx-background-color: black;
+	-fx-background-size: cover;
+    -fx-font-size: 15.0pt;
+    
+}
+#menu-buttons {
+	-fx-font-family:'Arcade Interlaced';
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+#menu-buttons:hover {
+    -fx-background-color: black;
+    -fx-text-fill: red;
+}
+#title{
+	-fx-font-family:'Arcade Interlaced';
+	-fx-fill: white !important;
+	-fx-font-size: 50.0pt;
+}
+#credits-text{
+	-fx-font-family:'Arcade Interlaced';
+	-fx-text-fill: white !important;
+	-fx-font-size: 13.0pt;
+
+}
+#credits-info{
+	-fx-font-family:'Arcade Interlaced';
+	-fx-fill: red !important;
+	-fx-font-size: 15.0pt;
+
+}
+#credits-teresa{
+	-fx-font-family:'Arcade Interlaced';
+	-fx-text-fill: violet !important;
+	-fx-font-size: 10.0pt;
+
+}
+#gameScreen {
+    -fx-border-radius: 0 0 25 0;
+    -fx-background-radius: 0 0 25 0;
+}
+
+#score-list{
+	-fx-font-family:'Arcade Interlaced';
+	-fx-text-fill: white !important;
+	-fx-font-size: 13.0pt;
+}
+#message-text{
+	-fx-font-family:'Arcade Interlaced';
+	-fx-text-fill: red !important;
+	-fx-font-size: 10.0pt;
+
+}
+#title-character{
+	-fx-font-family:'Arcade Interlaced';
+	-fx-fill: white !important;
+	-fx-font-size: 25.0pt;
+}
+#status-bar{
+	-fx-font-family:'Arcade Interlaced';
+	-fx-text-fill: white !important;
+}
+
