@@ -1,0 +1,29 @@
+[
+  {
+    "fireRate": 1.2,
+    "price": 120,
+    "range": 250.0,
+    "ID": 0,
+    "position": null,
+    "bulletSpeed": 150.0,
+    "bulletDamage": 18.0
+  },
+  {
+    "fireRate": 0.75,
+    "price": 250,
+    "range": 250.0,
+    "ID": 1,
+    "position": null,
+    "bulletSpeed": 200.0,
+    "bulletDamage": 50.0
+  },
+  {
+    "fireRate": 1.5,
+    "price": 400,
+    "range": 350.0,
+    "ID": 2,
+    "position": null,
+    "bulletSpeed": 200.0,
+    "bulletDamage": 18.0
+  }
+]
