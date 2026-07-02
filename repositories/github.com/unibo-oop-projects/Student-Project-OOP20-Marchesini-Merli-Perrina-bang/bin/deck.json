@@ -1,0 +1,129 @@
+[
+	{
+		"localName": "bang",
+		"realName": "bang",
+		"color": "brown",
+		"howMany": 20
+	},
+	{
+		"localName": "indiani",
+		"realName": "indians",
+		"color": "brown",
+		"howMany": 2
+	},
+	{
+		"localName": "prigione",
+		"realName": "jail",
+		"color": "blue",
+		"howMany": 2
+	},
+	{
+		"localName": "mustang",
+		"realName": "mustang",
+		"color": "blue",
+		"howMany": 2
+	},
+	{
+		"localName": "birra",
+		"realName": "beer",
+		"color": "brown",
+		"howMany": 2
+	},
+	{
+		"localName": "cat balou",
+		"realName": "cat balou",
+		"color": "brown",
+		"howMany": 2
+	},
+	{
+		"localName": "schiavata",
+		"realName": "dodge",
+		"color": "brown",
+		"howMany": 2
+	},
+	{
+		"localName": "gatling",
+		"realName": "gatling",
+		"color": "brown",
+		"howMany": 2
+	},
+	{
+		"localName": "riparo",
+		"realName": "hideout",
+		"color": "blue",
+		"howMany": 2
+	},
+	{
+		"localName": "mancato",
+		"realName": "missed",
+		"color": "brown",
+		"howMany": 2
+	},
+	{
+		"localName": "emporio",
+		"realName": "emporium",
+		"color": "brown",
+		"howMany": 2
+	},
+	{
+		"localName": "panico",
+		"realName": "panic",
+		"color": "brown",
+		"howMany": 2
+	},
+	{
+		"localName": "remington",
+		"realName": "remington",
+		"color": "blue",
+		"howMany": 2
+	},
+	{
+		"localName": "saloon",
+		"realName": "saloon",
+		"color": "brown",
+		"howMany": 2
+	},
+	{
+		"localName": "mirino",
+		"realName": "scope",
+		"color": "blue",
+		"howMany": 2
+	},
+	{
+		"localName": "rev carabine",
+		"realName": "rev carabine",
+		"color": "blue",
+		"howMany": 2
+	},
+	{
+		"localName": "shofield",
+		"realName": "shofield",
+		"color": "blue",
+		"howMany": 2
+	},
+	{
+		"localName": "diligenza",
+		"realName": "stagecoach",
+		"color": "brown",
+		"howMany": 2
+	},
+	{
+		"localName": "volcanic",
+		"realName": "volcanic",
+		"color": "blue",
+		"howMany": 2
+	},
+	{
+		"localName": "wells fargo",
+		"realName": "wells fargo",
+		"color": "brown",
+		"howMany": 2
+	},
+	{
+		"localName": "winchester",
+		"realName": "winchester",
+		"color": "blue",
+		"howMany": 2
+	}
+
+]
