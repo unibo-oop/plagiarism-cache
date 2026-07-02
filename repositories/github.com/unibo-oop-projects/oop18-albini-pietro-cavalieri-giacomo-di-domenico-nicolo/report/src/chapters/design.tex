@@ -1,0 +1,709 @@
+\chapter{Design}
+
+\section{Architettura}
+
+La scelta del gruppo è stata quella di adottare il pattern
+architetturale MVC, cercando di rendere il Controller completamente
+indipendente da qualunque dettaglio implementativo adottato dalla View
+tramite un passaggio di informazioni basato su eventi: in tal modo il
+Controller non deve avere alcuna conoscenza della View ma si limiterà a
+scatenare eventi che saranno recepiti da questa e, se di interesse,
+gestiti adeguatamente. La scelta di questo approccio ci è sembrata
+adatta nel fornire grande libertà nella futura possibilità di modificare
+radicalmente l'interfaccia grafica, anche sostituendola nella sua
+interezza, senza andare a compromettere il Controller.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/design/mvc}
+\caption{Schema UML architetturale rappresentante la divisione MVC
+attuata}
+\end{figure}
+
+Il Model è rappresentato dalle interfacce di \texttt{Level} e \texttt{Program};
+mentre il primo fornisce informazioni relative al livello (e.g.~il titolo, una
+sintetica descrizione, il generatore di input associato, l'algoritmo
+risolutivo\ldots{}), il secondo racchiude la logica con la quale le istruzioni
+possono essere aggiunte, rimosse o spostate all'interno della lista di
+istruzioni composta dall'utente. Infine, la interfaccia \texttt{VM} rappresenta
+l'entità che, preso in input un programma ne comporterà l'esecuzione fornendo
+l'output prodotto. Il Controller si occupa principalmente di gestire il
+caricamento dei livelli e fornire opportuni wrapper in modo tale da non creare
+dipendenze dirette fra View e Model ma mediarle così da rendere più semplice la
+modifica della parte inerente ai livelli senza che il resto della applicazione
+ne venga impattato; un ulteriore compito svolto da tali componenti è garantire
+l'accoppiamento fra il livello corrente e il \texttt{Program} che sta venendo
+scritto dall'utente. Per quanto riguarda la parte inerente all'interazione con
+l'utente, l'entry point della view è il \texttt{MenuObserver}, che fa scegliere
+il livello che si vuole giocare. A quel punto è il \texttt{RoomScreen} a
+prendere il controllo della finestra, creando tutta l'interfaccia grafica e la
+stanza con le sue relative entità (belt di input/output, eventuale zona di
+memoria, giocatore e tutti i box dei valori).
+
+VM, parser e printer sono stati sviluppati separatamente dal resto del
+codice e sono utilizzati similmente alle librerie esterne: dato che essi
+non dipendono da altre parti dell'applicazione espongono solo una API
+pubblica e documentata chiamata dal Controller.
+
+\section{Design dettagliato}
+
+\subsection{Albini Pietro}
+
+\subsubsection{Virtual Machine}
+
+La virtual machine esegue le istruzioni inserite dall'utente e ritorna
+l'output generato dal programma, permettendo al controller di verificare
+se il programma scritto dal giocatore è corretto. Essa supporta due
+modalità d'uso: tramite \texttt{execute()} tutte le istruzioni vengono
+eseguite finché il programma non termina, mentre tramite \texttt{step()}
+è possibile eseguire il programma passo-passo, permettendo alla view di
+animare le azioni compiute dal programma.
+
+Ci sono due modi per il codice di interagire con la virtual machine.
+L'interfaccia \texttt{Vm} contiene i metodi ad alto livello per
+controllare la VM, non permettendo di ottenere o modificare lo stato
+interno. L'interfaccia \texttt{VmState} è invece utilizzata dalle
+istruzioni per manipolare lo stato interno durante l'esecuzione delle
+stesse. A livello di codice questo è implementato utilizzando una classe
+innestata per \texttt{VmState}, passandola solo dove è consentito.
+
+La VM dispone di due aree per salvare informazioni: i registri e gli
+indirizzi di memoria. Ci sono quattro registri possibili
+(\texttt{MAIN\_HAND} per il valore attaccato alla navicella,
+\texttt{PROGRAM\_COUNTER} per l'indice dell'istruzione da eseguire,
+\texttt{JUMP\_CONDITION} per decidere se eseguire un salto,
+\texttt{RESOLVED\_ADDRESS} per l'indirizzo di memoria da manipolare) e
+il programma dell'utente non ha modo di manipolarli direttamente, in
+quanto sono utilizzati esclusivamente dalle istruzioni. Gli indirizzi di
+memoria sono invece a disposizione del programma dell'utente per salvare
+valori temporanei, e la loro presenza e quantità dipende dalla
+definizione del livello.
+
+La VM supporta valori che possono essere sia numeri che lettere, e li
+rappresenta con la classe \texttt{Value} (al suo interno \texttt{Value}
+supporta anche il valore vuoto, come un \texttt{Optional}). Inoltre, per
+facilitare la realizzazione di animazioni esternamente alla VM ogni
+volta che viene eseguito qualcosa di rilevante il metodo \texttt{step()}
+ritorna l'azione compiuta tramite la classe \texttt{Action}.
+Quest'ultima è un wrapper attorno all'enum \texttt{ActionKind} che
+permette di associare ad alcune delle azioni disponibili l'indirizzo di
+memoria su cui vengono applicate. Per prevenire la creazione di
+\texttt{Action} non valide l'unico modo di creare nuove istanze è
+tramite una static factory.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/design/albini/vm}
+\caption{Schema UML che mostra la struttura della VM}
+\end{figure}
+
+Ogni istruzione supportata dalla VM è una classe che implementa l'interfaccia
+\texttt{Instruction}. Sono inoltre implementate alcune interfacce extra
+(\texttt{PrintableInstruction}, \texttt{AddressableInstruction},
+\texttt{JumpInstruction} e \texttt{JumpTargetInstruction}) che permettono al
+resto del programma di riconoscere la tipologia di istruzione, ma che non
+vengono usate dalla VM.
+
+La VM però non esegue le istruzioni direttamente, ma le trasforma prima
+in una rappresentazione di livello più basso (similmente a come fanno le
+CPU): le microistruzioni. La trasformazione avviene all'interno
+dell'istruzione, che riceve un oggetto a cui aggiungere le
+microistruzioni che la compongono.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/design/albini/instructions}
+\caption{Schema UML delle istruzioni}
+\end{figure}
+
+Ho deciso di utilizzare le microistruzioni invece che usare direttamente
+le istruzioni perché le istruzioni inserite dall'utente non sono
+abbastanza granulari per animarle. Alcune istruzioni infatti necessitano
+di più animazioni separate, e ad ogni step lo stato interno della VM
+cambia (per esempio \texttt{input} prima rimuove il valore attaccato
+alla navicella, e poi prende il prossimo valore dal nastro
+trasportatore).
+
+Se venisse eseguita un'intera istruzione alla volta la view non potrebbe
+far affidamento sullo stato della VM mentre esegue le animazioni, e
+dovrebbe reimplementare buona parte della logica delle istruzioni. Per
+ovviare a ciò, e visto che Java non dispone del supporto nativo per le
+coroutine (che risolverebbero il problema più elegantemente), ho creato
+le microistruzioni.
+
+Il design a microistruzioni permette anche di riutilizzare buona parte
+della logica fra istruzioni. Un esempio è il funzionamento dei jump: ci
+sono tre tipi di jump supportati (incondizionato, se il valore è
+negativo o se il valore è zero), e l'unica differenza fra essi è la
+condizione di salto. Le tre istruzioni di salto generano quindi una
+microistruzione che popola il registro \texttt{JUMP\_CONDITION} in base
+alla loro condizione (\texttt{MicroJumpConditionTrue},
+\texttt{MicroJumpConditionNegative} e \texttt{MicroJumpConditionZero}) e
+una microistruzione condivisa che effettua il salto se il contenuto del
+registro è positivo (\texttt{MicroJump}). Ho fatto uso ampiamente di
+template method per ridurre il codice in comune fra microistruzioni
+simili.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/design/albini/microinstructions}
+\caption{Schema UML delle microistruzioni}
+\end{figure}
+
+\subsubsection{Printer}
+
+Il printer si occupa di trasformare una lista di istruzioni nella loro
+rappresentazione testuale, in modo che l'utente possa copiare il
+programma scritto fuori dal gioco. Un requisito fondamentale del printer
+è che il risultato ottenuto sia reimportabile successivamente nel gioco,
+e che quindi sia accettato dal parser.
+
+Ogni istruzione si occupa di fornire la propria rappresentazione
+testuale implementando l'interfaccia \texttt{PrintableInstruction}, ed
+utilizzando lo stato del printer (\texttt{PrinterState}) come Strategy
+per coordinare la generazione delle parti che coinvolgono più
+istruzioni. Per esempio sia il jump che il suo target hanno bisogno di
+un nome comune per il ``label'' che le collega, e si appoggiano al
+\texttt{PrinterState} per generarlo.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/albini/printer}
+\caption{Schema UML del printer}
+\end{figure}
+
+\subsubsection{Parser}
+
+Il parser si occupa di trasformare un programma rappresentato
+testualmente (come per esempio l'output del printer) in una lista di
+istruzioni utilizzabile dal resto del gioco. Come implementazione ho
+scelto di realizzare un classico parser separando la fase di
+lexing/tokenization e la fase propriamente di parsing.
+
+Realizzare un parser che lavora direttamente sulla stringa di input
+fornita dall'utente è inutilmente complesso: oltre a controllare che la
+struttura sintattica sia giusta, questo ipotetico parser dovrebbe anche
+verificare che i singoli caratteri siano corretti. Per ovviare a ciò
+praticamente ogni parser moderno ha una fase precedente detta lexing o
+tokenization, in cui l'input viene astratto in ``token'' di livello più
+alto su cui è più facile scrivere il parser.
+
+Il nostro tokenizer può emettere tre tipi di token: numeri, keyword o
+simboli (\texttt{:}, nuova linea o fine dell'input). Se riceve altri
+caratteri non supportati un'eccezione verrà emessa. A livello
+implementativo, ho scelto di rendere il tokenizer lazy implementando
+l'interfaccia \texttt{Iterator\textless{}Token\textgreater{}}. Inoltre
+il tokenizer in se è implementato come una piccola state machine.
+
+Il tokenizer associa anche ad ogni token uno \texttt{Span} che
+rappresenta sia l'inizio che la fine del token all'interno della stringa
+finale. Anche se gli span non hanno alcun utilizzo per il parsing in se,
+essi sono utili durante la creazione degli errori del parser, in quanto
+permettono all'utente di capire in quali parti dell'input si è
+verificato l'errore.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/albini/tokenizer}
+\caption{Schema UML del tokenizer}
+\end{figure}
+
+Data la semplice sintassi da riconoscere il parser non è complesso: è
+presente un metodo per ogni elemento sintattico da parsare, e sono
+composti insieme per ottenere la lista di istruzioni. Tutto lo stato del
+parsing è contenuto in una classe innestata, in modo che il metodo
+\texttt{parse()} possa essere chiamato più volte sulla stessa istanza.
+
+Uno dei problemi che ho dovuto risolvere è stato come visualizzare gli
+errori di parsing all'utente in modo comprensibile ed intuitivo. La
+soluzione che ho raggiunto è di includere in ogni eccezione l'input e la
+lista di span che hanno provocato l'errore, e di mostrare un dialog
+all'utente con le cause dell'errore evidenziate di rosso (grazie agli
+span inclusi).
+
+L'implementazione concreta del parser accetta anche una lista di
+istruzioni che sono valide nel programma: abbiamo scelto di fare il
+controllo direttamente all'interno del parser in quanto il parser ha
+accesso a tutte le informazioni sugli span, permettendoci di mostrare
+all'utente esattamente quali istruzioni all'interno del codice sono
+vietate.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/design/albini/parser}
+\caption{Schema UML del parser}
+\end{figure}
+
+\subsubsection{Launcher}
+
+Durante lo sviluppo è sorto un problema di compatibilità
+multipiattaforma causato da una libreria usata per l'interfaccia grafica
+(libGDX). La libreria è pubblicizzata per supportare più piattaforme, ma
+in realtà richiede di passare due flag extra alla JVM su macOS, causando
+un crash se non sono presenti. Dato che non è possibile aggiungere flag
+della JVM a runtime, e richiedere al giocatore di passarle manualmente è
+inaccettabile, ho sviluppato un launcher che rileva la piattaforma in
+uso, calcola le flag necessarie e avvia una nuova JVM come sottoprocesso
+utilizzando lo stesso classpath e l'entry point del gioco.
+
+Il launcher gestisce anche la ``modalità debug'' del gioco: durante lo
+sviluppo ci è stato utile mostrare informazioni aggiuntive a schermo
+(come le griglie per la UI), che però non devono essere presenti quando
+l'utente finale utilizza il programma. Invece di rimuovere questo codice
+prima di consegnare il progetto ho optato per abilitare la modalità
+debug solo se una variabile d'ambiente è presente. Questa variabile,
+\texttt{TODO\_DEBUG}, è impostata in automatico dal launcher se è
+presente un file chiamato \texttt{.todo-debug} nella directory dove il
+programma viene eseguito, permettendoci di mantenerla sempre attiva
+durante lo sviluppo. Il resto del gioco può controllare se la modalità
+di debug è attiva tramite il singleton \emph{LauncherOptions.}
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/albini/launcher}
+\caption{Schema UML del launcher}
+\end{figure}
+
+\subsection{Cavalieri Giacomo}
+
+\subsubsection{Controller}
+
+Nella realizzazione del controller del gioco, per evitare di avere una
+God class, questo è stato spezzato in tre interfacce logicamente
+distinte. Ciascuna si occupa di specifiche mansioni; nel dettaglio,
+l'interfaccia \texttt{Controller} si occupa di gestire i livelli e
+caricare quelli richiesti costruendo dei \texttt{LevelController}.
+Questa seconda interfaccia racchiude un Level fornendo alla view le
+informazioni che necessita e permette di caricare e salvare su file i
+programmi scritti dall'utente sfruttando la classe \texttt{SaveManager}.
+Nel momento in cui viene avviata l'esecuzione del programma viene
+fornito un \texttt{ExecutionController} che permette di eseguire il
+codice della VM step by step fornendo le azioni effettuate da questa. È
+l'\texttt{ExecutionController} ad effettuare i diversi controlli
+sull'output del programma dell'utente (scatenando eventi opportuni) e a
+verificare se questo abbia superato le sfide di ottimizzazione. Inoltre,
+questa suddivisione porta il vantaggio di poter prevenire chiamate
+insensate (e.g.~provare a stoppare l'esecuzione della VM quando si è
+ancora al menù) perché non si può avere accesso alle implementazioni
+delle altre parti del Controller fino a quando non vengono chiamati i
+metodi adatti.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/design/cavalieri/savemanager}
+\caption{Schema UML che mostra le relazioni fra i diversi controller}
+\end{figure}
+
+\subsubsection{Program}
+
+Per modellare il concetto di programma dell'applicazione ho realizzato
+un'interfaccia \texttt{Program} che fungesse da wrapper a una lista di
+istruzioni concedendo di interagirvi nelle sole modalità previste dalla
+logica applicativa (e.g.~permettendo l'aggiunta delle sole istruzioni
+fornite dal livello attuale, gestendo in maniera atomica l'inserimento e
+la rimozione di un'istruzione di salto e del suo target etc). Una
+ulteriore sfida è stata la realizzazione delle funzionalità di undo e
+redo, resa possibile grazie all'adozione del pattern \emph{Command.}
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/cavalieri/program}
+\caption{Schema UML che mostra la struttura adottata per la
+realizzazione del Program e i suoi Commands}
+\end{figure}
+
+Ogni classe che estenda \texttt{AbstractCommand} ha in sé la logica
+necessaria per eseguire e annullare ripetutamente il rispettivo comando.
+Il \emph{receiver} sul quale viene eseguito è una
+\texttt{List\textless{}Instruction\textgreater{}} mentre l'invoker,
+l'entità che chiede al comando di portare a termine la sua richiesta, è
+il \texttt{ProgramImpl}.
+
+Inoltre, sfruttando il pattern \emph{Template Method} (avendo come
+metodi template \texttt{execute} e \texttt{unexecute} che chiamano
+rispettivamente i metodi astratti e protetti \texttt{onExecute} e
+\texttt{onUnexecute}) ho fatto sì che i singoli comandi si dovessero
+occupare unicamente di stabilire le modalità con le quali un'azione
+viene eseguita o annullata gestendo invece a livello di
+\texttt{AbstractCommand} la logica, comune a tutti i comandi, che
+stabilisce quando sia possibile effettuare redo o undo.
+
+\subsubsection{Copia e incolla}
+
+Per fornire la possibilità di effettuare copia e incolla ho scelto di
+adottare il pattern \emph{Strategy}, facendo sì che il \texttt{Program}
+accettasse un \texttt{ClipboardProvider} (interfaccia dai metodi
+\texttt{getContent} e \texttt{setContent}); così facendo si possono
+adottare differenti strategie per la realizzazione del copia e incolla
+senza che al programma cambi alcunché.
+
+Una particolare implementazione è costituita dalla classe
+\texttt{SystemClipboard}, la quale dà la possibilità di interagire con
+la clipboard di sistema rendendo possibile l'esportazione di programmi
+in formato testuale al di fuori dell'applicazione. Poiché tale classe
+rappresenta la sola clipboard di sistema, ho ritenuto opportuno
+realizzarla sfruttando il pattern \emph{Singleton,} avendo così
+controllo sulla unica istanza creata ottenibile tramite il metodo
+\texttt{getInstance}. Una ulteriore implementazione, indicata nello
+schema sottostante, è \texttt{DummyClipboard}: questa permette di
+eseguire i test che richiedono l'uso di clipboard anche in ambienti
+``headless'' nei quali l'uso della clipboard di sistema porterebbe a
+eccezioni.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/cavalieri/clipboard}
+\caption{Schema UML che mostra l'uso del pattern Strategy per la
+realizzazione di copia e incolla in Program}
+\end{figure}
+
+\subsubsection{Gestione degli eventi}
+
+Per rendere possibile la gestione degli eventi scaturiti dall'esecuzione
+del codice dell'utente nella VM ho realizzato una interfaccia
+\texttt{EventManager} che permette di registrare handler per particolari
+classi di eventi e notificarne l'avvenimento tramite un metodo
+\texttt{dispatch}. Sfruttando tale interfaccia, diverse entità possono
+essere osservate (in particolare il \texttt{LevelController} fornisce un
+metodo per accedere al proprio \texttt{EventManager}) da diverse altre
+che dovranno solo registrare il proprio handler (i.e.~un \emph{Consumer}
+del particolare tipo di evento per cui si è in ascolto) che dovrà
+semplicemente stabilire come comportarsi in caso si verifichi tale
+evento.
+
+Così facendo, l'aggiunta futura di nuovi eventi consisterà nella
+creazione di una nuova classe che estenda l'interfaccia \texttt{Event},
+e nell'aggiunta degli opportuni handler da parte della View senza
+comportare alcun cambiamento sostanziale nel \emph{Controller,} se non
+l'aggiunta del codice necessario a scatenare tale evento. Questa
+eventualità si è verificata durante lo sviluppo, una volta aggiunta la
+possibilità di incollare codice in formato testuale; è nata infatti la
+necessità di notificare all'utente eventuali errori presenti nel codice
+da lui incollato. Tramite questo approccio l'aggiunta del nuovo evento
+\texttt{ParsingErrorEvent} si è rivelata piuttosto semplice.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/cavalieri/events}
+\caption{
+    Schema UML della struttura di \texttt{EventManager} e
+    \texttt{LevelController} che ne fa uso
+}
+\end{figure}
+
+\subsubsection{FileSavingTests}
+
+Durante l'esecuzione dei test è sorto il problema di evitare la sovrascrittura
+di eventuali programmi scritti dall'utente e salvati su file in automatico
+dalla applicazione. Per risolvere tale problema massimizzando il riuso di
+codice ho adottato il pattern \emph{Template Method} realizzando una classe di
+test \texttt{AbstractFileSavingTest} che mantenesse la logica necessaria ad
+eseguire un backup temporaneo dei programmi dell'utente per poi ripristinarli
+una volta terminato il test. In tal proposito i metodi template sono
+\texttt{prepareTest} e \texttt{restoreProgram} i quali chiamano rispettivamente
+i metodi protetti e astratti \texttt{onBefore} e \texttt{onAfter}.
+
+Così facendo ogni test che estende tale classe potrà semplicemente
+stabilire le politiche da adottare prima e dopo l'esecuzione di ciascun
+metodo di test dando una implementazione ai metodi sopracitati senza
+doversi occupare della eventuale sovrascrizione di salvataggi già
+presenti in memoria.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/cavalieri/filesaving}
+\caption{Schema UML che mostra l'uso del pattern template method in
+\texttt{AbstractFileSavingTest}}
+\end{figure}
+
+\subsection{Di Domenico Nicolò}
+
+\subsubsection{Entità}
+
+Per usare più facilmente la libreria grafica usata (libGDX) ho creato un
+piccolo sistema di entità, che rappresentano gli attori del gioco.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/design/didomenico/entity}
+\caption{
+    Schema UML che rappresenta le relazioni fra le entità. Il tipo generico
+    \texttt{M} in \texttt{TaskAcceptingEntity} e \texttt{LoopableTaskManager}
+    rappresenta il tipo di Loopable Task Manager che si vuole utilizzare.
+}
+\end{figure}
+
+Ogni entità ha posizione, rotazione e scala. Questi tre attributi sono
+leggibili/modificabili sia in termini assoluti che in termini relativi a
+un'altra entità: infatti, ognuna ha la possibilità di avere un genitore,
+dal quale erediterà la sua posizione, rotazione e scala assoluta.
+Inoltre, ogni entità possiede un metodo \texttt{onUpdate}, che viene
+eseguito a ogni frame del gioco, e un metodo \texttt{visit}, che
+permette la realizzazione del pattern \emph{Visitor}. Essendo le entità
+dipendenti rispetto alla view (dato che diverse librerie potrebbero
+averle già implementate, e dato che il controller del gioco è solo
+responsabile di collegare una view qualsiasi alla VM e al resto del
+model), al suo interno vengono usate primitive tipiche della libreria
+usata, quali \texttt{Vector2}. Infine, alcune entità possono essere
+specializzate ad essere anche accettori di \emph{Loopable Task.} Le
+entità generiche vengono poi specializzate nelle varie entità che
+costituiscono il gioco, ognuna con le sue funzionalità uniche. Avendo
+molti parametri da impostare per un'entità, ho deciso di implementare il
+pattern \emph{Builder} per ognuna delle sue estensioni. Per ridurre al
+minimo le ripetizioni, ho creato un builder astratto comune a tutte le
+entità, che viene poi specializzato opportunamente. Per garantire
+commutatività delle chiamate fra il builder specializzato e quello
+astratto, ho implementato il \emph{Curiously Recurring Generic Pattern
+(CRGP).} Sebbene la sua implementazione non sia perfetta a causa della
+type erasure applicata da Java, è una soluzione sufficientemente
+robusta.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/design/didomenico/entity-builder}
+\caption{
+    Schema UML dei builder. Ogni entità ha come classe innestata statica
+    un'implementazione della rispettiva interfaccia builder. \texttt{S} è il
+    self-type, mentre \texttt{E} è il tipo dell'entità prodotta. In
+    \texttt{BeltBuilder}, \texttt{E} viene ristretto per poter accettare solo
+    sottotipi dell'interfaccia Belt.
+}
+\end{figure}
+
+\subsubsection{Drawable}
+
+Le entità da sole non bastano, perché non contengono informazioni su
+come devono essere disegnate. Per separare il più possibile le entità e
+le loro controparti disegnabili, ho implementato il pattern
+\emph{Visitor} sulle entità, e usato questo meccanismo in una factory
+che prende in ingresso un'entità qualsiasi. La factory genera un Visitor
+interno che associa ogni specializzazione di entità alla sua versione
+disegnabile. Un \texttt{Drawable} ha un riferimento alla sua entità e un
+metodo \texttt{onDraw}, che dice come interpretare le informazioni
+dell'entità per disegnarla correttamente. Ogni entità disegna solo se
+stessa, senza andare a toccare i suoi figli. Inoltre, ogni drawable ha
+anche uno Z-Index associato e costante per ogni classe di entità. Questo
+numero indica in che piano ogni drawable si trova rispetto agli altri.
+Questa informazione viene poi usata in fase di rendering per
+implementare l'algoritmo del pittore. Dato che la dimensione di ogni
+drawable è in qualche modo dipendente dalla risoluzione di schermo
+usata, ho adottato un \emph{template method} per fare in modo che le
+classi che estendano il \texttt{BaseDrawable} debbano indicare qual è la
+dimensione originale del disegnabile che rappresentano. Sta poi alla
+classe astratta eseguire il calcolo per fornire larghezza e altezza
+scalata rispetto allo schermo utilizzato.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/design/didomenico/drawable}
+\caption{
+    Schema UML dei \texttt{Drawable} e di \texttt{EntityVisitor}. T è il tipo
+    di ritorno del \texttt{Visitor}, mentre \texttt{E} è il tipo di entità
+    associata a quel drawable.
+}
+\end{figure}
+
+\subsubsection{Interfaccia grafica}
+
+Una parte fondamentale del gioco è la sua interfaccia grafica. Questa è stata
+realizzata sfruttando le classi fornite da libGDX, che contiene un framework
+per creare UI basate su tabelle, gruppi e widget, in maniera simile a quanto
+accade per altre librerie grafiche come Swing o JavaFX.  Tuttavia, la libreria
+da noi utilizzata si è rivelata avere un'architettura tutt'altro che ottimale.
+È principalmente per questo motivo che ho deciso di incapsulare il più
+possibile gran parte dell'interfaccia grafica. La UI si divide in due
+macro-blocchi: il \emph{programma} e i \emph{controlli di riproduzione}. I
+controlli di riproduzione sono in realtà molto semplici: l'interfaccia
+\texttt{PlaybackControls} fornisce solo due metodi: il metodo \texttt{dispose}
+dall'interfaccia di utilità \texttt{Disposable}, che permette di liberare
+manualmente le risorse che lo richiedano, e il metodo \texttt{refresh}. Questo
+metodo viene usato per aggiornare lo stato dei pulsanti dopo un cambiamento da
+parte della stanza. Per esempio, quando il programma inizia l'esecuzione, viene
+chiamato il metodo \texttt{refresh} che rileva questo nuovo stato e per esempio
+nasconde i pulsanti di modifica del codice.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/design/didomenico/ui}
+\caption{Schema UML semplificato della UI}
+\end{figure}
+
+Tuttavia, il vero core dell'interfaccia grafica sta nella
+\texttt{ProgramUI}. Ogni istruzione deve essere trasformata in un
+\texttt{Actor} (concetto di libGDX) trascinabile, ed eventuali
+spostamenti devono essere riflettuti nel \emph{Program} del model. Per
+fare questo ogni \texttt{InstructionActor} ha conoscenza della classe di
+istruzione rappresenta. Una implementazione di questa interfaccia è il
+\texttt{DraggableInstructionActor}, una classe che implementa il pattern
+\emph{decorator} che aggiunge la possibilità di trascinamento a un
+\texttt{InstructionActor} semplice (i.e.~attori senza un
+comportamenti specifico). Questo decoratore viene usato per poter
+trascinare i template delle istruzioni all'interno del programma, e gli
+deve essere indicato come generare l'istruzione associata. Tali attori
+vengono generati da una \emph{factory} che, data una classe di
+un'istruzione, crea il corretto attore trascinabile. Se un attore
+trascinabile viene rilasciato all'interno di una zona che può riceverlo,
+viene fatto sì che la stessa modifica si ripercuota anche sul programma.
+Infine, un \texttt{ProgramInstructionActor} è un
+\texttt{InstructionActor} che contiene un'istanza di un'istruzione
+della VM che può essere trascinato per essere spostato o eliminato.
+Questa interfaccia viene ulteriormente specializzata in
+\texttt{LabelledProgramInstructionActor}, per attori trascinabili
+che hanno un'etichetta associata a essi (come i Jump), e in
+\texttt{AddressableProgramInstructionActor}, per attori che hanno
+anche la possibilità di scegliere un indirizzo di memoria (come
+Add/Sub/Incr/Decr). Analogamente ai semplici
+\texttt{InstructionActor}, ho implementato una \emph{factory} per
+creare correttamente il \texttt{ProgramInstructionActor} giusto, a
+partire dalla singola istruzione. Così facendo la View non deve avere
+conoscenza della logica di inserimento/rimozione/spostamento delle
+istruzioni, perché la UI del programma viene aggiornata a ogni
+cambiamento a partire dalla lista di istruzioni interna al programma,
+senza sapere come queste vengono effettivamente manipolate.
+
+\subsubsection{Loopable task}
+
+Per permettere un semplice passaggio da un'architettura basata su azioni
+della VM a una basata su un game loop ho modellato i \emph{Loopable
+task}. Questi sono degli oggetti che interagiscono con un
+\texttt{LoopableTaskManager}, che funge da container ed esecutore
+dei task a esso associati, con una politica variabile in base al tipo di
+manager usato. Una sua specializzazione è il
+\texttt{SequentialLoopableTaskManager}, che fornisce ulteriori
+metodi per gestire più facilmente task che vengono eseguiti secondo una
+politica di tipo FIFO.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/didomenico/tasks}
+\caption{Schema UML dei Loopable Task}
+\end{figure}
+
+Le entità possono essere dei \texttt{LoopableTaskAcceptor}, e
+queste sono tenute a fornire un metodo per ritornare il proprio task
+manager, così che altre parti del codice possano creare e lanciare task
+su quelle entità.
+
+\subsection{Guerra Michele}
+
+\subsubsection{Level}
+
+Per modellare il concetto di livello all'interno del videogioco ho
+realizzato un'interfaccia \texttt{Level} che contiene esclusivamente
+metodi getter per la totalità delle informazioni contenute nel livello.
+Per la creazione dei livelli ho deciso di adoperare il pattern
+\emph{Builder}, che mi ha poi permesso la creazione fluente di livelli
+nei test legati a questa interfaccia.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/guerra/level-builder}
+\caption{Schema UML del Builder per i livelli}
+\end{figure}
+
+\subsubsection{LevelParser}
+
+Tuttavia una creazione di tipo fluente non è quella effettivamente utilizzata
+per la creazione dei livelli al momento dell'esecuzione del videogioco. Infatti
+le istanze di \texttt{Level} sono create parametro per parametro dentro la
+classe \texttt{LevelParserImpl} attraverso un parsing dei files XML contenuti
+all'interno della directory \texttt{src/main/resources/assets/levels}. In
+questo modo l'aggiunta di nuovi livelli al videogioco si limita alla creazione
+di un nuovo file XML all'interno della suddetta cartella, senza intaccare in
+alcun modo il codice. Questi passaggi vengono effettuati nel costruttore
+dell'interfaccia \texttt{LevelsStorage}, che attraverso una mappa da titolo a
+livello rende accessibile l'insieme dei livelli. Sarà poi
+\texttt{LevelsStorage} a venire chiamato dal \emph{Controller} e quindi ad
+essere usato dal resto del codice.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/guerra/level-storage}
+\caption{
+    Schema UML della relazione tra \texttt{Level} - \texttt{LevelStorage} -
+    \texttt{LevelParser}
+}
+\end{figure}
+
+Le principali challenges nello sviluppo del parser sono stati l'utilizzo
+della libreria ClassGraph per la navigazione delle risorse del classpath
+e della libreria JDOM per il parsing dei file XML. E' stato impegnativo
+anche l'ampio utilizzo di reflection durante la creazione delle istanze
+di \texttt{InputGenerator} da inserire nei vari livelli.
+
+\subsubsection{InputModifier}
+
+Il mio approccio alla creazione degli Input è cambiato durante la
+progettazione del programma. Inizialmente avevo generato una interfaccia
+\texttt{InputGenerator} con diverse implementazioni a seconda della
+necessità, tuttavia con l'aggiunta di nuovi livelli mi son reso conto
+come fosse sempre più necessario un metodo per rendere questa creazione
+il più generica possibile ed evitare quindi di trovarmi a creare
+un'istanza di \texttt{InputGenerator} per ogni livello. A quel punto ho
+pensato di usare il pattern \emph{Decorator} per aggiungere delle
+funzionalità agli \texttt{InputGenerator}, ma questo poco si prestava
+alla reflection usata fino a quel momento nel parser. Ho quindi creato
+un'interfaccia \texttt{InputModifier}, che con un metodo
+\texttt{update()} andasse a modificare la
+\texttt{List\textless{}Value\textgreater{}} ricevuta in ingresso. A
+estendere \texttt{InputModifier} ci sono poi le interfacce
+\texttt{ModifierWithCount} e \texttt{ModifierWithBound} che aggiungono
+metodi nel caso in cui il \emph{Modifier} abbia bisogno di parametri
+specifici. Come detto precedentemente il metodo \texttt{update()}
+effettua le modifiche, per la specificità sono ricorso al pattern
+\emph{Template Method.} La reflection mi ha comunque reso le cose
+complicate e mi ha impedito di fare del codice esattamente come
+progettato, per colpa della difficoltà nel chiamare costruttori con
+parametri diversi e numerosi.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/design/guerra/modifier}
+\caption{Schema UML degli InputModifier}
+\end{figure}
+
+\subsubsection{LevelParserTest}
+
+A questo punto mi son ritrovato a dovere testare il comportamento di
+\texttt{LevelParserImpl}. Inizialmente ho diretto i miei sforzi nella
+creazione di un ulteriore file XML con il quale cercare di racchiudere
+la più ampia casistica di situazioni possibile, ma nel momento in cui ho
+realizzato che ciò sarebbe stato impossibile con un unico file sono
+passato alla creazione di una classe astratta di test:
+\texttt{BaseParserTest}. Le estensioni di questa classe si occupano di
+controllare che il parser crei un'istanza corretta di \texttt{Level}
+confrontandola con il medesimo livello creato fluentemente tramite il
+\emph{Builder}. Il pattern \emph{Template Method} è qui usato per
+recuperare il percorso del livello sui cui andare a effettuare il
+parsing. Infatti nel costruttore di \texttt{BaseParserTest} (l'effettivo
+template method) viene chiamato il metodo protected abstract
+\texttt{getFilePath()}.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/guerra/test}
+\caption{Schema UML dei test sul Parser}
+\end{figure}
+
+\subsubsection{MenuObserver}
+
+Mi sono poi occupato degli aspetti della View legati al menù
+livelli/impostazioni. Qui ho dovuto imparare a utilizzare la libreria
+libGDX e il suo metodo di layout a tabelle. Per quanto riguarda la
+gestione degli input sulla GUI ho deciso di adottare il pattern
+\emph{Observer}. Per prima cosa ho realizzato un'interfaccia
+\texttt{ObservableScreen} che estendesse \texttt{Screen} di libGDX, in
+cui ho inserito un metodo \texttt{setObserver()} per potergli settare
+una istanza di \texttt{MenuObserver} che venisse notificata delle
+interazioni della GUI. A questo punto mi è bastato aggiungere un serie
+di metodi void all'Observer che eseguissero le richieste dell'utente.
+
+\begin{figure}[H]
+\centering
+\includegraphics{images/design/guerra/observable}
+\caption{Schema UML del pattern Observer per il menù}
+\end{figure}
+
+\texttt{MenuObserverImpl} nelle sue funzioni ha sopratutto la creazione
+dei diversi Screen, che viene fatta all'interno del costruttore, e la
+loro successiva chiamata.

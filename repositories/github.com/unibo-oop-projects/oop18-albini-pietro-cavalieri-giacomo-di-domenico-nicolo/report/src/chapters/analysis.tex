@@ -1,0 +1,74 @@
+\chapter{Analisi}
+
+\section{Requisiti}
+
+Il progetto mira alla realizzazione di un videogioco educativo chiamato
+``//TODO'', che consente al giocatore di familiarizzarsi con i linguaggi
+di programmazione della famiglia Assembler. La programmazione Assembler
+è caratterizzata dall'esecuzione sequenziale di istruzioni semplici e
+dal flusso di controllo gestito tramite salti condizionali.
+
+\subsection{Requisiti funzionali}
+
+\begin{itemize}
+\item
+  Il videogioco deve presentare al giocatore una serie di puzzle da
+  risolvere, ognuno con istruzioni chiare su cosa implementare e
+  strumenti per verificare che il codice scritto sia corretto ed
+  efficiente.
+\item
+  Il videogioco deve fornire all'utente un ambiente di sviluppo semplice
+  e intuitivo, basato sul drag\&drop. L'ambiente deve permettere sia
+  l'aggiunta, modifica e rimozione delle istruzioni, sia la possibilità
+  di annullare le modifiche recenti per tornare al codice scritto in
+  precedenza.
+\item
+  Durante l'esecuzione, il videogioco deve rappresentare graficamente
+  ogni operazione eseguita, in modo che il giocatore possa comprendere
+  cosa stia facendo il proprio programma.
+\item
+  ll videogioco deve permettere sia l'esportazione che l'importazione
+  del programma in un formato testuale facilmente modificabile con un
+  editor di testo, per condividere il proprio programma con altri
+  giocatori o per provare soluzioni altrui.
+\item
+  Il videogioco deve fornire gli strumenti necessari per risolvere bug
+  nel codice dell'utente, come per esempio la possibilità di eseguire il
+  programma step by step.
+\end{itemize}
+
+\subsection{Requisiti non funzionali}
+
+\begin{itemize}
+\item
+  Far sì che la VM non sia bloccante (i.e.~la sua esecuzione non deve
+  rallentare o bloccare l'interazione con l'utente o il gioco intero).
+\end{itemize}
+
+\section{Analisi e modello del dominio}
+
+Il videogioco deve contenere al suo interno una virtual machine in grado
+di eseguire le istruzioni fornite dall'utente e dare indicazioni circa
+eventuali errori presenti nel codice. La lista di istruzioni (il
+``programma'') deve tenere traccia di tutte le più recenti modifiche
+effettuate, per poterle annullare o eventualmente riapplicare al
+programma. Ogni livello dovrà fornire all'utente un sottoinsieme di
+tutte le possibili istruzioni eseguibili dalla VM per la risoluzione del
+particolare problema che propone; dovrà inoltre essere possibile
+verificare la correttezza dell'algoritmo proposto dall'utente e
+accertarsi che tale soluzione non funzioni in maniera fortuita per un
+solo particolare input. Ciò richiederà di avere una entità in grado di
+confrontare l'output generato dal programma dell'utente con quello
+fornito dalla soluzione ``canonica'' su più possibili sequenze di input
+e non sulla singola sequenza proposta all'utente. Tale approccio renderà
+poi necessario dover mostrare all'utente eventuali input per i quali il
+programma sviluppato non funzioni.
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{images/analysis/domain}
+\caption{Schema UML rappresentante le principali entità prese in
+    considerazione nella descrizione del dominio. \texttt{ExecutionController}
+rappresenta l'entità preposta a controllare la correttezza del programma
+dell'utente (il quale viene associato a un particolare livello tramite
+l'entità \texttt{LevelController})}
+\end{figure}

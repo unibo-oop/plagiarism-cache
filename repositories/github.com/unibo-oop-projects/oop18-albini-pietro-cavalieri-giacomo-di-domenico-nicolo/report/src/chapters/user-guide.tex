@@ -1,0 +1,159 @@
+\chapter{Guida Utente}
+
+\section{Scopo del gioco}
+
+Il giocatore dovrà risolvere una serie di puzzle tramite la stesura di semplici
+codici Assembler-like componibili trascinando le istruzioni che si vuole
+utilizzare nella zona a destra della lista delle istruzioni fornite dal
+livello. Quando verrà avviata l'esecuzione del codice scritto, la navicella
+inizierà a svolgere il programma eseguendo una ad una e in ordine le istruzioni
+dell'utente.  Per ogni livello l'utente potrà provare a scrivere il codice che
+fa uso del minor numero di istruzioni possibile o che risolve il problema col
+minor numero di passi possibile, nel caso uno degli obbiettivi venga raggiunto
+l'utente ne verrà notificato dall'applicazione.
+
+\section{Interfaccia grafica}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{images/interface}
+\caption{Schermata di gioco di un livello}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep0em
+\item
+  Torna al menù della scelta dei livelli
+\item
+  Mostra l'obbiettivo del livello
+\item
+  Riduci la velocità di esecuzione del codice
+\item
+  Aumenta la velocità di esecuzione del codice
+\item
+  Cancella tutte le istruzioni inserite
+\item
+  Copia il codice scritto fino ad ora
+\item
+  Incolla un codice copiato
+\item
+  Annulla l'ultima modifica al codice
+\item
+  Ripeti l'ultima modifica annullata al codice
+\item
+  Avvia l'esecuzione ininterrotta del codice scritto fino ad ora
+\item
+  Avvia l'esecuzione step-by-step del codice
+\item
+  Nastro contenente l'input del programma
+\item
+  Area di memoria del programma composta da singole celle identificate
+  da un indice
+\item
+  Navicella che eseguirà le istruzioni
+\item
+  Nastro contenente l'output del programma
+\item
+  Istruzioni utilizzabili dall'utente
+\item
+  Programma composto dall'utente
+\end{enumerate}
+
+\section{Istruzioni disponibili}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/instructions/input}
+        \caption{
+            La navicella prende un valore dal nastro di input (scartando eventuali
+            valori precedentemente tenuti)
+        }
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/instructions/output}
+        \caption{
+            La navicella inserisce il valore tenuto nel nastro di output
+        }
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/instructions/jump}
+        \caption{
+            Salta al target indicato
+        }
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/instructions/jumpzero}
+        \caption{
+            Salta al target indicato solo se il valore tenuto dalla navicella è
+            0
+        }
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/instructions/jumpneg}
+        \caption{
+            Salta al target indicato solo se il valore tenuto dalla navicella è
+            negativo
+        }
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/instructions/copyfrom}
+        \caption{
+            La navicella prende una copia (scartando eventuali valori
+            precedentemente tenuti) del valore nella cella di memoria indicata
+            dal numero a destra
+        }
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/instructions/copyto}
+        \caption{
+            Inserisce nella cella di memoria indicata dal numero a destra una
+            copia del valore tenuto dalla navicella
+        }
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/instructions/add}
+        \caption{
+            Somma al valore tenuto dalla navicella il valore che si trova nella
+            cella di memoria indicata dal numero a destra
+        }
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/instructions/sub}
+        \caption{
+            Sottrae dal valore tenuto dalla navicella il valore che si trova
+            nella cella di memoria indicata dal numero a destra
+        }
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/instructions/incr}
+        \caption{
+            Incrementa di una unità il valore numerico che si trova nella cella
+            di memoria indicata dal numero a destra
+        }
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/instructions/decr}
+        \caption{
+            Decrementa di una unità il valore numerico che si trova nella cella
+            di memoria indicata dal numero a destra
+        }
+    \end{minipage}
+\end{figure}

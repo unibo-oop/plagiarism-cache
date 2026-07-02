@@ -1,0 +1,58 @@
+# We need a full clone otherwise ci/time-tracking.py could fail
+git:
+  depth: false
+
+matrix:
+  include:
+
+    - name: Lints
+      os: linux
+      dist: xenial
+      language: python
+      python: 3.7
+      env:
+        PLATFORM: linux-lints
+      if: type = pull_request OR branch = master
+
+    - name: OpenJDK 8 on Ubuntu 16.04 LTS
+      os: linux
+      dist: xenial
+      language: java
+      jdk: openjdk8
+      env:
+        PLATFORM: linux-openjdk8
+      if: type = pull_request OR branch = master
+
+    - name: Oracle JDK 8 on macOS 10.13
+      os: osx
+      # This is the latest image with Oracle JDK 8
+      # https://docs.travis-ci.com/user/reference/osx/#jdk-and-macos
+      osx_image: xcode9.3
+      language: java
+      env:
+        PLATFORM: macos-oraclejdk8
+      if: type = pull_request OR branch = master
+
+# Windows CI is currently disabled since the choco package for java is broken.
+#
+#    - name: Oracle JDK 8 on Windows Server 1803
+#      os: windows
+#      # Travis CI for Windows doesn't yet support Java, so we use a generic VM
+#      # image and install OpenJDK 8 on it ourselves
+#      language: shell
+#      env:
+#        PLATFORM: windows-oraclejdk8
+#        ORACLEJDK_VERSION: 201
+#      if: type = pull_request OR branch = master
+
+install: "ci/install/${PLATFORM}.sh"
+script: "ci/run/${PLATFORM}.sh"
+
+# Setup caching as recommended by Travis CI
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/

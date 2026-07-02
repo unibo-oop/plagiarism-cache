@@ -1,0 +1,136 @@
+\chapter{Sviluppo}
+
+\section{Testing automatizzato}
+
+Durante lo sviluppo del gioco abbiamo ritenuto fondamentale scrivere
+test automatici con JUnit per buona parte del codice, in quanto ci hanno
+permesso sia di verificare al momento dello sviluppo che il codice
+scritto fosse corretto, sia di effettuare modifiche successivamente con
+la confidenza di non causare problemi a parti del gioco fino a prima
+funzionanti.
+
+Oltre ad eseguire i test localmente, abbiamo configurato nel repository in cui
+è avvenuto lo sviluppo un servizio di CI (continuous integration) in modo che
+ogni modifica venisse testata automaticamente su Linux, macOS e Windows
+(quest'ultimo solo per un periodo limitato di tempo a causa di problemi con il
+servizio di CI). In particolare abbiamo utilizzato Travis CI come piattaforma
+di CI e Gradle per poter eseguire agilmente i test al di fuori di Eclipse.
+Questo ha permesso a tutti i membri del gruppo di fare modifiche a codice
+dipendente dalla piattaforma (per esempio la gestione dei file di salvataggio)
+senza preoccuparsi di testare manualmente su ogni sistema operativo. Inoltre il
+CI ha fornito un feedback immediato durante la review delle modifiche altrui,
+eliminando la necessità di scaricare il codice localmente ed eseguire i test.
+
+L'interfaccia grafica è stata testata manualmente durante lo sviluppo, e
+i test sono stati compiuti aprendo un livello, creando il programma
+necessario alla risoluzione ed eseguendolo.
+
+\section{Metodologia di lavoro}
+
+Nello sviluppo del progetto abbiamo cercato di rendere le parti
+assegnate indipendenti così da facilitare lo sviluppo individuale da
+parte dei componenti del gruppo. Dunque, stabilite le principali
+interfacce in comune, ogni membro ha iniziato a lavorare su branch
+propri.
+
+L'approccio adottato nell'uso del DVCS è stato quello di avere un branch
+master e diversi branch paralleli sui quali ciascun membro del gruppo
+potesse sviluppare singole feature. Una volta che un branch veniva
+completato, al posto di effettuare direttamente il merge su master
+abbiamo optato per utilizzare gli strumenti di code review dell'host git
+utilizzato durante lo sviluppo (GitHub), richiedendo l'approvazione di
+tutti i membri del gruppo prima poter di unire le modifiche su master.
+Seppur questo approccio ha rallentato lo sviluppo, ha portato numerosi
+vantaggi per tutto il gruppo: oltre ad un miglioramento della qualità
+del codice visto che esso è stato ricontrollato da tutti segnalando
+possibili problemi sia di design che di implementazione, effettuare code
+review ci ha permesso di uniformare lo stile di programmazione fra tutti
+i membri e di avere una visione d'insieme completa durante ogni fase
+dello sviluppo. Inoltre durante le code review ci siamo spesso posti
+domande a vicenda, e riteniamo che ognuno abbia imparato molto studiando
+e capendo a fondo gli approcci utilizzati dagli altri.
+
+La divisione del lavoro è stata la seguente:
+
+\begin{itemize}
+\item
+  \textbf{Albini Pietro}: realizzazione della VM, delle istruzioni, del printer,
+  del parser, del launcher, delle animazioni
+  (\texttt{AbstractRoomTask}), utility come \texttt{PeekableIterator} e
+  ritocchi finali prima della consegna. In collaborazione con Di
+  Domenico Nicolò ho preparato il design di \texttt{ResolutionManager} e
+  delle classi correlate.
+\item
+  \textbf{Cavalieri Giacomo}: realizzazione di \texttt{Controller} (con relativi
+  \texttt{ExecutionController} e \texttt{LevelController}), gestione del
+  salvataggio su file dei programmi scritti, realizzazione della parte
+  di model relativa a \texttt{Program}, implementazione della classe di
+  utility \texttt{Checks}, realizzazione dell'\texttt{EventManager} e
+  degli eventi (fatta eccezione del \texttt{ParsingErrorEvent})
+\item
+  \textbf{Di Domenico Nicolò}: realizzazione di gran parte della View, che
+  comprende la creazione del sistema di entità e disegnabili, e di tutta
+  l'interfaccia grafica del livello
+\item
+  \textbf{Guerra Michele}: realizzazione della porzione di Model relativa ai
+  livelli, lettura dei file XML per la creazione dei livelli, creazione
+  degli input specifici per i livelli, realizzazione della parte di View
+  annessa al menù iniziale e delle impostazioni.
+\end{itemize}
+
+\section{Note di sviluppo}
+
+\subsection{Albini Pietro}
+
+Nel codice da me realizzato ho largamente utilizzato \texttt{Optional} per
+rappresentare buona parte dei valori che potesse essere nulli, in modo da
+render chiaro durante la lettura del codice che un valore può mancare e per
+dover controllare esplicitamente la mancanza nel codice. Inoltre ho usato
+generici per rappresentare il contenuto dei
+\texttt{Token\textless{}?\textgreater{}} e lambda ovunque fosse richiesta
+un'interfaccia funzionale.  Sporadicamente ho utilizzato wildcard e stream.
+
+\subsection{Cavalieri Giacomo}
+
+Nel mio lavoro ho cercato, quanto più possibile e ove sensato farlo, di
+utilizzare elementi avanzati del linguaggio Java quali gli \emph{stream} e le
+\emph{lambda expressions} per avere un codice chiaro e di facile comprensione;
+un esempio ne sono le classi \texttt{EventManagerImpl} e \texttt{ProgramImpl}
+dove in particolare si è utilizzato questo approccio per manipolare collezioni
+di oggetti. Nell'ottenere il contenuto della Clipboard di sistema per gestire
+il caso in cui questa non avesse alcun contenuto ho deciso di utilizzare
+\texttt{Optional\textless{}String\textgreater{}} piuttosto che passare valori
+null all'esterno della classe. Ho fatto uso della reflection nella
+realizzazione della classe di utility \texttt{Checks} per creare e lanciare le
+eccezioni partendo dalla classe specificata solo nel caso in cui si rivelasse
+necessario farlo. Inoltre, ho fatto uso di wildcards bounded nella
+realizzazione della classe \texttt{Checks} e dell'\texttt{EventManager} potendo
+così trattare tutte le possibili estensioni della interfaccia \texttt{Events}.
+
+\subsection{Di Domenico Nicolò}
+
+Nella parte di progetto che ho prodotto ho fatto estensivo uso di \emph{stream
+e lambda expressions} per aumentare la leggibilità del codice. Inoltre, ho
+usato i tipi generici al massimo nella realizzazione dei builder delle varie
+entità tramite l'implementazione (sebbene imperfetta a causa delle limitazioni
+del linguaggio) del \emph{self-type}, per assicurare la commutatività dei
+metodi nei builder (in altre parole, ogni metodo doveva sempre ritornare il
+builder più specifico possibile per quell'entità). Essendo stato responsabile
+di gran parte del codice grafico, ho lavorato molto in dettaglio con la
+libreria libGDX con il backend LWJGL3. Insieme a questa libreria ho anche usato
+un suo plugin, necessario a generare i font in formato bitmap (accettati e
+richiesti da libGDX) a partire da dei file TrueType Font (\texttt{.ttf}).
+Questa generazione (che avviene a runtime secondo necessità) garantisce che le
+scritte in gioco siano sempre della massima qualità possibile.
+
+\subsection{Guerra Michele}
+
+Lavorando ho sempre cercato di utilizzare stream e lambda ove possibile, al
+fine di rendere il codice di più facile comprensione. Ho cercato inoltre di
+consentire sempre una costruzione fluente degli oggetti, in modo da risultare
+coerente con gli stream. Ho fatto ampio uso di reflection sia nella parte di
+Model legata ai livelli sia nel parser XML. Ho adoperato diverse librerie tra
+cui libGDX per la parte di View e JDOM per il parsing XML. Nel settare i valori
+iniziali dei registri dei livelli ho adoperato gli \texttt{Optional},
+permettendomi di gestire i casi in cui ci fossero registri con valori e
+registri senza valori.

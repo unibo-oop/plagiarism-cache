@@ -1,0 +1,41 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+
+\usepackage[bookmarks,hidelinks]{hyperref}
+\usepackage[italian]{babel}
+\usepackage{appendix}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{import}
+\usepackage[htt]{hyphenat}
+
+% Some sane typography settings
+\linespread{1.2}
+\setlength{\parskip}{8pt}
+\setlength{\parindent}{0pt}
+
+% A nicer serif font
+\usepackage{charter}
+
+% Bold labels in figures
+\usepackage[labelfont=bf]{caption}
+
+% Reduce whitespace around the page
+\usepackage[a4paper, top=2.75cm, bottom=2.25cm, left=2.25cm, right=2.25cm]{geometry}
+
+\begin{document}
+
+    \subimport{title.tex}{title}
+
+    \tableofcontents
+
+    \subimport{chapters/analysis.tex}{chapters/analysis}
+    \subimport{chapters/design.tex}{chapters/design}
+    \subimport{chapters/development.tex}{chapters/development}
+    \subimport{chapters/comments.tex}{chapters/comments}
+
+    \begin{appendices}
+        \subimport{chapters/user-guide.tex}{chapters/user-guide}
+    \end{appendices}
+
+\end{document}
