@@ -1,0 +1,30 @@
+@font-face {
+	font-family: Roboto;
+	src: url('roboto.ttf');
+}
+
+@font-face {
+	font-family: Lato;
+	src: url('lato.ttf');
+}
+
+.root {
+	-fx-font-family: 'Roboto';
+	-fx-background-color: rgb(51,51,51);
+}
+
+
+.label{
+	-fx-font-family: "Lato";
+	-fx-background-color: transparent;
+	-fx-text-fill: rgb(204,204,204);
+	-fx-font-size: 30px;
+}
+
+#pause {
+	-fx-background-color: rgba(0,0,0,0.8);
+}
+
+#canvasbg {
+	
+}
