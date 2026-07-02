@@ -1,0 +1,45 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+plugins {
+    java
+    application
+    id("com.gradleup.shadow") version "9.3.1"
+    id("org.danilopianini.gradle-java-qa") version "1.164.0"
+
+    id("org.danilopianini.unibo-oop-gradle-plugin") version "1.1.79"
+}
+
+java { toolchain { languageVersion.set(JavaLanguageVersion.of(21)) } }
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // The BOM (Bill of Materials) synchronizes all the versions of Junit coherently.
+    testImplementation(platform("org.junit:junit-bom:6.0.2"))
+    // The annotations, assertions and other elements we want to have access to when compiling our tests.
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    // The engine that must be available at runtime to run the tests.
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    // Necessary for SpotBugs suppression
+    compileOnly("com.github.spotbugs:spotbugs-annotations:4.7.3")
+}
+
+tasks.withType<Test>().configureEach {
+    // Use junit platform for unit tests
+    useJUnitPlatform()
+    testLogging {
+        events(*(TestLogEvent.entries.toTypedArray())) // events("passed", "skipped", "failed")
+    }
+    testLogging.showStandardStreams = true
+}
+
+tasks.withType<Javadoc>().configureEach {
+    isFailOnError = false
+}
+
+application {
+    mainClass.set("it.unibo.goldhunt.Launcher")
+}
+
