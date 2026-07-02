@@ -1,0 +1,50 @@
+{
+  "minRoom" : 10,
+  "maxRoom" : 15,
+  "minRoomWidth" : 9,
+  "maxRoomWidth" : 15,
+  "minRoomHeight" : 9,
+  "maxRoomHeight" : 15,
+  "minBaseRoom" : 25,
+  "maxBaseRoom" : 35,
+  "minRoomDoor" : 2,
+  "maxRoomDoor" : 6,
+  "minItemForRoom" : 3,
+  "maxItemForRoom" : 6,
+  "minEnemyForRoom" : 1,
+  "maxEnemyForRoom" : 4,
+  "minObstaclesForRoom" : 2,
+  "maxObstaclesForRoom" : 8,
+  "minRoomWeapons" : 2,
+  "maxRoomWeapons" : 4,
+  
+  "niceseeds" : [
+	  -1084919802725946498,
+	  5646866770824721110,
+	  -446402938090658279,
+	  -696292730133099594,
+	  -7321230049145535593,
+	  8596881390602376332,
+	  8041943395863771070,
+	  139699359005499217,
+	  4810335954206939117
+  ],
+  
+  "isMusicActive" : true,
+  "isEffectActive" : true,
+  "resolutions" : {
+	"1920": "1080",
+	"1280": "720"
+  },
+  "effectActive" : true,
+  "musicActive" : true,
+  "monitorX" : 1920,
+  "monitorY" : 1280,
+  "fullScreen" : true,
+  "volume" : 22,
+  "defaultLanguage" : 0,
+  "defaultWidth" : 800,
+  "defaultHeight" : 600,
+  
+  "obstaclesEdge" : 0.75
+}

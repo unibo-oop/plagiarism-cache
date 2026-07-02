@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" styleClass="custom-background" stylesheets="@Style/Styles.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+   <bottom>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="backButton" layoutX="1.0" layoutY="3.0" mnemonicParsing="false" onAction="#backClick" prefHeight="57.0" prefWidth="800.0" styleClass="custom-button" text="Back" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Arial Black" size="20.0" />
+               </font>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </AnchorPane>
+   </bottom>
+   <top>
+      <BorderPane>
+         <center>
+            <Label alignment="CENTER" text="Options" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="64.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+   </top>
+   <center>
+      <TabPane prefHeight="279.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab closable="false" text="Audio">
+               <content>
+                  <VBox alignment="CENTER" prefHeight="261.0" prefWidth="598.0" spacing="15.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="600.0" styleClass="shadow-effect" text="Volume" textFill="WHITE">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="30.0" />
+                                 </font>
+                              </Label>
+                              <Slider fx:id="volSlider" onKeyPressed="#volSliderValueChanged" onMouseClicked="#volSliderValueChanged" onMouseDragged="#volSliderValueChanged" showTickLabels="true" showTickMarks="true" styleClass="shadow-effect" value="50.0">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                              </Slider>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <Separator prefWidth="200.0" styleClass="shadow-effect" />
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+                           <children>
+                              <RadioButton fx:id="musicRadioButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#musicRDClick" selected="true" styleClass="shadow-effect" text="Enable music" textFill="WHITE">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="30.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="soundsRadioButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#soundsRDClick" selected="true" styleClass="shadow-effect" text="Enable sounds" textFill="WHITE">
+                                 <font>
+                                    <Font name="Bauhaus 93" size="30.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+          </Tab>
+          <Tab closable="false" text="Graphic">
+               <content>
+                  <VBox alignment="CENTER" prefHeight="250.0" prefWidth="600.0" spacing="20.0">
+                     <children>
+                        <RadioButton fx:id="fullScreenRadioButton" mnemonicParsing="false" onAction="#fullScreenRadioButtonChangedState" styleClass="shadow-effect" text="Full screen" textFill="WHITE">
+                           <font>
+                              <Font name="Bauhaus 93" size="30.0" />
+                           </font>
+                        </RadioButton>
+                        <ComboBox fx:id="resolutionComboBox" onAction="#resolutionChoosed" promptText="Game screen resolution" style="-fx-font: 20px &quot;Bauhaus 93&quot;;" styleClass="shadow-effect" />
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+          </Tab>
+            <Tab closable="false" text="Controls">
+               <content>
+                  <AnchorPane stylesheets="@Style/Styles.css">
+                     <children>
+                        <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="0.5" layoutY="0.5" AnchorPane.bottomAnchor="0.5" AnchorPane.leftAnchor="0.5" AnchorPane.rightAnchor="0.5" AnchorPane.topAnchor="0.5">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="338.0" />
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="462.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="80.0" vgrow="ALWAYS" />
+                            <RowConstraints minHeight="10.0" prefHeight="337.0" vgrow="ALWAYS" />
+                          </rowConstraints>
+                           <children>
+                              <GridPane alignment="CENTER" gridLinesVisible="true" GridPane.rowIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <BorderPane>
+                                       <center>
+                                          <Label styleClass="shadow-effect" text="Up" textFill="WHITE">
+                                             <font>
+                                                <Font name="Bauhaus 93" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.columnIndex="1">
+                                       <center>
+                                          <Button disable="true" mnemonicParsing="false" style="-fx-opacity: 1;" styleClass="shadow-effect" text="W" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.rowIndex="1">
+                                       <center>
+                                          <Label styleClass="shadow-effect" text="Left" textFill="WHITE">
+                                             <font>
+                                                <Font name="Bauhaus 93" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.rowIndex="2">
+                                       <center>
+                                          <Label styleClass="shadow-effect" text="Down" textFill="WHITE">
+                                             <font>
+                                                <Font name="Bauhaus 93" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.rowIndex="3">
+                                       <center>
+                                          <Label styleClass="shadow-effect" text="Right" textFill="WHITE">
+                                             <font>
+                                                <Font name="Bauhaus 93" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <center>
+                                          <Button disable="true" mnemonicParsing="false" style="-fx-opacity: 1;" styleClass="shadow-effect" text="A" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <center>
+                                          <Button disable="true" mnemonicParsing="false" style="-fx-opacity: 1;" styleClass="shadow-effect" text="S" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <center>
+                                          <Button disable="true" mnemonicParsing="false" style="-fx-opacity: 1;" styleClass="shadow-effect" text="D" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </center>
+                                    </BorderPane>
+                                 </children>
+                              </GridPane>
+                              <GridPane alignment="CENTER" gridLinesVisible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <BorderPane>
+                                       <center>
+                                          <Label styleClass="shadow-effect" text="Fire" textFill="WHITE">
+                                             <font>
+                                                <Font name="Bauhaus 93" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.columnIndex="1">
+                                       <center>
+                                          <Button disable="true" mnemonicParsing="false" style="-fx-opacity: 1;" styleClass="shadow-effect" text="Mouse_1" BorderPane.alignment="CENTER">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.rowIndex="1">
+                                       <center>
+                                          <Label styleClass="shadow-effect" text="Recharge" textFill="WHITE">
+                                             <font>
+                                                <Font name="Bauhaus 93" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.rowIndex="2">
+                                       <center>
+                                          <Label styleClass="shadow-effect" text="Pick up" textFill="WHITE">
+                                             <font>
+                                                <Font name="Bauhaus 93" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <center>
+                                          <Button disable="true" mnemonicParsing="false" style="-fx-opacity: 1;" styleClass="shadow-effect" text="R">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <center>
+                                          <Button disable="true" mnemonicParsing="false" style="-fx-opacity: 1;" styleClass="shadow-effect" text="E">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.rowIndex="3">
+                                       <center>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" styleClass="shadow-effect" text="Scroll missions" textFill="WHITE" wrapText="true">
+                                             <font>
+                                                <Font name="Bauhaus 93" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </center>
+                                    </BorderPane>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <children>
+                                          <Button disable="true" mnemonicParsing="false" style="-fx-opacity: 1;" styleClass="shadow-effect" text="M">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <Button disable="true" mnemonicParsing="false" style="-fx-opacity: 1;" styleClass="shadow-effect" text="N">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <BorderPane GridPane.rowIndex="4">
+                                       <center>
+                                          <Label styleClass="shadow-effect" text="Pause" textFill="WHITE">
+                                             <font>
+                                                <Font name="Bauhaus 93" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </center>
+                                    </BorderPane>
+                                    <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <center>
+                                          <Button disable="true" mnemonicParsing="false" style="-fx-opacity: 1;" styleClass="shadow-effect" text="P">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </center>
+                                    </BorderPane>
+                                 </children>
+                              </GridPane>
+                              <BorderPane>
+                                 <center>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" styleClass="shadow-effect" text="Movements" textFill="WHITE">
+                                       <font>
+                                          <Font name="Bauhaus 93" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </center>
+                              </BorderPane>
+                              <BorderPane GridPane.columnIndex="1">
+                                 <center>
+                                    <Label styleClass="shadow-effect" text="Actions" textFill="WHITE">
+                                       <font>
+                                          <Font name="Bauhaus 93" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+        </tabs>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </TabPane>
+   </center>
+   <effect>
+      <Glow />
+   </effect>
+</BorderPane>

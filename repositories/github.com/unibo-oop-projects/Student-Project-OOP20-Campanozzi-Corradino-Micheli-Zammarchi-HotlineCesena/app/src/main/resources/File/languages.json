@@ -1,0 +1,14 @@
+{
+  "language":["idFxml","it","en","de","ru"],
+  "decodifications" : [
+	{
+		"idFxml" : "lbl_win",
+		"fileName" : "opt.fxml",
+		"languagesTranslation" : [ "win_message", "vittoria", "victory", "Sieg", "победа" ]
+	}, {
+		"idFxml" : "lbl_loose",
+		"fileName" : "opt.fxml",
+		"languagesTranslation" : [ "loose_message", "sconfitta", "loose", "Niederlage", "Поражение" ]
+	}
+  ]
+}
