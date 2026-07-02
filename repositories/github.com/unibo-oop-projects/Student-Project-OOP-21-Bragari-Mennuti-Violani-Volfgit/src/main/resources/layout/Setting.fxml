@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vg.view.settings.SettingViewController">
+   <center>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" focusTraversable="false" minHeight="50.0" minWidth="72.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #949494;" textAlignment="CENTER">
+               <font>
+                  <Font name="Copperplate" size="18.0" />
+               </font>
+               <graphic>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="musicLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Music: ">
+                           <font>
+                              <Font name="Copperplate" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="musicToggle" fill="#fff600" strokeType="OUTSIDE" strokeWidth="0.0" text="ON">
+                           <font>
+                              <Font name="Copperplate" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </graphic>
+            </Label>
+            <Separator focusTraversable="false" prefHeight="10.0" visible="false" />
+            <Label alignment="CENTER" focusTraversable="false" minHeight="50.0" minWidth="72.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #949494;" textAlignment="CENTER">
+               <font>
+                  <Font name="Copperplate" size="18.0" />
+               </font>
+               <graphic>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="effectsLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="Effects: ">
+                           <font>
+                              <Font name="Copperplate" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="effectsToggle" fill="#fff600" strokeType="OUTSIDE" strokeWidth="0.0" text="ON">
+                           <font>
+                              <Font name="Copperplate" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </graphic>
+            </Label>
+
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <Label alignment="CENTER" focusTraversable="false" minHeight="50.0" minWidth="200.0" style="-fx-background-color: #949494;" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Copperplate" size="18.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+         <graphic>
+            <Text fx:id="quitBtn" strokeType="OUTSIDE" strokeWidth="0.0" text="Quit">
+               <font>
+                  <Font name="Copperplate" size="18.0" />
+               </font>
+            </Text>
+         </graphic>
+      </Label>
+   </bottom>
+   <top>
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Copperplate" size="36.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </Text>
+   </top>
+</BorderPane>

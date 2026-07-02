@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vg.view.leaderBoard.LeaderBoardViewController">
+   <top>
+      <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="LeaderBoard" textAlignment="CENTER">
+               <font>
+                  <Font name="Copperplate" size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Text>
+            <HBox alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefWidth="150.0" text="POS" textAlignment="CENTER" textFill="#d02121">
+                     <font>
+                        <Font name="Copperplate" size="27.0" />
+                     </font>
+                  </Label>
+                  <Separator fx:id="sep1" focusTraversable="false" orientation="VERTICAL" prefWidth="60.0" visible="false" />
+                  <Label alignment="CENTER" prefWidth="150.0" text="name" textAlignment="CENTER" textFill="#d02121">
+                     <font>
+                        <Font name="Copperplate" size="27.0" />
+                     </font>
+                  </Label>
+                  <Separator fx:id="sep21" focusTraversable="false" orientation="VERTICAL" prefWidth="50.0" visible="false" />
+                  <Label alignment="CENTER" prefWidth="150.0" text="SCORE" textAlignment="CENTER" textFill="#d02121">
+                     <font>
+                        <Font name="Copperplate" size="27.0" />
+                     </font>
+                  </Label>
+                  <Separator fx:id="sep2" focusTraversable="false" orientation="VERTICAL" prefWidth="50.0" visible="false" />
+                  <Label alignment="CENTER" prefWidth="150.0" text="ROUND" textAlignment="CENTER" textFill="#d02121">
+                     <font>
+                        <Font name="Copperplate" size="27.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets top="20.0" />
+         </opaqueInsets>
+      </VBox>
+   </top>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background: #000000; -fx-border-color: #000000;" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="list" alignment="CENTER" />
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Press ESC then ENTER to close">
+               <font>
+                  <Font name="Copperplate" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Text>
+            <Label fx:id="closeBtn" alignment="CENTER" minHeight="50.0" minWidth="200.0" style="-fx-background-color: #949494;" text="Close" textAlignment="CENTER">
+               <font>
+                  <Font name="Copperplate" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane id="borderPane" fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="718.0" stylesheets="@../css/gameBoard.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vg.controller.gameBoard.GameBoardControllerImpl">
+   <top>
+      <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER">
+               <children>
+                  <VBox>
+                     <children>
+                        <FlowPane alignment="TOP_CENTER" prefWidth="0.0" prefWrapLength="0.0">
+                           <children>
+                              <Label text="Round" />
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="TOP_CENTER" prefWidth="0.0" prefWrapLength="0.0">
+                           <children>
+                              <Label fx:id="numberRound" text="424" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </VBox>
+               </children>
+            </FlowPane>
+            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER">
+               <children>
+                  <VBox>
+                     <children>
+                        <FlowPane alignment="TOP_CENTER" prefWidth="0.0" prefWrapLength="0.0">
+                           <children>
+                              <Label text="Score" />
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="TOP_CENTER" prefWidth="0.0" prefWrapLength="0.0">
+                           <children>
+                              <Label fx:id="scoreText" text="0" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </VBox>
+               </children>
+            </FlowPane>
+            <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER">
+               <children>
+                  <VBox>
+                     <children>
+                        <FlowPane alignment="TOP_CENTER" prefWidth="0.0" prefWrapLength="0.0">
+                           <children>
+                              <Label text="High Score" />
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="TOP_CENTER" prefWidth="0.0" prefWrapLength="0.0">
+                           <children>
+                              <Label fx:id="highScoreText" text="000" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </VBox>
+               </children>
+            </FlowPane>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER">
+         <children>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER">
+               <children>
+                  <Label text="Shield " />
+                  <Label fx:id="shield" text="0" />
+               </children>
+            </FlowPane>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER">
+               <children>
+                  <Label id="percentage" fx:id="percentage" text="00.0" />
+                  <Label id="percentage" text="\%" />
+               </children>
+            </FlowPane>
+            <FlowPane alignment="TOP_RIGHT" columnHalignment="CENTER">
+               <children>
+                  <Button id="lf01" fx:id="life1" disable="true" focusTraversable="false" mnemonicParsing="false" />
+                  <Button id="lf02" fx:id="life2" disable="true" focusTraversable="false" mnemonicParsing="false" />
+                  <Button id="lf03" fx:id="life3" disable="true" focusTraversable="false" mnemonicParsing="false" />
+                  <Button id="lf04" fx:id="life4" disable="true" focusTraversable="false" mnemonicParsing="false" />
+                  <Button id="lf05" fx:id="life5" disable="true" focusTraversable="false" mnemonicParsing="false" />
+                  <Button id="lf06" fx:id="life6" disable="true" focusTraversable="false" mnemonicParsing="false" />
+               </children>
+            </FlowPane>
+         </children>
+      </HBox>
+   </bottom>
+   <left>
+      <Separator orientation="VERTICAL" prefWidth="10.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Separator orientation="VERTICAL" prefWidth="10.0" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <Pane id="gameArea" fx:id="gameArea" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

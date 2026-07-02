@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vg.view.leaderBoard.SingleItemListController">
+   <children>
+      <Label fx:id="posText" alignment="CENTER" prefWidth="150.0" text="POS." textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Copperplate" size="28.0" />
+         </font>
+      </Label>
+      <Separator focusTraversable="false" orientation="VERTICAL" prefWidth="60.0" visible="false" />
+      <Label fx:id="nameText" alignment="CENTER" prefWidth="150.0" text="name" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Copperplate" size="28.0" />
+         </font>
+      </Label>
+      <Separator focusTraversable="false" orientation="VERTICAL" prefWidth="60.0" visible="false" />
+      <Label fx:id="scoreText" alignment="CENTER" prefWidth="150.0" text="SCORE" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Copperplate" size="28.0" />
+         </font>
+      </Label>
+      <Separator focusTraversable="false" orientation="VERTICAL" prefWidth="60.0" visible="false" />
+      <Label fx:id="roundText" alignment="CENTER" prefWidth="150.0" text="ROUND" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Copperplate" size="28.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>

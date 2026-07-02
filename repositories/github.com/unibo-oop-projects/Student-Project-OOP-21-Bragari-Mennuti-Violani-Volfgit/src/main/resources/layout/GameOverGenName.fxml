@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vg.view.gameOver.GameOverViewController">
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME OVER" textAlignment="CENTER">
+               <font>
+                  <Font name="Copperplate" size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Text>
+            <Separator focusTraversable="false" prefHeight="50.0" visible="false" />
+            <Label alignment="CENTER" focusTraversable="false" text="Player ID:" textFill="WHITE">
+               <font>
+                  <Font name="Copperplate" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="playerID" alignment="CENTER" focusTraversable="false" text="ABC0" textFill="RED">
+               <font>
+                  <Font name="Copperplate" size="29.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" />
+            <HBox alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Score" textAlignment="CENTER">
+                           <font>
+                              <Font name="Copperplate" size="23.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text fx:id="score" fill="#ffc800" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
+                           <font>
+                              <Font name="Copperplate" size="33.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <Separator focusTraversable="false" orientation="VERTICAL" prefWidth="50.0" visible="false" />
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Round" textAlignment="CENTER">
+                           <font>
+                              <Font name="Copperplate" size="23.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text fx:id="round" fill="#ffc800" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
+                           <font>
+                              <Font name="Copperplate" size="33.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Press ENTER to back home" textAlignment="CENTER">
+               <font>
+                  <Font name="Copperplate" size="18.0" />
+               </font>
+            </Text>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </bottom>
+</BorderPane>
