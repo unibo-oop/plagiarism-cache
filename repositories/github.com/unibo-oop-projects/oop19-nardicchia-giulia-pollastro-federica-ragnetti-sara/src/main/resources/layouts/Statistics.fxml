@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.StatisticsFx">
+	<children>
+		<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="500.0" VBox.vgrow="ALWAYS">
+			<columnConstraints>
+				<ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints vgrow="ALWAYS" />
+				<RowConstraints vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+            <TabPane fx:id="graphPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Areas">
+                     <graphic>
+                        <Pane />
+                     </graphic>
+                     <content>
+                        <PieChart fx:id="areaChart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" title="Training Area " />
+                     </content>
+                </Tab>
+                <Tab text="Attention">
+                     <graphic>
+                        <Pane>
+                           <children>
+                              <Label fx:id="bestAttentionLbl" prefHeight="17.0" prefWidth="0.0" />
+                           </children>
+                        </Pane>
+                     </graphic>
+                     <content>
+                        <LineChart fx:id="attentionGraph" title="Attention">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </content>
+                </Tab>
+                <Tab text="Brain Speed">
+                     <graphic>
+                        <Pane>
+                           <children>
+                              <Label fx:id="bestBrainSpeedLbl" prefHeight="17.0" prefWidth="0.0" />
+                           </children>
+                        </Pane>
+                     </graphic>
+                     <content>
+                        <LineChart fx:id="brainSpeedGraph" title="Brain Speed">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </content>
+                </Tab>
+                  <Tab text="Memory">
+                     <graphic>
+                        <Pane>
+                           <children>
+                              <Label fx:id="bestMemoryLbl" visible="false" />
+                           </children>
+                        </Pane>
+                     </graphic>
+                     <content>
+                        <LineChart fx:id="memoryGraph" title="Memory">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </content>
+                  </Tab>
+                   <Tab text="Reasoning">
+                     <graphic>
+                        <Pane>
+                           <children>
+                              <Label fx:id="bestReasoningLbl" prefHeight="17.0" prefWidth="0.0" />
+                           </children>
+                        </Pane>
+                     </graphic>
+                     <content>
+                        <LineChart fx:id="reasoningGraph" title="Reasoning">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </content>
+                </Tab>
+                  <Tab text="Visual Skill">
+                     <graphic>
+                        <Pane>
+                           <children>
+                              <Label fx:id="bestVisualSkillLbl" visible="false" />
+                           </children>
+                        </Pane>
+                     </graphic>
+                     <content>
+                        <LineChart fx:id="visualSkillGraph" title="Visual Skill">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <ImageView fx:id="backImg" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#goBack" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../images/back.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" />
+               </GridPane.margin>
+            </ImageView>
+			</children>
+		</GridPane>
+	</children>
+</VBox>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox minHeight="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.HowToPlayFx">
+	<children>
+		<GridPane VBox.vgrow="SOMETIMES">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints maxHeight="79.0" minHeight="39.0" prefHeight="79.0" vgrow="SOMETIMES" />
+				<RowConstraints vgrow="SOMETIMES" />
+				<RowConstraints vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<TextArea fx:id="infoTxt" editable="false" prefHeight="453.0" prefWidth="500.0" wrapText="true" GridPane.rowIndex="1">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</TextArea>
+				<GridPane fx:id="topGrid" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+					<columnConstraints>
+						<ColumnConstraints hgrow="SOMETIMES" />
+						<ColumnConstraints hgrow="SOMETIMES" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+					</rowConstraints>
+					<children>
+						<Button fx:id="brainTrainerInfoBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#showIntroduction" text="Brain Trainer Info" textFill="#49618c" GridPane.halignment="LEFT">
+							<font>
+								<Font size="18.0" />
+							</font>
+							<GridPane.margin>
+								<Insets left="20.0" />
+							</GridPane.margin>
+						</Button>
+						<Button fx:id="gameInfoBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#showGameInfo" text="Minigame info" textFill="#49618c" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+							<font>
+								<Font size="18.0" />
+							</font>
+							<GridPane.margin>
+								<Insets right="20.0" />
+							</GridPane.margin>
+						</Button>
+					</children>
+				</GridPane>
+			</children>
+		</GridPane>
+      <GridPane prefHeight="36.0" prefWidth="500.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="backImg" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT">
+               <image>
+                  <Image url="@../images/back.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" />
+               </GridPane.margin>
+            </ImageView>
+         </children>
+      </GridPane>
+	</children>
+</VBox>

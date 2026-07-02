@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.minigames.perilouspath.PerilousPathFxImpl">
+   <children>
+      <HBox alignment="CENTER" prefHeight="62.0" prefWidth="500.0">
+         <children>
+            <Label fx:id="instructions" alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="292.0" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="1.0" />
+            <Label fx:id="timerLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="30.0">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <GridPane fx:id="grid" alignment="CENTER" minHeight="500.0" minWidth="500.0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="1.7976931348623157E308" vgrow="ALWAYS" />
+        </rowConstraints>
+         <VBox.margin>
+            <Insets bottom="50.0" left="65.0" right="65.0" top="25.0" />
+         </VBox.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </GridPane>
+   </children>
+</VBox>
