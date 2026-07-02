@@ -1,0 +1,18 @@
+{
+    "pp": 15,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "us.tempStatsBonus[specialDefense].currentValue",
+                "us.tempStatsBonus[specialDefense].currentValue + 1"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "ground",
+    "priority": 0
+}

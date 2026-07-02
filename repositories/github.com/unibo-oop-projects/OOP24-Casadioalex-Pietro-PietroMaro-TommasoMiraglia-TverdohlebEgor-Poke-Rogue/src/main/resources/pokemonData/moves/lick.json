@@ -1,0 +1,24 @@
+{
+    "pp": 30,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "MATH.random()",
+                "<",
+                "0.50"
+            ]
+        ],
+        "activation": [
+            [
+                "enemy.statusCondition",
+                "Optional.of(StatusCondition.PARALYSIS)"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 30,
+    "type": "ghost",
+    "priority": 0
+}

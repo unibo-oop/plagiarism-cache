@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 118,
+    "types": [
+        "water"
+    ],
+    "captureRate": 225,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 60,
+        "attack": 67,
+        "hp": 45,
+        "speed": 63,
+        "specialDefense": 50,
+        "specialAttack": 35
+    },
+    "moves": {
+        "1": "water-sport",
+        "24": "flail",
+        "57": "megahorn",
+        "15": "horn-attack",
+        "38": "waterfall",
+        "29": "fury-attack",
+        "52": "agility",
+        "43": "horn-drill",
+        "10": "supersonic"
+    },
+    "growthRate": "medium",
+    "name": "goldeen",
+    "weight": 150,
+    "abilites": [
+        "swift-swim",
+        "water-veil",
+        "lightning-rod"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 1,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

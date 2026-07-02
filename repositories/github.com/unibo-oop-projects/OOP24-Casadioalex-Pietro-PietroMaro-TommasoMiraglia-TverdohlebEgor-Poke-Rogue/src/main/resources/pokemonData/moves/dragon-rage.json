@@ -1,0 +1,18 @@
+{
+    "pp": 10,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "enemy.actualStats[hp].currentValue",
+                "enemy.actualStats[hp].currentValue - 40"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "dragon",
+    "priority": 0
+}

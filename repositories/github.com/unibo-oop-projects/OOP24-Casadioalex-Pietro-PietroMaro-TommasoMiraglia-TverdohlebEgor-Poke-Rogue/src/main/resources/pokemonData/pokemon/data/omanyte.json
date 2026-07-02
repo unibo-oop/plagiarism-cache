@@ -1,0 +1,44 @@
+{
+    "pokedexNumber": 138,
+    "types": [
+        "rock",
+        "water"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 100,
+        "attack": 40,
+        "hp": 35,
+        "speed": 35,
+        "specialDefense": 55,
+        "specialAttack": 90
+    },
+    "moves": {
+        "55": "hydro-pump",
+        "1": "constrict",
+        "13": "bite",
+        "25": "mud-shot",
+        "37": "protect",
+        "49": "ancient-power",
+        "19": "water-gun",
+        "31": "leer",
+        "43": "tickle"
+    },
+    "growthRate": "medium",
+    "name": "omanyte",
+    "weight": 75,
+    "abilites": [
+        "swift-swim",
+        "shell-armor",
+        "weak-armor"
+    ],
+    "givesEV": {
+        "defense": 1,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

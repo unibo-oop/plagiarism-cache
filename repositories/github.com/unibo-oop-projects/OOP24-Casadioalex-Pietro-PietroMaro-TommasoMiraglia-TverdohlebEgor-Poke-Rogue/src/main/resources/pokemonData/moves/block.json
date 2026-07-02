@@ -1,0 +1,18 @@
+{
+    "pp": 5,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "enemy.statusCondition",
+                "Optional.of(StatusCondition.TRAPPED)"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "normal",
+    "priority": 0
+}

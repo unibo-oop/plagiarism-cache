@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 64,
+    "types": [
+        "psychic"
+    ],
+    "captureRate": 100,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 30,
+        "attack": 35,
+        "hp": 40,
+        "speed": 105,
+        "specialDefense": 70,
+        "specialAttack": 120
+    },
+    "moves": {
+        "33": "role-play",
+        "1": "kinesis",
+        "23": "reflect",
+        "36": "psychic",
+        "25": "recover",
+        "18": "disable",
+        "30": "future-sight",
+        "21": "psybeam",
+        "43": "trick"
+    },
+    "growthRate": "medium-slow",
+    "name": "kadabra",
+    "weight": 565,
+    "abilites": [
+        "synchronize"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 2
+    }
+}

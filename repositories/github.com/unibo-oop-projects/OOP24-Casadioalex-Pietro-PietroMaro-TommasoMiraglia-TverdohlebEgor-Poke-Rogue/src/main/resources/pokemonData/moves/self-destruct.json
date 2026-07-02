@@ -1,0 +1,19 @@
+{
+    "pp": 5,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [],
+        "selfEffect": [
+            [
+                "us.actualStats[hp].currentValue",
+                "0"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 200,
+    "type": "normal",
+    "priority": 0
+}

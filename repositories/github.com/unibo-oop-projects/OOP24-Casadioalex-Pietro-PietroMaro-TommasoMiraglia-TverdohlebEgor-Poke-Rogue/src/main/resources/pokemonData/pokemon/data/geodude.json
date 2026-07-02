@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 74,
+    "types": [
+        "rock",
+        "ground"
+    ],
+    "captureRate": 255,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 100,
+        "attack": 80,
+        "hp": 40,
+        "speed": 20,
+        "specialDefense": 30,
+        "specialAttack": 30
+    },
+    "moves": {
+        "11": "rock-throw",
+        "1": "defense-curl",
+        "46": "double-edge",
+        "36": "earthquake",
+        "26": "rollout",
+        "16": "magnitude",
+        "6": "mud-sport",
+        "41": "explosion",
+        "31": "rock-blast",
+        "21": "self-destruct"
+    },
+    "growthRate": "medium-slow",
+    "name": "geodude",
+    "weight": 200,
+    "abilites": [
+        "sturdy"
+    ],
+    "givesEV": {
+        "defense": 1,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

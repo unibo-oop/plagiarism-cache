@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 96,
+    "types": [
+        "psychic"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 45,
+        "attack": 48,
+        "hp": 60,
+        "speed": 42,
+        "specialDefense": 90,
+        "specialAttack": 43
+    },
+    "moves": {
+        "11": "confusion",
+        "1": "hypnosis",
+        "47": "future-sight",
+        "37": "psych-up",
+        "27": "meditate",
+        "17": "headbutt",
+        "7": "disable",
+        "41": "swagger",
+        "31": "psychic",
+        "21": "poison-gas"
+    },
+    "growthRate": "medium",
+    "name": "drowzee",
+    "weight": 324,
+    "abilites": [
+        "insomnia"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 1,
+        "specialAttack": 0
+    }
+}

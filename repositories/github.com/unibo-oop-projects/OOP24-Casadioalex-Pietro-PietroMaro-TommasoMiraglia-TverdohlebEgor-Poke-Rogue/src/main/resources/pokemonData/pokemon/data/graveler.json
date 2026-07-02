@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 75,
+    "types": [
+        "rock",
+        "ground"
+    ],
+    "captureRate": 120,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 115,
+        "attack": 95,
+        "hp": 55,
+        "speed": 35,
+        "specialDefense": 45,
+        "specialAttack": 45
+    },
+    "moves": {
+        "1": "mud-sport",
+        "45": "earthquake",
+        "37": "rock-blast",
+        "16": "magnitude",
+        "29": "rollout",
+        "62": "double-edge",
+        "53": "explosion",
+        "21": "self-destruct"
+    },
+    "growthRate": "medium-slow",
+    "name": "graveler",
+    "weight": 1050,
+    "abilites": [
+        "sturdy"
+    ],
+    "givesEV": {
+        "defense": 2,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 116,
+    "types": [
+        "water"
+    ],
+    "captureRate": 225,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 70,
+        "attack": 40,
+        "hp": 30,
+        "speed": 60,
+        "specialDefense": 25,
+        "specialAttack": 70
+    },
+    "moves": {
+        "22": "water-gun",
+        "1": "bubble",
+        "36": "agility",
+        "15": "leer",
+        "29": "twister",
+        "8": "smokescreen",
+        "50": "dragon-dance",
+        "43": "hydro-pump"
+    },
+    "growthRate": "medium",
+    "name": "horsea",
+    "weight": 80,
+    "abilites": [
+        "swift-swim",
+        "sniper"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 1
+    }
+}

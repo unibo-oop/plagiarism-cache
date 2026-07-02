@@ -1,0 +1,36 @@
+{
+    "pokedexNumber": 62,
+    "types": [
+        "water",
+        "fighting"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 95,
+        "attack": 95,
+        "hp": 90,
+        "speed": 70,
+        "specialDefense": 90,
+        "specialAttack": 70
+    },
+    "moves": {
+        "1": "hypnosis",
+        "51": "mind-reader"
+    },
+    "growthRate": "medium-slow",
+    "name": "poliwrath",
+    "weight": 540,
+    "abilites": [
+        "water-absorb",
+        "swift-swim"
+    ],
+    "givesEV": {
+        "defense": 3,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

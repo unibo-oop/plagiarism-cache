@@ -1,0 +1,24 @@
+{
+    "pp": 25,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "MATH.random()",
+                "<",
+                "0.1"
+            ]
+        ],
+        "activation": [
+            [
+                "enemy.statusCondition",
+                "Optional.of(StatusCondition.BURN)"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 40,
+    "type": "fire",
+    "priority": 0
+}

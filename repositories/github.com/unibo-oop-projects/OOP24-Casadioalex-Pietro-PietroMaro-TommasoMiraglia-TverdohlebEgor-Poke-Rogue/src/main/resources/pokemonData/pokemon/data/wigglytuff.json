@@ -1,0 +1,35 @@
+{
+    "pokedexNumber": 40,
+    "types": [
+        "normal",
+        "fairy"
+    ],
+    "captureRate": 50,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 45,
+        "attack": 70,
+        "hp": 140,
+        "speed": 45,
+        "specialDefense": 50,
+        "specialAttack": 85
+    },
+    "moves": {
+        "1": "defense-curl"
+    },
+    "growthRate": "fast",
+    "name": "wigglytuff",
+    "weight": 120,
+    "abilites": [
+        "cute-charm",
+        "competitive"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 3,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

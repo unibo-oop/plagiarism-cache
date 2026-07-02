@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 42,
+    "types": [
+        "poison",
+        "flying"
+    ],
+    "captureRate": 90,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 70,
+        "attack": 80,
+        "hp": 75,
+        "speed": 90,
+        "specialDefense": 75,
+        "specialAttack": 65
+    },
+    "moves": {
+        "1": "astonish",
+        "56": "haze",
+        "35": "air-cutter",
+        "16": "bite",
+        "49": "poison-fang",
+        "28": "confuse-ray",
+        "42": "mean-look",
+        "21": "wing-attack"
+    },
+    "growthRate": "medium",
+    "name": "golbat",
+    "weight": 550,
+    "abilites": [
+        "no-guard"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 2,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

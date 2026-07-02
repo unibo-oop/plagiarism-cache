@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 105,
+    "types": [
+        "ground"
+    ],
+    "captureRate": 75,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 110,
+        "attack": 80,
+        "hp": 60,
+        "speed": 45,
+        "specialDefense": 80,
+        "specialAttack": 50
+    },
+    "moves": {
+        "1": "bone-club",
+        "46": "thrash",
+        "25": "bonemerang",
+        "17": "leer",
+        "39": "false-swipe",
+        "61": "double-edge",
+        "53": "bone-rush",
+        "32": "rage",
+        "21": "focus-energy"
+    },
+    "growthRate": "medium",
+    "name": "marowak",
+    "weight": 450,
+    "abilites": [
+        "lightning-rod",
+        "battle-armor"
+    ],
+    "givesEV": {
+        "defense": 2,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 56,
+    "types": [
+        "fighting"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 35,
+        "attack": 80,
+        "hp": 40,
+        "speed": 70,
+        "specialDefense": 45,
+        "specialAttack": 35
+    },
+    "moves": {
+        "11": "karate-chop",
+        "1": "leer",
+        "46": "thrash",
+        "36": "swagger",
+        "26": "seismic-toss",
+        "16": "fury-swipes",
+        "6": "low-kick",
+        "41": "screech",
+        "31": "cross-chop",
+        "21": "focus-energy"
+    },
+    "growthRate": "medium",
+    "name": "mankey",
+    "weight": 280,
+    "abilites": [
+        "vital-spirit",
+        "anger-point"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 1,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

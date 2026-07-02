@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 68,
+    "types": [
+        "fighting"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 80,
+        "attack": 130,
+        "hp": 90,
+        "speed": 55,
+        "specialDefense": 85,
+        "specialAttack": 65
+    },
+    "moves": {
+        "22": "foresight",
+        "33": "vital-throw",
+        "1": "focus-energy",
+        "13": "karate-chop",
+        "46": "cross-chop",
+        "25": "revenge",
+        "59": "dynamic-punch",
+        "19": "seismic-toss",
+        "51": "scary-face",
+        "41": "submission"
+    },
+    "growthRate": "medium-slow",
+    "name": "machamp",
+    "weight": 1300,
+    "abilites": [
+        "guts",
+        "no-guard"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 3,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

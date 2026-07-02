@@ -1,0 +1,39 @@
+{
+    "pokedexNumber": 22,
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "captureRate": 90,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 65,
+        "attack": 90,
+        "hp": 65,
+        "speed": 100,
+        "specialDefense": 61,
+        "specialAttack": 61
+    },
+    "moves": {
+        "1": "peck",
+        "47": "agility",
+        "26": "pursuit",
+        "40": "drill-peck",
+        "32": "mirror-move"
+    },
+    "growthRate": "medium",
+    "name": "fearow",
+    "weight": 380,
+    "abilites": [
+        "keen-eye",
+        "sniper"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 2,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

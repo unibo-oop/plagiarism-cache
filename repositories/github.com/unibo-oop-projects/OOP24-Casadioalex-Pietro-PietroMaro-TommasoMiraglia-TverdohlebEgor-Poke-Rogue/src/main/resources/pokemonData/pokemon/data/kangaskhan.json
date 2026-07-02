@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 115,
+    "types": [
+        "normal"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 80,
+        "attack": 95,
+        "hp": 105,
+        "speed": 90,
+        "specialDefense": 80,
+        "specialAttack": 40
+    },
+    "moves": {
+        "1": "leer",
+        "13": "tail-whip",
+        "25": "mega-punch",
+        "37": "endure",
+        "49": "reversal",
+        "7": "bite",
+        "19": "fake-out",
+        "31": "rage",
+        "43": "dizzy-punch"
+    },
+    "growthRate": "medium",
+    "name": "kangaskhan",
+    "weight": 800,
+    "abilites": [
+        "unaware"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 2,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

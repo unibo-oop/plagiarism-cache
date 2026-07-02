@@ -1,0 +1,24 @@
+{
+    "pp": 20,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "MATH.random()",
+                "<",
+                "0.40"
+            ]
+        ],
+        "activation": [
+            [
+                "enemy.statusCondition",
+                "Optional.of(StatusCondition.POISON)"
+            ]
+        ]
+    },
+    "accuracy": 70,
+    "critRate": 0,
+    "baseDamage": 30,
+    "type": "poison",
+    "priority": 0
+}

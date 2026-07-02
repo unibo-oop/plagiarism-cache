@@ -1,0 +1,40 @@
+{
+    "pokedexNumber": 112,
+    "types": [
+        "ground",
+        "rock"
+    ],
+    "captureRate": 60,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 120,
+        "attack": 130,
+        "hp": 105,
+        "speed": 40,
+        "specialDefense": 45,
+        "specialAttack": 45
+    },
+    "moves": {
+        "66": "megahorn",
+        "1": "tail-whip",
+        "46": "take-down",
+        "24": "scary-face",
+        "58": "earthquake",
+        "38": "horn-drill",
+        "29": "rock-blast"
+    },
+    "growthRate": "slow",
+    "name": "rhydon",
+    "weight": 1200,
+    "abilites": [
+        "lightning-rod"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 2,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

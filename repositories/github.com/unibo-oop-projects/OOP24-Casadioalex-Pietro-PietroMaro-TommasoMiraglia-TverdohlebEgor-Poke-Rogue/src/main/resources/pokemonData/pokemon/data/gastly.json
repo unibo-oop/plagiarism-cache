@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 92,
+    "types": [
+        "ghost",
+        "poison"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 30,
+        "attack": 35,
+        "hp": 30,
+        "speed": 80,
+        "specialDefense": 35,
+        "specialAttack": 100
+    },
+    "moves": {
+        "33": "destiny-bond",
+        "1": "lick",
+        "13": "curse",
+        "36": "shadow-ball",
+        "48": "mean-look",
+        "16": "night-shade",
+        "28": "dream-eater",
+        "8": "spite",
+        "41": "nightmare",
+        "21": "confuse-ray"
+    },
+    "growthRate": "medium-slow",
+    "name": "gastly",
+    "weight": 1,
+    "abilites": [
+        "levitate"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 1
+    }
+}

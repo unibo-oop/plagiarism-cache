@@ -1,0 +1,18 @@
+{
+    "pp": 10,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "attackEnemy.accuracy",
+                "attackEnemy.accuracy - 1"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 20,
+    "type": "ground",
+    "priority": 0
+}

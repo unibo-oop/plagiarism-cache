@@ -1,0 +1,24 @@
+{
+    "pp": 10,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "enemy.actualStats[hp].currentValue",
+                "==",
+                "0"
+            ]
+        ],
+        "activation": [
+            [
+                "enemy.actualStats[hp].currentValue",
+                "1"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "normal",
+    "priority": 4
+}

@@ -1,0 +1,39 @@
+{
+    "pokedexNumber": 24,
+    "types": [
+        "poison"
+    ],
+    "captureRate": 90,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 69,
+        "attack": 95,
+        "hp": 60,
+        "speed": 80,
+        "specialDefense": 79,
+        "specialAttack": 65
+    },
+    "moves": {
+        "1": "bite",
+        "56": "haze",
+        "46": "swallow",
+        "38": "acid",
+        "28": "screech",
+        "20": "glare"
+    },
+    "growthRate": "medium",
+    "name": "arbok",
+    "weight": 650,
+    "abilites": [
+        "intimidate",
+        "shed-skin"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 2,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

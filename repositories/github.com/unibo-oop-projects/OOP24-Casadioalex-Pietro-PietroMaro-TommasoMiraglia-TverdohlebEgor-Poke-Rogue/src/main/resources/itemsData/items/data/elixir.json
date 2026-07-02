@@ -1,0 +1,19 @@
+{
+    "id": 13,
+    "name": "Elixir",
+    "type": "PPRestore",
+    "description": "Restores 10 PP to the first Pokemon's move.",
+    "price": 3000,
+    "rarity": "Great",
+    "category": "Consumable",
+    "captureRate": 0,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "us.actualMoves[0].pp.currentValue",
+                "MATH.min(us.actualMoves[0].pp.currentMax, us.actualMoves[0].pp.currentValue + 10)"
+            ]
+        ]
+    }
+}

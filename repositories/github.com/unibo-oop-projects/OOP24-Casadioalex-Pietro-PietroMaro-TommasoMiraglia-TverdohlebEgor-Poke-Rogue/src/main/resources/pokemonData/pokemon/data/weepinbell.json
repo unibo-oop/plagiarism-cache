@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 70,
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "captureRate": 120,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 50,
+        "attack": 90,
+        "hp": 65,
+        "speed": 55,
+        "specialDefense": 45,
+        "specialAttack": 85
+    },
+    "moves": {
+        "33": "sweet-scent",
+        "1": "growth",
+        "24": "acid",
+        "15": "sleep-powder",
+        "17": "poison-powder",
+        "19": "stun-spore",
+        "42": "razor-leaf",
+        "54": "slam"
+    },
+    "growthRate": "medium-slow",
+    "name": "weepinbell",
+    "weight": 64,
+    "abilites": [
+        "chlorophyll"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 2,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

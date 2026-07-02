@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 98,
+    "types": [
+        "water"
+    ],
+    "captureRate": 225,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 90,
+        "attack": 105,
+        "hp": 30,
+        "speed": 50,
+        "specialDefense": 25,
+        "specialAttack": 25
+    },
+    "moves": {
+        "12": "vice-grip",
+        "34": "guillotine",
+        "1": "bubble",
+        "45": "crabhammer",
+        "23": "mud-shot",
+        "27": "stomp",
+        "5": "leer",
+        "16": "harden",
+        "49": "flail",
+        "38": "protect"
+    },
+    "growthRate": "medium",
+    "name": "krabby",
+    "weight": 65,
+    "abilites": [
+        "shell-armor"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 1,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

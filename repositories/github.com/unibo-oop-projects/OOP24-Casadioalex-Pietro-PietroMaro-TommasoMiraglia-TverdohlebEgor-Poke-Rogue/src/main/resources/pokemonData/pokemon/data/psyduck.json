@@ -1,0 +1,40 @@
+{
+    "pokedexNumber": 54,
+    "types": [
+        "water"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 48,
+        "attack": 52,
+        "hp": 50,
+        "speed": 55,
+        "specialDefense": 50,
+        "specialAttack": 65
+    },
+    "moves": {
+        "1": "water-sport",
+        "23": "screech",
+        "5": "tail-whip",
+        "16": "confusion",
+        "50": "hydro-pump",
+        "40": "fury-swipes",
+        "31": "psych-up",
+        "10": "disable"
+    },
+    "growthRate": "medium",
+    "name": "psyduck",
+    "weight": 196,
+    "abilites": [
+        "swift-swim"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 1
+    }
+}

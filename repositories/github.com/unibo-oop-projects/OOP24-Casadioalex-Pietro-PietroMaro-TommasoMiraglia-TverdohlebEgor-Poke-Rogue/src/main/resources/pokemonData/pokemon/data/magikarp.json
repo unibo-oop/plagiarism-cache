@@ -1,0 +1,36 @@
+{
+    "pokedexNumber": 129,
+    "types": [
+        "water"
+    ],
+    "captureRate": 255,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 55,
+        "attack": 10,
+        "hp": 20,
+        "speed": 80,
+        "specialDefense": 20,
+        "specialAttack": 15
+    },
+    "moves": {
+        "1": "splash",
+        "15": "tackle",
+        "30": "flail"
+    },
+    "growthRate": "slow",
+    "name": "magikarp",
+    "weight": 100,
+    "abilites": [
+        "swift-swim",
+        "rattled"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 1,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 86,
+    "types": [
+        "water"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 55,
+        "attack": 45,
+        "hp": 65,
+        "speed": 45,
+        "specialDefense": 70,
+        "specialAttack": 45
+    },
+    "moves": {
+        "1": "headbutt",
+        "37": "take-down",
+        "49": "safeguard",
+        "17": "icy-wind",
+        "29": "rest",
+        "9": "growl",
+        "41": "ice-beam",
+        "21": "aurora-beam"
+    },
+    "growthRate": "medium",
+    "name": "seel",
+    "weight": 900,
+    "abilites": [
+        "thick-fat",
+        "hydration",
+        "ice-body"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 1,
+        "specialAttack": 0
+    }
+}

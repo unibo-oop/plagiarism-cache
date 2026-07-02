@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 100,
+    "types": [
+        "electric"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 50,
+        "attack": 30,
+        "hp": 40,
+        "speed": 100,
+        "specialDefense": 55,
+        "specialAttack": 55
+    },
+    "moves": {
+        "1": "screech",
+        "46": "explosion",
+        "15": "sonic-boom",
+        "37": "light-screen",
+        "27": "self-destruct",
+        "49": "mirror-coat",
+        "42": "swift",
+        "32": "rollout",
+        "21": "spark"
+    },
+    "growthRate": "medium",
+    "name": "voltorb",
+    "weight": 104,
+    "abilites": [
+        "soundproof",
+        "static",
+        "aftermath"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 1,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

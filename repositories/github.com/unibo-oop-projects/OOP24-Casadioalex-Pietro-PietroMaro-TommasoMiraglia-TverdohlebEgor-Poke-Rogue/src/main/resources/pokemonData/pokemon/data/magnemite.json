@@ -1,0 +1,44 @@
+{
+    "pokedexNumber": 81,
+    "types": [
+        "electric",
+        "steel"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 70,
+        "attack": 35,
+        "hp": 25,
+        "speed": 45,
+        "specialDefense": 55,
+        "specialAttack": 95
+    },
+    "moves": {
+        "11": "supersonic",
+        "44": "screech",
+        "1": "metal-sound",
+        "26": "spark",
+        "16": "sonic-boom",
+        "38": "swift",
+        "6": "thunder-shock",
+        "50": "zap-cannon",
+        "21": "thunder-wave",
+        "32": "lock-on"
+    },
+    "growthRate": "medium",
+    "name": "magnemite",
+    "weight": 60,
+    "abilites": [
+        "sturdy",
+        "analytic"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 1
+    }
+}

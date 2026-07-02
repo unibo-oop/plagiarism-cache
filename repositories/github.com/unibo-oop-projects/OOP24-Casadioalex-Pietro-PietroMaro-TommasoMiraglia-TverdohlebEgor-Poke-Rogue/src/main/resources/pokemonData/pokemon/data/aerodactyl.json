@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 142,
+    "types": [
+        "rock",
+        "flying"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 65,
+        "attack": 105,
+        "hp": 80,
+        "speed": 130,
+        "specialDefense": 75,
+        "specialAttack": 60
+    },
+    "moves": {
+        "22": "supersonic",
+        "1": "wing-attack",
+        "36": "scary-face",
+        "15": "bite",
+        "29": "ancient-power",
+        "8": "agility",
+        "50": "hyper-beam",
+        "43": "take-down"
+    },
+    "growthRate": "slow",
+    "name": "aerodactyl",
+    "weight": 590,
+    "abilites": [
+        "pressure"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 2,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

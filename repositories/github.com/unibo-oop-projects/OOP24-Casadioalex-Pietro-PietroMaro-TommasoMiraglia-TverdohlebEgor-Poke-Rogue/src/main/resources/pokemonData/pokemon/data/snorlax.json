@@ -1,0 +1,47 @@
+{
+    "pokedexNumber": 143,
+    "types": [
+        "normal"
+    ],
+    "captureRate": 25,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 65,
+        "attack": 110,
+        "hp": 160,
+        "speed": 30,
+        "specialDefense": 110,
+        "specialAttack": 65
+    },
+    "moves": {
+        "33": "body-slam",
+        "45": "covet",
+        "13": "belly-drum",
+        "25": "rest",
+        "37": "sleep-talk",
+        "49": "rollout",
+        "17": "headbutt",
+        "29": "snore",
+        "1": "tackle",
+        "5": "amnesia",
+        "9": "defense-curl",
+        "41": "block",
+        "53": "hyper-beam",
+        "21": "yawn"
+    },
+    "growthRate": "slow",
+    "name": "snorlax",
+    "weight": 4600,
+    "abilites": [
+        "immunity",
+        "thick-fat"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 2,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

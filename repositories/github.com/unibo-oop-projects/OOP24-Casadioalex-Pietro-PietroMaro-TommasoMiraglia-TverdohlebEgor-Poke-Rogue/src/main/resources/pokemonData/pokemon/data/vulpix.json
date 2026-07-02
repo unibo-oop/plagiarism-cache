@@ -1,0 +1,44 @@
+{
+    "pokedexNumber": 37,
+    "types": [
+        "fire"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 40,
+        "attack": 41,
+        "hp": 38,
+        "speed": 65,
+        "specialDefense": 65,
+        "specialAttack": 50
+    },
+    "moves": {
+        "33": "safeguard",
+        "1": "ember",
+        "13": "quick-attack",
+        "25": "imprison",
+        "37": "grudge",
+        "5": "tail-whip",
+        "17": "will-o-wisp",
+        "29": "flamethrower",
+        "9": "roar",
+        "41": "fire-spin",
+        "21": "confuse-ray"
+    },
+    "growthRate": "medium",
+    "name": "vulpix",
+    "weight": 99,
+    "abilites": [
+        "flash-fire",
+        "drought"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 1,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

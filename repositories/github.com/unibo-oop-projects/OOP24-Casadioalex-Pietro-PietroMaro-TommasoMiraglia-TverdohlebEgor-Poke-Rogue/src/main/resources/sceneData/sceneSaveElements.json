@@ -1,0 +1,101 @@
+{
+    "metrics": {
+        "1": {
+            "type": "box",
+            "panelName": "firstPanel",
+            "mainColor": "#00FF00",
+            "borderColor": "#f58442",
+            "borderThickness": 2,
+            "leftX": 0.35,
+            "leftY": 0.00,
+            "width": 0.30,
+            "height": 0.06
+        },
+        "2": {
+            "type": "text",
+            "panelName": "firstPanel",
+            "text": "What do you want to do?",
+            "textColor": "#000000",
+            "textDimension": 0.1,
+            "leftX": 0.36,
+            "leftY": 0.04
+        },
+        "3": {
+            "type": "text",
+            "panelName": "firstPanel",
+            "text": "exit without saving",
+            "textColor": "#000000",
+            "textDimension": 0.05,
+            "leftX": 0.64,
+            "leftY": 0.505
+        },
+        "4": {
+            "type": "text",
+            "panelName": "firstPanel",
+            "text": "exit and save the game",
+            "textColor": "#000000",
+            "textDimension": 0.05,
+            "leftX": 0.23,
+            "leftY": 0.495
+        },
+        "5": {
+            "type": "button",
+            "panelName": "firstPanel",
+            "mainColor": "#00FF00",
+            "borderColor": "#000000",
+            "borderThickness": 0,
+            "leftX": 0.20,
+            "leftY": 0.45,
+            "width": 0.20,
+            "height": 0.1
+        },
+        "6": {
+            "type": "button",
+            "panelName": "firstPanel",
+            "mainColor": "#00FF00",
+            "borderColor": "#000000",
+            "borderThickness": 0,
+            "leftX": 0.60,
+            "leftY": 0.45,
+            "width": 0.20,
+            "height": 0.1
+        },
+        "7": {
+            "type": "text",
+            "panelName": "firstPanel",
+            "text": "",
+            "textColor": "#000000",
+            "textDimension": 0.05,
+            "leftX": 0.25,
+            "leftY": 0.525
+        },
+        "100": {
+            "type": "background",
+            "panelName": "firstPanel",
+            "dirToImage": "save",
+            "imageFileName": "sceneSaveBg.png"
+        }
+    },
+    "mapper": {
+        "QUESTION_BOX": 1,
+        "QUESTION_TEXT": 2,
+        "CONTINUE_GAME_TEXT": 3,
+        "EXIT_AND_SAVE_TEXT": 4,
+        "EXIT_AND_SAVE_BUTTON": 5,
+        "CONTINUE_GAME_BUTTON": 6,
+        "SAVE_NAME_TEXT": 7,
+        "BACKGROUND":100
+    },
+    "dynamicObjects": {
+        "init": [
+            2,
+            3,
+            4,
+            7,
+            5,
+            6,
+            1,
+            100
+        ]
+    }
+}

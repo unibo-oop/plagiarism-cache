@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 76,
+    "types": [
+        "rock",
+        "ground"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 130,
+        "attack": 120,
+        "hp": 80,
+        "speed": 45,
+        "specialDefense": 65,
+        "specialAttack": 55
+    },
+    "moves": {
+        "1": "mud-sport",
+        "45": "earthquake",
+        "37": "rock-blast",
+        "16": "magnitude",
+        "29": "rollout",
+        "62": "double-edge",
+        "53": "explosion",
+        "21": "self-destruct"
+    },
+    "growthRate": "medium-slow",
+    "name": "golem",
+    "weight": 3000,
+    "abilites": [
+        "sturdy"
+    ],
+    "givesEV": {
+        "defense": 3,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

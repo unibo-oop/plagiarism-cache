@@ -1,0 +1,39 @@
+{
+    "id": 29,
+    "name": "Vitamins",
+    "type": "Boost",
+    "description": "Increases the holder's base stat by 10%.",
+    "price": 7500,
+    "rarity": "Great",
+    "category": "Consumable",
+    "captureRate": 0,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "us.actualStats[hp].currentValue",
+                "MATH.floor(us.actualStats[hp].currentValue * 1.1).intValue()"
+            ],
+            [
+                "us.actualStats[attack].currentValue",
+                "MATH.floor(us.actualStats[attack].currentValue * 1.1).intValue()"
+            ],
+            [
+                "us.actualStats[defense].currentValue",
+                "MATH.floor(us.actualStats[defense].currentValue * 1.1).intValue()"
+            ],
+            [
+                "us.actualStats[specialAttack].currentValue",
+                "MATH.floor(us.actualStats[specialAttack].currentValue * 1.1).intValue()"
+            ],
+            [
+                "us.actualStats[specialDefense].currentValue",
+                "MATH.floor(us.actualStats[specialDefense].currentValue * 1.1).intValue()"
+            ],
+            [
+                "us.actualStats[speed].currentValue",
+                "MATH.floor(us.actualStats[speed].currentValue * 1.1).intValue()"
+            ]
+        ]
+    }
+}

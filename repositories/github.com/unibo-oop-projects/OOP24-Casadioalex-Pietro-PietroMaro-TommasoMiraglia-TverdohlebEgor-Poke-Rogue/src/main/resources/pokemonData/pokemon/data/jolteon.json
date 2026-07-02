@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 135,
+    "types": [
+        "electric"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 60,
+        "attack": 65,
+        "hp": 65,
+        "speed": 130,
+        "specialDefense": 95,
+        "specialAttack": 110
+    },
+    "moves": {
+        "1": "helping-hand",
+        "23": "quick-attack",
+        "36": "pin-missile",
+        "47": "agility",
+        "16": "thunder-shock",
+        "8": "sand-attack",
+        "30": "double-kick",
+        "52": "thunder",
+        "42": "thunder-wave"
+    },
+    "growthRate": "medium",
+    "name": "jolteon",
+    "weight": 245,
+    "abilites": [
+        "volt-absorb",
+        "quick-feet"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 2,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "pokedexNumber": 73,
+    "types": [
+        "water",
+        "poison"
+    ],
+    "captureRate": 60,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 65,
+        "attack": 70,
+        "hp": 80,
+        "speed": 100,
+        "specialDefense": 120,
+        "specialAttack": 80
+    },
+    "moves": {
+        "55": "hydro-pump",
+        "1": "constrict",
+        "25": "bubble-beam",
+        "47": "screech",
+        "38": "barrier",
+        "19": "acid",
+        "30": "wrap"
+    },
+    "growthRate": "slow",
+    "name": "tentacruel",
+    "weight": 550,
+    "abilites": [
+        "rain-dish"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 2,
+        "specialAttack": 0
+    }
+}

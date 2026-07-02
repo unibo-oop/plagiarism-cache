@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 102,
+    "types": [
+        "grass",
+        "psychic"
+    ],
+    "captureRate": 90,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 80,
+        "attack": 40,
+        "hp": 60,
+        "speed": 40,
+        "specialDefense": 45,
+        "specialAttack": 60
+    },
+    "moves": {
+        "1": "uproar",
+        "13": "leech-seed",
+        "25": "stun-spore",
+        "37": "sleep-powder",
+        "7": "reflect",
+        "19": "confusion",
+        "31": "poison-powder",
+        "43": "solar-beam"
+    },
+    "growthRate": "slow",
+    "name": "exeggcute",
+    "weight": 25,
+    "abilites": [
+        "chlorophyll"
+    ],
+    "givesEV": {
+        "defense": 1,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

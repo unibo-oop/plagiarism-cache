@@ -1,0 +1,18 @@
+{
+    "pp": 30,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "attackUs.calculatedDamage",
+                "attackUs.baseDamage - 5"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 25,
+    "type": "ice",
+    "priority": 0
+}

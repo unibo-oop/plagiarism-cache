@@ -1,0 +1,45 @@
+{
+    "pokedexNumber": 39,
+    "types": [
+        "normal",
+        "fairy"
+    ],
+    "captureRate": 170,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 20,
+        "attack": 45,
+        "hp": 115,
+        "speed": 20,
+        "specialDefense": 25,
+        "specialAttack": 45
+    },
+    "moves": {
+        "44": "hyper-voice",
+        "34": "body-slam",
+        "1": "sing",
+        "24": "double-slap",
+        "14": "disable",
+        "4": "defense-curl",
+        "49": "double-edge",
+        "39": "mimic",
+        "29": "rest",
+        "19": "rollout",
+        "9": "pound"
+    },
+    "growthRate": "fast",
+    "name": "jigglypuff",
+    "weight": 55,
+    "abilites": [
+        "cute-charm",
+        "competitive"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 2,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

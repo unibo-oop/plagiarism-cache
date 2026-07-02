@@ -1,0 +1,18 @@
+{
+    "pp": 40,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "enemy.tempStatsBonus[defense].currentValue",
+                "enemy.tempStatsBonus[defense].currentValue - 2"
+            ]
+        ]
+    },
+    "accuracy": 85,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "normal",
+    "priority": 0
+}

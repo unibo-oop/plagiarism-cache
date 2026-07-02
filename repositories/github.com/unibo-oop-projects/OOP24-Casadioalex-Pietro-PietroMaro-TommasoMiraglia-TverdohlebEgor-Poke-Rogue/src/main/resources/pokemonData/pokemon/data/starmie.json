@@ -1,0 +1,36 @@
+{
+    "pokedexNumber": 121,
+    "types": [
+        "water",
+        "psychic"
+    ],
+    "captureRate": 60,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 85,
+        "attack": 75,
+        "hp": 60,
+        "speed": 115,
+        "specialDefense": 85,
+        "specialAttack": 100
+    },
+    "moves": {
+        "33": "confuse-ray",
+        "1": "rapid-spin"
+    },
+    "growthRate": "slow",
+    "name": "starmie",
+    "weight": 800,
+    "abilites": [
+        "natural-cure",
+        "analytic"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 2,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

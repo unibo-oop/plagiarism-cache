@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 101,
+    "types": [
+        "electric"
+    ],
+    "captureRate": 60,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 70,
+        "attack": 50,
+        "hp": 60,
+        "speed": 150,
+        "specialDefense": 80,
+        "specialAttack": 80
+    },
+    "moves": {
+        "1": "spark",
+        "34": "rollout",
+        "48": "swift",
+        "59": "mirror-coat",
+        "27": "self-destruct",
+        "41": "light-screen",
+        "54": "explosion"
+    },
+    "growthRate": "medium",
+    "name": "electrode",
+    "weight": 666,
+    "abilites": [
+        "soundproof",
+        "static",
+        "aftermath"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 2,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

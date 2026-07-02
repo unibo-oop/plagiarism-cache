@@ -1,0 +1,13 @@
+{
+    "pp": 40,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": []
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 50,
+    "type": "normal",
+    "priority": 0
+}

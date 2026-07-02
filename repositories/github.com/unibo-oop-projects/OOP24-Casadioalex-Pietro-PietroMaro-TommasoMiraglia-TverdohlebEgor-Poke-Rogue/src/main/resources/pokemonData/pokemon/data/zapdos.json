@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 145,
+    "types": [
+        "electric",
+        "flying"
+    ],
+    "captureRate": 3,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 85,
+        "attack": 90,
+        "hp": 90,
+        "speed": 100,
+        "specialDefense": 90,
+        "specialAttack": 125
+    },
+    "moves": {
+        "1": "thunder-shock",
+        "13": "thunder-wave",
+        "25": "agility",
+        "37": "detect",
+        "49": "drill-peck",
+        "73": "light-screen",
+        "85": "thunder"
+    },
+    "growthRate": "slow",
+    "name": "zapdos",
+    "weight": 526,
+    "abilites": [
+        "pressure",
+        "static"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 3
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 84,
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 45,
+        "attack": 85,
+        "hp": 35,
+        "speed": 75,
+        "specialDefense": 35,
+        "specialAttack": 35
+    },
+    "moves": {
+        "33": "uproar",
+        "1": "peck",
+        "45": "agility",
+        "13": "fury-attack",
+        "25": "rage",
+        "37": "drill-peck",
+        "9": "pursuit",
+        "21": "tri-attack"
+    },
+    "growthRate": "medium",
+    "name": "doduo",
+    "weight": 392,
+    "abilites": [
+        "tangled-feet"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 1,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

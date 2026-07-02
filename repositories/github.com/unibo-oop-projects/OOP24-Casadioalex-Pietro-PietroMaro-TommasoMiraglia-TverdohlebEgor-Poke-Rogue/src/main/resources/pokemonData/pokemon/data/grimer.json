@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 88,
+    "types": [
+        "poison"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 50,
+        "attack": 80,
+        "hp": 80,
+        "speed": 25,
+        "specialDefense": 50,
+        "specialAttack": 40
+    },
+    "moves": {
+        "1": "poison-gas",
+        "34": "acid-armor",
+        "13": "sludge",
+        "26": "screech",
+        "4": "harden",
+        "8": "disable",
+        "19": "minimize",
+        "53": "memento",
+        "43": "sludge-bomb"
+    },
+    "growthRate": "medium",
+    "name": "grimer",
+    "weight": 300,
+    "abilites": [
+        "stench",
+        "poison-touch"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 1,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

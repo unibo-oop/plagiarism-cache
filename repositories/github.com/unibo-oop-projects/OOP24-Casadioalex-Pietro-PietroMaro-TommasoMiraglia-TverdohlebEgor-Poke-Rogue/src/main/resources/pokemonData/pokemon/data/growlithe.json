@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 58,
+    "types": [
+        "fire"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 45,
+        "attack": 70,
+        "hp": 55,
+        "speed": 60,
+        "specialDefense": 50,
+        "specialAttack": 70
+    },
+    "moves": {
+        "1": "roar",
+        "13": "leer",
+        "25": "take-down",
+        "37": "helping-hand",
+        "49": "flamethrower",
+        "7": "ember",
+        "19": "odor-sleuth",
+        "31": "flame-wheel",
+        "43": "agility"
+    },
+    "growthRate": "slow",
+    "name": "growlithe",
+    "weight": 190,
+    "abilites": [
+        "intimidate",
+        "flash-fire",
+        "justified"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 1,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

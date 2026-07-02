@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 87,
+    "types": [
+        "water",
+        "ice"
+    ],
+    "captureRate": 75,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 80,
+        "attack": 70,
+        "hp": 90,
+        "speed": 70,
+        "specialDefense": 95,
+        "specialAttack": 70
+    },
+    "moves": {
+        "1": "signal-beam",
+        "34": "sheer-cold",
+        "29": "rest",
+        "51": "ice-beam",
+        "42": "take-down",
+        "64": "safeguard"
+    },
+    "growthRate": "medium",
+    "name": "dewgong",
+    "weight": 1200,
+    "abilites": [
+        "thick-fat",
+        "hydration",
+        "ice-body"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 2,
+        "specialAttack": 0
+    }
+}

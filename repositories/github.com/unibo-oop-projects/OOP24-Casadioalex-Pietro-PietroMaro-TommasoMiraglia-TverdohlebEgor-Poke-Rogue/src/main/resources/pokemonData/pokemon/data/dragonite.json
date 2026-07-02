@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 149,
+    "types": [
+        "dragon",
+        "flying"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 95,
+        "attack": 134,
+        "hp": 91,
+        "speed": 80,
+        "specialDefense": 100,
+        "specialAttack": 100
+    },
+    "moves": {
+        "55": "wing-attack",
+        "22": "dragon-rage",
+        "1": "twister",
+        "47": "safeguard",
+        "38": "agility",
+        "29": "slam",
+        "61": "outrage",
+        "75": "hyper-beam"
+    },
+    "growthRate": "slow",
+    "name": "dragonite",
+    "weight": 2100,
+    "abilites": [
+        "multiscale"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 3,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

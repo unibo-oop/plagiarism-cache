@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 57,
+    "types": [
+        "fighting"
+    ],
+    "captureRate": 75,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 60,
+        "attack": 105,
+        "hp": 65,
+        "speed": 95,
+        "specialDefense": 70,
+        "specialAttack": 60
+    },
+    "moves": {
+        "11": "karate-chop",
+        "44": "swagger",
+        "1": "rage",
+        "35": "cross-chop",
+        "26": "seismic-toss",
+        "16": "fury-swipes",
+        "62": "thrash",
+        "53": "screech",
+        "21": "focus-energy"
+    },
+    "growthRate": "medium",
+    "name": "primeape",
+    "weight": 320,
+    "abilites": [
+        "vital-spirit",
+        "anger-point"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 2,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

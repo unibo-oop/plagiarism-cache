@@ -1,0 +1,13 @@
+{
+    "pp": 15,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": []
+    },
+    "accuracy": 90,
+    "critRate": 0,
+    "baseDamage": 85,
+    "type": "fighting",
+    "priority": 0
+}

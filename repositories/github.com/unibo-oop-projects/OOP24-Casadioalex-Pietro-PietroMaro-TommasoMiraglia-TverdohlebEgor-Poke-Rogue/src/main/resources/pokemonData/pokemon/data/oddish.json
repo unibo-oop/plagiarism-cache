@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 43,
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "captureRate": 255,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 55,
+        "attack": 50,
+        "hp": 45,
+        "speed": 30,
+        "specialDefense": 65,
+        "specialAttack": 75
+    },
+    "moves": {
+        "23": "acid",
+        "1": "absorb",
+        "14": "poison-powder",
+        "16": "stun-spore",
+        "39": "petal-dance",
+        "18": "sleep-powder",
+        "7": "sweet-scent",
+        "32": "moonlight"
+    },
+    "growthRate": "medium-slow",
+    "name": "oddish",
+    "weight": 54,
+    "abilites": [
+        "chlorophyll"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 1
+    }
+}

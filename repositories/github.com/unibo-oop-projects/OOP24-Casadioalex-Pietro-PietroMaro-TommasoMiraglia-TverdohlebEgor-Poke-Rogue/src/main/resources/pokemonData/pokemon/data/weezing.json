@@ -1,0 +1,40 @@
+{
+    "pokedexNumber": 110,
+    "types": [
+        "poison"
+    ],
+    "captureRate": 60,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 120,
+        "attack": 90,
+        "hp": 65,
+        "speed": 60,
+        "specialDefense": 70,
+        "specialAttack": 85
+    },
+    "moves": {
+        "33": "haze",
+        "44": "explosion",
+        "1": "poison-gas",
+        "25": "smokescreen",
+        "58": "memento",
+        "51": "destiny-bond",
+        "21": "sludge"
+    },
+    "growthRate": "medium",
+    "name": "weezing",
+    "weight": 95,
+    "abilites": [
+        "levitate",
+        "stench"
+    ],
+    "givesEV": {
+        "defense": 2,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

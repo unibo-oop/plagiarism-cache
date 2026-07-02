@@ -1,0 +1,24 @@
+{
+    "pp": 15,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "MATH.random()",
+                "<",
+                "0.10"
+            ]
+        ],
+        "activation": [
+            [
+                "enemy.statusCondition",
+                "Optional.of(StatusCondition.CONFUSION)"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 75,
+    "type": "bug",
+    "priority": 0
+}

@@ -1,0 +1,36 @@
+{
+    "pokedexNumber": 45,
+    "types": [
+        "grass",
+        "poison"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 85,
+        "attack": 80,
+        "hp": 75,
+        "speed": 50,
+        "specialDefense": 90,
+        "specialAttack": 110
+    },
+    "moves": {
+        "44": "petal-dance",
+        "1": "aromatherapy"
+    },
+    "growthRate": "medium-slow",
+    "name": "vileplume",
+    "weight": 186,
+    "abilites": [
+        "chlorophyll",
+        "effect-spore"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 3
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "pokedexNumber": 13,
+    "types": [
+        "bug",
+        "poison"
+    ],
+    "captureRate": 255,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 30,
+        "attack": 35,
+        "hp": 40,
+        "speed": 50,
+        "specialDefense": 20,
+        "specialAttack": 20
+    },
+    "moves": {
+        "1": "string-shot"
+    },
+    "growthRate": "medium",
+    "name": "weedle",
+    "weight": 32,
+    "abilites": [
+        "chlorophyll"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 1,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 41,
+    "types": [
+        "poison",
+        "flying"
+    ],
+    "captureRate": 255,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 35,
+        "attack": 45,
+        "hp": 40,
+        "speed": 55,
+        "specialDefense": 40,
+        "specialAttack": 30
+    },
+    "moves": {
+        "11": "supersonic",
+        "1": "leech-life",
+        "46": "haze",
+        "36": "mean-look",
+        "26": "confuse-ray",
+        "16": "bite",
+        "6": "astonish",
+        "41": "poison-fang",
+        "31": "air-cutter",
+        "21": "wing-attack"
+    },
+    "growthRate": "medium",
+    "name": "zubat",
+    "weight": 75,
+    "abilites": [
+        "no-guard"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 1,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

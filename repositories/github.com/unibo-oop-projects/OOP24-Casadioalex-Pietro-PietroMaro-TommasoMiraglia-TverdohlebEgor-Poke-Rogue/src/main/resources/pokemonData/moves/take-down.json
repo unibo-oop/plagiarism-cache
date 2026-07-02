@@ -1,0 +1,18 @@
+{
+    "pp": 20,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "us.actualStats[hp].currentValue",
+                "us.actualStats[hp].currentValue - (attackUs.calculatedDamage * 0.25)"
+            ]
+        ]
+    },
+    "accuracy": 85,
+    "critRate": 0,
+    "baseDamage": 90,
+    "type": "normal",
+    "priority": 0
+}

@@ -1,0 +1,34 @@
+{
+    "pp": 10,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "us.tempStatsBonus[attack].currentValue",
+                "enemy.tempStatsBonus[attack].currentValue"
+            ],
+            [
+                "us.tempStatsBonus[defense].currentValue",
+                "enemy.tempStatsBonus[defense].currentValue"
+            ],
+            [
+                "us.tempStatsBonus[specialAttack].currentValue",
+                "enemy.tempStatsBonus[specialAttack].currentValue"
+            ],
+            [
+                "us.tempStatsBonus[specialDefense].currentValue",
+                "enemy.tempStatsBonus[specialDefense].currentValue"
+            ],
+            [
+                "us.tempStatsBonus[speed].currentValue",
+                "enemy.tempStatsBonus[speed].currentValue"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "normal",
+    "priority": 0
+}

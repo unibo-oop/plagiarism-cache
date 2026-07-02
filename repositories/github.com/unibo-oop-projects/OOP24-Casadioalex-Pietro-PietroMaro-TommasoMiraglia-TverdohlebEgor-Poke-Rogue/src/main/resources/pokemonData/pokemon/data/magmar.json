@@ -1,0 +1,39 @@
+{
+    "pokedexNumber": 126,
+    "types": [
+        "fire"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 57,
+        "attack": 95,
+        "hp": 65,
+        "speed": 93,
+        "specialDefense": 85,
+        "specialAttack": 100
+    },
+    "moves": {
+        "33": "sunny-day",
+        "1": "smog",
+        "57": "fire-blast",
+        "25": "smokescreen",
+        "49": "confuse-ray",
+        "41": "flamethrower"
+    },
+    "growthRate": "medium",
+    "name": "magmar",
+    "weight": 445,
+    "abilites": [
+        "flame-body",
+        "vital-spirit"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 2
+    }
+}

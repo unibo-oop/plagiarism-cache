@@ -1,0 +1,39 @@
+{
+    "pokedexNumber": 125,
+    "types": [
+        "electric"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 57,
+        "attack": 83,
+        "hp": 65,
+        "speed": 105,
+        "specialDefense": 85,
+        "specialAttack": 95
+    },
+    "moves": {
+        "1": "quick-attack",
+        "47": "thunderbolt",
+        "58": "thunder",
+        "36": "screech",
+        "25": "swift",
+        "17": "light-screen"
+    },
+    "growthRate": "medium",
+    "name": "electabuzz",
+    "weight": 300,
+    "abilites": [
+        "static",
+        "vital-spirit"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 2,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

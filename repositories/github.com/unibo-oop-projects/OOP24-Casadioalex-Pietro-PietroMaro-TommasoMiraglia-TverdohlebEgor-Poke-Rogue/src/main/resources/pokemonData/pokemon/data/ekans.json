@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 23,
+    "types": [
+        "poison"
+    ],
+    "captureRate": 255,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 44,
+        "attack": 60,
+        "hp": 35,
+        "speed": 55,
+        "specialDefense": 54,
+        "specialAttack": 40
+    },
+    "moves": {
+        "44": "haze",
+        "1": "leer",
+        "13": "bite",
+        "25": "screech",
+        "37": "swallow",
+        "8": "poison-sting",
+        "20": "glare",
+        "32": "acid"
+    },
+    "growthRate": "medium",
+    "name": "ekans",
+    "weight": 69,
+    "abilites": [
+        "intimidate",
+        "shed-skin"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 1,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

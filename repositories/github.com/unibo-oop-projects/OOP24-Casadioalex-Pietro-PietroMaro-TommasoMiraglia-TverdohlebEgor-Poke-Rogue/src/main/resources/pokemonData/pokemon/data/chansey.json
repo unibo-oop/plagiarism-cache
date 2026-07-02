@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 113,
+    "types": [
+        "normal"
+    ],
+    "captureRate": 30,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 5,
+        "attack": 5,
+        "hp": 250,
+        "speed": 50,
+        "specialDefense": 105,
+        "specialAttack": 35
+    },
+    "moves": {
+        "1": "growl",
+        "23": "minimize",
+        "57": "double-edge",
+        "35": "egg-bomb",
+        "13": "soft-boiled",
+        "5": "tail-whip",
+        "49": "light-screen",
+        "17": "double-slap",
+        "29": "sing",
+        "9": "refresh",
+        "41": "defense-curl"
+    },
+    "growthRate": "fast",
+    "name": "chansey",
+    "weight": 346,
+    "abilites": [
+        "natural-cure"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 2,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

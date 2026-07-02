@@ -1,0 +1,42 @@
+{
+    "metrics": {
+        "0": {
+            "type": "text",
+            "panelName": "firstPanel",
+            "text": "BACK",
+            "textColor": "#000000",
+            "textDimension": 0.05,
+            "leftX": 0.01,
+            "leftY": 0.03
+        },
+        "1": {
+            "type": "button",
+            "panelName": "firstPanel",
+            "mainColor": "#00FF00",
+            "borderColor": "#000000",
+            "borderThickness": 0,
+            "leftX": 0.00,
+            "leftY": 0.00,
+            "width": 0.05,
+            "height": 0.05
+        },
+        "100": {
+            "type": "background",
+            "panelName": "firstPanel",
+            "dirToImage": "info",
+            "imageFileName": "sceneInfoBg.png"
+        }
+    },
+    "mapper": {
+        "BACK_TEXT":0,
+        "BACK_BUTTON":1,
+        "BACKGROUND":100
+    },
+    "dynamicObjects": {
+        "init": [
+            0,
+            1,
+            100
+        ]
+    }
+}

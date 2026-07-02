@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 27,
+    "types": [
+        "ground"
+    ],
+    "captureRate": 255,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 85,
+        "attack": 75,
+        "hp": 50,
+        "speed": 40,
+        "specialDefense": 30,
+        "specialAttack": 20
+    },
+    "moves": {
+        "11": "sand-attack",
+        "1": "scratch",
+        "23": "slash",
+        "45": "sand-tomb",
+        "37": "fury-swipes",
+        "17": "poison-sting",
+        "6": "defense-curl",
+        "30": "swift",
+        "53": "sandstorm"
+    },
+    "growthRate": "medium",
+    "name": "sandshrew",
+    "weight": 120,
+    "abilites": [
+        "sand-rush"
+    ],
+    "givesEV": {
+        "defense": 1,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

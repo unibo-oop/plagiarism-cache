@@ -1,0 +1,34 @@
+{
+    "pokedexNumber": 132,
+    "types": [
+        "normal"
+    ],
+    "captureRate": 35,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 48,
+        "attack": 48,
+        "hp": 48,
+        "speed": 48,
+        "specialDefense": 48,
+        "specialAttack": 48
+    },
+    "moves": {
+        "1": "transform"
+    },
+    "growthRate": "medium",
+    "name": "ditto",
+    "weight": 40,
+    "abilites": [
+        "limber",
+        "imposter"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 1,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

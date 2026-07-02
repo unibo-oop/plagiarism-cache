@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 78,
+    "types": [
+        "fire"
+    ],
+    "captureRate": 60,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 70,
+        "attack": 100,
+        "hp": 65,
+        "speed": 105,
+        "specialDefense": 80,
+        "specialAttack": 80
+    },
+    "moves": {
+        "1": "quick-attack",
+        "25": "fire-spin",
+        "38": "agility",
+        "19": "stomp",
+        "50": "bounce",
+        "40": "fury-attack",
+        "63": "fire-blast",
+        "31": "take-down"
+    },
+    "growthRate": "medium",
+    "name": "rapidash",
+    "weight": 950,
+    "abilites": [
+        "flash-fire",
+        "flame-body"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 2,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

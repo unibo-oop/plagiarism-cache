@@ -1,0 +1,40 @@
+{
+    "pokedexNumber": 148,
+    "types": [
+        "dragon"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 65,
+        "attack": 84,
+        "hp": 61,
+        "speed": 70,
+        "specialDefense": 70,
+        "specialAttack": 70
+    },
+    "moves": {
+        "22": "dragon-rage",
+        "1": "twister",
+        "56": "outrage",
+        "47": "safeguard",
+        "38": "agility",
+        "29": "slam",
+        "65": "hyper-beam"
+    },
+    "growthRate": "slow",
+    "name": "dragonair",
+    "weight": 165,
+    "abilites": [
+        "shed-skin",
+        "marvel-scale"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 2,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

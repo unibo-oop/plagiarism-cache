@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 72,
+    "types": [
+        "water",
+        "poison"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 35,
+        "attack": 40,
+        "hp": 40,
+        "speed": 70,
+        "specialDefense": 100,
+        "specialAttack": 50
+    },
+    "moves": {
+        "1": "poison-sting",
+        "12": "constrict",
+        "25": "bubble-beam",
+        "36": "barrier",
+        "49": "hydro-pump",
+        "6": "supersonic",
+        "19": "acid",
+        "30": "wrap",
+        "43": "screech"
+    },
+    "growthRate": "slow",
+    "name": "tentacool",
+    "weight": 455,
+    "abilites": [
+        "rain-dish"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 1,
+        "specialAttack": 0
+    }
+}

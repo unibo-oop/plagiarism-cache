@@ -1,0 +1,18 @@
+{
+    "pp": 5,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "enemy.statusCondition",
+                "Optional.of(StatusCondition.CONFUSION)"
+            ]
+        ]
+    },
+    "accuracy": 50,
+    "critRate": 0,
+    "baseDamage": 100,
+    "type": "fighting",
+    "priority": 0
+}

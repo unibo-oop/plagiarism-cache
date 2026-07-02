@@ -1,0 +1,24 @@
+{
+    "pp": 10,
+    "isPhysical": true,
+    "effect": {
+        "checks": [
+            [
+                "us.statusCondition",
+                "==",
+                "Optional.of(StatusCondition.SLEEP)"
+            ]
+        ],
+        "activation": [
+            [
+                "enemy.actualStats[hp].currentValue",
+                "enemy.actualStats[hp].currentValue-100"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "normal",
+    "priority": 0
+}

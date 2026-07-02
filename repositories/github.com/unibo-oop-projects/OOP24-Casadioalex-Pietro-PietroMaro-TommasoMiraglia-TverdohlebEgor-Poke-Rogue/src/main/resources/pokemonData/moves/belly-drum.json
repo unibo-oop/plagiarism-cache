@@ -1,0 +1,28 @@
+{
+    "pp": 10,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "us.actualStats[hp].currentValue",
+                ">",
+                "1"
+            ]
+        ],
+        "activation": [
+            [
+                "us.tempStatsBonus[attack].currentValue",
+                "us.tempStatsBonus[attack].currentValue + 6"
+            ],
+            [
+                "us.actualStats[hp].currentValue",
+                "1"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "normal",
+    "priority": 0
+}

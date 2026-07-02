@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 124,
+    "types": [
+        "ice",
+        "psychic"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 35,
+        "attack": 50,
+        "hp": 65,
+        "speed": 95,
+        "specialDefense": 95,
+        "specialAttack": 115
+    },
+    "moves": {
+        "1": "powder-snow",
+        "67": "blizzard",
+        "57": "perish-song",
+        "35": "mean-look",
+        "25": "ice-punch",
+        "51": "body-slam",
+        "41": "fake-tears",
+        "21": "double-slap"
+    },
+    "growthRate": "medium",
+    "name": "jynx",
+    "weight": 406,
+    "abilites": [
+        "oblivious",
+        "dry-skin"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 2
+    }
+}

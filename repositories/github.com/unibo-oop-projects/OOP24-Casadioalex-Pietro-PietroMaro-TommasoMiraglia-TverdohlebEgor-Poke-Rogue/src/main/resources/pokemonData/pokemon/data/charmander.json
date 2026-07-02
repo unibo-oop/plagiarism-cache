@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 4,
+    "types": [
+        "fire"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 43,
+        "attack": 52,
+        "hp": 39,
+        "speed": 65,
+        "specialDefense": 50,
+        "specialAttack": 60
+    },
+    "moves": {
+        "1": "growl",
+        "3": "metal-claw",
+        "4": "scary-face",
+        "5": "slash",
+        "6": "fire-spin",
+        "2": "ember",
+        "19": "smokescreen",
+        "31": "flamethrower",
+        "43": "dragon-rage"
+    },
+    "growthRate": "medium-slow",
+    "name": "charmander",
+    "weight": 85,
+    "abilites": [
+        "blaze"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 1,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

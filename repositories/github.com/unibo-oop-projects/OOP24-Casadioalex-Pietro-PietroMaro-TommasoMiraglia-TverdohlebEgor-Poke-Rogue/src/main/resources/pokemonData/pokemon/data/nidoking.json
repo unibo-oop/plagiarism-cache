@@ -1,0 +1,37 @@
+{
+    "pokedexNumber": 34,
+    "types": [
+        "poison",
+        "ground"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 77,
+        "attack": 102,
+        "hp": 81,
+        "speed": 85,
+        "specialDefense": 75,
+        "specialAttack": 85
+    },
+    "moves": {
+        "22": "thrash",
+        "1": "focus-energy",
+        "43": "megahorn"
+    },
+    "growthRate": "medium-slow",
+    "name": "nidoking",
+    "weight": 620,
+    "abilites": [
+        "poison-point",
+        "rivalry"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 3,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

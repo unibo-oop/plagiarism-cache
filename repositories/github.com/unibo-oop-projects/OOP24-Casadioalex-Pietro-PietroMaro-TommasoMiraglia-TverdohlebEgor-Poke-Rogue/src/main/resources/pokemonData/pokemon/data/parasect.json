@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 47,
+    "types": [
+        "bug",
+        "grass"
+    ],
+    "captureRate": 75,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 80,
+        "attack": 95,
+        "hp": 60,
+        "speed": 30,
+        "specialDefense": 80,
+        "specialAttack": 60
+    },
+    "moves": {
+        "1": "stun-spore",
+        "35": "slash",
+        "59": "aromatherapy",
+        "27": "spore",
+        "19": "leech-life",
+        "51": "giga-drain",
+        "43": "growth"
+    },
+    "growthRate": "medium",
+    "name": "parasect",
+    "weight": 295,
+    "abilites": [
+        "effect-spore",
+        "dry-skin"
+    ],
+    "givesEV": {
+        "defense": 1,
+        "attack": 2,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

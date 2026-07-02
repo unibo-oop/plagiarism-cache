@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 147,
+    "types": [
+        "dragon"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 45,
+        "attack": 64,
+        "hp": 41,
+        "speed": 50,
+        "specialDefense": 50,
+        "specialAttack": 50
+    },
+    "moves": {
+        "22": "dragon-rage",
+        "1": "leer",
+        "57": "hyper-beam",
+        "36": "agility",
+        "15": "twister",
+        "29": "slam",
+        "8": "thunder-wave",
+        "50": "outrage",
+        "43": "safeguard"
+    },
+    "growthRate": "slow",
+    "name": "dratini",
+    "weight": 33,
+    "abilites": [
+        "shed-skin",
+        "marvel-scale"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 1,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

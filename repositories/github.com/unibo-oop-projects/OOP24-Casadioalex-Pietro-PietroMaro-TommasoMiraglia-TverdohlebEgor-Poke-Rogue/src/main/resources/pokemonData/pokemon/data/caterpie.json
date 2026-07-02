@@ -1,0 +1,33 @@
+{
+    "pokedexNumber": 10,
+    "types": [
+        "bug"
+    ],
+    "captureRate": 255,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 35,
+        "attack": 30,
+        "hp": 45,
+        "speed": 45,
+        "specialDefense": 20,
+        "specialAttack": 20
+    },
+    "moves": {
+        "1": "string-shot"
+    },
+    "growthRate": "medium",
+    "name": "caterpie",
+    "weight": 29,
+    "abilites": [
+        "chlorophyll"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 1,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

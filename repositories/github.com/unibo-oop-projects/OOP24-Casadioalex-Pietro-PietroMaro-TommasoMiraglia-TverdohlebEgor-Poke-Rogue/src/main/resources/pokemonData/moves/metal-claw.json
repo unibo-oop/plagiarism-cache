@@ -1,0 +1,24 @@
+{
+    "pp": 35,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "MATH.random()",
+                "<",
+                "0.30"
+            ]
+        ],
+        "activation": [
+            [
+                "us.actualStats[attack].currentValue",
+                "us.actualStats[attack].currentValue + 1"
+            ]
+        ]
+    },
+    "accuracy": 95,
+    "critRate": 0,
+    "baseDamage": 50,
+    "type": "steel",
+    "priority": 0
+}

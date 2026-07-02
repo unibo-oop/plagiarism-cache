@@ -1,0 +1,22 @@
+{
+    "pp": 20,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "enemy.actualStats[attack].currentValue",
+                "enemy.actualStats[attack].currentValue - 2"
+            ],
+            [
+                "enemy.actualStats[defense].currentValue",
+                "enemy.actualStats[defense].currentValue - 2"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "normal",
+    "priority": 0
+}

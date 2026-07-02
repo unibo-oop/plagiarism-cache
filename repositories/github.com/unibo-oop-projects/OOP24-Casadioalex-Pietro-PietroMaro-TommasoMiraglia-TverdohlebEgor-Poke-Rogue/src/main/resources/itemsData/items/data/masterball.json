@@ -1,0 +1,14 @@
+{
+    "id": 2,
+    "name": "masterball",
+    "type": "Capture",
+    "description": "the definitive Poke Ball.",
+    "price": 5000,
+    "rarity": "Master",
+    "category": "Consumable",
+    "captureRate": 1000.0,
+    "effect": {
+        "checks": [],
+        "activation": []
+    }
+}

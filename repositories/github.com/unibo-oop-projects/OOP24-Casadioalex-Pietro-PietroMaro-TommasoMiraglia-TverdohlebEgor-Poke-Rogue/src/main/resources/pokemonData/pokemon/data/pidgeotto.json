@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 17,
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "captureRate": 120,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 55,
+        "attack": 60,
+        "hp": 63,
+        "speed": 71,
+        "specialDefense": 50,
+        "specialAttack": 50
+    },
+    "moves": {
+        "1": "tackle",
+        "34": "feather-dance",
+        "13": "quick-attack",
+        "27": "wing-attack",
+        "52": "mirror-move",
+        "20": "whirlwind",
+        "43": "agility"
+    },
+    "growthRate": "medium-slow",
+    "name": "pidgeotto",
+    "weight": 300,
+    "abilites": [
+        "keen-eye",
+        "tangled-feet"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 2,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

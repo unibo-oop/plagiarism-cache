@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 89,
+    "types": [
+        "poison"
+    ],
+    "captureRate": 75,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 75,
+        "attack": 105,
+        "hp": 105,
+        "speed": 50,
+        "specialDefense": 100,
+        "specialAttack": 65
+    },
+    "moves": {
+        "1": "poison-gas",
+        "34": "acid-armor",
+        "13": "sludge",
+        "47": "sludge-bomb",
+        "26": "screech",
+        "8": "disable",
+        "19": "minimize",
+        "61": "memento"
+    },
+    "growthRate": "medium",
+    "name": "muk",
+    "weight": 300,
+    "abilites": [
+        "stench",
+        "poison-touch"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 1,
+        "hp": 1,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "pp": 35,
+    "isPhysical": true,
+    "effect": {
+        "checks": [],
+        "activation": []
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 35,
+    "type": "flying",
+    "priority": 0
+}

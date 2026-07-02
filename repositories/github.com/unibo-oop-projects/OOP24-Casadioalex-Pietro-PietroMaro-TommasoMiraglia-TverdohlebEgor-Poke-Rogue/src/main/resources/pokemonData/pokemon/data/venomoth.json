@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 49,
+    "types": [
+        "bug",
+        "poison"
+    ],
+    "captureRate": 75,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 60,
+        "attack": 65,
+        "hp": 70,
+        "speed": 90,
+        "specialDefense": 75,
+        "specialAttack": 90
+    },
+    "moves": {
+        "1": "silver-wind",
+        "36": "psybeam",
+        "25": "leech-life",
+        "28": "stun-spore",
+        "17": "confusion",
+        "52": "psychic",
+        "31": "gust",
+        "20": "poison-powder",
+        "42": "sleep-powder"
+    },
+    "growthRate": "medium",
+    "name": "venomoth",
+    "weight": 125,
+    "abilites": [
+        "wonder-skin"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 1,
+        "specialDefense": 0,
+        "specialAttack": 1
+    }
+}

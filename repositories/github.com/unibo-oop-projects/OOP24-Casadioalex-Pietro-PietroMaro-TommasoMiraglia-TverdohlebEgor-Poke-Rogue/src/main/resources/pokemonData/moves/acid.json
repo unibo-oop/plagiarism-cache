@@ -1,0 +1,24 @@
+{
+    "pp": 30,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "MATH.random()",
+                "<",
+                "0.1"
+            ]
+        ],
+        "activation": [
+            [
+                "enemy.tempStatsBonus[defense].currentValue",
+                "enemy.tempStatsBonus[defense].currentValue - 1"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 40,
+    "type": "poison",
+    "priority": 0
+}

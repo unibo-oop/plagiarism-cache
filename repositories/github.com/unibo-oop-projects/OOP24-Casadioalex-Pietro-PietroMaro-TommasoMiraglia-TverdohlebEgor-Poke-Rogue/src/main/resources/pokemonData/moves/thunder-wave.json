@@ -1,0 +1,24 @@
+{
+    "pp": 20,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "MATH.random()",
+                "<",
+                "0.2"
+            ]
+        ],
+        "activation": [
+            [
+                "enemy.statusCondition",
+                "Optional.of(StatusCondition.PARALYSIS)"
+            ]
+        ]
+    },
+    "accuracy": 90,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "electric",
+    "priority": 0
+}

@@ -1,0 +1,34 @@
+{
+    "pokedexNumber": 14,
+    "types": [
+        "bug",
+        "poison"
+    ],
+    "captureRate": 120,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 50,
+        "attack": 25,
+        "hp": 45,
+        "speed": 35,
+        "specialDefense": 25,
+        "specialAttack": 25
+    },
+    "moves": {
+        "1": "harden"
+    },
+    "growthRate": "medium",
+    "name": "kakuna",
+    "weight": 100,
+    "abilites": [
+        "shed-skin"
+    ],
+    "givesEV": {
+        "defense": 2,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

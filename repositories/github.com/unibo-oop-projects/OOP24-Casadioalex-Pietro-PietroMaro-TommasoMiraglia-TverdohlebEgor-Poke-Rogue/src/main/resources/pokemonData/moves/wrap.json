@@ -1,0 +1,18 @@
+{
+    "pp": 20,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "attackEnemy.calculatedDamage",
+                "attackEnemy.baseDamage * 3"
+            ]
+        ]
+    },
+    "accuracy": 90,
+    "critRate": 0,
+    "baseDamage": 15,
+    "type": "normal",
+    "priority": 0
+}

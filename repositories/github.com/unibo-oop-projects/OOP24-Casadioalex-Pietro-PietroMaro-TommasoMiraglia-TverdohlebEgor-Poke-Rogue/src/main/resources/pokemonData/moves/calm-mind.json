@@ -1,0 +1,22 @@
+{
+    "pp": 20,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "us.tempStatsBonus[specialAttack].currentValue",
+                "us.tempStatsBonus[specialAttack].currentValue + 1"
+            ],
+            [
+                "us.tempStatsBonus[specialDefense].currentValue",
+                "us.tempStatsBonus[specialDefense].currentValue + 1"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "psychic",
+    "priority": 0
+}

@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 141,
+    "types": [
+        "rock",
+        "water"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 105,
+        "attack": 115,
+        "hp": 60,
+        "speed": 80,
+        "specialDefense": 70,
+        "specialAttack": 65
+    },
+    "moves": {
+        "55": "mega-drain",
+        "1": "fury-cutter",
+        "46": "metal-sound",
+        "25": "mud-shot",
+        "37": "endure",
+        "40": "slash",
+        "31": "sand-attack",
+        "65": "ancient-power"
+    },
+    "growthRate": "medium",
+    "name": "kabutops",
+    "weight": 405,
+    "abilites": [
+        "swift-swim",
+        "battle-armor",
+        "weak-armor"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 2,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

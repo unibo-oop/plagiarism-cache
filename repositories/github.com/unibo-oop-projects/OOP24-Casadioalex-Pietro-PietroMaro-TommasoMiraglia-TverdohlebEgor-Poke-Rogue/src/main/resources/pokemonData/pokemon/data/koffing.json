@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 109,
+    "types": [
+        "poison"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 95,
+        "attack": 65,
+        "hp": 40,
+        "speed": 35,
+        "specialDefense": 45,
+        "specialAttack": 60
+    },
+    "moves": {
+        "33": "haze",
+        "1": "poison-gas",
+        "45": "destiny-bond",
+        "25": "smokescreen",
+        "49": "memento",
+        "17": "self-destruct",
+        "9": "smog",
+        "41": "explosion",
+        "21": "sludge"
+    },
+    "growthRate": "medium",
+    "name": "koffing",
+    "weight": 10,
+    "abilites": [
+        "levitate",
+        "stench"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 1,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 83,
+    "types": [
+        "normal",
+        "flying"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 55,
+        "attack": 90,
+        "hp": 52,
+        "speed": 60,
+        "specialDefense": 62,
+        "specialAttack": 58
+    },
+    "moves": {
+        "11": "leer",
+        "1": "peck",
+        "46": "false-swipe",
+        "36": "agility",
+        "26": "fury-cutter",
+        "16": "fury-attack",
+        "6": "sand-attack",
+        "41": "slash",
+        "31": "swords-dance",
+        "21": "knock-off"
+    },
+    "growthRate": "medium",
+    "name": "farfetchd",
+    "weight": 150,
+    "abilites": [
+        "keen-eye"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 1,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

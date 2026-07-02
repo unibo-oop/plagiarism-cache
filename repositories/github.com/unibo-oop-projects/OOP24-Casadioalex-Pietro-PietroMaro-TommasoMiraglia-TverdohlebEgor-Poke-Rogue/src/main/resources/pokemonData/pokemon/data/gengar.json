@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 94,
+    "types": [
+        "ghost",
+        "poison"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 60,
+        "attack": 65,
+        "hp": 60,
+        "speed": 110,
+        "specialDefense": 75,
+        "specialAttack": 130
+    },
+    "moves": {
+        "1": "spite",
+        "45": "shadow-ball",
+        "13": "curse",
+        "25": "shadow-punch",
+        "16": "night-shade",
+        "39": "destiny-bond",
+        "31": "dream-eater",
+        "53": "nightmare",
+        "64": "mean-look",
+        "21": "confuse-ray"
+    },
+    "growthRate": "medium-slow",
+    "name": "gengar",
+    "weight": 405,
+    "abilites": [
+        "cursed-body"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 3
+    }
+}

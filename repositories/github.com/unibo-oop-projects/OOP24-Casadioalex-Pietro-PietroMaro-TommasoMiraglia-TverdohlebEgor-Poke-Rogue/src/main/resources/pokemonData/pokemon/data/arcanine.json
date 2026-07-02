@@ -1,0 +1,36 @@
+{
+    "pokedexNumber": 59,
+    "types": [
+        "fire"
+    ],
+    "captureRate": 75,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 80,
+        "attack": 110,
+        "hp": 90,
+        "speed": 95,
+        "specialDefense": 80,
+        "specialAttack": 100
+    },
+    "moves": {
+        "1": "odor-sleuth",
+        "49": "extreme-speed"
+    },
+    "growthRate": "slow",
+    "name": "arcanine",
+    "weight": 1550,
+    "abilites": [
+        "intimidate",
+        "flash-fire",
+        "justified"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 2,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

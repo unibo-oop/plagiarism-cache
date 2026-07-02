@@ -1,0 +1,39 @@
+{
+    "pokedexNumber": 99,
+    "types": [
+        "water"
+    ],
+    "captureRate": 60,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 115,
+        "attack": 130,
+        "hp": 55,
+        "speed": 75,
+        "specialDefense": 50,
+        "specialAttack": 50
+    },
+    "moves": {
+        "1": "metal-claw",
+        "23": "mud-shot",
+        "57": "crabhammer",
+        "38": "guillotine",
+        "27": "stomp",
+        "42": "protect",
+        "65": "flail"
+    },
+    "growthRate": "medium",
+    "name": "kingler",
+    "weight": 600,
+    "abilites": [
+        "shell-armor"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 2,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

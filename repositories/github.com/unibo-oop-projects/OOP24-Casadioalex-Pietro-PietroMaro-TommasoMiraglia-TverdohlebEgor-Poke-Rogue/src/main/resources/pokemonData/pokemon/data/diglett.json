@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 50,
+    "types": [
+        "ground"
+    ],
+    "captureRate": 255,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 25,
+        "attack": 55,
+        "hp": 10,
+        "speed": 95,
+        "specialDefense": 45,
+        "specialAttack": 35
+    },
+    "moves": {
+        "33": "slash",
+        "1": "sand-attack",
+        "25": "mud-slap",
+        "5": "growl",
+        "49": "fissure",
+        "17": "dig",
+        "9": "magnitude",
+        "41": "earthquake",
+        "21": "fury-swipes"
+    },
+    "growthRate": "medium",
+    "name": "diglett",
+    "weight": 8,
+    "abilites": [
+        "arena-trap",
+        "sand-force"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 1,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

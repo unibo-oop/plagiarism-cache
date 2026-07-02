@@ -1,0 +1,18 @@
+{
+    "pp": 30,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": [
+            [
+                "us.tempStatsBonus[speed].currentValue",
+                "us.tempStatsBonus[speed].currentValue + 2"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "psychic",
+    "priority": 0
+}

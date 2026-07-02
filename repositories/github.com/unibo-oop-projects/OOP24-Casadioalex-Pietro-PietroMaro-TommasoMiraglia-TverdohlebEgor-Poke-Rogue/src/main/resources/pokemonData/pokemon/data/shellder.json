@@ -1,0 +1,41 @@
+{
+    "pokedexNumber": 90,
+    "types": [
+        "water"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 100,
+        "attack": 65,
+        "hp": 30,
+        "speed": 40,
+        "specialDefense": 25,
+        "specialAttack": 45
+    },
+    "moves": {
+        "22": "aurora-beam",
+        "1": "withdraw",
+        "36": "leer",
+        "15": "supersonic",
+        "29": "protect",
+        "8": "icicle-spear",
+        "50": "ice-beam",
+        "43": "clamp"
+    },
+    "growthRate": "slow",
+    "name": "shellder",
+    "weight": 40,
+    "abilites": [
+        "shell-armor",
+        "overcoat"
+    ],
+    "givesEV": {
+        "defense": 1,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

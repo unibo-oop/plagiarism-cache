@@ -1,0 +1,13 @@
+{
+    "situationChecks": "neutral",
+    "effect": {
+        "checks": [
+            [
+                "MATH.random()",
+                "<",
+                "0.33"
+            ]
+        ],
+        "activation": []
+    }
+}

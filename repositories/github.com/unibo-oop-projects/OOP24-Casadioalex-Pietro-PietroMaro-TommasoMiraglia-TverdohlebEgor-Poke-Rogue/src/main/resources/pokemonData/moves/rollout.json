@@ -1,0 +1,24 @@
+{
+    "pp": 20,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "MATH.random()",
+                "<",
+                "0.5"
+            ]
+        ],
+        "activation": [
+            [
+                "attackUs.baseDamage",
+                "attackUs.baseDamage * 2"
+            ]
+        ]
+    },
+    "accuracy": 90,
+    "critRate": 0,
+    "baseDamage": 30,
+    "type": "rock",
+    "priority": 0
+}

@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 51,
+    "types": [
+        "ground"
+    ],
+    "captureRate": 50,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 50,
+        "attack": 100,
+        "hp": 35,
+        "speed": 120,
+        "specialDefense": 70,
+        "specialAttack": 50
+    },
+    "moves": {
+        "1": "tri-attack",
+        "25": "mud-slap",
+        "26": "sand-tomb",
+        "38": "slash",
+        "17": "dig",
+        "9": "magnitude",
+        "51": "earthquake",
+        "64": "fissure",
+        "21": "fury-swipes"
+    },
+    "growthRate": "medium",
+    "name": "dugtrio",
+    "weight": 333,
+    "abilites": [
+        "arena-trap",
+        "sand-force"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 2,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

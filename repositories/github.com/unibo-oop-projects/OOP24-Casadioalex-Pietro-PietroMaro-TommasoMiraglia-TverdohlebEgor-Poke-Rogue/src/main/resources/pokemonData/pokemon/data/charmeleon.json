@@ -1,0 +1,40 @@
+{
+    "pokedexNumber": 5,
+    "types": [
+        "fire"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 58,
+        "attack": 64,
+        "hp": 58,
+        "speed": 80,
+        "specialDefense": 65,
+        "specialAttack": 80
+    },
+    "moves": {
+        "55": "fire-spin",
+        "1": "ember",
+        "34": "flamethrower",
+        "13": "metal-claw",
+        "48": "dragon-rage",
+        "27": "scary-face",
+        "41": "slash",
+        "20": "smokescreen"
+    },
+    "growthRate": "medium-slow",
+    "name": "charmeleon",
+    "weight": 190,
+    "abilites": [
+        "blaze"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 1,
+        "specialDefense": 0,
+        "specialAttack": 1
+    }
+}

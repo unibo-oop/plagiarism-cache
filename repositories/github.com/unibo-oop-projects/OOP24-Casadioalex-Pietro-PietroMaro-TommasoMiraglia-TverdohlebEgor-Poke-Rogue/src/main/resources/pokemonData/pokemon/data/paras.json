@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 46,
+    "types": [
+        "bug",
+        "grass"
+    ],
+    "captureRate": 190,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 55,
+        "attack": 70,
+        "hp": 35,
+        "speed": 25,
+        "specialDefense": 55,
+        "specialAttack": 45
+    },
+    "moves": {
+        "1": "scratch",
+        "13": "poison-powder",
+        "25": "spore",
+        "37": "growth",
+        "49": "aromatherapy",
+        "7": "stun-spore",
+        "19": "leech-life",
+        "31": "slash",
+        "43": "giga-drain"
+    },
+    "growthRate": "medium",
+    "name": "paras",
+    "weight": 54,
+    "abilites": [
+        "effect-spore",
+        "dry-skin"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 1,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

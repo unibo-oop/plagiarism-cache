@@ -1,0 +1,13 @@
+{
+    "pp": 10,
+    "isPhysical": false,
+    "effect": {
+        "checks": [],
+        "activation": []
+    },
+    "accuracy": 90,
+    "critRate": 1,
+    "baseDamage": 100,
+    "type": "water",
+    "priority": 0
+}

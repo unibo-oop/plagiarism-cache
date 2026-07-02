@@ -1,0 +1,24 @@
+{
+    "pp": 15,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "us.actualStats[hp].currentValue",
+                "<",
+                "us.actualStats[hp].currentMax / 4"
+            ]
+        ],
+        "activation": [
+            [
+                "attackUs.baseDamage",
+                "150"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 0,
+    "type": "fighting",
+    "priority": 0
+}

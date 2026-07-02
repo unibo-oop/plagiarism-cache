@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 137,
+    "types": [
+        "normal"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 70,
+        "attack": 60,
+        "hp": 65,
+        "speed": 40,
+        "specialDefense": 75,
+        "specialAttack": 85
+    },
+    "moves": {
+        "44": "recycle",
+        "1": "conversion-2",
+        "12": "psybeam",
+        "24": "sharpen",
+        "36": "tri-attack",
+        "48": "zap-cannon",
+        "9": "agility",
+        "20": "recover",
+        "32": "lock-on"
+    },
+    "growthRate": "medium",
+    "name": "porygon",
+    "weight": 365,
+    "abilites": [
+        "download",
+        "analytic"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 1
+    }
+}

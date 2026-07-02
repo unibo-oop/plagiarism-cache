@@ -1,0 +1,43 @@
+{
+    "pokedexNumber": 12,
+    "types": [
+        "bug",
+        "flying"
+    ],
+    "captureRate": 45,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 50,
+        "attack": 45,
+        "hp": 60,
+        "speed": 70,
+        "specialDefense": 80,
+        "specialAttack": 90
+    },
+    "moves": {
+        "23": "whirlwind",
+        "34": "psybeam",
+        "1": "confusion",
+        "13": "poison-powder",
+        "14": "stun-spore",
+        "47": "silver-wind",
+        "15": "sleep-powder",
+        "28": "gust",
+        "18": "supersonic",
+        "40": "safeguard"
+    },
+    "growthRate": "medium",
+    "name": "butterfree",
+    "weight": 320,
+    "abilites": [
+        "compound-eyes"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 1,
+        "specialAttack": 2
+    }
+}

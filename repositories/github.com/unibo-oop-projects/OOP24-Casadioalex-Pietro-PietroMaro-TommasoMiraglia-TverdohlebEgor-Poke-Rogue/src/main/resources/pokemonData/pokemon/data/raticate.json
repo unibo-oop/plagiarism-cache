@@ -1,0 +1,39 @@
+{
+    "pokedexNumber": 20,
+    "types": [
+        "normal"
+    ],
+    "captureRate": 127,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 60,
+        "attack": 81,
+        "hp": 55,
+        "speed": 97,
+        "specialDefense": 70,
+        "specialAttack": 50
+    },
+    "moves": {
+        "1": "quick-attack",
+        "13": "hyper-fang",
+        "50": "endeavor",
+        "40": "super-fang",
+        "30": "pursuit",
+        "20": "scary-face"
+    },
+    "growthRate": "medium",
+    "name": "raticate",
+    "weight": 185,
+    "abilites": [
+        "guts",
+        "hustle"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 2,
+        "specialDefense": 0,
+        "specialAttack": 0
+    }
+}

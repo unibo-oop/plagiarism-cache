@@ -1,0 +1,42 @@
+{
+    "pokedexNumber": 146,
+    "types": [
+        "fire",
+        "flying"
+    ],
+    "captureRate": 3,
+    "minLevelForEncounter": 1,
+    "stats": {
+        "defense": 90,
+        "attack": 100,
+        "hp": 90,
+        "speed": 90,
+        "specialDefense": 85,
+        "specialAttack": 125
+    },
+    "moves": {
+        "1": "ember",
+        "13": "fire-spin",
+        "25": "agility",
+        "37": "endure",
+        "49": "flamethrower",
+        "61": "safeguard",
+        "73": "heat-wave",
+        "85": "sky-attack"
+    },
+    "growthRate": "slow",
+    "name": "moltres",
+    "weight": 600,
+    "abilites": [
+        "pressure",
+        "flame-body"
+    ],
+    "givesEV": {
+        "defense": 0,
+        "attack": 0,
+        "hp": 0,
+        "speed": 0,
+        "specialDefense": 0,
+        "specialAttack": 3
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "pp": 30,
+    "isPhysical": false,
+    "effect": {
+        "checks": [
+            [
+                "MATH.random()",
+                "<",
+                "0.2"
+            ]
+        ],
+        "activation": [
+            [
+                "enemy.tempStatsBonus[speed].currentValue",
+                "enemy.tempStatsBonus[speed].currentValue - 1"
+            ]
+        ]
+    },
+    "accuracy": 100,
+    "critRate": 0,
+    "baseDamage": 40,
+    "type": "water",
+    "priority": 0
+}
