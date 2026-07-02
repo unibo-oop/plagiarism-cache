@@ -1,0 +1,159 @@
+package view.impl;
+
+import javax.swing.JFrame;
+import javax.swing.JDialog;
+
+import controller.AudioManager;
+import controller.KeyboardInputManager;
+import controller.api.ControllerMenu;
+import controller.api.State;
+import model.GameConstants;
+import model.World;
+import view.api.View;
+
+/**
+ * This class represents the main graphical view of the application.
+ */
+public final class SwingView implements View {
+    private static final int HEIGHT = 600;
+    private static final int WIDTH = 800;
+    private static final String MENU_OST_NAME = "MenuOST";
+    private final JFrame frame;
+    private ControllerMenu controller;
+    private Level activeLevel;
+
+    /**
+     * Initializes the main application window and configures basic settings such as size and audio.
+     */
+    public SwingView() {
+        this.frame = new JFrame("HOPTALES");
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.frame.setSize(WIDTH, HEIGHT);
+        AudioManager.load(MENU_OST_NAME, "/sounds/MenuSoundtrack.wav");
+        AudioManager.play(MENU_OST_NAME);
+        AudioManager.setMusicVolume(GameConstants.STARTING_VOLUME);
+    }
+
+    /**
+     * sets the controller for this view.
+     *
+     * @param controller the menu controller used to manage user interactions
+     */
+    public void setController(final ControllerMenu controller) {
+        this.controller = controller;
+    }
+
+    /**
+     * show the main menu panel.
+     */
+    @Override
+    public void showMainMenu() {
+        stopActiveLevel();
+        this.frame.setContentPane(new Menu(this.controller));
+        this.frame.setVisible(true);
+        this.frame.revalidate();
+        this.frame.repaint();
+    }
+
+    /**
+     * show the level selection panel.
+     */
+    @Override
+    public void showLevels() {
+        stopActiveLevel();
+        this.frame.setContentPane(new ChooseLevelPanel(this.controller));
+        this.frame.revalidate();
+        this.frame.repaint();
+    }
+
+    /**
+     * show the shop panel.
+     */
+    @Override
+    public void showShop() {
+        stopActiveLevel();
+        this.frame.setContentPane(new Shop(this.controller));
+        this.frame.revalidate();
+        this.frame.repaint();
+    }
+
+    /**
+     * show the option panel.
+     */
+    @Override
+    public void showOptions() {
+        stopActiveLevel();
+        this.frame.setContentPane(new Options(this.controller));
+        this.frame.revalidate();
+        this.frame.repaint();
+    }
+
+    /**
+     * Mostra il livello selezionato.
+     *
+     * @param world the instance containing all the objects and entities.
+     * @param kim object responsible of handling keyboard inputs.
+     */
+    @Override
+    public void showLevel(final World world, final KeyboardInputManager kim) {
+        stopActiveLevel();
+        this.activeLevel = new Level(world, kim);
+        this.frame.setContentPane(this.activeLevel);
+        this.frame.revalidate();
+        this.frame.repaint();
+        this.activeLevel.focus();
+    }
+
+    /**
+     * Mostra la schermata di Game Over.
+     */
+    @Override
+    public void showGameOver() {
+        stopActiveLevel();
+        final JDialog dialog = new JDialog(this.frame, "Game Over", true);
+        dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        dialog.setResizable(false);
+        dialog.setContentPane(new GameOverPanel(this.controller, dialog::dispose));
+        dialog.pack();
+        dialog.setLocationRelativeTo(this.frame);
+        dialog.setVisible(true);
+    }
+
+    @Override
+    public void showLevelCompleted() {
+        stopActiveLevel();
+        final JDialog dialog = new JDialog(this.frame, "Level Completed", true);
+        dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        dialog.setResizable(false);
+        dialog.setContentPane(new LevelCompletedPanel(this.controller, dialog::dispose));
+        dialog.pack();
+        dialog.setLocationRelativeTo(this.frame);
+        dialog.setVisible(true);
+    }
+
+    private void stopActiveLevel() {
+        if (this.activeLevel != null) {
+            this.activeLevel.stop();
+            this.activeLevel = null;
+        }
+    }
+
+    /**
+     * Shows the level 3 panel.
+     */
+    @Override
+    public void showLevel3() {
+        if (this.controller == null) {
+            throw new IllegalStateException("Controller not set");
+        }
+        final ControllerMenu menuController = this.controller;
+        final FireboyWatergirlLevel l3 = new FireboyWatergirlLevel(
+            () -> menuController.handleEvent(State.MAIN_MENU)
+        );
+        this.frame.setContentPane(l3);
+        this.frame.revalidate();
+        this.frame.repaint();
+        l3.requestFocusInWindow();
+    }
+
+}
