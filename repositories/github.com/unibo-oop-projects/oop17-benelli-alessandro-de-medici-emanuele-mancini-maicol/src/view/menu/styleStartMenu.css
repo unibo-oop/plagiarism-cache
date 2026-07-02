@@ -1,0 +1,20 @@
+#startBtn, #settingsBtn, #quitBtn {
+	-fx-font-family: "Impact";
+    -fx-background-radius: 20;
+    -fx-background-color: #fea056;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.3) , 5,0,0,1 ); 
+}
+
+#startBtn:hover, #settingsBtn:hover, #quitBtn:hover {
+    -fx-background-radius: 20;
+    -fx-background-color:  #ef823e;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.3) , 15,0,0,1 ); 
+
+}
+
+#startBtn:pressed, #settingsBtn:pressed, #quitBtn:pressed {
+    -fx-background-radius: 20;
+    -fx-background-color: #903b12;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.3) , 5,0,0,1 ); 
+   -fx-text-fill: rgb(255, 218, 188);
+}

@@ -1,0 +1,33 @@
+#menuBtn, #gameBtn {
+	-fx-font-family: "Impact";
+    -fx-background-radius: 20;
+    -fx-background-color: #fea056;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.3) , 5,0,0,1 ); 
+}
+
+#menuBtn:hover, #gameBtn:hover {
+    -fx-background-radius: 20;
+    -fx-background-color:  #ef823e;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.3) , 15,0,0,1 ); 
+
+}
+
+#menuBtn:pressed, #gameBtn:pressed {
+    -fx-background-radius: 20;
+    -fx-background-color: #903b12;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.3) , 5,0,0,1 ); 
+    -fx-text-fill: rgb(255, 218, 188);
+}
+
+.slider .track {
+	-fx-pref-width: 300px;
+    -fx-control-inner-background: #fea056;
+    -fx-border-color: white;
+    -fx-border-radius: 10;
+}
+
+.slider .thumb {
+    -fx-color: #fea056;
+    -fx-border-radius: 20;
+    -fx-border-color: white;
+}
