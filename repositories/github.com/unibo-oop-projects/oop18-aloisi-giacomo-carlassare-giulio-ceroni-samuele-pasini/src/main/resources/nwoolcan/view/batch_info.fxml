@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import nwoolcan.view.subview.SubView?>
+
+<SubView fx:id="batchInfoSubView" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="nwoolcan.view.production.BatchInfoController">
+    <BorderPane>
+        <left>
+            <VBox fx:id="descriptionVBox">
+                <GridPane>
+                    <Label text="Name: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <Label fx:id="nameLabel" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                    <Label text="Style: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <Label fx:id="styleLabel" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    <Label text="Style category: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <Label fx:id="styleCategoryLabel" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    <Label text="Batch initial size: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <Label fx:id="batchSizeLabel" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                </GridPane>
+            </VBox>
+        </left>
+        <center>
+            <GridPane fx:id="statsGridPane" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="20"/>
+                </columnConstraints>
+                <VBox alignment="CENTER" GridPane.columnIndex="0">
+                    <Label alignment="CENTER" text="OG:"/>
+                    <Label fx:id="ogLabel" alignment="CENTER">
+                        <font>
+                            <Font size="22.0"/>
+                        </font>
+                    </Label>
+                </VBox>
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="20"/>
+                </columnConstraints>
+                <VBox alignment="CENTER" GridPane.columnIndex="1">
+                    <Label alignment="CENTER" text="FG:"/>
+                    <Label fx:id="fgLabel" alignment="CENTER">
+                        <font>
+                            <Font size="22.0"/>
+                        </font>
+                    </Label>
+                </VBox>
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="20"/>
+                </columnConstraints>
+                <VBox alignment="CENTER" GridPane.columnIndex="2">
+                    <Label alignment="CENTER" text="ABV: "/>
+                    <Label fx:id="abvLabel" alignment="CENTER">
+                        <font>
+                            <Font size="22.0"/>
+                        </font>
+                    </Label>
+                </VBox>
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="20"/>
+                </columnConstraints>
+
+                <VBox alignment="CENTER" GridPane.columnIndex="3">
+                    <Label alignment="CENTER" text="IBU: "/>
+                    <Label fx:id="ibuLabel" alignment="CENTER">
+                        <font>
+                            <Font size="22.0"/>
+                        </font>
+                    </Label>
+                </VBox>
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="20"/>
+                </columnConstraints>
+                <VBox alignment="CENTER" GridPane.columnIndex="4">
+                    <Label alignment="CENTER" text="EBC: "/>
+                    <Label fx:id="ebcLabel" alignment="CENTER">
+                        <font>
+                            <Font size="22.0"/>
+                        </font>
+                    </Label>
+                </VBox>
+            </GridPane>
+        </center>
+    </BorderPane>
+
+</SubView>

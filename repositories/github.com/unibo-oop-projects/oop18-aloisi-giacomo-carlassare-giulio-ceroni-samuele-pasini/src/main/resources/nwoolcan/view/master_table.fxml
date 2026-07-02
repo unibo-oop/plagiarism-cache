@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import nwoolcan.view.subview.SubView?>
+
+<SubView xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="nwoolcan.view.mastertable.MasterTableController"
+         fx:id="masterTableSubView">
+
+    <BorderPane>
+        <center>
+            <TableView fx:id="masterTable" >
+                <columnResizePolicy>
+                    <TableView fx:constant = "CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
+        </center>
+    </BorderPane>
+</SubView>

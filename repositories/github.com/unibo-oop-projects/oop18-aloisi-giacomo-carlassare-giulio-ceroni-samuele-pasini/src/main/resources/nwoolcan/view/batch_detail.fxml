@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import nwoolcan.view.subview.SubView?>
+<?import nwoolcan.view.subview.SubViewContainer?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+
+<SubView fx:id="batchDetailSubView" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nwoolcan.view.production.BatchDetailController">
+    <BorderPane>
+        <top>
+            <BorderPane>
+                <top>
+                    <Label text="Batch detail" BorderPane.alignment="CENTER">
+                        <font>
+                            <Font size="28.0" />
+                        </font>
+                    </Label>
+                </top>
+                <center>
+                    <BorderPane>
+                        <left>
+                            <GridPane alignment="CENTER_LEFT">
+                                <padding>
+                                    <Insets top="5" bottom="5" left="5" right="5" />
+                                </padding>
+                                <Button GridPane.columnIndex="0" GridPane.rowIndex="0"
+                                        fx:id="goBackButton" onAction="#goBackButtonClicked" text="Back" />
+                            </GridPane>
+                        </left>
+                        <right>
+                            <GridPane alignment="CENTER_RIGHT" hgap="10" >
+                                <padding>
+                                    <Insets top="5" bottom="5" left="5" right="5" />
+                                </padding>
+                                <Button GridPane.columnIndex="0" GridPane.rowIndex="0"
+                                        fx:id="goToNextStepButton" onAction="#goToNextStepButtonClicked" text="Go to next step" />
+                                <Button GridPane.columnIndex="1" GridPane.rowIndex="0"
+                                        fx:id="stockBatchButton" onAction="#stockBatchButtonClicked" text="Stock batch" />
+                            </GridPane>
+                        </right>
+                    </BorderPane>
+                </center>
+            </BorderPane>
+        </top>
+        <center>
+            <VBox>
+                <TitledPane text="Batch informations">
+                    <BorderPane>
+                        <center>
+                            <SubViewContainer fx:id="batchInfoContainer" />
+                        </center>
+                        <right>
+                            <VBox BorderPane.alignment="CENTER_RIGHT">
+                                <Button fx:id="viewInfoDetailButton" onAction="#viewInfoDetailClicked" text="View Info" />
+                            </VBox>
+                        </right>
+                    </BorderPane>
+                </TitledPane>
+                <TitledPane text="Steps">
+                    <BorderPane>
+                        <center>
+                            <SubViewContainer fx:id="masterTableContainer" parent="$batchDetailSubView" />
+                        </center>
+                    </BorderPane>
+                </TitledPane>
+                <TitledPane text="Review">
+                    <BorderPane>
+                        <center>
+                            <SubViewContainer fx:id="reviewContainer" />
+                        </center>
+                        <bottom>
+                            <HBox BorderPane.alignment="BOTTOM_CENTER"  alignment="CENTER">
+                                <Button fx:id="addReviewButton" onAction="#addReviewClick" text="New review" />
+                                <Button fx:id="viewReviewButton" onAction="#viewReviewClick" text="View" />
+                            </HBox>
+                        </bottom>
+                    </BorderPane>
+                </TitledPane>
+            </VBox>
+        </center>
+    </BorderPane>
+</SubView>

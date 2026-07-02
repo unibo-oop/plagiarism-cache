@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import nwoolcan.view.subview.SubView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.GridPane?>
+<SubView xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="nwoolcan.view.warehouse.stock.StockDetailController"
+         fx:id="stockDetailSubView">
+    <BorderPane>
+        <top>
+            <Label text="Stock Detail" BorderPane.alignment="CENTER">
+                <font>
+                    <Font size="28.0" />
+                </font>
+            </Label>
+        </top>
+        <center>
+            <VBox>
+                <HBox spacing="5">
+                    <Button text="Back" onAction="#backButtonClick"/>
+                    <Button text="Add Record" onAction="#addRecordButtonClick"/>
+                    <Button text="Go to article" onAction="#goToArticleButtonClick"/>
+                    <Button fx:id="buttonGoToBatch" text="Go to batch" onAction="#goToBatchButtonClick" visible="false" managed="false"/>
+                </HBox>
+                <TitledPane text="General information">
+
+                    <GridPane vgap="5" hgap="5" fx:id="mainGridPane">
+                        <Label GridPane.rowIndex="0" GridPane.columnIndex="0" text="Id: "/>
+                        <Label GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="lblId"/>
+                        <Label GridPane.rowIndex="1" GridPane.columnIndex="0" text="Article: "/>
+                        <Label GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="lblArticle"/>
+                        <Label GridPane.rowIndex="2" GridPane.columnIndex="0" text="Available: "/>
+                        <Label GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="lblAvailableQt"/>
+                        <Label GridPane.rowIndex="3" GridPane.columnIndex="0" text="Used: "/>
+                        <Label GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="lblUsedQt"/>
+                        <Label GridPane.rowIndex="4" GridPane.columnIndex="0" text="State: "/>
+                        <Label GridPane.rowIndex="4" GridPane.columnIndex="1" fx:id="lblState"/>
+                        <Label GridPane.rowIndex="5" GridPane.columnIndex="0" text="Last modified: "/>
+                        <Label GridPane.rowIndex="5" GridPane.columnIndex="1" fx:id="lblLastModified"/>
+                        <Label GridPane.rowIndex="6" GridPane.columnIndex="0" text="Creation date: "/>
+                        <Label GridPane.rowIndex="6" GridPane.columnIndex="1" fx:id="lblCreationDate"/>
+                        <Label GridPane.rowIndex="7" GridPane.columnIndex="0" fx:id="lblTextExpDate" text="Expiration Date: "/>
+                        <Label GridPane.rowIndex="7" GridPane.columnIndex="1" fx:id="lblExpirationDate"/>
+                    </GridPane>
+                </TitledPane>
+                <TitledPane text="Records">
+                    <TableView fx:id="recordTable">
+                        <columnResizePolicy>
+                            <TableView fx:constant = "CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn text="Date">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="dateFormatted"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Action">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="action"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn text="Quantity">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="quantity"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </TitledPane>
+            </VBox>
+        </center>
+    </BorderPane>
+
+</SubView>

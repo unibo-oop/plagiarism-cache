@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import nwoolcan.view.subview.SubView?>
+<?import nwoolcan.view.subview.SubViewContainer?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import nwoolcan.view.filters.FiltersBar?>
+<?import nwoolcan.view.filters.TextFilter?>
+<?import nwoolcan.view.filters.SelectFilter?>
+<?import javafx.collections.FXCollections?>
+<?import nwoolcan.model.brewery.batch.BatchMethod?>
+<?import nwoolcan.view.filters.DateFilter?>
+<?import nwoolcan.view.filters.BooleanFilter?>
+<SubView fx:id="productionSubView"
+         xmlns="http://javafx.com/javafx/8.0.172-ea"
+         xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="nwoolcan.view.production.ProductionController">
+    <BorderPane>
+        <top>
+            <Label text="Production" BorderPane.alignment="CENTER">
+                <font>
+                    <Font size="28.0" />
+                </font>
+            </Label>
+        </top>
+        <center>
+            <VBox>
+                <GridPane alignment="CENTER_LEFT" hgap="5" >
+                    <padding>
+                        <Insets top="5" bottom="5" left="5" right="5" />
+                    </padding>
+                    <Button GridPane.columnIndex="0" GridPane.rowIndex="0"
+                            onAction="#gotoDashboardClick"
+                            text="Dashboard"/>
+                    <Button GridPane.columnIndex="1" GridPane.rowIndex="0"
+                            onAction="#createNewBatchClick"
+                            text="Create new batch" />
+                </GridPane>
+                <TitledPane text="General information">
+                    <BorderPane>
+                        <left>
+                            <VBox spacing="20.0">
+                                <FlowPane>
+                                    <Label text="Total number of batches : " />
+                                    <Label fx:id="lblTotalNumberBatches" />
+                                </FlowPane>
+                                <FlowPane>
+                                    <Label text="Number of batches in production : " />
+                                    <Label fx:id="lblNumberProductionBatches" />
+                                </FlowPane>
+                                <FlowPane>
+                                    <Label text="Number of ended batches : " />
+                                    <Label fx:id="lblNumberEndedBatches" />
+                                </FlowPane>
+                                <FlowPane>
+                                    <Label text="Number of stocked batches : " />
+                                    <Label fx:id="lblNumberStockedBatches" />
+                                </FlowPane>
+                            </VBox>
+                        </left>
+                        <center>
+                            <GridPane>
+                                <PieChart fx:id="pieChartBatchesStatus" maxHeight="280.0" maxWidth="300.0" title="Batches"
+                                          GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <PieChart fx:id="pieChartBatchesMethods" maxHeight="280.0" maxWidth="300.0" title="Methods"
+                                          GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </center>
+                    </BorderPane>
+                </TitledPane>
+                <TitledPane text="Batches">
+                    <VBox spacing="2">
+                        <FiltersBar onAction="#applyBatchesFilters">
+                            <filters>
+                                <fx:define>
+                                    <FXCollections fx:id="batchMethodList" fx:factory="observableArrayList">
+                                        <BatchMethod fx:value="ALL_GRAIN"/>
+                                        <BatchMethod fx:value="PARTIAL_MASH"/>
+                                        <BatchMethod fx:value="EXTRACT"/>
+                                    </FXCollections>
+                                </fx:define>
+                                <TextFilter fx:id="batchIdFilter" title="Batch Id"/>
+                                <TextFilter fx:id="beerNameFilter" title="Beer name"/>
+                                <TextFilter fx:id="beerStyleFilter" title="Beer style"/>
+                                <SelectFilter fx:id="batchMethodFilter" title="Batch method"
+                                              placeholder="Select a batch method" items="$batchMethodList"/>
+                                <DateFilter fx:id="minStartDateFilter" title="Minimum start date"/>
+                                <BooleanFilter fx:id="onlyEndedFilter" title="Only ended"/>
+                            </filters>
+                        </FiltersBar>
+                        <SubViewContainer fx:id="masterTableContainer" parent="$productionSubView">
+                        </SubViewContainer>
+                    </VBox>
+                </TitledPane>
+            </VBox>
+        </center>
+    </BorderPane>
+</SubView>
