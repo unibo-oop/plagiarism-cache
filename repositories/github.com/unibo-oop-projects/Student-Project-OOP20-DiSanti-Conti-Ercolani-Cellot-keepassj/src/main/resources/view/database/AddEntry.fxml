@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.AddEntryController">
+   <children>
+      <Label layoutX="53.0" layoutY="94.0" prefHeight="39.0" prefWidth="318.0" text="Add entry:">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="38.0" layoutY="184.0" prefHeight="20.0" prefWidth="120.0" text="Title:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="38.0" layoutY="238.0" prefHeight="20.0" prefWidth="120.0" text="Username:">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <Label alignment="CENTER_RIGHT" layoutX="38.0" layoutY="293.0" prefHeight="20.0" prefWidth="120.0" text="Password:">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <Label alignment="CENTER_RIGHT" layoutX="38.0" layoutY="436.0" prefHeight="20.0" prefWidth="120.0" text="URL:">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <TextField fx:id="title" layoutX="169.0" layoutY="180.0" prefHeight="26.0" prefWidth="825.0" promptText="Title" />
+      <TextField fx:id="username" layoutX="169.0" layoutY="234.0" prefHeight="26.0" prefWidth="825.0" promptText="Username" />
+      <PasswordField fx:id="password" layoutX="169.0" layoutY="288.0" onKeyTyped="#updateProgressBar" prefHeight="26.0" prefWidth="825.0" promptText="Password" />
+      <TextField fx:id="url" layoutX="169.0" layoutY="432.0" prefHeight="26.0" prefWidth="825.0" promptText="Url" />
+      <Button layoutX="941.0" layoutY="636.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="140.0" text="Cancel" />
+      <Button layoutX="709.0" layoutY="636.0" mnemonicParsing="false" onAction="#confirmAdd" prefHeight="40.0" prefWidth="200.0" text="Confirm" />
+      <ComboBox fx:id="comboBoxGroup" layoutX="169.0" layoutY="544.0" onAction="#selectGroup" prefHeight="26.0" prefWidth="193.0" promptText="--Select--" />
+      <Label alignment="CENTER_RIGHT" layoutX="38.0" layoutY="548.0" prefHeight="20.0" prefWidth="120.0" text="Group:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="38.0" layoutY="491.0" prefHeight="20.0" prefWidth="120.0" text="Notes:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="notes" layoutX="169.0" layoutY="487.0" prefHeight="26.0" prefWidth="825.0" promptText="Notes" />
+      <Button layoutX="399.0" layoutY="541.0" mnemonicParsing="false" onAction="#addNewGroup" prefHeight="26.0" prefWidth="230.0" text="Add new group">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="169.0" layoutY="343.0" mnemonicParsing="false" onAction="#generatePassword" prefHeight="46.0" prefWidth="230.0" text="Generate password">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <ProgressBar fx:id="progressBar" layoutX="474.0" layoutY="357.0" prefHeight="20.0" prefWidth="284.0" progress="0.0" />
+      <Label fx:id="lblStrength" layoutX="703.0" layoutY="358.0" text="   " />
+      <Label fx:id="lblPassword" layoutX="169.0" layoutY="319.0" text="       " />
+      <Button layoutX="1011.0" layoutY="287.0" mnemonicParsing="false" onAction="#showPassword" prefHeight="26.0" prefWidth="75.0" text="SHOW">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+   </children>
+</Pane>

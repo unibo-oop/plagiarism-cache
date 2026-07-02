@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.ChooseEncrSetController">
+   <children>
+      <Label layoutX="55.0" layoutY="417.0" text="Memory usage:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="344.0" text="Transform rounds:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="33.0" prefHeight="52.0" prefWidth="898.0" text="Here you can set your database encryption settings.">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="644.0" layoutY="135.0" text="Algorithm description:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="138.0" prefHeight="27.0" prefWidth="217.0" text="Encryption Algorithm:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboEA" layoutX="285.0" layoutY="138.0" onAction="#selectEA" prefHeight="26.0" prefWidth="279.0" promptText="--Select--" />
+      <Label layoutX="55.0" layoutY="253.0" prefHeight="21.0" prefWidth="230.0" text="Key Derivation Function:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboKDF" layoutX="285.0" layoutY="250.0" onAction="#selectKDF" prefHeight="26.0" prefWidth="280.0" promptText="--Select--" />
+      <Button layoutX="651.0" layoutY="548.0" mnemonicParsing="false" onAction="#continueCreation" prefHeight="40.0" prefWidth="200.0" text="Continue" />
+      <Button layoutX="883.0" layoutY="548.0" mnemonicParsing="false" onAction="#cancelCreation" prefHeight="40.0" prefWidth="140.0" text="Cancel" />
+      <Label layoutX="55.0" layoutY="489.0" text="Parallelism:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="algDescription" layoutX="644.0" layoutY="167.0" prefHeight="60.0" prefWidth="360.0" />
+      <Label layoutX="643.0" layoutY="247.0" prefHeight="21.0" prefWidth="360.0" text="Key Derivation Function description:">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="kdfDescription" layoutX="644.0" layoutY="278.0" prefHeight="60.0" prefWidth="360.0" />
+      <Spinner fx:id="trSpinner" layoutX="285.0" layoutY="341.0" />
+      <Spinner fx:id="muSpinner" layoutX="285.0" layoutY="414.0" />
+      <Spinner fx:id="pSpinner" layoutX="285.0" layoutY="486.0" />
+      <Text layoutX="396.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MiB" />
+      <Text layoutX="371.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="threads" />
+   </children>
+</Pane>
