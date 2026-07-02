@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="457.0" prefWidth="429.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="tutorialImg" fitHeight="376.0" fitWidth="392.0" layoutX="19.0" layoutY="14.0">
+         <image>
+            <Image url="@tutorial1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="backToGameBtn" layoutX="43.0" layoutY="402.0" mnemonicParsing="false" onAction="#back" prefHeight="41.0" prefWidth="125.0" text="BACK TO GAME" />
+      <Button fx:id="nextBtn" layoutX="275.0" layoutY="402.0" mnemonicParsing="false" onAction="#nextPage" prefHeight="41.0" prefWidth="106.0" />
+   </children>
+</Pane>
