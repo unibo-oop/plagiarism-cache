@@ -1,0 +1,175 @@
+/*
+ * BUTTONS
+ */
+#brickRedButton {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+        #9d4024,
+        #d86e3a,
+        radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-text-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
+}
+
+#brickRedButton:hover {
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+        #9d4024,
+        #d86e3a,
+        radial-gradient(center 50% 50%, radius 100%, #ea7f4b, #c54e2c);
+}
+
+#brickRedButton:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#yellowRoundButton {
+	-fx-background-color: 
+        linear-gradient(#ffd65b, #e68400),
+        linear-gradient(#ffef84, #f2ba44),
+        linear-gradient(#ffea6a, #efaa22),
+        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 60 60 60 60;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+}
+
+#yellowRoundButton:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+
+/*
+ * COLORS
+ */
+#defaultBackGroundColor{
+	-fx-background-color: #aedae8;
+}
+
+#alertPane{
+	-fx-background-color: white;
+}
+
+#alertPane > *.label.content{
+	-fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+#difficultyBox {
+	-fx-background-color: 
+        linear-gradient(#ffd65b, #e68400),
+        linear-gradient(#ffef84, #f2ba44),
+        linear-gradient(#ffea6a, #efaa22),
+        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 60 60 60 60;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-padding: 10 20 10 20;
+}
+
+/*
+ * TEXTS
+ */
+#coloredPacificoText{
+	-fx-font-weight: bold;
+    -fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, yellow 0%, red 50%);
+}
+
+#quantity{
+	-fx-font-family: Pacifico;
+	-fx-font-size: 2.5em;
+	-fx-font-weight: bold;
+    -fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, yellow 0%, red 50%);
+}
+
+#brickRedLabel{
+	-fx-font-family: Pacifico;
+	-fx-font-size: 2.1em;
+	-fx-font-weight: bold;
+    -fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, yellow 0%, red 50%);
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+        #9d4024,
+        #d86e3a,
+        radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+}
+
+
+/*
+ * COMPONENTS
+ */
+ 
+ .progress-bar > .track {
+  -fx-text-box-border: black;
+  -fx-control-inner-background: black;
+  -fx-font-size: 3em;
+}
+
+.progress-bar > .bar {
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-accent, -7%), derive(-fx-accent, 0%), derive(-fx-accent, -3%), derive(-fx-accent, -9%) );
+    -fx-background-insets: 3 3 4 3;
+    -fx-background-radius: 2;
+    -fx-padding: 0.75em;
+    -fx-accent: green;
+}
+ #nameField{
+	-fx-font-size: 25px;
+	-fx-font-weight: bold;
+	-fx-background-radius: 25;
+	-fx-border-color: #f8c202;  
+ 	-fx-border-width: 5px; 
+ 	-fx-border-radius: 20;
+ 	-fx-border-style: solid;
+}
+
+#animationPane{
+	-fx-border-color: black;
+	-fx-border-width: 3;
+	-fx-border-radius: 30;
+}
+
+
+#yellowImage {
+	-fx-background-color: 
+        linear-gradient(#ffd65b, #e68400),
+        linear-gradient(#ffef84, #f2ba44),
+        linear-gradient(#ffea6a, #efaa22),
+        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 0 60 60 0;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
+
+#yellowImage2 {
+	-fx-background-color: 
+        linear-gradient(#ffd65b, #e68400),
+        linear-gradient(#ffef84, #f2ba44),
+        linear-gradient(#ffea6a, #efaa22),
+        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 60 0 0 60;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
