@@ -1,0 +1,330 @@
+package it.unibo.df.view;
+
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import it.unibo.df.dto.AbilityView;
+import it.unibo.df.gs.ArsenalState;
+import static it.unibo.df.view.PaneFormatter.formatColumns;
+import static it.unibo.df.view.PaneFormatter.formatRows;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.GridPane;
+
+/**
+ * The Scene of the menu where the user select abilities.
+ */
+public class AbilityMenu {
+    private static final int MAX_SIZE_PERC = 100;
+    private static final int INVENTORY_WIDTH_PERC = 80;
+    private static final int MIXER_ABILITY_SIZE = 2;
+    private static final int INVENTORY_WIDTH = 3;
+    private static final int INVENTORY_HEIGHT = 8;
+    private static final int KEYS_AREA_ROWS = 2;
+    private final int loadoutSize;
+    private GridPane inventaryArea;
+    private GridPane equipment;
+    private GridPane combineArea;
+    private final List<String> keys;
+    private final Map<Integer, AbilityView> unlocked = new LinkedHashMap<>();
+    private final List<Integer> lost = new LinkedList<>();
+    private final List<Integer> equipped = new LinkedList<>();
+    private final Set<Integer> combiner = new LinkedHashSet<>();
+    private Label descriptionLabel;
+    private final ToggleGroup group = new ToggleGroup();
+    private Scene menu;
+
+    /**
+     * Setup the menu and creates the view.
+     * 
+     * @param keys List of command to show to the user
+     * @param loadoutSize size of ability can be equipped
+     */
+    public AbilityMenu(final List<String> keys, final int loadoutSize) {
+        this.loadoutSize = loadoutSize;
+        this.keys = List.copyOf(keys);
+        setupAbilityMenuScene();
+    }
+
+    private void setupAbilityMenuScene() {
+        final GridPane menuArea = new GridPane();
+        formatColumns(menuArea, 1, MAX_SIZE_PERC);
+        formatRows(menuArea, 1, INVENTORY_WIDTH_PERC);
+        formatRows(menuArea, 1, MAX_SIZE_PERC - INVENTORY_WIDTH_PERC);
+        menuArea.add(fillUpperArea(), 0, 0);
+        menuArea.add(fillLowerArea(), 0, 1);
+        final SceneResizer resizer = new SceneResizer(
+            menuArea,
+            (double) INVENTORY_WIDTH_PERC / MAX_SIZE_PERC,
+            MAX_SIZE_PERC / MAX_SIZE_PERC
+        );
+        menu = new Scene(resizer.getBorderPane());
+        menu.getStylesheets().add(AbilityMenu.class.getResource("/css/menuStyle.css").toExternalForm());
+    }
+
+    private GridPane fillUpperArea() {
+        final GridPane area = new GridPane();
+        formatColumns(area, 1, MAX_SIZE_PERC / 2);
+        formatColumns(area, 2, MAX_SIZE_PERC / 4);
+        formatRows(area, 1, MAX_SIZE_PERC);
+        area.add(fillInventaryArea(), 0, 0);
+        area.add(fillEquipmentArea(), 1, 0);
+        area.add(fillMixerArea(), 2, 0);
+        return area;
+    }
+
+    private GridPane fillMixerArea() {
+        combineArea = new GridPane();
+        formatColumns(combineArea, 1, MAX_SIZE_PERC);
+        formatRows(combineArea, MIXER_ABILITY_SIZE, MAX_SIZE_PERC / MIXER_ABILITY_SIZE);
+        for (int i = 0; i < MIXER_ABILITY_SIZE; i++) {
+            final Label lbl = new Label("");
+            lbl.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+            combineArea.add(lbl, 0, i);
+        }
+        return combineArea;
+
+    }
+
+    private GridPane fillInventaryArea() {
+        inventaryArea = new GridPane();
+        formatColumns(inventaryArea, INVENTORY_WIDTH, MAX_SIZE_PERC / INVENTORY_WIDTH);
+        formatRows(inventaryArea, INVENTORY_HEIGHT, MAX_SIZE_PERC / INVENTORY_HEIGHT);
+        for (int i = 0; i < INVENTORY_WIDTH; i++) {
+            for (int j = 0; j < INVENTORY_HEIGHT; j++) {
+                final ToggleButton btn = new ToggleButton();
+                btn.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+                inventaryArea.add(btn, i, j);
+                btn.setToggleGroup(group);
+            }
+        }
+        return inventaryArea; 
+    }
+
+    private GridPane fillEquipmentArea() {
+        equipment = new GridPane();
+        formatColumns(equipment, 1, MAX_SIZE_PERC);
+        formatRows(equipment, loadoutSize, (double) MAX_SIZE_PERC / loadoutSize);
+        for (int j = 0; j < loadoutSize; j++) {
+            final Label lbl = new Label();
+            lbl.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+            equipment.add(lbl, 0, j);
+        }
+        return equipment;
+    }
+
+    private GridPane fillLowerArea() {
+        final GridPane area = new GridPane();
+        formatColumns(area, 2, MAX_SIZE_PERC / 2);
+        formatRows(area, 1, MAX_SIZE_PERC);
+        area.add(fillDescriptionArea(), 0, 0);
+        area.add(fillKeysArea(), 1, 0);
+        return area;
+    }
+
+    private Label fillDescriptionArea() {
+        descriptionLabel = new Label("");
+        descriptionLabel.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        return descriptionLabel;
+    }
+
+    @SuppressFBWarnings(
+        value = "ICAST",
+        justification = "the division must necessarily return a whole to me"
+    )
+    private GridPane fillKeysArea() {
+        final GridPane area = new GridPane();
+        final Iterator<String> key = keys.iterator();
+        formatColumns(area, keys.size() / KEYS_AREA_ROWS, MAX_SIZE_PERC / (keys.size() / KEYS_AREA_ROWS));
+        formatRows(area, KEYS_AREA_ROWS, MAX_SIZE_PERC / KEYS_AREA_ROWS);
+        for (int i = 0; i < KEYS_AREA_ROWS; i++) {
+            for (int j = 0; j < keys.size() / KEYS_AREA_ROWS; j++) {
+                final Label lbl = new Label(key.hasNext() ? key.next() : "");
+                lbl.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+                lbl.setWrapText(true);
+                area.add(lbl, j, i);
+            }
+        }
+        return area;
+    }
+
+    private void addNews(final ArsenalState gs) {
+        for (final var e : gs.unlocked()) {
+            unlocked.put(e.id(), e);
+        }
+        lost.addAll(gs.lost()); 
+        gs.equipped().ifPresent(equipped::add);
+    }
+
+    private void refreshAbilities() {
+        final List<Integer> unlockedList = new LinkedList<>(unlocked.keySet());
+        unlockedList.removeAll(lost);
+        final Iterator<Integer> unlockIt = unlockedList.iterator();
+        final Iterator<Integer> lostIt = lost.iterator();
+        for (final var e : inventaryArea.getChildren()) {
+            if (e instanceof ToggleButton button) {
+                button.getStyleClass().clear();
+                if (unlockIt.hasNext()) {
+                    button.setText(unlocked.get(unlockIt.next()).name());
+                    button.getStyleClass().add("unlocked");
+                } else if (lostIt.hasNext()) {
+                    button.setText(unlocked.get(lostIt.next()).name());
+                    button.getStyleClass().add("lost");
+                } else {
+                    button.getStyleClass().add("lost");
+                    button.setText("");
+                }
+            }
+        }
+
+    }
+
+    private void refreshEquipped() {
+        final Iterator<Integer> equipIt = equipped.iterator();
+        for (final var e : equipment.getChildren()) {
+            if (e instanceof Label label) {
+                label.setText(equipIt.hasNext() ? unlocked.get(equipIt.next()).name() : "");
+            }
+        }
+    }
+
+    /**
+     * refresh the description area to display it.
+     * 
+     * @param id of the ability to take the description
+     */
+    public void refreshDescription(final int id) {
+        final AbilityView ab = unlocked.get(id);
+        descriptionLabel.setText(
+            "NAME: " + ab.name() 
+            + "\nHEAL: " + ab.casterHpDelta() 
+            + "\nDAMAGE: " + ab.targetHpDelta()
+        );
+    }
+
+    /**
+     * refresh the combiner area to display it.
+     */
+    public void refreshCombine() {
+        final Iterator<Integer> combineIt = combiner.iterator();
+        for (final var e : combineArea.getChildren()) {
+            if (e instanceof Label lbl) {
+                lbl.setText(combineIt.hasNext() ? unlocked.get(combineIt.next()).name() : "");
+            }
+        }
+    }
+
+    /**
+     * Refresh the inventary page and write the equipment, unlocked an locked moves.
+     * 
+     * @param gs Arsenal state
+     */
+    public void refresh(final ArsenalState gs) {
+        addNews(gs);
+        refreshAbilities();
+        refreshEquipped();
+    }
+
+    /**
+     * add an ability to the combiner.
+     * 
+     * @param id to add it to the combiner
+     */
+    public void addAbilityToCombine(final int id) {
+        if (combiner.size() <= MIXER_ABILITY_SIZE && !lost.contains(id)) {
+           combiner.add(id);
+        }
+    }
+
+    /**
+     * remove an ability from the combiner.
+     * 
+     * @param id to remove it to the combiner
+     */
+    public void removeFromCombine(final int id) {
+        combiner.remove((Integer) id);
+    }
+
+    /**
+     * unequip an ability.
+     * 
+     * @param id to unequip it
+     */
+    public void unequip(final int id) {
+        equipped.remove((Integer) id);
+    }
+
+    /**
+     * clear all lists of abilities to refill it.
+     */
+    public void clearMenus() {
+        unlocked.clear();
+        equipped.clear();
+        lost.clear();
+    }
+
+    /**
+     * clear the combiner list and refresh the scene.
+     */
+    public void clearCombiner() {
+        combiner.clear();
+        refreshCombine();
+    }
+
+    /**
+     * @param name to find the id of the ability
+     * @return the id of the ability
+     */
+    public int getId(final String name) {
+        for (final var e : unlocked.entrySet()) {
+            if (e.getValue().name().equals(name)) {
+                return e.getKey();
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * @return a List of ids to combine.
+     */
+    public List<Integer> getCombiner() {
+        return combiner.stream().toList();
+    }
+
+    /**
+     * @return group of button of Abilities
+     */
+    @SuppressFBWarnings(
+        value = "EI", 
+        justification = "the gruop must necessarily be this one"
+    )
+    public ToggleGroup getGroup() {
+        return group;
+    }
+
+    /**
+     * @return the equipment 
+     */
+    public List<AbilityView> getEquipped() {
+        return equipped.stream().map(unlocked::get).toList();
+    }
+
+    /**
+     * @return the scene
+     */
+    @SuppressFBWarnings(
+        value = "EI", 
+        justification = "the scene must necessarily be this one"
+    )
+    public Scene getScene() {
+        return menu;
+    }
+}

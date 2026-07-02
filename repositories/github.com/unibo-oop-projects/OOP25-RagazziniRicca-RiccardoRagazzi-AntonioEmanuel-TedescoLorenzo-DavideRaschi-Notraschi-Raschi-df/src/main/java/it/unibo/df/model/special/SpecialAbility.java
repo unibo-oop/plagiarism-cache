@@ -1,0 +1,53 @@
+package it.unibo.df.model.special;
+
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Function;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import it.unibo.df.utility.Cooldown;
+
+/**
+ * represents a SpecialAbility.
+ * only castable by enemies, are meant to disrupt player's actions.
+ * 
+ * @param <T> type of input handled
+ * @param inputType class of the expected input
+ * @param affected inputs that can be altered
+ * @param fn transformation function
+ * @param timer cooldown timer
+ */
+@SuppressFBWarnings(
+    value = "EI",
+    justification = "sets are created as immutable by the factory"
+)
+public record SpecialAbility<T>(
+    Class<T> inputType,
+    Set<T> affected,
+    Function<T, Optional<T>> fn,
+    Cooldown timer
+) {
+    /**
+     * checks if the Special Ability is made for this kind of input.
+     * 
+     * @param input the input
+     * @return true if a transform can be applied
+     */
+    public boolean canHandle(final Object input) {
+        return inputType.isInstance(input);
+    }
+
+    /**
+     * transforms the input (this is the disruption).
+     * 
+     * @param input the input to transform
+     * @return an empty Optional if input was denied, or one with the transformed input
+     */
+    public Optional<T> trasform(final T input) {
+        if (!affected.contains(input)) {
+            return Optional.of(input);
+        } else {
+            return fn.apply(input);
+        }
+    }
+}

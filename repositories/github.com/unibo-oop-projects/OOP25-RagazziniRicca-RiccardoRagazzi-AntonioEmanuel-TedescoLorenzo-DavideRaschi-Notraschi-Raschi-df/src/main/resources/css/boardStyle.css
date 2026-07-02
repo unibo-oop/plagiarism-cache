@@ -1,0 +1,21 @@
+StackPane {
+    -fx-alignment: center;
+}
+.board {
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+}
+.label{
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-font-weight: bold;
+}
+.playerLifeBar > .bar {
+    -fx-background-insets: 0;
+    -fx-background-color: green;
+}
+
+.enemyLifeBar > .bar {
+    -fx-background-insets: 0;
+    -fx-background-color: red;
+}
