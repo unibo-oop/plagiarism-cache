@@ -1,0 +1,82 @@
+package it.unibo.chaosjack.view.impl;
+
+import it.unibo.chaosjack.view.api.MainMenuView;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+
+/**
+ * Implementation of Main Menu View.
+ */
+public final class MainMenuViewImpl implements MainMenuView {
+
+    private static final int BOX_SPACING = 25;
+    private static final String BUTTON_STYLE = "-fx-font-size: 18px; -fx-padding: 10 25;";
+
+    private final VBox root;
+    private final Button playButton = new Button("Play");
+    private final Button statsButton = new Button("Statistics");
+    private final Button exitButton = new Button("Exit");
+
+    private final Label nameLabel = new Label("Name: ");
+    private final TextField nameField = new TextField("Giocatore 1");
+
+    /**
+     * Initializes the main menu view and its layout components.
+     */
+    public MainMenuViewImpl() {
+        this.root = new VBox(BOX_SPACING);
+        this.initLayout();
+    }
+
+    private void initLayout() {
+        this.root.setAlignment(Pos.CENTER);
+        this.root.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        this.root.setStyle("-fx-background-color: #1a1a1a;");
+
+        final Label title = new Label("CHAOS JACK");
+        title.setStyle("-fx-text-fill: gold; -fx-font-size: 46px; -fx-font-weight: bold;");
+
+        this.nameLabel.setStyle("-fx-text-fill: white; -fx-font-size: 16px;");
+
+        this.playButton.setStyle(BUTTON_STYLE);
+        this.statsButton.setStyle(BUTTON_STYLE);
+        this.exitButton.setStyle(BUTTON_STYLE);
+
+        this.root.getChildren().addAll(title, playButton, statsButton, exitButton);
+    }
+
+    @edu.umd.cs.findbugs.annotations.SuppressFBWarnings(
+        value = "EI_EXPOSE_REP",
+        justification = "Required for JavaFX node structure."
+    )
+    @Override
+    public Parent getRootNode() {
+        return this.root;
+    }
+
+    @Override
+    public String getPlayerName() {
+        final String inputName = this.nameField.getText().trim();
+        return inputName.isEmpty() ? "Giocatore 1" : inputName;
+    }
+
+    @Override
+    public void setPlayHandler(final Runnable handler) {
+        this.playButton.setOnAction(e -> handler.run());
+    }
+
+    @Override
+    public void setStatsHandler(final Runnable handler) {
+        this.statsButton.setOnAction(e -> handler.run());
+    }
+
+    @Override
+    public void setExitHandler(final Runnable handler) {
+        this.exitButton.setOnAction(e -> handler.run());
+    }
+
+}
