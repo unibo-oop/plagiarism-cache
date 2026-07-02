@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.GridPane?>
+
+<SplitPane dividerPositions="0.5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gameplay.GameplayUIImpl">
+  <items>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+        <items>
+            <Label fx:id="playerName" text="Label" />
+            <GridPane fx:id="playerGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            </GridPane>
+        </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+        <items>
+            <Label fx:id="enemyName" text="Label" />
+            <GridPane fx:id="enemyGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            </GridPane>
+        </items>
+      </SplitPane>
+  </items>
+</SplitPane>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Integer?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.navy_setup.NavySetupUIImpl">
+   <center>
+      <GridPane fx:id="gridPane" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" maxWidth="312.0" minWidth="10.0" prefWidth="301.0" />
+            <ColumnConstraints halignment="CENTER" maxWidth="308.0" minWidth="10.0" prefWidth="299.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" />
+        </rowConstraints>
+         <children>
+            <Label text="Grid size" />
+            <ComboBox fx:id="gridSizeSelector" GridPane.columnIndex="1">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <Integer fx:value="5" />
+                  <Integer fx:value="6" />
+                  <Integer fx:value="7" />
+                  <Integer fx:value="8" />
+                  <Integer fx:value="9" />
+                  <Integer fx:value="10" />
+                  <Integer fx:value="11" />
+                  <Integer fx:value="12" />
+                  <Integer fx:value="13" />
+                  <Integer fx:value="14" />
+                  <Integer fx:value="15" />
+                </FXCollections>
+              </items>
+              <value>
+              	<Integer fx:value="10" />
+              </value>
+               <GridPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+         </children>
+         <BorderPane.margin>
+            <Insets top="5.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding>
+      </GridPane>
+   </center>
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="buttonReset" mnemonicParsing="false" onAction="#reset" prefHeight="27.0" prefWidth="342.0" text="Reset" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="buttonConfirm" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#confirm" prefHeight="27.0" prefWidth="342.0" text="Confirm" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </bottom>
+   <top>
+      <Label text="Navy Setup" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>
