@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unibo.pixart.view.workspace.WorkSpace">
+    <top>
+        <MenuBar fx:id="menubar" prefHeight="41.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+   <left>
+      <VBox fx:id="leftPane" prefHeight="248.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+                <ColorPicker fx:id="colorPicker" onAction="#onColorChanged" prefHeight="34.0" prefWidth="100.0">
+               <value>
+                  <Color />
+               </value>
+            </ColorPicker>
+            <Button fx:id="undo" mnemonicParsing="false" onAction="#onUndoClicked" prefHeight="35.0" prefWidth="114.0" text="Undo" />
+            <Button fx:id="discard" mnemonicParsing="false" onAction="#discardMatrix" prefHeight="29.0" prefWidth="172.0" text="Discard" />
+            <Button mnemonicParsing="false" onAction="#onAddFrameClicked" prefHeight="26.0" prefWidth="141.0" text="Add+" />
+            <Button mnemonicParsing="false" onAction="#onDeleteClicked" prefHeight="26.0" prefWidth="102.0" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#onAnimateClicked" prefHeight="26.0" prefWidth="111.0" text="Animate" />
+            <ChoiceBox fx:id="toolBox" prefHeight="26.0" prefWidth="164.0" />
+            <Label fx:id="toolSizeLabel" text="Size:" />
+            <Slider fx:id="toolSizeSlider" max="6.0" min="1.0" showTickLabels="true" showTickMarks="true" value="1.0" />
+         </children>
+         <opaqueInsets>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </opaqueInsets>
+      </VBox>
+   </left>
+   <bottom>
+        <ListView fx:id="frames" orientation="HORIZONTAL" prefHeight="100.0" prefWidth="590.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
