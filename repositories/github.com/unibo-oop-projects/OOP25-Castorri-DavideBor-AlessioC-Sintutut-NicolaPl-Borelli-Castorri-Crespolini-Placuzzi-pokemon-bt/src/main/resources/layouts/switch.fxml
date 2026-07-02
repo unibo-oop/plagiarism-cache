@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1200.0" snapToPixel="false" styleClass="main-container" stylesheets="@../css/Switch.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pokemonbt.controller.view_controller.SwitchController">
+   <children>
+      <BorderPane prefHeight="900.0" prefWidth="1200.0" snapToPixel="false">
+         <bottom>
+            <Button fx:id="backBtn" cancelButton="true" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#onBack" prefWidth="1000.0" snapToPixel="false" styleClass="back-button" text="Back" textAlignment="CENTER" wrapText="true" BorderPane.alignment="BOTTOM_CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="15.0" top="15.0" />
+               </BorderPane.margin>
+            </Button>
+         </bottom>
+         <center>
+            <GridPane fx:id="teamGrid" hgap="15.0" styleClass="grid" vgap="15.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox fx:id="slot1" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#onSelection" prefHeight="262.0" prefWidth="587.5" snapToPixel="false" styleClass="generic-slot">
+                     <children>
+                        <ImageView fx:id="icon1" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox fx:id="info1" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" snapToPixel="false" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="active1" text="- Active -" textAlignment="CENTER" visible="false" />
+                              <Label fx:id="name1" snapToPixel="false" styleClass="text" text="NAME" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <StackPane fx:id="healthBG1" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bg">
+                                 <children>
+                                    <Pane fx:id="healthBar1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bar" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </VBox.margin>
+                              </StackPane>
+                              <HBox fx:id="types1" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" snapToPixel="false" spacing="10.0">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </HBox>
+                  <HBox fx:id="slot2" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#onSelection" prefHeight="262.0" prefWidth="587.5" snapToPixel="false" styleClass="generic-slot" GridPane.columnIndex="1">
+                     <children>
+                        <ImageView fx:id="icon2" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox fx:id="info2" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" snapToPixel="false" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="active2" text="- Active -" textAlignment="CENTER" visible="false" />
+                              <Label fx:id="name2" snapToPixel="false" styleClass="text" text="NAME" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <StackPane fx:id="healthBG2" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bg">
+                                 <children>
+                                    <Pane fx:id="healthBar2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bar" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </VBox.margin>
+                              </StackPane>
+                              <HBox fx:id="types" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" snapToPixel="false" spacing="10.0">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </HBox>
+                  <HBox fx:id="slot3" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#onSelection" prefHeight="262.0" prefWidth="587.5" snapToPixel="false" styleClass="generic-slot" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fx:id="icon3" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox fx:id="info3" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" snapToPixel="false" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="active3" text="- Active -" textAlignment="CENTER" visible="false" />
+                              <Label fx:id="name3" snapToPixel="false" styleClass="text" text="NAME" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <StackPane fx:id="healthBG3" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bg">
+                                 <children>
+                                    <Pane fx:id="healthBar3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bar" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </VBox.margin>
+                              </StackPane>
+                              <HBox fx:id="types3" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" snapToPixel="false" spacing="10.0">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </HBox>
+                  <HBox fx:id="slot4" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#onSelection" prefHeight="262.0" prefWidth="587.5" snapToPixel="false" styleClass="generic-slot" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fx:id="icon4" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox fx:id="info4" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" snapToPixel="false" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="active4" text="- Active -" textAlignment="CENTER" visible="false" />
+                              <Label fx:id="name4" snapToPixel="false" styleClass="text" text="NAME" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <StackPane fx:id="healthBG4" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bg">
+                                 <children>
+                                    <Pane fx:id="healthBar4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bar" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </VBox.margin>
+                              </StackPane>
+                              <HBox fx:id="types4" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" snapToPixel="false" spacing="10.0">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </HBox>
+                  <HBox fx:id="slot5" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#onSelection" prefHeight="262.0" prefWidth="587.5" snapToPixel="false" styleClass="generic-slot" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fx:id="icon5" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox fx:id="info5" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" snapToPixel="false" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="active5" text="- Active -" textAlignment="CENTER" visible="false" />
+                              <Label fx:id="name5" snapToPixel="false" styleClass="text" text="NAME" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <StackPane fx:id="healthBG5" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bg">
+                                 <children>
+                                    <Pane fx:id="healthBar5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bar" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </VBox.margin>
+                              </StackPane>
+                              <HBox fx:id="types5" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" snapToPixel="false" spacing="10.0">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </HBox>
+                  <HBox fx:id="slot6" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#onSelection" prefHeight="262.0" prefWidth="587.5" snapToPixel="false" styleClass="generic-slot" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fx:id="icon6" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox fx:id="info6" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" snapToPixel="false" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="active6" text="- Active -" textAlignment="CENTER" visible="false" />
+                              <Label fx:id="name6" snapToPixel="false" styleClass="text" text="NAME" textAlignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <StackPane fx:id="healthBG6" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bg">
+                                 <children>
+                                    <Pane fx:id="healthBar6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="275.0" snapToPixel="false" styleClass="health-bar" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </VBox.margin>
+                              </StackPane>
+                              <HBox fx:id="types6" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" snapToPixel="false" spacing="10.0">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

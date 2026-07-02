@@ -1,0 +1,67 @@
+/*@font-face {
+    src: url("../fonts/Jersey10-Regular.ttf");
+}*/
+
+.selection-container {
+    -fx-background-color: #4D8067;
+}
+
+.title-container{
+    -fx-background-image: url("/img/selection-title-bg.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+
+    -fx-border-color: #4D8067;
+    -fx-border-radius: 30px;
+    -fx-border-width: 15px;
+}
+
+.title-text {
+    -fx-font-family: "Jersey 10";
+    -fx-fill: white;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+}
+
+.box-grid {
+    -fx-background-image: url("/img/selection-bg.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+
+    -fx-border-color: #4D8067;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+    -fx-border-width: 15px;
+}
+
+.party-member {
+    -fx-background-color: white;
+    -fx-border-radius: 100px;
+    -fx-background-radius: 100px;
+}
+
+.party-member-text {
+    -fx-font-family: "Jersey 10";
+}
+
+.pokemon{
+    -fx-background-color: transparent;
+}
+
+.back-button {
+    -fx-background-color: red;
+    -fx-font-family: "Jersey 10";
+    -fx-font-size: 30px;
+    -fx-border-radius: 100px;
+    -fx-background-radius: 100px;
+}
+
+.start-button {
+    -fx-background-color: blue;
+    -fx-font-family: "Jersey 10";
+    -fx-font-size: 30px;
+    -fx-border-radius: 100px;
+    -fx-background-radius: 100px;
+}

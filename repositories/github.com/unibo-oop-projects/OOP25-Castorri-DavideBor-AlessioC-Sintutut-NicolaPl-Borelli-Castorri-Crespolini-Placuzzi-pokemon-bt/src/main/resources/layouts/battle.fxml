@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="battleContainer" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" snapToPixel="false" styleClass="battle-container" stylesheets="@../css/Battle.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pokemonbt.controller.view_controller.BattleController">
+   <children>
+      <AnchorPane prefHeight="618.0" prefWidth="200.0" snapToPixel="false" styleClass="battle-background">
+         <children>
+            <HBox fx:id="opponentInfoContainer" layoutX="161.0" layoutY="450.0" prefHeight="90.0" prefWidth="665.0" snapToPixel="false" styleClass="opponent-info-container" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fx:id="opponentName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name" text="Text" />
+                     </children>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </HBox>
+                  <StackPane maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" snapToPixel="false" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Pane fx:id="hpBackground" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="300.0" styleClass="hp-background">
+                           <children>
+                              <Pane fx:id="hpLineOpponent" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" styleClass="hp-line" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </StackPane>
+               </children></HBox>
+            <BorderPane fx:id="opponentStatus" prefHeight="60.0" prefWidth="180.0" styleClass="opponent-status" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="90.0" />
+            <VBox fx:id="activePokemonContainer" alignment="BOTTOM_CENTER" layoutX="281.0" layoutY="265.0" prefHeight="555.0" prefWidth="660.0" snapToPixel="false" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="0.0" />
+            <VBox fx:id="opponentContainer" alignment="BOTTOM_CENTER" layoutX="961.0" layoutY="135.0" prefHeight="350.0" prefWidth="540.0" snapToPixel="false" AnchorPane.leftAnchor="540.0" AnchorPane.topAnchor="0.0" />
+            <HBox fx:id="activeInfoContainer" layoutX="171.0" layoutY="460.0" prefHeight="90.0" prefWidth="665.0" snapToPixel="false" styleClass="active-info-container" AnchorPane.leftAnchor="535.0" AnchorPane.topAnchor="528.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fx:id="activeName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name" text="Text" />
+                     </children>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </HBox>
+                  <StackPane maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" snapToPixel="false" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Pane fx:id="hpBackground1" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="300.0" styleClass="hp-background">
+                           <children>
+                              <Pane fx:id="hpLineActive" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" styleClass="hp-line" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </StackPane>
+               </children>
+            </HBox>
+            <BorderPane fx:id="activePokemonStatus" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="180.0" styleClass="active-pokemon-status" AnchorPane.leftAnchor="1020.0" AnchorPane.topAnchor="468.0" />
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="250.0" snapToPixel="false" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" snapToPixel="false">
+                     <children>
+                        <VBox fx:id="optionsButtonWrapper" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="250.0" snapToPixel="false" spacing="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="saveBtn" alignment="CENTER" disable="true" mnemonicParsing="false" onMouseClicked="#onSave" prefHeight="25.0" prefWidth="200.0" snapToPixel="false" styleClass="option-button" stylesheets="@../css/Battle.css" text="Save Game" visible="false">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Button fx:id="settingsBtn" alignment="CENTER" disable="true" mnemonicParsing="false" onMouseClicked="#openSettings" prefHeight="25.0" prefWidth="200.0" snapToPixel="false" styleClass="option-button" stylesheets="@../css/Battle.css" text="Settings" visible="false">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Button fx:id="closeBtn" alignment="CENTER" disable="true" mnemonicParsing="false" onMouseClicked="#closeMenu" prefHeight="25.0" prefWidth="200.0" snapToPixel="false" styleClass="option-button" stylesheets="@../css/Battle.css" text="Close" visible="false">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                           </children>
+                           <padding>
+                              <Insets right="20.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                        <Pane fx:id="settingsPane" onMouseClicked="#openOptions" prefHeight="50.0" prefWidth="50.0" snapToPixel="false" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <ImageView fx:id="settingsIcon" fitHeight="50.0" fitWidth="50.0">
+                                 <image>
+                                    <Image url="@../img/setting.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <HBox fx:id="bottomRow" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="282.0" prefWidth="1200.0" snapToPixel="false" styleClass="bottom-row">
+         <children>
+            <AnchorPane fx:id="battleLog" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="282.0" prefWidth="800.0" styleClass="battle-log" HBox.hgrow="ALWAYS">
+               <children>
+                  <Text fx:id="battleLogText" layoutX="88.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="battle-log-text" text="Text" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0" />
+               </children>
+            </AnchorPane>
+            <GridPane fx:id="moveContainer" alignment="CENTER" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="88.0" prefHeight="88.0" prefWidth="400.0" styleClass="move-container" stylesheets="@../css/Types.css" vgap="10.0" HBox.hgrow="ALWAYS">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMoveSelection" styleClass="move-button" textAlignment="CENTER" textFill="WHITE" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fx:id="moveName1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name-text" text="Text" />
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMoveSelection" styleClass="move-button" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fx:id="moveName2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name-text" text="Text" />
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMoveSelection" styleClass="move-button" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fx:id="moveName3" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name-text" text="Text" />
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMoveSelection" styleClass="move-button" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <Text fx:id="moveName4" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="name-text" text="Text" />
+                     </graphic>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </GridPane>
+            <VBox fx:id="buttonColumn" alignment="CENTER" prefHeight="282.0" prefWidth="400.0" spacing="5.0" styleClass="button-column">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <children>
+                  <Button fx:id="battleButton" mnemonicParsing="false" onAction="#onBattle" prefHeight="84.0" prefWidth="390.0" styleClass="battle-button">
+                     <graphic>
+                        <Text fx:id="battleButtonText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Battle" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="pokemonButton" mnemonicParsing="false" onAction="#onPokemon" prefHeight="84.0" prefWidth="390.0" styleClass="pokemon-button">
+                     <graphic>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pokémon" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="runButton" mnemonicParsing="false" onAction="#onRun" prefHeight="84.0" prefWidth="390.0" styleClass="run-button">
+                     <graphic>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Run" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

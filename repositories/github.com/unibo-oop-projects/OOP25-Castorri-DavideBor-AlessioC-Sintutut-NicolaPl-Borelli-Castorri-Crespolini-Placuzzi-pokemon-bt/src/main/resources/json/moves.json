@@ -1,0 +1,1903 @@
+[
+  {
+    "id": "struggle",
+    "displayName": "Struggle",
+    "description": "Only usable when all PP are gone. Hurts the user.",
+    "behaviour": [
+      "Damage",
+      "Recoil"
+    ],
+    "type": "None",
+    "category": "PHYSICAL",
+    "maxPP": -1,
+    "damage": {
+      "power": 50,
+      "accuracy": 1,
+      "contact": true
+    }
+  },
+  {
+    "id": "knock_off",
+    "displayName": "Knock off",
+    "description": "The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item.",
+    "behaviour": [
+      "Damage",
+      "Special"
+    ],
+    "type": "Dark",
+    "category": "PHYSICAL",
+    "maxPP": 32,
+    "damage": {
+      "power": 65,
+      "accuracy": 1,
+      "contact": true
+    },
+    "special": "KnockOff"
+  },
+  {
+    "id": "volt_tackle",
+    "displayName": "Volt Tackle",
+    "description": "The user attacks by charging forward while cloaked in electricity. This may leave targets paralyzed. The user will also take some damage.",
+    "behaviour": [
+      "Damage",
+      "Recoil",
+      "Condition"
+    ],
+    "type": "Electric",
+    "category": "PHYSICAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 120,
+      "accuracy": 1,
+      "contact": true
+    },
+    "condition": {
+      "id": "paralysis",
+      "chance": 0.3,
+      "self": false
+    }
+  },
+  {
+    "id": "fake_out",
+    "displayName": "Fake Out",
+    "description": "The user attacks first to make targets flinch. This move only succeeds if it is used first thing upon the user entering a battle.",
+    "behaviour": [
+      "Damage",
+      "Condition",
+      "Special"
+    ],
+    "type": "Normal",
+    "category": "PHYSICAL",
+    "maxPP": 16,
+    "priotiy": 3,
+    "damage": {
+      "power": 40,
+      "accuracy": 1,
+      "contact": true
+    },
+    "condition": {
+      "id": "flinch",
+      "chance": 1,
+      "self": false
+    },
+    "special": "FakeOut"
+  },
+  {
+    "id": "body_slam",
+    "displayName": "Body Slam",
+    "description": "The user attacks by dropping onto targets with its full body weight. This may also leave targets paralyzed.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Normal",
+    "category": "PHYSICAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 85,
+      "accuracy": 1,
+      "contact": true
+    },
+    "condition": {
+      "id": "paralysis",
+      "chance": 0.3,
+      "self": false
+    }
+  },
+  {
+    "id": "hyper_beam",
+    "displayName": "Hyper Beam",
+    "description": "The user attacks by shooting a powerful beam at targets. The recoil will leave the user unable to move for a short time.",
+    "behaviour": [
+      "Damage",
+      "Recharge"
+    ],
+    "type": "Normal",
+    "category": "SPECIAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 150,
+      "accuracy": 0.9,
+      "contact": false
+    }
+  },
+  {
+    "id": "uproar",
+    "displayName": "Uproar",
+    "description": "The user attacks in an uproar for three turns. During that time, no Pokémon can fall asleep.",
+    "behaviour": [
+      "Damage",
+      "Repeat",
+      "Special"
+    ],
+    "type": "Normal",
+    "category": "SPECIAL",
+    "subcategory": [
+      "Sound"
+    ],
+    "maxPP": 16,
+    "damage": {
+      "power": 90,
+      "accuracy": 1,
+      "contact": false
+    },
+    "repeat": {
+      "min": 2,
+      "max": 3
+    },
+    "special": "Uproar"
+  },
+  {
+    "id": "ice_beam",
+    "displayName": "Ice Beam",
+    "description": "The user attacks by shooting out a beam of icy-cold energy. This may also leave targets frozen.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Ice",
+    "category": "SPECIAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 90,
+      "accuracy": 1,
+      "contact": false
+    },
+    "condition": {
+      "id": "freeze",
+      "chance": 0.1,
+      "self": false
+    }
+  },
+  {
+    "id": "recover",
+    "displayName": "Recover",
+    "description": "The user restores its own HP through cellular regeneration.",
+    "behaviour": [
+      "Heal"
+    ],
+    "type": "Normal",
+    "category": "STATUS",
+    "maxPP": 16
+  },
+  {
+    "id": "prismatic_laser",
+    "displayName": "Prismatic Laser",
+    "description": "The user shoots powerful lasers using the power of a prism. The user can't move on the next turn.",
+    "behaviour": [
+      "Damage",
+      "Recharge"
+    ],
+    "type": "Psychic",
+    "category": "SPECIAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 160,
+      "accuracy": 1,
+      "contact": false
+    }
+  },
+  {
+    "id": "photon_geyser",
+    "displayName": "Photon Geyser",
+    "description": "The user attacks the target with a pillar of light. This move inflicts damage using the Attack or Sp. Atk stat—whichever is higher for the user.",
+    "behaviour": [
+      "Damage",
+      "Special"
+    ],
+    "type": "Psychic",
+    "category": "SPECIAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 100,
+      "accuracy": 1,
+      "contact": false
+    },
+    "special": "PhotonGeyser"
+  },
+  {
+    "id": "heat_wave",
+    "displayName": "Heat Wave",
+    "description": "The user attacks by exhaling hot breath. This may also leave targets with a burn.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Fire",
+    "category": "SPECIAL",
+    "subcategory": [
+      "Wind"
+    ],
+    "maxPP": 16,
+    "damage": {
+      "power": 95,
+      "accuracy": 0.9,
+      "contact": false
+    },
+    "condition": {
+      "id": "burn",
+      "chance": 0.1,
+      "self": false
+    }
+  },
+  {
+    "id": "signal_beam",
+    "displayName": "Signal Beam",
+    "description": "The user attacks with a sinister beam of light. This may also confuse the target.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Bug",
+    "category": "SPECIAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 75,
+      "accuracy": 1,
+      "contact": false
+    },
+    "condition": {
+      "id": "confuse",
+      "chance": 0.1,
+      "self": false
+    }
+  },
+  {
+    "id": "dragon_ascent",
+    "displayName": "Dragon Ascent",
+    "description": "The user attacks targets by dropping out of the sky at high speed. This also lowers the user's Defense and Sp. Def stats for a short time.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Flying",
+    "category": "PHYSICAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 120,
+      "accuracy": 1,
+      "contact": true
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "SPE",
+          "stage": -1,
+          "self": true
+        },
+        {
+          "stat": "SPD",
+          "stage": -1,
+          "self": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "dragon_dance",
+    "displayName": "Dragon Dance",
+    "description": "The user vigorously performs a mystic, powerful dance that raises its Attack and Speed stats.",
+    "behaviour": [
+      "Statistic"
+    ],
+    "type": "Dragon",
+    "category": "STATUS",
+    "subcategory": [
+      "Dance"
+    ],
+    "maxPP": 32,
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "ATK",
+          "stage": 1,
+          "self": true
+        },
+        {
+          "stat": "SPE",
+          "stage": 1,
+          "self": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "extreme_speed",
+    "displayName": "Extreme Speed",
+    "description": "The user attacks by charging into targets with blinding speed.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Normal",
+    "category": "PHYSICAL",
+    "priority": 2,
+    "maxPP": 8,
+    "damage": {
+      "power": 80,
+      "accuracy": 1,
+      "contact": true
+    }
+  },
+  {
+    "id": "v_create",
+    "displayName": "V-Create",
+    "description": "The user emits a hot flame from its forehead and hurls itself at the target to inflict damage. This also lowers the user's Defense, Sp. Def, and Speed stats.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Fire",
+    "category": "PHYSICAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 180,
+      "accuracy": 0.95,
+      "contact": true
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "DEF",
+          "stage": -1,
+          "self": true
+        },
+        {
+          "stat": "SPD",
+          "stage": -1,
+          "self": true
+        },
+        {
+          "stat": "SPE",
+          "stage": -1,
+          "self": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "charm",
+    "displayName": "Charm",
+    "description": "The user gazes charmingly at targets to make them less wary, which lowers their Attack stats for a while.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Fairy",
+    "category": "STATUS",
+    "maxPP": 32,
+    "damage": {
+      "power": 0,
+      "accuracy": 1,
+      "contact": false
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "ATK",
+          "stage": -2,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "moonlight",
+    "displayName": "Moonlight",
+    "description": "The user restores some HP by bathing in the soothing light of the moon.",
+    "behaviour": [
+      "Heal"
+    ],
+    "type": "Fairy",
+    "category": "STATUS",
+    "maxPP": 8
+  },
+  {
+    "id": "foul_play",
+    "displayName": "Foul Play",
+    "description": "The user turns the target's strength against it. The higher the target's Attack stat, the greater the damage this move inflicts.",
+    "behaviour": [
+      "Damage",
+      "Special"
+    ],
+    "type": "Dark",
+    "category": "PHYSICAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 95,
+      "accuracy": 1,
+      "contact": true
+    },
+    "special": "FoulPlay"
+  },
+  {
+    "id": "snarl",
+    "displayName": "Snarl",
+    "description": "The user snarls incessantly at targets to lower their Sp. Atk stats for a short time.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Dark",
+    "category": "SPECIAL",
+    "subcategory": [
+      "Sound"
+    ],
+    "maxPP": 24,
+    "damage": {
+      "power": 95,
+      "accuracy": 0.95,
+      "contact": false
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "ATK",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "fire_lash",
+    "displayName": "Fire Lash",
+    "description": "The user strikes the target with a burning lash. This also lowers the target's Defense stat.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Fire",
+    "category": "PHYSICAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 80,
+      "accuracy": 1,
+      "contact": true
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "DEF",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "leech_life",
+    "displayName": "Leech Life",
+    "description": "The user attacks by draining targets of their blood. The user's HP will be restored by a portion of the damage dealt.",
+    "behaviour": [
+      "Damage",
+      "Vampirism"
+    ],
+    "type": "Bug",
+    "category": "PHYSICAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 80,
+      "accuracy": 1,
+      "contact": true
+    }
+  },
+  {
+    "id": "power_whip",
+    "displayName": "Power Whip",
+    "description": "The user attacks by violently lashing targets with vines, tentacles, or the like.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Grass",
+    "category": "PHYSICAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 120,
+      "accuracy": 0.85,
+      "contact": true
+    }
+  },
+  {
+    "id": "head_smash",
+    "displayName": "Head Smash",
+    "description": "The user attacks by slamming into targets with a reckless, full-power headbutt. The user will also take some damage.",
+    "behaviour": [
+      "Damage",
+      "Recoil"
+    ],
+    "type": "Rock",
+    "category": "PHYSICAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 150,
+      "accuracy": 0.8,
+      "contact": true
+    }
+  },
+  {
+    "id": "raging_fury",
+    "displayName": "Raging Fury",
+    "description": "The user rampages around spewing flames for two to three turns. The user then becomes confused.",
+    "behaviour": [
+      "Damage",
+      "Condition",
+      "Repeat"
+    ],
+    "type": "Fire",
+    "category": "PHYSICAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 120,
+      "accuracy": 1,
+      "contact": true
+    },
+    "condition": {
+      "id": "confuse",
+      "chance": 1,
+      "self": true
+    },
+    "repeat": {
+      "min": 2,
+      "max": 3
+    }
+  },
+  {
+    "id": "close_combat",
+    "displayName": "Close Combat",
+    "description": "The user fights the target up close, inflicting damage without guarding itself. This also lowers the user's defensive stats.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Fighting",
+    "category": "PHYSICAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 120,
+      "accuracy": 1,
+      "contact": true
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "DEF",
+          "stage": -1,
+          "self": false
+        },
+        {
+          "stat": "SPD",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "outrage",
+    "displayName": "Outrage",
+    "description": "The Pokémon rampages and attacks for two to three turns. It then becomes confused.",
+    "behaviour": [
+      "Damage",
+      "Condition",
+      "Repeat"
+    ],
+    "type": "Dragon",
+    "category": "PHYSICAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 120,
+      "accuracy": 1,
+      "contact": true
+    },
+    "condition": {
+      "id": "confuse",
+      "chance": 1,
+      "self": true
+    },
+    "repeat": {
+      "min": 2,
+      "max": 3
+    }
+  },
+  {
+    "id": "iron_head",
+    "displayName": "Iron Head",
+    "description": "The user attacks by slamming its steel-hard head into targets. This may also make targets flinch.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Steel",
+    "category": "PHYSICAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 80,
+      "accuracy": 1,
+      "contact": true
+    },
+    "condition": {
+      "id": "flinch",
+      "chance": 0.3,
+      "self": false
+    }
+  },
+  {
+    "id": "wish",
+    "displayName": "Wish",
+    "description": "One turn after this move is used, the user's or its replacement's HP is restored by up to half the user's max HP.",
+    "behaviour": [
+      "Condition"
+    ],
+    "type": "Normal",
+    "category": "STATUS",
+    "maxPP": 16,
+    "condition": {
+      "id": "wish",
+      "chance": 1,
+      "self": true
+    }
+  },
+  {
+    "id": "frenzy_plant",
+    "displayName": "Frenzy Plant",
+    "description": "The user attacks by slamming targets with the roots of an enormous tree. The recoil will leave the user unable to move for a short time.",
+    "behaviour": [
+      "Damage",
+      "Recharge"
+    ],
+    "type": "Grass",
+    "category": "SPECIAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 150,
+      "accuracy": 0.9,
+      "contact": false
+    }
+  },
+  {
+    "id": "dragon_pulse",
+    "displayName": "Dragon Pulse",
+    "description": "The user attacks by blasting targets with a shock wave emitted from its gaping mouth.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Dragon",
+    "category": "SPECIAL",
+    "subcategory": [
+      "Aura Pulse"
+    ],
+    "maxPP": 16,
+    "damage": {
+      "power": 85,
+      "accuracy": 1,
+      "contact": false
+    }
+  },
+  {
+    "id": "substitute",
+    "displayName": "Substitute",
+    "description": "The user sacrifices a small amount of HP to create a substitute for itself.",
+    "behaviour": [
+      "Condition",
+      "Special"
+    ],
+    "type": "Normal",
+    "category": "STATUS",
+    "maxPP": 16,
+    "condition": {
+      "id": "substitute",
+      "chance": 1,
+      "self": true
+    },
+    "special": "Substitute"
+  },
+  {
+    "id": "leech_seed",
+    "displayName": "Leech Seed",
+    "description": "The user plants seeds that will slowly but continually absorb HP from targets and restore the user's HP.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Grass",
+    "category": "STATUS",
+    "maxPP": 16,
+    "damage": {
+      "power": 0,
+      "accuracy": 0.9,
+      "contact": false
+    },
+    "condition": {
+      "id": "seeded",
+      "chance": 1,
+      "self": false
+    }
+  },
+  {
+    "id": "hydro_pump",
+    "displayName": "Hydro Pump",
+    "description": "The user attacks by blasting targets with a huge volume of water launched under great pressure.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Water",
+    "category": "SPECIAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 110,
+      "accuracy": 0.8,
+      "contact": false
+    }
+  },
+  {
+    "id": "giga_drain",
+    "displayName": "Giga Drain",
+    "description": "The user attacks by draining targets of their nutrients. The user's HP will be restored by a portion of the damage dealt.",
+    "behaviour": [
+      "Damage",
+      "Vampirism"
+    ],
+    "type": "Grass",
+    "category": "SPECIAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 75,
+      "accuracy": 1,
+      "contact": false
+    }
+  },
+  {
+    "id": "rain_dance",
+    "displayName": "Rain Dance",
+    "description": "The user summons a heavy rain that falls for five turns, powering up Water-type attacks. The rain also lowers the power of Fire-type attacks.",
+    "behaviour": [
+      "Weather"
+    ],
+    "type": "Water",
+    "category": "STATUS",
+    "maxPP": 8,
+    "weather": {
+      "id": "rain"
+    }
+  },
+  {
+    "id": "thunderbolt",
+    "displayName": "Thunderbolt",
+    "description": "The user attacks with a strong electric blast. This may also leave targets paralyzed.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Electric",
+    "category": "SPECIAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 90,
+      "accuracy": 1,
+      "contact": false
+    },
+    "condition": {
+      "id": "paralysis",
+      "chance": 0.1,
+      "self": false
+    }
+  },
+  {
+    "id": "flamethrower",
+    "displayName": "Flamethrower",
+    "description": "The user attacks with a stream of fierce flames. This may also leave targets with a burn.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Fire",
+    "category": "SPECIAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 90,
+      "accuracy": 1,
+      "contact": false
+    },
+    "condition": {
+      "id": "burn",
+      "chance": 0.1,
+      "self": false
+    }
+  },
+  {
+    "id": "focus_blast",
+    "displayName": "Focus Blast",
+    "description": "The user attacks by heightening its mental focus to unleash its power. This may also lower targets' Sp. Def stats.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Fighting",
+    "category": "SPECIAL",
+    "subcategory": [
+      "Ball Bomb"
+    ],
+    "maxPP": 8,
+    "damage": {
+      "power": 120,
+      "accuracy": 0.7,
+      "contact": false
+    },
+    "statistic": {
+      "chance": 0.1,
+      "modifiers": [
+        {
+          "stat": "SPD",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "earthquake",
+    "displayName": "Earthquake",
+    "description": "The user attacks by setting off an earthquake that strikes a wide area.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Ground",
+    "category": "PHYSICAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 100,
+      "accuracy": 1,
+      "contact": false
+    }
+  },
+  {
+    "id": "meteor_mash",
+    "displayName": "Meteor Mash",
+    "description": "The target is hit with a hard punch fired like a meteor. This may also boost the user’s Attack stat.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Steel",
+    "category": "PHYSICAL",
+    "subcategory": [
+      "Punching"
+    ],
+    "maxPP": 16,
+    "damage": {
+      "power": 90,
+      "accuracy": 0.9,
+      "contact": true
+    },
+    "statistic": {
+      "chance": 0.2,
+      "modifiers": [
+        {
+          "stat": "ATK",
+          "stage": 1,
+          "self": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "swords_dance",
+    "displayName": "Swords Dance",
+    "description": "The user boosts its Attack stat for a while by performing a frenetic dance.",
+    "behaviour": [
+      "Statistic"
+    ],
+    "type": "Normal",
+    "category": "STATUS",
+    "subcategory": [
+      "Dance"
+    ],
+    "maxPP": 32,
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "ATK",
+          "stage": 2,
+          "self": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "poltergeist",
+    "displayName": "Poltergeist",
+    "description": "The user attacks by controlling the target's item. This move fails if the target isn't holding an item.",
+    "behaviour": [
+      "Damage",
+      "Special"
+    ],
+    "type": "Ghost",
+    "category": "PHYSICAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 110,
+      "accuracy": 0.9,
+      "contact": false
+    },
+    "special": "Poltergeist"
+  },
+  {
+    "id": "stone_edge",
+    "displayName": "Stone Edge",
+    "description": "The user attacks by stabbing targets with sharpened stones. This move has a heightened chance of landing a critical hit.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Rock",
+    "category": "PHYSICAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 100,
+      "accuracy": 0.8,
+      "contact": false,
+      "critStage": 1
+    }
+  },
+  {
+    "id": "draco_meteor",
+    "displayName": "Draco Meteor",
+    "description": "The user attacks by summoning comets to rain down from the sky. The recoil will lower the user's Sp. Atk stat for a while.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Dragon",
+    "category": "SPECIAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 130,
+      "accuracy": 0.9,
+      "contact": false
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "SPA",
+          "stage": 2,
+          "self": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "roost",
+    "displayName": "Roost",
+    "description": "The user lands and rests its body. This move restores the user's HP by up to half its max HP.",
+    "behaviour": [
+      "Heal"
+    ],
+    "type": "Flying",
+    "category": "STATUS",
+    "maxPP": 8
+  },
+  {
+    "id": "defog",
+    "displayName": "Defog",
+    "description": "A strong wind blows away the target’s barriers, such as Reflect or Light Screen, and lowers their evasiveness.",
+    "behaviour": [
+      "Statistic"
+    ],
+    "type": "Flying",
+    "category": "STATUS",
+    "maxPP": 24,
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "EVA",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "scale_shot",
+    "displayName": "Scale Shot",
+    "description": "The user attacks by shooting out five volleys of scales, one after the other. This increases the user's movement speed but also lowers its Defense stat for a short time.",
+    "behaviour": [
+      "Damage",
+      "Multi",
+      "Statistic"
+    ],
+    "type": "Dragon",
+    "category": "PHYSICAL",
+    "maxPP": 32,
+    "damage": {
+      "power": 25,
+      "accuracy": 0.9,
+      "contact": false
+    },
+    "multi": {
+      "max": 5
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "DEF",
+          "stage": -1,
+          "self": true
+        },
+        {
+          "stat": "SPE",
+          "stage": 1,
+          "self": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "wild_charge",
+    "displayName": "Wild Charge",
+    "description": "The user attacks by charging forward while cloaked in electricity. The user will also take some damage.",
+    "behaviour": [
+      "Damage",
+      "Recoil"
+    ],
+    "type": "Electric",
+    "category": "PHYSICAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 90,
+      "accuracy": 1,
+      "contact": true
+    }
+  },
+  {
+    "id": "facade",
+    "displayName": "Facade",
+    "description": "This move's power is doubled if the user is poisoned, burned, or paralyzed.",
+    "behaviour": [
+      "Damage",
+      "Special"
+    ],
+    "type": "Normal",
+    "category": "PHYSICAL",
+    "maxPP": 32,
+    "damage": {
+      "power": 70,
+      "accuracy": 1,
+      "contact": true
+    },
+    "special": "Facade"
+  },
+  {
+    "id": "crunch",
+    "displayName": "Crunch",
+    "description": "The user attacks by crunching targets up with sharp fangs. This may also lower targets' Defense stats.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Dark",
+    "category": "PHYSICAL",
+    "subcategory": [
+      "Biting"
+    ],
+    "maxPP": 24,
+    "damage": {
+      "power": 80,
+      "accuracy": 1,
+      "contact": true
+    },
+    "statistic": {
+      "chance": 0.2,
+      "modifiers": [
+        {
+          "stat": "DEF",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "protect",
+    "displayName": "Protect",
+    "description": "The user takes on a protective stance that prevents incoming attacks from landing.",
+    "behaviour": [
+      "Condition",
+      "Special"
+    ],
+    "type": "Normal",
+    "category": "STATUS",
+    "priority": 4,
+    "maxPP": 16,
+    "condition": {
+      "id": "protected",
+      "chance": 1,
+      "self": true
+    },
+    "special": "Protect"
+  },
+  {
+    "id": "encore",
+    "displayName": "Encore",
+    "description": "The user compels the target to keep using the move it encored for three turns.",
+    "behaviour": [
+      "Condition"
+    ],
+    "type": "Normal",
+    "category": "STATUS",
+    "maxPP": 8,
+    "condition": {
+      "id": "encore",
+      "chance": 1,
+      "self": false
+    }
+  },
+  {
+    "id": "disable",
+    "displayName": "Disable",
+    "description": "For four turns, the target will be unable to use whichever move it last used.",
+    "behaviour": [
+      "Condition"
+    ],
+    "type": "Normal",
+    "category": "STATUS",
+    "maxPP": 32,
+    "condition": {
+      "id": "disable",
+      "chance": 1,
+      "self": false
+    }
+  },
+  {
+    "id": "moonblast",
+    "displayName": "Moonblast",
+    "description": "The user attacks by using the power of the moon. This may also lower targets' Sp. Atk stats.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Fairy",
+    "category": "SPECIAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 95,
+      "accuracy": 1,
+      "contact": false
+    },
+    "statistic": {
+      "chance": 0.3,
+      "modifiers": [
+        {
+          "stat": "SPA",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "shadow_sneak",
+    "displayName": "Shadow Sneak",
+    "description": "The user attacks by stretching out a shadow to strike targets from behind.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Ghost",
+    "category": "PHYSICAL",
+    "priority": 1,
+    "maxPP": 48,
+    "damage": {
+      "power": 40,
+      "accuracy": 1,
+      "contact": true
+    }
+  },
+  {
+    "id": "x_scissor",
+    "displayName": "X-Scissor",
+    "description": "The user attacks using scythes, claws, or the like as if they were a pair of scissors.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Bug",
+    "category": "PHYSICAL",
+    "subcategory": [
+      "Slicing"
+    ],
+    "maxPP": 24,
+    "damage": {
+      "power": 80,
+      "accuracy": 1,
+      "contact": true
+    }
+  },
+  {
+    "id": "screech",
+    "displayName": "Screech",
+    "description": "The user emits a horrible screech that makes targets reflexively want to cover their ears. This lowers their Defense stats for a while.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Normal",
+    "category": "STATUS",
+    "maxPP": 64,
+    "damage": {
+      "power": 0,
+      "accuracy": 0.85,
+      "contact": false
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "DEF",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "taunt",
+    "displayName": "Taunt",
+    "description": "The user taunts targets, sending them into a rage that will allow them to use only damage-dealing moves for a short time.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Dark",
+    "category": "STATUS",
+    "maxPP": 32,
+    "damage": {
+      "power": 0,
+      "accuracy": 1,
+      "contact": false
+    },
+    "condition": {
+      "id": "taunt",
+      "chance": 1,
+      "self": false
+    }
+  },
+  {
+    "id": "will_o_wisp",
+    "displayName": "Will-O-Wisp",
+    "description": "The user shoots a sinister flame to inflict a burn on targets.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Fire",
+    "category": "STATUS",
+    "maxPP": 24,
+    "damage": {
+      "power": 0,
+      "accuracy": 0.85,
+      "contact": false
+    },
+    "condition": {
+      "id": "burn",
+      "chance": 1,
+      "self": false
+    }
+  },
+  {
+    "id": "shadow_claw",
+    "displayName": "Shadow Claw",
+    "description": "The user attacks by slashing with a sharp claw made from shadows. This move has a heightened chance of landing a critical hit.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Ghost",
+    "category": "PHYSICAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 70,
+      "accuracy": 1,
+      "contact": true,
+      "critStage": 1
+    }
+  },
+  {
+    "id": "destiny_bond",
+    "displayName": "Destiny Bond",
+    "description": "When this move is used, if the user faints, the Pokémon that landed the knockout hit also faints.",
+    "behaviour": [
+      "Condition"
+    ],
+    "type": "Ghost",
+    "category": "STATUS",
+    "maxPP": 8,
+    "condition": {
+      "id": "destiny_bond",
+      "chance": 1,
+      "self": false
+    }
+  },
+  {
+    "id": "megahorn",
+    "displayName": "Megahorn",
+    "description": "The user attacks with a tough and impressive horn, ramming into targets with all-out force.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Bug",
+    "category": "PHYSICAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 120,
+      "accuracy": 0.85,
+      "contact": true
+    }
+  },
+  {
+    "id": "poison_jab",
+    "displayName": "Poison Jab",
+    "description": "The user attacks by stabbing targets with a poison- soaked tentacle, arm, or the like. This may also leave targets poisoned.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Poison",
+    "category": "PHYSICAL",
+    "maxPP": 32,
+    "damage": {
+      "power": 80,
+      "accuracy": 1,
+      "contact": true
+    },
+    "condition": {
+      "id": "poison",
+      "chance": 0.3,
+      "self": false
+    }
+  },
+  {
+    "id": "hyper_voice",
+    "displayName": "Hyper Voice",
+    "description": "The user attacks by unleashing horribly loud, resounding vibrations.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Normal",
+    "category": "SPECIAL",
+    "subcategory": [
+      "Sound"
+    ],
+    "maxPP": 16,
+    "damage": {
+      "power": 90,
+      "accuracy": 1,
+      "contact": false
+    }
+  },
+  {
+    "id": "calm_mind",
+    "displayName": "Calm Mind",
+    "description": "The user boosts its Sp. Atk and Sp. Def stats for a short time by quietly focusing its mind and calming its spirit.",
+    "behaviour": [
+      "Statistic"
+    ],
+    "type": "Psychic",
+    "category": "STATUS",
+    "maxPP": 32,
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "SPA",
+          "stage": 1,
+          "self": true
+        },
+        {
+          "stat": "SPD",
+          "stage": 1,
+          "self": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "fake_tears",
+    "displayName": "Fake Tears",
+    "description": "The user feigns crying to fluster targets, which lowers their Sp. Def stats for a while.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Dark",
+    "category": "STATUS",
+    "maxPP": 32,
+    "damage": {
+      "power": 0,
+      "accuracy": 1,
+      "contact": false
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "SPD",
+          "stage": -2,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "mystical_fire",
+    "displayName": "Mystical Fire",
+    "description": "The user attacks by breathing a special kind of searing flame. This also lowers targets' Sp. Atk stats for a short time.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Fire",
+    "category": "SPECIAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 75,
+      "accuracy": 1,
+      "contact": false
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "SPA",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "psyshock",
+    "displayName": "Psyshock",
+    "description": "The user attacks by materializing a mysterious psychic wave. This move deals physical damage using the user's Sp. Atk stat.",
+    "behaviour": [
+      "Damage",
+      "Special"
+    ],
+    "type": "Psychic",
+    "category": "PHYSICAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 80,
+      "accuracy": 1,
+      "contact": false
+    },
+    "special": "Psyshock"
+  },
+  {
+    "id": "air_slash",
+    "displayName": "Air Slash",
+    "description": "The user attacks with a blade of air that slices even the sky. This may also make targets flinch.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Flying",
+    "category": "SPECIAL",
+    "subcategory": [
+      "Slicing"
+    ],
+    "maxPP": 24,
+    "damage": {
+      "power": 75,
+      "accuracy": 0.95,
+      "contact": false
+    },
+    "condition": {
+      "id": "flinch",
+      "chance": 0.3,
+      "self": false
+    }
+  },
+  {
+    "id": "seed_flare",
+    "displayName": "Seed Flare",
+    "description": "The user emits a shock wave from its body to attack its target. This may also harshly lower the target's Sp. Def stat.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Grass",
+    "category": "SPECIAL",
+    "maxPP": 8,
+    "damage": {
+      "power": 120,
+      "accuracy": 0.85,
+      "contact": false
+    },
+    "statistic": {
+      "chance": 0.4,
+      "modifiers": [
+        {
+          "stat": "SPD",
+          "stage": -2,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "dazzling_gleam",
+    "displayName": "Dazzling Gleam",
+    "description": "The user attacks with a powerful flash of light.",
+    "behaviour": [
+      "Damage"
+    ],
+    "type": "Fairy",
+    "category": "SPECIAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 80,
+      "accuracy": 1,
+      "contact": false
+    }
+  },
+  {
+    "id": "freeze_dry",
+    "displayName": "Freeze-Dry",
+    "description": "The user rapidly cools the target. This may also leave the target frozen. This move is super effective on Water types.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Ice",
+    "category": "SPECIAL",
+    "maxPP": 32,
+    "damage": {
+      "power": 70,
+      "accuracy": 1,
+      "contact": false
+    },
+    "condition": {
+      "id": "freeze",
+      "chance": 0.1,
+      "self": false
+    }
+  },
+  {
+    "id": "alluring_voice",
+    "displayName": "Alluring Voice",
+    "description": "The user attacks the target using its angelic voice. This also confuses the target.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Fairy",
+    "category": "SPECIAL",
+    "subcategory": [
+      "Sound"
+    ],
+    "maxPP": 16,
+    "damage": {
+      "power": 80,
+      "accuracy": 1,
+      "contact": false
+    },
+    "condition": {
+      "id": "confuse",
+      "chance": 1,
+      "self": false
+    }
+  },
+  {
+    "id": "icicle_crash",
+    "displayName": "Icicle Crash",
+    "description": "The user attacks by crashing large icicles down upon targets. This may also make targets flinch.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Ice",
+    "category": "PHYSICAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 85,
+      "accuracy": 0.9,
+      "contact": false
+    },
+    "condition": {
+      "id": "flinch",
+      "chance": 0.3,
+      "self": false
+    }
+  },
+  {
+    "id": "trailblaze",
+    "displayName": "Trailblaze",
+    "description": "The user attacks suddenly as if leaping out from tall grass. The user's nimble footwork boosts its Speed stat.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Grass",
+    "category": "PHYSICAL",
+    "maxPP": 32,
+    "damage": {
+      "power": 50,
+      "accuracy": 1,
+      "contact": true
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "SPE",
+          "stage": 1,
+          "self": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "spikes",
+    "displayName": "Spikes",
+    "description": "The user lays a trap of spikes at the feet of the opposing team. The spikes will damage opposing Pokémon that switch into battle.",
+    "behaviour": [
+      "Terrain"
+    ],
+    "type": "Ground",
+    "category": "STATUS",
+    "maxPP": 32,
+    "terrain": {
+      "id": "spikes"
+    }
+  },
+  {
+    "id": "shadow_ball",
+    "displayName": "Shadow Ball",
+    "description": "The user attacks by hurling a shadowy blob at the target. This may also lower the target’s Sp. Def stat.",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Ghost",
+    "category": "SPECIAL",
+    "subcategory": [
+      "Ball Bomb"
+    ],
+    "maxPP": 24,
+    "damage": {
+      "power": 80,
+      "accuracy": 1,
+      "contact": false
+    },
+    "statistic": {
+      "chance": 0.2,
+      "modifiers": [
+        {
+          "stat": "SPD",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "bone_rush",
+    "displayName": "Bone Rush",
+    "description": "The user attacks by striking the target with a hard bone. This move hits two to five times in a row.",
+    "behaviour": [
+      "Damage",
+      "Multi"
+    ],
+    "type": "Ground",
+    "category": "PHYSICAL",
+    "maxPP": 16,
+    "damage": {
+      "power": 25,
+      "accuracy": 0.9,
+      "contact": false
+    },
+    "multi": {
+      "max": 5
+    }
+  },
+  {
+    "id": "splash",
+    "displayName": "Splash",
+    "description": "This move does nothing.",
+    "behaviour": [],
+    "type": "Normal",
+    "category": "STATUS",
+    "maxPP": 48
+  },
+  {
+    "id": "cosmic_power",
+    "displayName": "Cosmic Power",
+    "description": "The user absorbs a mystical power from space to boost its Defense and Sp. Def stats.",
+    "behaviour": [
+      "Statistic"
+    ],
+    "type": "Psychic",
+    "category": "STATUS",
+    "maxPP": 32,
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "DEF",
+          "stage": 1,
+          "self": true
+        },
+        {
+          "stat": "SPD",
+          "stage": 1,
+          "self": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "fire_fang",
+    "displayName": "Fire Fang",
+    "description": "The user bites the target with flame-cloaked fangs to deal damage. This may also leave the target with a burn.",
+    "behaviour": [
+      "Damage",
+      "Condition"
+    ],
+    "type": "Fire",
+    "category": "PHYSICAL",
+    "maxPP": 24,
+    "damage": {
+      "power": 65,
+      "accuracy": 0.95,
+      "contact": true
+    },
+    "condition": {
+      "id": "burn",
+      "chance": 0.1,
+      "self": false
+    }
+  },
+  {
+    "id": "doom",
+    "displayName": "Doom",
+    "description": "Snom brings chaos to this world dealing massive damage to the opponent and healing in the process",
+    "behaviour": [
+      "Damage",
+      "Condition",
+      "Vampirism",
+      "Multi",
+      "Statistic"
+    ],
+    "type": "None",
+    "category": "SPECIAL",
+    "subcategory": [
+      "Ball Bomb",
+      "Aura Pulse"
+    ],
+    "maxPP": 8,
+    "damage": {
+      "power": 80,
+      "accuracy": 0.6,
+      "contact": false,
+      "critStage": 2
+    },
+    "condition": {
+      "id": "flinch",
+      "chance": 0.3,
+      "self": false
+    },
+    "multi": {
+      "max": 4
+    },
+    "statistic": {
+      "chance": 0.8,
+      "modifiers": [
+        {
+          "stat": "ACC",
+          "stage": 2,
+          "self": true
+        },
+        {
+          "stat": "EVA",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "hibernation",
+    "displayName": "Hibernation",
+    "description": "Snom goes into a deep sleep for multiple turns healing in the process",
+    "behaviour": [
+      "Heal",
+      "Repeat"
+    ],
+    "type": "Ice",
+    "category": "STATUS",
+    "maxPP": 16,
+    "repeat": {
+      "min": 2,
+      "max": 4
+    }
+  },
+  {
+    "id": "mountains_nest",
+    "displayName": "Mountain's Nest",
+    "description": "Snom expands his domain creating a snow storm in which he has a great advantage",
+    "behaviour": [
+      "Weather",
+      "Statistic"
+    ],
+    "type": "Ice",
+    "category": "STATUS",
+    "maxPP": 24,
+    "weather": {
+      "id": "snow"
+    },
+    "statistic": {
+      "chance": 1,
+      "modifiers": [
+        {
+          "stat": "EVA",
+          "stage": 2,
+          "self": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "pinch",
+    "displayName": "Pinch",
+    "description": "A small playful pinch with low damage that may distract the opponent lowering his accuracy",
+    "behaviour": [
+      "Damage",
+      "Statistic"
+    ],
+    "type": "Bug",
+    "category": "PHYSICAL",
+    "maxPP": 48,
+    "damage": {
+      "power": 30,
+      "accuracy": 0.95,
+      "contact": true
+    },
+    "statistic": {
+      "chance": 0.5,
+      "modifiers": [
+        {
+          "stat": "ACC",
+          "stage": -1,
+          "self": false
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,57 @@
+.menu-container {
+    -fx-background-image: url("/img/main-menu-night.jpg");
+    -fx-font-family: "Jersey 10";
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+.menu-subtitle {
+    -fx-font-size: 50px;
+    -fx-stroke: #1F2562;
+    -fx-stroke-width: 4px;
+}
+
+.battle-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.battle-button-text {
+    -fx-font-size: 80px;
+    -fx-stroke: #979045;
+    -fx-stroke-width: 4px;
+}
+
+.menu-generic-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.generic-button-text {
+    -fx-font-size: 50px;
+    -fx-stroke: #1F2562;
+    -fx-stroke-width: 4px;
+}
+
+.settings-container {
+    -fx-background-image: url("/img/main-menu-night.jpg");
+    -fx-font-family: "Jersey 10";
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+.settings-scrollpane {
+    -fx-font-size: 35px;
+}
+
+.settings-button-container {
+    -fx-font-size: 40px;
+}

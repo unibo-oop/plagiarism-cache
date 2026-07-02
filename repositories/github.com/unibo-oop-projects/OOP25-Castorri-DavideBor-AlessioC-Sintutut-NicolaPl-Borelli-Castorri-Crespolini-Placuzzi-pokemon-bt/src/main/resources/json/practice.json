@@ -1,0 +1,19 @@
+[{
+    "id": "practice_buddy",
+    "displayName": "Practice Buddy",
+    "type_1": "None",
+    "hp": 1000000000,
+    "atk": 250,
+    "def": 250,
+    "spa": 250,
+    "spd": 250,
+    "spe": 250,
+    "weight": 500,
+    "moves": {
+      "move_0": "struggle",
+      "move_1": "splash",
+      "move_2": "splash",
+      "move_3": "splash",
+      "move_4": "splash"
+    }
+  }]

@@ -1,0 +1,40 @@
+.main-container {
+    -fx-background-color: #428EA5;
+}
+.generic-slot {
+    -fx-background-radius: 30px;
+}
+
+.pokemon-alive {
+    -fx-background-color: rgb(186, 228, 186);
+}
+
+.pokemon-ko {
+    -fx-background-color: rgb(228, 186, 186);
+}
+
+.pokemon-missing {
+    -fx-background-color: lightgrey;
+}
+
+.text {
+    -fx-font-family: "Jersey 10";
+    -fx-font-size: 40px;
+}
+
+.health-bg {
+    -fx-background-color: #1E1E1E;
+    -fx-background-radius: 100px;
+}
+
+.health-bar {
+    -fx-background-color: green;
+    -fx-background-radius: 100px;
+}
+
+.back-button {
+    -fx-background-color: red;
+    -fx-font-family: "Jersey 10";
+    -fx-background-radius: 100px;
+    -fx-font-size: 20px;
+}

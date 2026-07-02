@@ -1,0 +1,69 @@
+/*@font-face {
+    src: url("../fonts/Jersey10-Regular.ttf");
+}*/
+
+.info-container {
+    -fx-background-color: #428EA5;
+}
+
+.image-container {
+    -fx-background-color: white;
+}
+
+.name-types {
+    -fx-background-color: #1F2562;
+    -fx-background-radius: 100px;
+}
+
+.name-types-text {
+    -fx-font-family: "Jersey 10";
+    -fx-font-size: 80px;
+    -fx-fill: aliceblue;
+    -fx-stroke: #1E1E1E;
+    -fx-stroke-width: 3px;
+}
+
+.stat-text {
+    -fx-font-family: "Jersey 10";
+    -fx-font-size: 70px;
+    -fx-fill: aliceblue;
+    -fx-stroke: #1E1E1E;
+    -fx-stroke-width: 3px;
+}
+
+.move {
+    -fx-background-color: white;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+}
+
+.move-name-text {
+    -fx-font-family: "Jersey 10";
+    -fx-font-size: 60px;
+    -fx-fill: aliceblue;
+    -fx-stroke: #1E1E1E;
+    -fx-stroke-width: 3px;
+}
+
+.move-description {
+    -fx-font-family: "Jersey 10";
+    -fx-font-size: 30px;
+    -fx-fill: aliceblue;
+    -fx-stroke: #1E1E1E;
+    -fx-stroke-width: 2px;
+}
+
+.back-button {
+    -fx-background-color: #7E7F90;
+    -fx-background-radius: 100px;
+}
+
+.add-button {
+    -fx-background-color: #1F2562;
+    -fx-background-radius: 100px;
+}
+
+.button-text {
+    -fx-font-family: "Jersey 10";
+    -fx-font-size: 30px
+}
