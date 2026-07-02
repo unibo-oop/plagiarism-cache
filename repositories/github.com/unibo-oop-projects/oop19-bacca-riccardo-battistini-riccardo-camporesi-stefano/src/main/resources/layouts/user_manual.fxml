@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="364.0" text="TRAFFIC SIMULATION MANUAL" textAlignment="CENTER" underline="true" />
+      <Label layoutX="16.0" layoutY="37.0" text="-How to start the simulation ?" underline="true" />
+      <Label layoutX="16.0" layoutY="60.0" text="On the menu bar press on “File”" />
+      <Label layoutX="16.0" layoutY="77.0" text="Next press on “Open”" />
+      <Label layoutX="16.0" layoutY="94.0" prefHeight="17.0" prefWidth="370.0" text="Now choose how many lanes there will be for each road" />
+      <Label layoutX="15.0" layoutY="111.0" prefHeight="17.0" prefWidth="364.0" text="Now it’s possible to set some initial values from the control panel:" />
+      <Label layoutX="16.0" layoutY="128.0" text="-Vehicle number from all the possible directions " />
+      <Label layoutX="15.0" layoutY="145.0" prefHeight="17.0" prefWidth="218.0" text="-Vehicle’s max speed" />
+      <Label layoutX="15.0" layoutY="162.0" text="-Traffic light “green” phase duration" />
+      <Label layoutX="16.0" layoutY="207.0" text="-During the simulation there are two buttons that can be pressed:" underline="true" />
+      <Label layoutX="19.0" layoutY="231.0" text="-start/stop button: with this the simulation will be paused or started" />
+      <Label layoutX="19.0" layoutY="248.0" text="-reset all button: with this the simulation will be completely reset." />
+      <Label layoutX="19.0" layoutY="265.0" text="-you can also reset only the parameters that have been choosen" />
+      <Label layoutX="19.0" layoutY="282.0" text="from the menu bar on “edit”." />
+   </children>
+</Pane>

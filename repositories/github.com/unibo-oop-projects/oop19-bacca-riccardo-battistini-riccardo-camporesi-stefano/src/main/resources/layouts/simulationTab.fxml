@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<Tab closable="false" text="Simulazione 2D" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.SimTabController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+           <children>
+              <HBox prefHeight="650.0" prefWidth="954.0">
+                 <children>
+                    <StackPane prefHeight="650.0" prefWidth="739.0">
+                       <children>
+                        <Canvas fx:id="canvas" height="624.0" width="624.0" />
+                       </children>
+                    </StackPane>
+                    <AnchorPane prefHeight="739.0" prefWidth="220.0">
+                       <children>
+                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="31.0" text="Elapsed ticks" />
+                          <TextField fx:id="elapsedTime" editable="false" layoutX="24.0" layoutY="62.0" promptText="0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="151.0" text="Idle vehicles" />
+                        <TextField fx:id="currentIdleVehicles" editable="false" layoutX="24.0" layoutY="182.0" promptText="0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="38.0" layoutY="271.0" text="Time until next phase" />
+                        <TextField fx:id="phaseDuration" editable="false" layoutX="24.0" layoutY="302.0" promptText="0" />
+                       </children>
+                    </AnchorPane>
+                 </children>
+              </HBox>
+           </children></AnchorPane>
+  </content>
+</Tab>

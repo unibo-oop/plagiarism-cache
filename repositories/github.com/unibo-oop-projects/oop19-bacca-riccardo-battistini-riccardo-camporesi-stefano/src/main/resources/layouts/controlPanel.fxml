@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="controls" alignment="TOP_CENTER" disable="true" layoutY="25.0" prefHeight="741.0" prefWidth="332.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.ControlPanelController">
+     <children>
+        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#start" prefHeight="31.0" prefWidth="284.0" text="START/STOP" textFill="#ed0707" underline="true">
+           <font>
+              <Font name="System Bold" size="15.0" />
+           </font>
+           <VBox.margin>
+              <Insets left="10.0" right="10.0" top="5.0" />
+           </VBox.margin>
+        </Button>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="304.0" text="CAR NUMBER FROM NORTH" textAlignment="CENTER" textOverrun="CLIP">
+           <font>
+              <Font size="15.0" />
+           </font>
+           <VBox.margin>
+              <Insets top="5.0" />
+           </VBox.margin>
+        </Label>
+        <Slider fx:id="north" blockIncrement="1.0" majorTickUnit="1.0" max="30.0" minorTickCount="0" onMouseReleased="#setFromNorth" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+           <VBox.margin>
+              <Insets left="10.0" right="10.0" top="5.0" />
+           </VBox.margin>
+        </Slider>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="304.0" text="CAR NUMBER FROM SOUTH" textAlignment="CENTER" textOverrun="CLIP">
+           <font>
+              <Font size="15.0" />
+           </font>
+           <VBox.margin>
+              <Insets top="5.0" />
+           </VBox.margin>
+        </Label>
+        <Slider fx:id="south" blockIncrement="1.0" majorTickUnit="1.0" max="30.0" minorTickCount="0" onMouseReleased="#setFromSouth" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+           <VBox.margin>
+              <Insets left="10.0" right="10.0" top="5.0" />
+           </VBox.margin></Slider>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="304.0" text="CAR NUMBER FROM EAST" textAlignment="CENTER" textOverrun="CLIP">
+           <font>
+              <Font size="15.0" />
+           </font>
+           <VBox.margin>
+              <Insets top="5.0" />
+           </VBox.margin>
+        </Label>
+        <Slider fx:id="east" blockIncrement="1.0" majorTickUnit="1.0" max="30.0" minorTickCount="0" onMouseReleased="#setFromEast" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+           <VBox.margin>
+              <Insets left="10.0" right="10.0" top="5.0" />
+           </VBox.margin></Slider>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="304.0" text="CAR NUMBER FROM WEST" textAlignment="CENTER" textOverrun="CLIP">
+           <font>
+              <Font size="15.0" />
+           </font>
+           <VBox.margin>
+              <Insets top="5.0" />
+           </VBox.margin>
+        </Label>
+        <Slider fx:id="west" blockIncrement="1.0" majorTickUnit="1.0" max="30.0" minorTickCount="0" onMouseReleased="#setFromWest" prefHeight="40.0" prefWidth="265.0" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+           <VBox.margin>
+              <Insets left="10.0" right="10.0" top="5.0" />
+           </VBox.margin>
+        </Slider>
+        <Separator prefWidth="200.0">
+           <VBox.margin>
+              <Insets />
+           </VBox.margin></Separator>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="304.0" text="TRAFFIC LIGHT DURATION" textAlignment="CENTER" textOverrun="CLIP" underline="true">
+           <font>
+              <Font size="15.0" />
+           </font>
+           <VBox.margin>
+              <Insets />
+           </VBox.margin>
+        </Label>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="304.0" text="GREEN LIGHT" textAlignment="CENTER" textOverrun="CLIP">
+           <VBox.margin>
+              <Insets />
+           </VBox.margin>
+           <font>
+              <Font size="14.0" />
+           </font>
+        </Label>
+        <Slider fx:id="greenLight" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" onMouseReleased="#setGreenLight" prefHeight="35.0" prefWidth="306.0" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+           <VBox.margin>
+              <Insets left="10.0" right="10.0" />
+           </VBox.margin>
+        </Slider>
+        <Separator prefWidth="200.0">
+           <VBox.margin>
+              <Insets top="5.0" />
+           </VBox.margin>
+        </Separator>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="304.0" text="VEHICLE STATS" textAlignment="CENTER" textOverrun="CLIP" underline="true">
+           <font>
+              <Font size="15.0" />
+           </font>
+           <VBox.margin>
+              <Insets />
+           </VBox.margin>
+        </Label>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="304.0" text="MAX VELOCITY" textAlignment="CENTER" textOverrun="CLIP">
+           <font>
+              <Font size="14.0" />
+           </font>
+        </Label>
+      <Slider fx:id="maxVel" blockIncrement="1.0" majorTickUnit="1.0" max="7.0" minorTickCount="0" onMouseReleased="#setMaxVel" prefHeight="35.0" prefWidth="306.0" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin></Slider>
+        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseReleased="#resetAll" prefHeight="27.0" prefWidth="305.0" text="RESET ALL" textFill="RED">
+           <VBox.margin>
+              <Insets left="10.0" right="10.0" top="10.0" />
+           </VBox.margin>
+           <font>
+              <Font size="15.0" />
+           </font>
+        </Button>
+     </children>
+     <opaqueInsets>
+        <Insets />
+     </opaqueInsets>
+   <padding>
+      <Insets bottom="5.0" />
+   </padding>
+</VBox>
