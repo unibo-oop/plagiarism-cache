@@ -1,0 +1,12 @@
+{
+  "DEFAULT": {
+    "entries": [
+      "NEXTLEVEL",
+      "MAINMENU",
+      "EXIT"
+    ],
+    "focus": {
+      "value": null
+    }
+  }
+}

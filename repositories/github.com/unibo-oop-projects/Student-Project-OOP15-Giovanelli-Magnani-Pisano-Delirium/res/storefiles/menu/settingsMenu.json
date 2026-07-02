@@ -1,0 +1,21 @@
+{
+  "DEFAULT": {
+    "entries": [
+      "MAINMENU"
+    ],
+    "focus": {
+      "value": null
+    }
+  },
+  "DIFFICULTY": {
+    "entries": [
+      "EASYMODE",
+      "NORMALMODE",
+      "HARDMODE",
+      "DELIRIUMMODE"
+    ],
+    "focus": {
+      "value": null
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "levels": [
+  	"LEVEL1",
+    "LEVEL3",
+    "LEVEL2"
+  ],
+  "gameDifficulty": "NORMAL"
+}

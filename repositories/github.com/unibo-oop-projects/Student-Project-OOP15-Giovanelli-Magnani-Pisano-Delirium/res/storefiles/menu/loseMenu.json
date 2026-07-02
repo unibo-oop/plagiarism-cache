@@ -1,0 +1,12 @@
+{
+  "DEFAULT": {
+    "entries": [
+      "NEWGAME",
+      "MAINMENU",
+      "EXIT"
+    ],
+    "focus": {
+      "value": null
+    }
+  }
+}

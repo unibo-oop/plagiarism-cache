@@ -1,0 +1,98 @@
+@font-face {
+    src: url("Zombie_Holocaust.ttf");
+}
+#button {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+#button:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+#button:pressed {
+    -fx-text-fill: #7d0303;
+}
+#title {
+    -fx-font-family: 'Zombie Holocaust';
+    -fx-fill: black;
+    -fx-font-size: 15em;
+}
+#text1 {
+    -fx-font-family: 'Zombie Holocaust';
+    -fx-fill: #7d0303;
+    -fx-font-size: 15em;
+}
+
+#text2 {
+    -fx-fill: #7d0303;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.menu-button {
+	-fx-background-color: transparent;
+}
+
+.menu-button:hover {
+    -fx-background-color: black;
+}
+
+.menu-button .label {
+	-fx-text-fill: black;
+	-fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.menu-button:hover .label {
+	-fx-text-fill: white;	
+}
+
+.context-menu {
+    -fx-background-color: black;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+}
+
+.menu-item{
+	-fx-background-color: black;
+}
+
+.menu-item .label{
+	-fx-text-fill: #7d0303;
+}
+
+.menu-item:hover .label{
+	-fx-text-fill: #7d0303;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.menu-item:hover {
+     -fx-text-fill: #7d0303;
+     -fx-background-color: white;
+     -fx-background-insets: 0, 1, 2;
+     -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;  
+}
+.menu-item:focused {
+    -fx-text-fill: #7d0303;
+    -fx-background-color: white;
+ 
+}
+
+.radio-menu-item:checked > .left-container > .radio {
+    -fx-background-color: #7d0303;
+}
+.radio-menu-item:focused:checked > .left-container > .radio {
+    -fx-background-color: #7d0303;
+}
+
+
+.slider .track{
+    -fx-background-color: #7d0303;     
+}
+
+.slider .thumb{
+    -fx-background-color: #7d0303;     
+}
