@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Double?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<?import application.view.controls.areasGrid.AreasGridImpl?>
+
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@StationEditorStyle.css">
+	<!-- Some default values -->
+	<fx:define>	
+		<Double fx:id="defaultMargin" fx:value="10" />
+		<Double fx:id="infinite" fx:value="9999"></Double>
+		<Double fx:id="panelWidth" fx:value="250"></Double>
+			
+		<Double fx:id="smallSpacing" fx:value="3"></Double>
+		<Double fx:id="mediumSpacing" fx:value="5"></Double>
+		<Double fx:id="bigSpacing" fx:value="10"></Double>	
+			
+		<Double fx:id="halfWidth" fx:value="55"></Double>	
+		<Double fx:id="notFullWidth" fx:value="70"></Double>	
+		<Double fx:id="fullWidth" fx:value="90"></Double>
+	</fx:define>
+	
+	<!-- On the left panel we have all controls to modify and add an area -->	
+	<left>
+	
+		<!-- All will be in a vertical control -->
+		<VBox>
+		
+			<!-- Pane that contains two views, only one will be visible -->
+			<GridPane VBox.vgrow="ALWAYS" id="controlsContainerLeft">
+			
+				<!--  Vertical container that contains modify logic -->
+				<VBox VBox.vgrow="ALWAYS" visible="true" fx:id="vbxModifyArea" spacing="$bigSpacing" minWidth="$panelWidth" maxWidth="$panelWidth">
+					<padding>
+						<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+					</padding>
+					
+					<!-- Selection of the area -->
+					<VBox fx:id="vbxModifySelection" spacing="$smallSpacing">
+						<Label text="AREA SELECTION" id="titleLabel"></Label>
+						
+						<VBox spacing="$mediumSpacing" alignment="BASELINE_LEFT">
+							<HBox spacing="$bigSpacing">
+							
+								<!-- X coordinate -->
+								<HBox spacing="$smallSpacing" alignment="BASELINE_LEFT" HBox.hgrow="ALWAYS">
+									<Label text="X: "></Label>
+									<ComboBox fx:id="cmbModifyXCoords" editable="false" minWidth="$notFullWidth" maxWidth="$infinite" HBox.hgrow="ALWAYS"></ComboBox>
+								</HBox>
+								
+								<!-- Y coordinate -->
+								<HBox spacing="$smallSpacing" alignment="BASELINE_LEFT" HBox.hgrow="ALWAYS">
+									<Label text="Y: "></Label>
+									<ComboBox fx:id="cmbModifyYCoords" editable="false" minWidth="$notFullWidth" maxWidth="$infinite" HBox.hgrow="ALWAYS"></ComboBox>
+								</HBox>
+							</HBox>
+							
+							<!-- Confirm button -->
+							<Button text="OK" onMouseClicked="#btnOK_click" maxWidth="$infinite" alignment="CENTER"></Button>
+							
+							<!-- Eventual error label -->
+							<BorderPane>
+								<right>
+									<Label fx:id="lblModifyError" alignment="BOTTOM_RIGHT" visible="false" text="That area is empty!" id="errorLabel"></Label>
+								</right>
+							</BorderPane>		
+						</VBox>						
+					</VBox>
+					
+					<!-- If the selection was succesful, this panel will be visible to permit the modify -->
+					<VBox fx:id="vbxAreaDetails" visible="false" spacing="$bigSpacing"  VBox.vgrow="ALWAYS">
+					
+						<!-- Subtitle and position options -->
+						<VBox spacing="$smallSpacing">
+							<Label text="AREA OPTIONS" id="titleLabel"></Label>
+							<Label text="Change position" id="secondaryTitleLabel"></Label>					
+							<BorderPane>
+								<left>
+									<HBox spacing="$bigSpacing" alignment="BASELINE_LEFT">
+										<HBox spacing="$smallSpacing" alignment="BASELINE_LEFT">
+											<Label text="X:"></Label>
+											<TextField fx:id="txfModifyXChange" maxWidth="$halfWidth"></TextField>
+										</HBox>
+										
+										<HBox spacing="$smallSpacing" alignment="BASELINE_LEFT">
+											<Label text="Y:"></Label>
+											<TextField fx:id="txfModifyYChange" maxWidth="$halfWidth"></TextField>
+										</HBox>
+									</HBox>
+								</left>
+								<right>
+									<Button text="Change"  onMouseClicked="#btnChangePosition_click"></Button>
+								</right>
+							</BorderPane>
+							
+							<BorderPane>
+								<right>
+									<Label fx:id="lblChangeCoordsError" alignment="BOTTOM_RIGHT" visible="false" text="That area is empty!" id="errorLabel"></Label>
+								</right>
+							</BorderPane>
+						</VBox>							
+						
+						<!-- Change pumps of the area -->
+						<VBox spacing="$bigSpacing" VBox.vgrow="ALWAYS">				
+							<VBox spacing="$smallSpacing">
+								<Label text="Pumps" id="secondaryTitleLabel"></Label>
+								
+								<ComboBox fx:id="cmbModifyPump1" editable="false" maxWidth="$infinite"></ComboBox>
+								<ComboBox fx:id="cmbModifyPump2" editable="false" maxWidth="$infinite"></ComboBox>
+								<ComboBox fx:id="cmbModifyPump3" editable="false" maxWidth="$infinite"></ComboBox>
+								<ComboBox fx:id="cmbModifyPump4" editable="false" maxWidth="$infinite"></ComboBox>
+								
+								<Button fx:id="btnConfirmPumps" text="Confirm pumps change" onMouseClicked="#btnConfirmPumps_click"></Button>
+							</VBox>
+								
+							<Button text="Remove this area" HBox.hgrow="ALWAYS" maxWidth="$infinite" onMouseClicked="#btnRemoveArea_click"></Button>											
+						</VBox>
+					</VBox>		
+				</VBox>		
+				
+				
+				<!--  Vertical container that contains add logic -->
+				<VBox VBox.vgrow="ALWAYS" fx:id="vbxAddArea" visible="false" spacing="$bigSpacing" minWidth="$panelWidth" maxWidth="$panelWidth">
+					<padding>
+						<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+					</padding>
+					
+					<!-- New position of the area -->
+					<VBox spacing="$smallSpacing">
+						<Label text="Position" id="titleLabel"></Label>
+						
+						<HBox spacing="$bigSpacing" alignment="BASELINE_LEFT">
+							<HBox spacing="$smallSpacing" alignment="BASELINE_LEFT">
+								<Label text="X: "></Label>
+								<TextField  fx:id="txfXCoords" editable="true" maxWidth="$fullWidth"></TextField >
+							</HBox>
+							
+							<HBox spacing="$smallSpacing" alignment="BASELINE_LEFT">
+								<Label text="Y: "></Label>
+								<TextField  fx:id="txfYCoords" editable="true" maxWidth="$fullWidth"></TextField >
+							</HBox>		
+						</HBox>
+						
+						<BorderPane>
+							<right>
+								<Label fx:id="lblAddError"  alignment="BOTTOM_RIGHT" visible="false" text="That area is already occupied!" id="errorLabel"></Label>
+							</right>
+						</BorderPane>
+					</VBox>
+					
+					<!-- Price of the area -->
+					<VBox visible="true" spacing="$bigSpacing"  VBox.vgrow="ALWAYS">
+															
+						<!-- Pumps of the area -->
+						<VBox spacing="$bigSpacing" VBox.vgrow="ALWAYS">
+							<VBox spacing="$smallSpacing">
+								<Label text="AREA OPTIONS" id="titleLabel"></Label>
+							
+								<Label text="Pumps" id="secondaryTitleLabel"></Label>
+								
+								<ComboBox fx:id="cmbPump1" editable="false" maxWidth="$infinite"></ComboBox>
+								<ComboBox fx:id="cmbPump2" editable="false" maxWidth="$infinite"></ComboBox>
+								<ComboBox fx:id="cmbPump3" editable="false" maxWidth="$infinite"></ComboBox>
+								<ComboBox fx:id="cmbPump4" editable="false" maxWidth="$infinite"></ComboBox>
+							</VBox>
+								
+							<Button text="Insert this area" HBox.hgrow="ALWAYS" maxWidth="$infinite"  onMouseClicked="#btnInsertArea_click"></Button>							
+						</VBox>
+					</VBox>
+				</VBox>		
+			</GridPane>
+			
+			<Button fx:id="btnChangeView" text="Switch to adding panel" alignment="BOTTOM_CENTER" maxWidth="$infinite" onMouseClicked="#btnSwtich_click"></Button>
+		</VBox>
+	</left>
+	
+	<center>
+		<AreasGridImpl fx:id="argAreasGrid"></AreasGridImpl>
+	</center>
+	
+</fx:root>

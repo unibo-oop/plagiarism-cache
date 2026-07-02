@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Double?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.FlowPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
+
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@PumpsEditorStyle.css">
+	<!-- Some default values -->
+	<fx:define>
+		<Double fx:id="defaultMargin" fx:value="10" />
+		<Double fx:id="infinite" fx:value="9999"></Double>
+		<Double fx:id="panelWidth" fx:value="250"></Double>	
+		
+		<Double fx:id="smallSpacing" fx:value="3"></Double>
+		<Double fx:id="mediumSpacing" fx:value="5"></Double>
+		<Double fx:id="bigSpacing" fx:value="10"></Double>		
+		
+		<Double fx:id="halfWidth" fx:value="55"></Double>	
+		<Double fx:id="notFullWidth" fx:value="70"></Double>	
+		<Double fx:id="fullWidth" fx:value="90"></Double>
+	</fx:define>
+		
+	<left>
+		<VBox id="controlsContainerLeft" spacing="15" minWidth="$panelWidth" maxWidth="$panelWidth">
+			<padding>
+				<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+			</padding>
+			
+			<VBox spacing="$mediumSpacing">
+				<Label text="PUMP SELECTION" id="titleLabel"></Label>			
+				<ComboBox fx:id="cmbPumpsEdit" editable="false" maxWidth="$infinite" ></ComboBox>				
+				<Button text="Select" onMouseClicked="#btnSelectEdit_click"></Button>
+			</VBox>
+			
+			<VBox fx:id="vbxModifyingPanel" spacing="$bigSpacing">
+				<Label text="MODIFY PUMP" id="titleLabel"></Label>
+					
+				<VBox spacing="$bigSpacing">
+					<VBox spacing="$smallSpacing">
+						<Label text="Fuel type"></Label>
+						<ComboBox fx:id="cmbEditFuelType" editable="false" maxWidth="$infinite" ></ComboBox>			
+						<Button text="Change pump name" onMouseClicked="#btnChangePumpName_click"></Button>
+					</VBox>
+						
+					<VBox spacing="$smallSpacing">
+						<Label text="Speed"></Label>
+						<TextField fx:id="txfEditSpeed" maxWidth="$infinite" ></TextField>						
+						<Button text="Change speed" onMouseClicked="#btnChangeSpeed_click"></Button>
+					</VBox>
+				
+					<VBox spacing="$smallSpacing">
+						<Label text="Durability"></Label>
+						<TextField fx:id="txfEditDurability" maxWidth="$infinite" ></TextField>						
+						<Button text="Change durability" onMouseClicked="#btnChangeDurability_click"></Button>
+					</VBox>
+				
+					<VBox spacing="$smallSpacing">
+						<Label text="Price"></Label>
+						<TextField fx:id="txfEditPrice" maxWidth="$infinite" ></TextField>					
+						<Button text="Change price" onMouseClicked="#btnChangePrice_click"></Button>
+					</VBox>
+				
+					<VBox spacing="$smallSpacing">
+						<Label text="Repair cost"></Label>
+						<TextField fx:id="txfEditRepairCost" maxWidth="$infinite" ></TextField>						
+						<Button text="Change repair cost" onMouseClicked="#btnChangeRepairCost_click"></Button>
+					</VBox>	
+					
+					<Button text="Delete this pump" onMouseClicked="#btnDelete_click"></Button>			
+				</VBox>	
+			</VBox>
+		</VBox>
+	</left>
+	
+	
+	<center>							
+		<VBox spacing="$bigSpacing" minWidth="$panelWidth" maxWidth="$panelWidth" BorderPane.alignment="TOP_CENTER" alignment="TOP_CENTER">
+			<padding>
+				<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+			</padding>
+			
+			<Label text="REPAIR PUMP" id="titleLabel"></Label>
+			
+			<VBox spacing="$smallSpacing" alignment="TOP_CENTER">
+				<Label text="Pump selection"></Label>			
+				<ComboBox fx:id="cmbPumpRepair" editable="false" maxWidth="$infinite" ></ComboBox>				
+				<Button text="Select" onMouseClicked="#btnSelectRepair_click" maxWidth="$infinite"></Button>
+			</VBox>
+			
+			<VBox fx:id="vbxRepair" spacing="$smallSpacing" alignment="TOP_CENTER">
+				<HBox>
+					<Label text="Repair"></Label>
+					<Label fx:id="lblRepair"></Label>
+				</HBox>							
+				<Slider fx:id="sldRepair"  min="0" max="100" majorTickUnit="10" maxWidth="$infinite" showTickLabels="true" showTickMarks="true" valueChanging="true"></Slider>				
+				<Button fx:id="btnRepair" text="Repair" onMouseClicked="#btnRepair_click" maxWidth="$infinite"></Button>
+			</VBox>
+			
+		</VBox>
+	</center>
+	
+	
+	<right>
+		<VBox id="controlsContainerRight" spacing="$mediumSpacing" minWidth="$panelWidth" maxWidth="$panelWidth">
+			<padding>
+				<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+			</padding>
+			
+			<Label text="ADD NEW PUMP" id="titleLabel"></Label>
+		
+			<VBox spacing="$bigSpacing">
+				<VBox spacing="$smallSpacing">
+					<Label text="Fuel type"></Label>
+					<ComboBox fx:id="cmbFuelType" editable="false" maxWidth="$infinite" ></ComboBox>
+				</VBox>
+						
+				<VBox spacing="$smallSpacing">
+					<Label text="Speed"></Label>
+					<TextField fx:id="txfSpeed" maxWidth="$infinite" ></TextField>						
+				</VBox>
+			
+				<VBox spacing="$smallSpacing">
+					<Label text="Durability"></Label>
+					<TextField fx:id="txfDurability" maxWidth="$infinite" ></TextField>						
+				</VBox>
+			
+				<VBox spacing="$smallSpacing">
+					<Label text="Price"></Label>
+					<TextField fx:id="txfPrice" maxWidth="$infinite" ></TextField>					
+				</VBox>
+			
+				<VBox spacing="$smallSpacing">
+					<Label text="Repair cost"></Label>
+					<TextField fx:id="txfRepairCost" maxWidth="$infinite" ></TextField>						
+				</VBox>
+						
+				<Button text="Add pump" onMouseClicked="#btnAddPump_click"></Button>
+			</VBox>						
+		</VBox>
+	</right>
+	
+</fx:root>

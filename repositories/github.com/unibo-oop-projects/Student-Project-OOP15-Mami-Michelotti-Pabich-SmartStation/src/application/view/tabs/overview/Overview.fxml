@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import java.lang.Double?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.ListView?>
+
+<?import application.view.controls.reserveStatus.ReserveStatusImpl?>
+<?import application.view.controls.areasGrid.AreasGridImpl?>
+
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@OverviewStyle.css">
+	<!-- Some default values -->
+	<fx:define>
+		<Double fx:id="defaultMargin" fx:value="10" />
+	</fx:define>
+	
+	<!-- Margin from the window -->
+	<padding>
+		<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+	</padding>
+	
+	<!-- The real overview of the station -->
+	<center>
+		<AreasGridImpl fx:id="areasGrid"></AreasGridImpl>
+	</center>
+	
+	<!-- Future controls for the area -->
+	<left>
+		<VBox fx:id="vbxControls">
+
+		</VBox>
+	</left>
+	
+	<!-- Bottom part of the window -->
+	<bottom>
+		<HBox minHeight="80">
+			<padding>
+				<Insets top="$defaultMargin"></Insets>
+			</padding>
+			<VBox fx:id="vbxReserves" id="vbxReserves" alignment="TOP_LEFT" spacing="2" maxWidth="800" minWidth="400" HBox.hgrow="ALWAYS">
+
+			</VBox>
+				
+			<ListView fx:id="lsvLog" BorderPane.alignment="TOP_CENTER" prefHeight="${vbxReserves.getHeight}" HBox.hgrow="ALWAYS"></ListView>
+		</HBox>
+	</bottom>
+</fx:root>

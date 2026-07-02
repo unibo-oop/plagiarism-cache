@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import java.lang.Double?>
+<?import application.view.controls.areaViewer.AreaViewerImpl?>
+
+<fx:root xmlns:fx="http://javafx.com/fxml/1" type="BorderPane" stylesheets="@AreasGridStyle.css">	
+	<center>
+		<ScrollPane id="scrollPane" fitToHeight="true" fitToWidth="true" vbarPolicy="AS_NEEDED" styleClass="edge-to-edge">				
+			<GridPane fx:id="grdAreas" id="grdAreas" hgap="10" vgap="10" alignment="CENTER">
+
+			</GridPane>
+		</ScrollPane>
+	</center>
+</fx:root>
+

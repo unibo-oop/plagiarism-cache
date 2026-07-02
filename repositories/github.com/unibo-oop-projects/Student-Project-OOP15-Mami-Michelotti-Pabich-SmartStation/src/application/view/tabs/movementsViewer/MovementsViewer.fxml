@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Double?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@MovementsViewerStyle.css">
+	<!-- Some default values -->
+	<fx:define>
+		<Double fx:id="defaultMargin" fx:value="10" />
+		<Double fx:id="infinite" fx:value="9999"></Double>
+		<Double fx:id="panelWidth" fx:value="250"></Double>	
+		
+		<Double fx:id="smallSpacing" fx:value="3"></Double>
+		<Double fx:id="mediumSpacing" fx:value="5"></Double>
+		<Double fx:id="bigSpacing" fx:value="10"></Double>		
+		
+		<Double fx:id="halfWidth" fx:value="55"></Double>	
+		<Double fx:id="notFullWidth" fx:value="70"></Double>	
+		<Double fx:id="fullWidth" fx:value="90"></Double>
+	</fx:define>
+	
+	
+	<left>
+		<VBox id="controlsContainerLeft" spacing="15" minWidth="$panelWidth" maxWidth="$panelWidth">
+			<padding>
+				<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+			</padding>
+			
+			<!-- Filtering -->
+			<VBox spacing="$mediumSpacing">
+				<Label text="FILTER" id="titleLabel"></Label>
+				<ComboBox fx:id="cmbFilters" editable="false" maxWidth="$infinite"></ComboBox>
+				<Button text="Apply filter" onMouseClicked="#btnApplyFilter_click"></Button>
+			</VBox>	
+			
+			<!-- Adding new movement -->
+			<VBox spacing="$bigSpacing">
+				<Label text="ADD MOVEMENT" id="titleLabel"></Label>
+				
+				<VBox spacing="$smallSpacing">
+					<Label text="Description"></Label>
+					<TextField fx:id="txfDescription" maxWidth="$infinite"></TextField>				
+				</VBox>
+								
+				<VBox spacing="$smallSpacing">
+					<Label text="Moneys earned/lost"></Label>
+					<TextField fx:id="txfMoney" maxWidth="$infinite" ></TextField>						
+				</VBox>
+			
+				<Button text="Add movement manually" onMouseClicked="#btnAddMovement_click"></Button>			
+			</VBox>
+			
+			<!-- Current balance -->	
+			<VBox spacing="$smallSpacing">
+				<Label text="CURRENT BALANCE" id="titleLabel"></Label>
+				<Label fx:id="lblBalance" text="0€" id="bigTitleLabel"></Label>
+			</VBox>	
+		</VBox>
+	</left>
+	
+	<center>
+		<ListView fx:id="lsvElements"></ListView>
+	</center>
+</fx:root>

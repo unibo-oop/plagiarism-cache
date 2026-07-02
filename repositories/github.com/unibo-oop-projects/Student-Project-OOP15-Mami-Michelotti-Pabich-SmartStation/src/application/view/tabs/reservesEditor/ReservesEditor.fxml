@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Double?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.FlowPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
+
+
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@ReservesEditorStyle.css">
+	<!-- Some default values -->
+	<fx:define>
+		<Double fx:id="defaultMargin" fx:value="10" />
+		<Double fx:id="infinite" fx:value="9999"></Double>
+		<Double fx:id="panelWidth" fx:value="250"></Double>	
+		
+		<Double fx:id="smallSpacing" fx:value="3"></Double>
+		<Double fx:id="mediumSpacing" fx:value="5"></Double>
+		<Double fx:id="bigSpacing" fx:value="10"></Double>		
+		
+		<Double fx:id="halfWidth" fx:value="55"></Double>	
+		<Double fx:id="notFullWidth" fx:value="70"></Double>	
+		<Double fx:id="fullWidth" fx:value="90"></Double>
+	</fx:define>
+	
+	
+	<!-- Left panel contains the logic for modifying a reserve -->
+	<left>
+		<VBox id="controlsContainerLeft" spacing="15" minWidth="$panelWidth" maxWidth="$panelWidth">
+			<padding>
+				<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+			</padding>
+			
+			<!-- Selection of the reserve -->
+			<VBox spacing="$mediumSpacing">
+				<Label text="RESERVE SELECTION" id="titleLabel"></Label>			
+				<ComboBox fx:id="cmbReservesEdit" editable="false" maxWidth="$infinite"></ComboBox>				
+				<Button text="Select" onMouseClicked="#btnSelectEdit_click"></Button>
+			</VBox>
+			
+			<VBox fx:id="vbxModifyingPanel" spacing="$bigSpacing">
+				<Label text="MODIFY RESERVE" id="titleLabel"></Label>
+					
+				<!-- Fuel change -->
+				<VBox spacing="$smallSpacing">
+					<Label text="Fuel type"></Label>
+					<ComboBox fx:id="cmbEditFuelType" editable="false" maxWidth="$infinite"></ComboBox>					
+					<Button text="Change fuel type" onMouseClicked="#btnChangeFuelType_click"></Button>
+				</VBox>
+					
+				<!-- Capacity change -->
+				<VBox spacing="$smallSpacing">
+					<Label text="Capacity"></Label>
+					<TextField fx:id="txfEditCapacity" maxWidth="$infinite"></TextField>
+					
+					<Button text="Change capacity" onMouseClicked="#btnChangeCapacity_click"></Button>
+				</VBox>
+			
+				<!-- Price change -->
+				<VBox spacing="$smallSpacing">
+					<Label text="Price"></Label>
+					<TextField fx:id="txfEditPrice" maxWidth="$infinite"></TextField>						
+					<Button text="Change price" onMouseClicked="#btnChangePrice_click"></Button>
+				</VBox>
+			
+				<!-- Durability change -->
+				<VBox spacing="$smallSpacing">
+					<Label text="Durability"></Label>
+					<TextField fx:id="txfEditDurability" maxWidth="$infinite"></TextField>			
+					<Button text="Change durability" onMouseClicked="#btnChangeDurability_click"></Button>
+				</VBox>
+			
+				<!-- Repair cost change -->
+				<VBox spacing="$smallSpacing">
+					<Label text="Repair cost"></Label>
+					<TextField fx:id="txfEditRepairCost" maxWidth="$infinite"></TextField>
+					
+					<Button text="Change repair cost" onMouseClicked="#btnChangeRepairCost_click"></Button>
+				</VBox>	
+				
+				<Button text="Delete reserve" onMouseClicked="#btnDelete_click"></Button>			
+			</VBox>	
+		</VBox>
+	</left>
+	
+	
+	<!-- At the center you can repair and refill reserves -->
+	<center>
+		<FlowPane hgap="30" vgap="30" alignment="TOP_CENTER">
+		
+			<!-- Refilling -->
+			<VBox spacing="$bigSpacing" minWidth="$panelWidth" maxWidth="$panelWidth" BorderPane.alignment="TOP_CENTER" alignment="TOP_CENTER">
+				<padding>
+					<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+				</padding>			
+				
+				<Label text="REFILL RESERVE" id="titleLabel"></Label>
+				
+				<!-- Reserve selection -->
+				<VBox spacing="$smallSpacing" alignment="TOP_CENTER">
+					<Label text="Reserve selection"></Label>			
+					<ComboBox fx:id="cmbReserveRefill" editable="false" maxWidth="$infinite"></ComboBox>				
+					<Button text="Select" onMouseClicked="#btnSelectRefill_click" maxWidth="$infinite"></Button>
+				</VBox>
+				
+				<!-- Refill quantity -->
+				<VBox fx:id="vbxRefill" spacing="$smallSpacing" alignment="TOP_CENTER">	
+					<HBox>				
+						<Label text="Refill "></Label>
+						<Label fx:id="lblRefill"></Label>		
+					</HBox>	
+					<TextField fx:id="txfRefill" maxWidth="$infinite"></TextField>				
+					<Button text="Refill" onMouseClicked="#btnRefill_click" maxWidth="$infinite"></Button>
+				</VBox>	
+			</VBox>
+												
+			<!-- Repairing -->		
+			<VBox spacing="$bigSpacing" minWidth="$panelWidth" maxWidth="$panelWidth" BorderPane.alignment="TOP_CENTER" alignment="TOP_CENTER">
+				<padding>
+					<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+				</padding>
+				
+				<Label text="REPAIR RESERVE" id="titleLabel"></Label>
+				
+				<!-- Reserve selection -->
+				<VBox spacing="$smallSpacing" alignment="TOP_CENTER">
+					<Label text="Reserve selection"></Label>			
+					<ComboBox fx:id="cmbReserveRepair" editable="false" maxWidth="$infinite"></ComboBox>				
+					<Button text="Select" onMouseClicked="#btnSelectRepair_click" maxWidth="$infinite"></Button>
+				</VBox>
+				
+				
+				<!-- Repair quantity -->
+				<VBox fx:id="vbxRepair" spacing="$smallSpacing" alignment="TOP_CENTER">
+					<HBox>
+						<Label text="Repair "></Label>
+						<Label fx:id="lblRepair"></Label>	
+					</HBox>						
+					<Slider fx:id="sldRepair" min="0" max="100" majorTickUnit="10" maxWidth="$infinite" showTickLabels="true" showTickMarks="true" valueChanging="true"></Slider>				
+					<Button fx:id="btnRepair" text="Repair" onMouseClicked="#btnRepair_click" maxWidth="$infinite"></Button>
+				</VBox>
+				
+			</VBox>
+		</FlowPane>
+	</center>
+	
+	
+	<!-- Right panel contains logic for adding new reserve -->
+	<right>
+		<VBox id="controlsContainerRight" spacing="$mediumSpacing" minWidth="$panelWidth" maxWidth="$panelWidth">
+			<padding>
+				<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+			</padding>
+			
+			<Label text="ADD NEW RESERVE" id="titleLabel"></Label>
+		
+			<VBox spacing="$bigSpacing">
+			
+				<!-- Fuel type -->
+				<VBox spacing="$smallSpacing">
+					<Label text="Fuel type"></Label>
+					<ComboBox fx:id="cmbFuelType" editable="false" maxWidth="$infinite"></ComboBox>
+				</VBox>
+					
+				<!-- Capacity -->	
+				<VBox spacing="$smallSpacing">
+					<Label text="Capacity"></Label>
+					<TextField fx:id="txfCapacity" maxWidth="$infinite"></TextField>
+				</VBox>
+				
+				<!-- Price -->
+				<VBox spacing="$smallSpacing">
+					<Label text="Price"></Label>
+					<TextField fx:id="txfPrice" maxWidth="$infinite"></TextField>
+				</VBox>
+				
+				<!-- Durability -->
+				<VBox spacing="$smallSpacing">
+					<Label text="Durability"></Label>
+					<TextField fx:id="txfDurability" maxWidth="$infinite"></TextField>
+				</VBox>
+				
+				<!-- Repair cost -->
+				<VBox spacing="$smallSpacing">
+					<Label text="Repair cost"></Label>
+					<TextField fx:id="txfRepairCost" maxWidth="$infinite"></TextField>
+				</VBox>
+						
+				<Button text="Add Reserve" onMouseClicked="#btnAddReserve_click"></Button>
+			</VBox>						
+		</VBox>
+	</right>
+	
+</fx:root>

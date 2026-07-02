@@ -1,0 +1,210 @@
+* {
+	/* Some general colors */
+	/* I must use the "suppress warning" 'cos the default JavaFX CSS editor is a little stupid */
+	
+	/*@SuppressWarning*/ lightColor: #f9f9f9;	
+	/*@SuppressWarning*/ darkColor: derive(lightColor, -75%);
+	/*@SuppressWarning*/ darkSecondaryColor: derive(lightColor, -10%);
+	/*@SuppressWarning*/ accentColor: #46B1C9;
+	
+	/*@SuppressWarning*/ textAccentColor: white;
+	/*@SuppressWarning*/ textTabColor: derive(darkSecondaryColor, -65%);
+	/*@SuppressWarning*/ textTabAccentColor: white;
+	/*@SuppressWarning*/ textColor: darkColor;	
+	
+	/*@SuppressWarning*/ closeBtnColor: red;	
+	/*@SuppressWarning*/ separatorColor: linear-gradient(darkSecondaryColor 0%, darkSecondaryColor 30%, accentColor 40%, accentColor 70%, darkSecondaryColor 80%, darkSecondaryColor 100%);
+	/*@SuppressWarning*/ borderColor: lightGray;
+	
+}
+	
+/* ------------------------------------ */
+/* Style of scrollbar */
+/* ------------------------------------ */
+
+/* Main tweaks */
+.scroll-pane .scroll-bar:horizontal ,
+.scroll-bar:vertical {
+    -fx-background-color:transparent;
+
+}
+
+/* The increment and decrement button of scrollbar */
+.scroll-pane .scroll-bar:horizontal .increment-button ,
+.scroll-pane .scroll-bar:horizontal .decrement-button , 
+.scroll-pane .scroll-bar:vertical .increment-button ,
+.scroll-pane .scroll-bar:vertical .decrement-button {
+	-fx-background-color:transparent;
+	-fx-background-radius: 0em;
+}
+
+.scroll-pane .scroll-bar:horizontal .increment-button ,
+.scroll-pane .scroll-bar:horizontal .decrement-button {
+	-fx-padding:0 0 10 0;
+}
+
+.scroll-pane .scroll-bar:vertical .increment-button ,
+.scroll-pane .scroll-bar:vertical .decrement-button {
+	-fx-padding:0 10 0 0;
+}	
+
+/* The arrow button CSS class of scrollbar */
+.scroll-pane .scroll-bar .increment-arrow,
+.scroll-pane  .scroll-bar .decrement-arrow {
+	-fx-shape: " ";	
+	-fx-padding:0;
+}
+
+/* The main scrollbar **track** CSS class  */
+.scroll-pane  .scroll-bar:horizontal .track ,
+.scroll-pane  .scroll-bar:vertical .track {
+     -fx-background-color: lightColor;
+	 -fx-border-color: lightColor;	 
+	 -fx-background-radius: 0em;
+	 -fx-border-radius:2em;
+}
+
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.scroll-pane  .scroll-bar:horizontal .thumb,
+.scroll-pane  .scroll-bar:vertical .thumb {
+    -fx-background-color: accentColor;
+	-fx-background-insets: 1, 0, 0;
+	-fx-background-radius: 2em;
+}
+
+
+/* ------------------------------------ */
+/* Default minimal TextField */
+/* ------------------------------------ */
+
+.text-field {
+	-fx-background-color : white;
+	-fx-border-color: lightGray;
+	-fx-border-radius: 0;
+}
+
+
+/* ------------------------------------ */
+/* Mainly, all labels will have dark color */
+/* ------------------------------------ */
+.label {
+	-fx-text-fill: darkColor;
+}
+
+
+/* ------------------------------------ */
+/* Some styles for the text */
+/* ------------------------------------ */
+
+/* Big ones */
+#bigTitleLabel, #subtitleLabel, #titleLabel {
+	-fx-font-size: 20;
+	-fx-font-family: Segoe UI;
+	-fx-font-weight: bold;
+}
+
+/* Smaller */
+#subtitleLabel, #titleLabel {
+	-fx-font-size: 12;
+}
+
+/* Smallest */
+#subtitleLabel {
+	-fx-font-size: 11.5;
+	-fx-font-style: italic;
+}
+
+/* Error label */
+#errorLabel {
+	-fx-text-fill: red;
+	-fx-font-size: 11;
+	-fx-font-family: Segoe UI;
+	-fx-font-style: italic;
+}
+
+/* Controls left container */
+#controlsContainerLeft {
+	-fx-border-color: borderColor;
+	-fx-border-width: 0 1 0 0;	
+}
+
+/* Controls right container */
+#controlsContainerRight {
+	-fx-border-color: borderColor;
+	-fx-border-width: 0 0 0 1;	
+}
+
+
+/* ------------------------------------ */
+/* A minimal definition of the combobox */
+/* ------------------------------------ */
+
+/* Base color */
+.combo-box-base {
+    -fx-background-color: white;
+}
+
+/* onMouseOver Color */
+.combo-box-base:hover  {
+    -fx-background-color: derive(white, -5%);
+}
+
+
+
+/* Shape of the arrow */
+.combo-box-base .arrow {
+	-fx-padding: 0.3em;
+	-fx-shape: "M8.124,13.625l4.125-3.375v2.889l-4.125,3.86L4,13.139V10.25L8.124,13.625z";
+}
+
+
+/* The increment and decrement button of scrollbar */
+.combo-box-base .scroll-bar .increment-button ,
+.combo-box-base .scroll-bar .decrement-button {
+	-fx-background-color:transparent;
+	-fx-background-radius: 0em;
+}
+
+.combo-box-base .scroll-bar .increment-button ,
+.combo-box-base .scroll-bar .decrement-button {
+	-fx-padding:0 10 0 0;
+}	
+
+/* The arrow button CSS class of scrollbar */
+.combo-box-base .scroll-bar .increment-arrow,
+.combo-box-base  .scroll-bar .decrement-arrow {
+	-fx-shape: " ";	
+	-fx-padding:0;
+}
+
+.combo-box-base .scroll-bar .thumb {
+    -fx-background-color: accentColor;
+	-fx-background-insets: 3, 0, 0;
+	-fx-background-radius: 2em;
+}
+
+/* Popup of combobox */
+.combo-box-popup .list-view {
+    -fx-background-color: white;
+    -fx-border-color: lightGray;
+    -fx-border-radius: 0;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: derive(accentColor, 20%);
+    -fx-text-fill: white;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: accentColor;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected:hover {
+    -fx-background-color: derive(accentColor, 10%);
+}
+
+.combo-box-popup .list-view .list-cell:filled:pressed, .combo-box-popup .list-view .list-cell:filled:selected:pressed
+{
+    -fx-background-color: derive(accentColor, -10%);
+    -fx-text-fill: white;
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@InfoStyle.css">
+
+	<center>
+		<VBox alignment="CENTER" BorderPane.alignment="CENTER">
+			<Label text="SmartStation" id="bigTitleLabel"></Label>
+			<Label></Label>
+	
+			<Label text="MODEL" id="titleLabel"></Label>
+			<Label text="Alessandro Mami" id="subtitleLabel"></Label>
+			<Label></Label>
+	
+			<Label text="VIEW" id="titleLabel"></Label>
+			<Label text="Marcin Pabich" id="subtitleLabel"></Label>
+			<Label></Label>
+	
+			<Label text="CONTROLLER" id="titleLabel"></Label>
+			<Label text="Matteo Michelotti" id="subtitleLabel"></Label>
+			<Label></Label>
+	
+			<Label text="Progetto realizzato con JavaFX (Java 8)"></Label>
+		</VBox>
+	</center>
+	
+	
+	
+</fx:root>

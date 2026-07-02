@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import java.lang.Double?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<fx:root type="javafx.scene.layout.BorderPane" fx:id="areaContainer" id="areaContainer" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@AreaViewerStyle.css" minWidth="120" maxWidth="150" minHeight="160" maxHeight="200">
+	<!-- Some default values -->
+	<fx:define>
+		<Double fx:id="defaultSpacing" fx:value="10" />
+		<Double fx:id="defaultMargin" fx:value="15" />
+		<Double fx:id="defaultSize" fx:value="20"></Double>
+		<Double fx:id="defaultCarSize" fx:value="30"></Double>
+	</fx:define>
+	
+	
+	<center>
+		<Rectangle fx:id="car" id="car" visible="false" BorderPane.alignment="CENTER" fill="RED" width="$defaultCarSize" height="$defaultCarSize"></Rectangle>
+	</center>
+	
+	<right>
+		<VBox id="pumpContainer" fx:id="pumpContainer" alignment="CENTER" BorderPane.alignment="TOP_CENTER" spacing="$defaultSpacing">		
+			<padding>
+				<Insets left="$defaultMargin" right="$defaultMargin"></Insets>
+			</padding>
+			<Rectangle BorderPane.alignment="CENTER" fill="DARKGRAY" width="$defaultSize" height="$defaultSize"></Rectangle>
+			<Rectangle BorderPane.alignment="CENTER" fill="DARKGRAY" width="$defaultSize" height="$defaultSize"></Rectangle>
+			<Rectangle BorderPane.alignment="CENTER" fill="DARKGRAY" width="$defaultSize" height="$defaultSize"></Rectangle>
+			<Rectangle BorderPane.alignment="CENTER" fill="DARKGRAY" width="$defaultSize" height="$defaultSize"></Rectangle>
+		</VBox>
+	</right>
+	
+</fx:root>

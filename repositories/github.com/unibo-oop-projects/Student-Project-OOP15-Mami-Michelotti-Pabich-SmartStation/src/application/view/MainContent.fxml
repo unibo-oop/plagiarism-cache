@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import application.view.tabs.overview.OverviewImpl?>
+<?import application.view.tabs.stationEditor.StationEditorImpl?>
+<?import application.view.tabs.fuelsEditor.FuelsEditorImpl?>
+<?import application.view.tabs.reservesEditor.ReservesEditorImpl?>
+<?import application.view.tabs.info.InfoImpl?>
+<?import application.view.tabs.movementsViewer.MovementsViewerImpl?>
+<?import application.view.tabs.pumpsEditor.PumpsEditorImpl?>
+
+<!-- Creating a TabPane with no-closable tabs -->
+<fx:root xmlns:fx="http://javafx.com/fxml/1" type="TabPane" fx:id="tabContainer" id="tabContainer" TabClosingPolicy="UNAVAILABLE" stylesheets="@MainContentStyle.css" >
+	
+	<!-- Tabs that will be visible to user -->
+	<tabs>
+		<Tab text="Overview">	
+			<OverviewImpl fx:id="overviewTab"></OverviewImpl>
+		</Tab>
+		
+		<Tab text="Station Editor">		
+			<StationEditorImpl  fx:id="stationEditorTab"></StationEditorImpl>		
+		</Tab>
+		
+		<Tab text="Fuels Editor">
+			<FuelsEditorImpl fx:id="fuelsEditorTab" ></FuelsEditorImpl>
+		</Tab>
+		
+		<Tab text="Reserves Editor">
+			<ReservesEditorImpl fx:id="reservesEditorTab"></ReservesEditorImpl>
+		</Tab>
+		
+		<Tab text="Pumps Editor">
+			<PumpsEditorImpl fx:id="pumpsEditorTab"></PumpsEditorImpl>
+		</Tab>
+		
+		<Tab text="Movements">
+			<MovementsViewerImpl fx:id="movementsViewerTab"></MovementsViewerImpl>
+		</Tab>
+		
+		<Tab text="Information">
+			<InfoImpl fx:id="infoTab"></InfoImpl>
+		</Tab>
+  	</tabs>
+</fx:root>

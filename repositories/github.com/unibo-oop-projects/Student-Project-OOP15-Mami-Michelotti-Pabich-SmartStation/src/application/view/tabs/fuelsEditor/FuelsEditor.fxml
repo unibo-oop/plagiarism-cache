@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Double?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@FuelsEditorStyle.css">
+	<!-- Some default values -->
+	<fx:define>
+		<Double fx:id="defaultMargin" fx:value="10" />
+		<Double fx:id="infinite" fx:value="9999"></Double>
+		<Double fx:id="panelWidth" fx:value="250"></Double>	
+		
+		<Double fx:id="smallSpacing" fx:value="3"></Double>
+		<Double fx:id="mediumSpacing" fx:value="5"></Double>
+		<Double fx:id="bigSpacing" fx:value="10"></Double>		
+		
+		<Double fx:id="halfWidth" fx:value="55"></Double>	
+		<Double fx:id="notFullWidth" fx:value="70"></Double>	
+		<Double fx:id="fullWidth" fx:value="90"></Double>
+	</fx:define>
+	
+	<!-- Left panel contains modifying panel -->
+	<left>
+		<VBox id="controlsContainerLeft" spacing="15" minWidth="$panelWidth" maxWidth="$panelWidth">
+			<padding>
+				<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+			</padding>
+			
+			<!-- Selection of the fuel -->
+			<VBox spacing="$mediumSpacing">
+				<Label text="FUEL SELECTION" id="titleLabel"></Label>								
+				<ComboBox fx:id="cmbFuels" editable="false" maxWidth="$infinite"></ComboBox>
+				<Button text="Select" onMouseClicked="#btnSelect_click"></Button>
+			</VBox>
+			
+			<!-- If selected, this will be enabled -->
+			<VBox fx:id="vbxModifyingPanel" visible="true" spacing="$mediumSpacing"  VBox.vgrow="ALWAYS">
+			
+				<Label text="MODIFYING..." id="titleLabel"></Label>
+											
+				<VBox spacing="$bigSpacing">
+				
+					<!-- Name -->	
+					<VBox spacing="$smallSpacing">					
+						<Label text="Fuel name"></Label>
+						<TextField  fx:id="txfEditName" maxWidth="$infinite"></TextField>
+						
+						<Button text="Change name" onMouseClicked="#btnChangeName_click"></Button>
+					</VBox>
+								
+					<!-- Price -->		
+					<VBox spacing="$smallSpacing">
+						<Label text="Price"></Label>
+						<TextField  fx:id="txfEditPrice" maxWidth="$infinite"></TextField>
+					
+						<Button text="Change price" onMouseClicked="#btnChangePrice_click"></Button>
+					</VBox>
+						
+					<!-- Wholesale price -->	
+					<VBox  spacing="$smallSpacing">
+						<Label text="Wholesale price"></Label>
+						<TextField  fx:id="txfEditWPrice" maxWidth="$infinite"></TextField>
+					
+						<Button text="Change wholesale price"  onMouseClicked="#btnChangeWPrice_click"></Button>
+					</VBox>
+
+					<!-- Color -->	
+					<VBox  spacing="$smallSpacing">
+						<Label text="Color"></Label>
+						<TextField  fx:id="txfEditColor" maxWidth="$infinite"></TextField>
+					
+						<Button text="Change color" onMouseClicked="#btnChangeColor_click"></Button>
+					</VBox>	
+					
+					<!-- Delete fuel -->
+					<Button text="Delete this fuel" onMouseClicked="#btnDelete_click"></Button>				
+				</VBox>														
+			</VBox>
+		</VBox>
+	</left>
+	
+	
+	<!-- Right panel contains adding panel -->	
+	<right>
+		<VBox id="controlsContainerRight" spacing="$mediumSpacing" minWidth="$panelWidth" maxWidth="$panelWidth">
+			<padding>
+				<Insets top="$defaultMargin" right="$defaultMargin" left="$defaultMargin" bottom="$defaultMargin"></Insets>
+			</padding>
+			
+			<Label text="ADD NEW FUEL TYPE" id="titleLabel"></Label>
+				
+				<VBox spacing="$bigSpacing">
+				
+					<!-- Name -->
+					<VBox>
+						<Label text="Fuel name"></Label>
+						<TextField  fx:id="txfFuelName" maxWidth="$infinite"></TextField>
+					</VBox>
+					
+					<!-- Price -->
+					<VBox>
+						<Label text="Price"></Label>
+						<TextField  fx:id="txfFuelPrice" maxWidth="$infinite"></TextField>
+					</VBox>
+					
+					<!-- Wholesale price -->
+					<VBox>
+						<Label text="Wholesale price"></Label>
+						<TextField  fx:id="txfFuelWPrice" maxWidth="$infinite"></TextField>
+					</VBox>
+					
+					<!-- Color -->
+					<VBox>
+						<Label text="Color"></Label>
+						<TextField  fx:id="txfFuelColor" maxWidth="$infinite"></TextField>
+					</VBox>
+					
+					<Button text="Add Fuel" onMouseClicked="#btnAddFuel_click"></Button>
+				</VBox>	
+					
+			</VBox>						
+	</right>
+</fx:root>

@@ -1,0 +1,60 @@
+/* Importing the color.css that defines all the app colors */
+@import "resources/colors.css";
+
+* {
+
+}
+
+/* Creating the shadow effetct of the window */
+#root {
+	-fx-background-color: transparent;		
+    -fx-effect: dropshadow( gaussian , black , 5,0,0,0 );
+    -fx-background-insets: 5;
+}
+
+/* Setting background and text color for title and footer */
+#titleBar, #footer {
+	-fx-background-color: darkColor;
+}
+
+#titleBar .label, #footer .label{
+	-fx-text-fill: textAccentColor;
+}
+
+/* Set a smaller and italic font for the footer */
+#footerText {
+	-fx-font-size: 10;
+	-fx-font-style: italic;
+}
+
+/* Content area has a default color */
+#contentArea {
+	-fx-background-color: lightColor;
+}
+
+/* Setting common values for buttons */
+#btnCls, #btnMax, #btnMin, #btnResize {
+	-fx-background-color: transparent;
+	-fx-background-radius: 0;
+	-fx-border-color: transparent;
+	-fx-border-width: 0;
+	-fx-background-position: center;
+	-fx-background-repeat: stretch;
+}
+
+/* Setting onMouseOn effect */
+#btnMax:hover, #btnMin:hover {
+	-fx-background-color: derive(darkColor, 20%);	
+}
+
+/* onMouseOn effect for the X is different */
+#btnCls:hover {
+	-fx-background-color: derive(red, 45%);	
+}
+
+/* Various images for the buttons */
+#btnCls { -fx-background-image: url("/mnmlwindow/view/resources/x.png");	}
+#btnMax { -fx-background-image: url('/mnmlwindow/view/resources/square.png'); }
+#btnMin { -fx-background-image: url('/mnmlwindow/view/resources/line.png'); }
+#btnResize { -fx-background-image: url('/mnmlwindow/view/resources/resize.png'); }
+

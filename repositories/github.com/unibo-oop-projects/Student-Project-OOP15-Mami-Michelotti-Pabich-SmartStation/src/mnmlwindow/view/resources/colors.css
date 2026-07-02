@@ -1,0 +1,18 @@
+* {
+	/* Some general colors */
+	/* I must use the "suppress warning" 'cos the default JavaFX css editor is a little stupid */
+	
+	/*@SuppressWarning*/ lightColor: #f9f9f9;	
+	/*@SuppressWarning*/ darkColor: derive(lightColor, -75%);
+	/*@SuppressWarning*/ darkSecondaryColor: derive(lightColor, -10%);
+	/*@SuppressWarning*/ accentColor: #46B1C9;
+	
+	/*@SuppressWarning*/ textAccentColor: white;
+	/*@SuppressWarning*/ textTabColor: derive(darkSecondaryColor, -65%);
+	/*@SuppressWarning*/ textTabAccentColor: white;
+	/*@SuppressWarning*/ textColor: darkColor;	
+	
+	/*@SuppressWarning*/ closeBtnColor: red;	
+	/*@SuppressWarning*/ separatorColor: linear-gradient(darkSecondaryColor 0%, darkSecondaryColor 30%, accentColor 40%, accentColor 70%, darkSecondaryColor 80%, darkSecondaryColor 100%);
+	
+}

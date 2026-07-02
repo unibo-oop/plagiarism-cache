@@ -1,0 +1,23 @@
+/* Importing the colors.css that contains all the color of the app */
+@import "/resources/mainStyle.css";
+
+* {
+	-fx-font-size: 13;
+}
+
+.progress-bar > .bar {
+	-fx-background-color: #ffc107;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+    -fx-border-color: transparent;
+    -fx-border-radius: 5;
+    -fx-padding: 0.20em;
+}
+
+.progress-bar > .track {
+	-fx-background-color: lightgray;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+    -fx-border-color: transparent;
+    -fx-border-radius: 5;
+}
