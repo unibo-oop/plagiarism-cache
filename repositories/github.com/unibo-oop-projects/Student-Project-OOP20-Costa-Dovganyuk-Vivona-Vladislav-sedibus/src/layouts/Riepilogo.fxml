@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <AnchorPane prefHeight="91.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="bottoneFine" layoutX="258.0" layoutY="20.0" mnemonicParsing="false" onAction="#handlerFine" prefHeight="45.0" prefWidth="84.0" text="FINE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </bottom>
+   <top>
+      <AnchorPane prefHeight="85.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="spazioTitolo" layoutX="147.0" layoutY="43.0" prefHeight="30.0" prefWidth="202.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="43.0" prefHeight="30.0" prefWidth="122.0" text="Prenotazione">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="25.0" layoutY="10.0" prefHeight="21.0" prefWidth="77.0" text="Riepilogo:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="40.0" prefHeight="21.0" prefWidth="49.0" text="Nome:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="60.0" prefHeight="21.0" prefWidth="73.0" text="Cognome:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="80.0" prefHeight="21.0" prefWidth="43.0" text="Email:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="100.0" prefHeight="21.0" prefWidth="132.0" text="Numero telefonico:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="120.0" prefHeight="21.0" prefWidth="37.0" text="Data:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="140.0" prefHeight="21.0" prefWidth="62.0" text="Periodo:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="160.0" prefHeight="21.0" prefWidth="39.0" text="Posti:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="180.0" prefHeight="21.0" prefWidth="133.0" text="Tavolo selezionato:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="200.0" prefHeight="21.0" prefWidth="153.0" text="Codice prenotazione:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="spazioNome" layoutX="83.0" layoutY="40.0" prefHeight="21.0" prefWidth="359.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="spazioCognome" layoutX="108.0" layoutY="60.0" prefHeight="21.0" prefWidth="359.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="spazioEmail" layoutX="78.0" layoutY="80.0" prefHeight="21.0" prefWidth="359.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="spazioTelefono" layoutX="167.0" layoutY="100.0" prefHeight="21.0" prefWidth="359.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="spazioData" layoutX="74.0" layoutY="120.0" prefHeight="21.0" prefWidth="359.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="spazioPeriodo" layoutX="93.0" layoutY="140.0" prefHeight="21.0" prefWidth="359.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="spazioPosti" layoutX="75.0" layoutY="160.0" prefHeight="21.0" prefWidth="359.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="spazioTavolo" layoutX="165.0" layoutY="180.0" prefHeight="21.0" prefWidth="359.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="spazioCodPrenotazione" layoutX="188.0" layoutY="200.0" prefHeight="21.0" prefWidth="359.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

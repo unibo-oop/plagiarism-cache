@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.adminuser.ControllerAdminUserSelection">
+   <children>
+      <Button id="User" layoutX="116.0" layoutY="128.0" mnemonicParsing="false" onAction="#loadUserDecision" prefHeight="138.0" prefWidth="143.0" text="Prenota" />
+      <Button fx:id="Admin" layoutX="371.0" layoutY="131.0" mnemonicParsing="false" onAction="#loadAdminLogin" prefHeight="138.0" prefWidth="143.0" text="Login Amministratore" />
+      <Button id="Termina" layoutX="221.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="159.0" text="Termina Applicazione" onAction="#applicationStop"/>
+   </children>
+</AnchorPane>
