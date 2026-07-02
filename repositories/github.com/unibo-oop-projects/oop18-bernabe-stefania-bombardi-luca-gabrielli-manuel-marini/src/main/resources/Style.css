@@ -1,0 +1,9 @@
+#mainMenu{
+    -fx-background-image:url("images/mainMenu/menu_back.png");
+    -fx-background-size: cover;
+}
+
+#settingsMenu{
+    -fx-background-image:url("images/mainMenu/settings_back.png");
+    -fx-background-size: cover;
+}
