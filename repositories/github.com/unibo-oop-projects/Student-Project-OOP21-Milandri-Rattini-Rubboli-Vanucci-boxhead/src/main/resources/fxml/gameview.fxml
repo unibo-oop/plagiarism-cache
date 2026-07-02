@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="gamePane" maxHeight="480" maxWidth="928" minHeight="480.0" minWidth="928.0" prefHeight="480.0" prefWidth="928.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boxhead.view.GameView">
+   <children>
+      <Canvas fx:id="gameMap" focusTraversable="true" height="480.0" layoutX="-1.0" width="928.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
+      <Label fx:id="magazineAmmo" layoutX="1.0" layoutY="1.0" prefHeight="800.0" prefWidth="100.0" text=" " textAlignment="CENTER" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <Label fx:id="healthPoints" layoutX="1.0" layoutY="1.0" prefHeight="150.0" prefWidth="100.0" text=" " textAlignment="CENTER" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <Label fx:id="gameRound" layoutX="1.0" layoutY="1.0" prefHeight="100.0" prefWidth="100.0" text=" " textAlignment="CENTER" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <Label fx:id="killStreak" layoutX="1.0" layoutY="1.0" prefHeight="200.0" prefWidth="100.0" text=" " textAlignment="CENTER" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <Label fx:id="gunName" layoutX="1.0" layoutY="1.0" prefHeight="750.0" prefWidth="100.0" text=" " textAlignment="CENTER" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <Label fx:id="gunUpgrade" layoutX="1.0" layoutY="1.0" prefHeight="100.0" prefWidth="510.0" text=" " textAlignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>
