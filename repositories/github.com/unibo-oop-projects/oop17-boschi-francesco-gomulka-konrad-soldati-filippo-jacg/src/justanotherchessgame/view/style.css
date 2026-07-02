@@ -1,0 +1,95 @@
+
+
+.Timer{
+	-fx-background-color: rgb(0, 0, 26);
+	-fx-font-family: 'digital-7';
+	-fx-font-size: 500%;
+	-fx-text-alignment: center;
+}
+
+
+.gameMenu{
+	-fx-background-color : brown;
+}
+
+.whiteButton {
+	-fx-background-color: white;
+	
+}
+
+.blackButton {
+	-fx-background-color: black;
+}
+
+.selectedSpace {
+	-fx-background-color: rgb(255, 56, 56);
+}
+
+.reachableSpace {
+	-fx-background-color: rgb(70, 255, 45);
+	-fx-border-width: 0.5px;
+	-fx-border-style: solid;
+}
+
+.indList .list-cell{
+	-fx-background-color: null;
+	-fx-padding: 0px 21px 0px 21px;
+	-fx-background-insets: 0px, 2px ;
+}
+
+.transpList .list-cell{
+	-fx-background-color: null;
+	-fx-font-size: 130%;
+	-fx-font-weight: bold;
+	-fx-font-family: November;
+}
+
+.oBorderList .list-cell{
+	-fx-background-color: null;
+	-fx-font-size: 130%;
+	-fx-font-weight: bold;
+	-fx-padding: 0px 39px 0px 45px;
+	-fx-background-insets: 0px, 2px ;
+}
+
+.vBorderList .list-cell{
+	-fx-background-color: null;
+	-fx-font-size: 130%;
+	-fx-font-weight: bold;
+	-fx-padding: 23px 7px 46px 0px;
+	-fx-background-insets: 0px, 2px ;
+}
+
+.oBorderList .scroll-bar:horizontal .increment-arrow,
+.oBorderList .scroll-bar:horizontal .decrement-arrow,
+.oBorderList .scroll-bar:horizontal .increment-button,
+.oBorderList .scroll-bar:horizontal .decrement-button {
+    -fx-padding:0;
+}
+
+.indList .scroll-bar:horizontal .increment-arrow,
+.indList .scroll-bar:horizontal .decrement-arrow,
+.indList .scroll-bar:horizontal .increment-button,
+.indList .scroll-bar:horizontal .decrement-button {
+    -fx-padding:0;
+}
+
+.vBorderList .scroll-bar:horizontal .increment-arrow,
+.vBorderList .scroll-bar:horizontal .decrement-arrow,
+.vBorderList .scroll-bar:horizontal .increment-button,
+.vBorderList .scroll-bar:horizontal .decrement-button {
+    -fx-padding:0;
+}
+
+.list-view .scroll-bar:vertical .increment-arrow,
+.list-view .scroll-bar:vertical .decrement-arrow,
+.list-view .scroll-bar:vertical .increment-button,
+.list-view .scroll-bar:vertical .decrement-button {
+    -fx-padding:0;
+}
+
+
+* :disabled {
+    -fx-opacity: 1;
+}
+
