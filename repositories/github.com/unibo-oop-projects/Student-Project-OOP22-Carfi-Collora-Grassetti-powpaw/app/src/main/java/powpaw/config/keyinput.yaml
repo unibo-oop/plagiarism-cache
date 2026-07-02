@@ -1,0 +1,13 @@
+1:
+  jump: W
+  left: A
+  right: D
+  attack: G
+  dodge: H
+
+2:
+  jump: UP
+  left: LEFT
+  right: RIGHT
+  attack: NUMPAD2
+  dodge: NUMPAD3
