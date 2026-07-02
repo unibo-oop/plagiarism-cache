@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11"
+            fx:controller="it.unibo.aknightstale.views.GameFinishedViewImpl">
+    <VBox alignment="CENTER" layoutX="250.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0"
+          AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="0.0">
+        <Label text="Game ended!">
+            <VBox.margin>
+                <Insets bottom="50.0"/>
+            </VBox.margin>
+            <font>
+                <Font name="Copperplate Gothic Bold" size="30.0"/>
+            </font>
+        </Label>
+        <HBox alignment="CENTER" prefHeight="27.0" prefWidth="600.0" spacing="8.0">
+            <children>
+                <Label text="Total score acquired in this game:"/>
+                <Label fx:id="scoreLabel"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="56.0" prefWidth="600.0" spacing="8.0">
+            <children>
+                <Label text="To save your score enter your name and click Save:"/>
+                <MFXTextField fx:id="nameTextField" minHeight="-Infinity" prefHeight="27.0" prefWidth="197.0"/>
+                <MFXButton fx:id="saveScoreButton" onAction="#onSaveButtonClicked" text="Save"/>
+            </children>
+        </HBox>
+        <MFXButton fx:id="newGameButton" onAction="#onNewGameButtonClicked" rippleAnimateShadow="true" text="New game">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </MFXButton>
+        <MFXButton fx:id="scoreboardButton" onAction="#onScoreboardButtonClicked" text="Scoreboard">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </MFXButton>
+        <MFXButton fx:id="mainMenuButton" onAction="#onMainMenuButtonClicked" rippleAnimateShadow="true"
+                   text="Main menu">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </MFXButton>
+    </VBox>
+</AnchorPane>

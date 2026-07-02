@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="pane" minHeight="780.0" minWidth="1320.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unibo.aknightstale.views.map.MapViewImpl">
+    <children>
+        <Canvas fx:id="canvas" height="780.0" width="1320.0" />
+    </children>
+</AnchorPane>

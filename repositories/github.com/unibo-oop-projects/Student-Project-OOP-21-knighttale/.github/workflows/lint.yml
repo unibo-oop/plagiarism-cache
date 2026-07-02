@@ -1,0 +1,74 @@
+name: Lint
+
+on: push
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout repo"
+        uses: actions/checkout@v3
+
+      # Gradle
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      # Checkstyle
+      - name: Run Checkstyle
+        run: ./gradlew checkstyleMain
+      - uses: jwgmeligmeyling/checkstyle-github-action@master
+        if: always() # always run even if the previous step fails
+        with:
+          path: 'build/reports/checkstyle/main.xml'
+      # Checkstyle tests
+      - name: Run Checkstyle on tests
+        run: ./gradlew checkstyleTest
+        if: always()
+      - uses: jwgmeligmeyling/checkstyle-github-action@master
+        if: always()
+        with:
+          path: 'build/reports/checkstyle/main.xml'
+
+      # PMD
+      - name: Run PMD
+        if: always()
+        run: ./gradlew pmdMain
+      - uses: jwgmeligmeyling/pmd-github-action@master
+        if: always()
+        with:
+          path: 'build/reports/pmd/main.xml'
+      # PMD tests
+      - name: Run PMD on tests
+        if: always()
+        run: ./gradlew pmdTest
+      - uses: jwgmeligmeyling/pmd-github-action@master
+        if: always()
+        with:
+          path: 'build/reports/pmd/test.xml'
+
+      # Spotbugs
+      - name: Run Spotbugs
+        if: always()
+        run: ./gradlew spotbugsMain
+      - uses: jwgmeligmeyling/spotbugs-github-action@master
+        if: always()
+        with:
+          path: 'build/reports/spotbugs/main.xml'
+      # Spotbugs tests
+      - name: Run Spotbugs on tests
+        if: always()
+        run: ./gradlew spotbugsTest
+      - uses: jwgmeligmeyling/spotbugs-github-action@master
+        if: always()
+        with:
+          path: 'build/reports/spotbugs/test.xml'
