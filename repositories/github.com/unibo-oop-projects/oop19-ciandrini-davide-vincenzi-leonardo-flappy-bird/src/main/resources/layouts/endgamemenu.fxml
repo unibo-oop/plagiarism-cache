@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.view.EndGameViewController">
+   <ImageView fitHeight="335.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../backgroundMenu.png"/>
+   </ImageView>
+   <VBox alignment="CENTER" layoutX="205.0" layoutY="96.0" prefHeight="200.0" prefWidth="212.0" spacing="25.0">
+      <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="YOU LOST!"
+            textAlignment="CENTER">
+         <font>
+            <Font name="Franklin Gothic Medium" size="18.0"/>
+         </font>
+      </Text>
+      <Label alignment="CENTER" prefHeight="28.0" prefWidth="107.0" text="Enter your name" textFill="WHITE"/>
+      <TextArea fx:id="nameArea" prefHeight="0.0" prefWidth="212.0"/>
+      <Button mnemonicParsing="false" onAction="#saveName" text="Submit"/>
+   </VBox>
+</Pane>
