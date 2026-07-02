@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iuniversity.view.exams.ExamCreationViewImpl">
+   <center>
+      <AnchorPane prefHeight="407.0" prefWidth="370.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="550.0" prefWidth="840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="43.0" prefWidth="840.0">
+                     <children>
+                        <Label text="Insegnamento" />
+                        <ChoiceBox fx:id="courseChoice" prefWidth="150.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="840.0">
+                     <children>
+                        <Label text="Data e ora" />
+                        <DatePicker fx:id="callDatePicker" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="840.0">
+                     <children>
+                        <Label text="Tipo esame" />
+                        <ChoiceBox fx:id="examTypeChoice" prefWidth="150.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="840.0">
+                     <children>
+                        <Label text="N. max studenti" />
+                        <Spinner fx:id="maxStudentSpin" editable="true" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="378.0" spacing="20.0">
+                     <children>
+                        <Button fx:id="cancelBtn" mnemonicParsing="false" text="Annulla" />
+                        <Button fx:id="publishBtn" mnemonicParsing="false" text="Pubblica" />
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <Label text="Inserimento dati appello" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>

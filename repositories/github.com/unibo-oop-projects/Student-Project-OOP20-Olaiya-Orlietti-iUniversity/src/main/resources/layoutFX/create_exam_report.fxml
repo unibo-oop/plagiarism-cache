@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="349.0" prefWidth="316.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iuniversity.view.exams.CreateExamReportViewImpl">
+   <center>
+      <VBox prefHeight="284.0" prefWidth="334.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="56.0" prefWidth="334.0">
+               <children>
+                  <Label text="Appello" />
+                  <ChoiceBox fx:id="examCallChoice" prefWidth="150.0" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="56.0" prefWidth="334.0">
+               <children>
+                  <Label text="Studente" />
+                  <ChoiceBox fx:id="studentChoice" prefWidth="150.0" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="31.0" prefWidth="334.0">
+               <children>
+                  <CheckBox fx:id="laudeCB" mnemonicParsing="false" text="Lode" />
+               </children>
+            </VBox>
+            <VBox fx:id="resultTypeVB" alignment="TOP_CENTER" prefHeight="56.0" prefWidth="334.0">
+               <children>
+                  <Label text="Esito" />
+                  <ChoiceBox fx:id="resultTypeChoice" prefWidth="150.0" />
+               </children>
+            </VBox>
+            <VBox fx:id="resultVB" alignment="TOP_CENTER" prefHeight="56.0" prefWidth="334.0">
+               <children>
+                  <Label text="Votazione" />
+                  <Spinner fx:id="resultSpin" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <Label text="Verbalizzazione risultato" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="66.0" prefWidth="334.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="cancelBtn" mnemonicParsing="false" text="Annulla" />
+            <Button fx:id="publishBtn" mnemonicParsing="false" text="Verbalizza" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
