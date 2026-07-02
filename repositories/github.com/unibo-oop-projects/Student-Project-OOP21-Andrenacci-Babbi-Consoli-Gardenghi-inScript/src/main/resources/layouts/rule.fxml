@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="root" prefHeight="294.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RuleSceneController">
+   <top>
+      <GridPane minHeight="50.0" styleClass="ruleTop" stylesheets="@../css/application.css" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label styleClass="styleRuleTITLE" stylesheets="@../css/application.css" text="Rules" GridPane.columnIndex="1" />
+            <Button mnemonicParsing="false" onMouseClicked="#switchToMenuScene" styleClass="buttonBoard" stylesheets="@../css/application.css" text="Return to menu" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
+   </top>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+         <content>
+            <HBox alignment="TOP_CENTER" styleClass="ruleCenter" stylesheets="@../css/application.css">
+               <children>
+                  <VBox>
+                     <children>
+                        <VBox styleClass="ruleSectionStyle" stylesheets="@../css/application.css">
+                           <children>
+                              <Label styleClass="sectionTileStyle" stylesheets="@../css/application.css" text="Board Description" />
+                              <Pane fx:id="board_description_image" />
+                              <Label fx:id="board_description" minHeight="150.0" styleClass="textStyle" stylesheets="@../css/application.css" text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox styleClass="ruleSectionStyle" stylesheets="@../css/application.css">
+                           <children>
+                              <Label styleClass="sectionTileStyle" stylesheets="@../css/application.css" text="Victory condition" />
+                              <Pane fx:id="victory_condition_image" />
+                              <Label fx:id="victory_condition" minHeight="150.0" styleClass="textStyle" stylesheets="@../css/application.css" text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox styleClass="ruleSectionStyle" stylesheets="@../css/application.css">
+                           <children>
+                              <Label styleClass="sectionTileStyle" stylesheets="@../css/application.css" text="Game Phases" />
+                              <Pane fx:id="game_phases_image" />
+                              <Label fx:id="game_phases" minHeight="150.0" styleClass="textStyle" stylesheets="@../css/application.css" text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox styleClass="ruleSectionStyle" stylesheets="@../css/application.css">
+                           <children>
+                              <Label styleClass="sectionTileStyle" stylesheets="@../css/application.css" text="DrawPhase" />
+                              <Pane fx:id="draw_phase_image" />
+                              <Label fx:id="draw_phase" minHeight="150.0" styleClass="textStyle" stylesheets="@../css/application.css" text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox styleClass="ruleSectionStyle" stylesheets="@../css/application.css">
+                           <children>
+                              <Label styleClass="sectionTileStyle" stylesheets="@../css/application.css" text="MainPhase" />
+                              <Pane fx:id="main_phase_image" />
+                              <Label fx:id="main_phase" minHeight="150.0" styleClass="textStyle" stylesheets="@../css/application.css" text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox styleClass="ruleSectionStyle" stylesheets="@../css/application.css">
+                           <children>
+                              <Label styleClass="sectionTileStyle" stylesheets="@../css/application.css" text="Battle Phase" />
+                              <Pane fx:id="battle_phase_image" />
+                              <Label fx:id="battle_phase" minHeight="150.0" styleClass="textStyle" stylesheets="@../css/application.css" text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox styleClass="ruleSectionStyle" stylesheets="@../css/application.css">
+                           <children>
+                              <Label styleClass="sectionTileStyle" stylesheets="@../css/application.css" text="Effects" />
+                              <Pane fx:id="effects_image" />
+                              <Label fx:id="effects" minHeight="150.0" styleClass="textStyle" stylesheets="@../css/application.css" text="Label" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <HBox prefHeight="50.0" styleClass="ruleBotton" stylesheets="@../css/application.css" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
