@@ -1,0 +1,35 @@
+.playerBadge {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 10px;
+    -fx-text-fill: #5c4a1e;
+    -fx-font-weight: bold;
+}
+
+.endTitle {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3d2b10;
+}
+
+.endScore {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 14px;
+    -fx-text-fill: #3d2b10;
+}
+
+.btnPlayAgain {
+    -fx-background-color: #fdf3e3;
+    -fx-border-color: #8a7a4a;
+    -fx-border-width: 2;
+    -fx-text-fill: #3d2b10;
+    -fx-font-family: "Georgia";
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 6 20 6 20;
+}
+
+.btnPlayAgain:hover {
+    -fx-background-color: #FFD700;
+    -fx-border-color: #b89800;
+}

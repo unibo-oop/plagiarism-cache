@@ -1,0 +1,43 @@
+.gameTable {
+    -fx-background-color: #E2DFD2;
+    -fx-border-color: #8C8471, #8C8471;
+    -fx-border-width: 4, 1;
+    -fx-border-insets: 0, 8;
+    -fx-padding: 20px;
+}
+
+#confScreenTitle {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3d2b10;
+}
+
+#confScreenSubtitle, #peekSubtitle {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 16px;
+    -fx-text-fill: #3d2b10;
+}
+
+#confScreenErrorLbl {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 11px;
+    -fx-text-fill: #a03020;
+    -fx-min-height: 16px;
+}
+
+#confScreenStartBtn, #peekConfirmBtn {
+    -fx-background-color: #3d2b10;
+    -fx-border-color: #c9a84c;
+    -fx-border-width: 2;
+    -fx-text-fill: #c9a84c;
+    -fx-font-family: "Georgia";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 8 24 8 24;
+}
+
+#confScreenStartBtn:hover, #peekConfirmBtn:hover {
+    -fx-background-color: #5a3e18;
+}

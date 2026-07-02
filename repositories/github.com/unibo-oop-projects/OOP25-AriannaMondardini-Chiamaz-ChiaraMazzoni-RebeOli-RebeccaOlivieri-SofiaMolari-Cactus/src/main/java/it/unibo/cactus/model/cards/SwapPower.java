@@ -1,0 +1,33 @@
+package it.unibo.cactus.model.cards;
+
+import it.unibo.cactus.model.cards.target.PowerTarget;
+import it.unibo.cactus.model.cards.target.SwapTarget;
+import it.unibo.cactus.model.players.Player;
+
+/**
+ * Represents the "Swap" special power in the game.
+ * This power allows a player to physically swap a specific card from one player's 
+ * hand with a specific card from another player's hand.
+ */
+public final class SwapPower implements SpecialPower {
+
+   @Override
+    public void activate(final Player activator, final PowerTarget target) {
+        if (!(target instanceof SwapTarget t)) {
+            throw new IllegalArgumentException("SwapPower requires a target of type SwapTarget");
+        }
+        final Card cardA = t.playerA().getHand().getCard(t.indexA());
+        final Card cardB = t.playerB().getHand().getCard(t.indexB());
+        final boolean revealedA = !t.playerA().getHand().isHidden(t.indexA());
+        final boolean revealedB = !t.playerB().getHand().isHidden(t.indexB());
+        t.playerA().getHand().replace(t.indexA(), cardB);
+        t.playerB().getHand().replace(t.indexB(), cardA);
+
+        if (revealedA) {
+            t.playerB().getHand().revealCard(t.indexB());
+        }
+        if (revealedB) {
+            t.playerA().getHand().revealCard(t.indexA());
+        }
+    }
+}
