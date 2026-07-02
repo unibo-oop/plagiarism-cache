@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magazzino.entratamerci.controller.GiacenzaController">
+   <children>
+      <TextField fx:id="txtArticolo" layoutX="82.0" layoutY="20.0" prefHeight="31.0" prefWidth="165.0" />
+      <ComboBox fx:id="cmbArea" layoutX="297.0" layoutY="20.0" onAction="#areaChanged" prefHeight="31.0" prefWidth="165.0" />
+      <Label layoutX="14.0" layoutY="20.0" prefHeight="31.0" prefWidth="68.0" text="Articolo">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="255.0" layoutY="20.0" prefHeight="31.0" prefWidth="42.0" text="Area">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbLocazione" layoutX="562.0" layoutY="20.0" prefHeight="31.0" prefWidth="165.0" />
+      <Label layoutX="468.0" layoutY="20.0" prefHeight="31.0" prefWidth="94.0" text="Locazione">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="751.0" layoutY="20.0" mnemonicParsing="false" onAction="#filterGiacenza" prefHeight="31.0" prefWidth="80.0" text="Cerca" />
+      <TableView fx:id="tableGiacenza" layoutX="5.0" layoutY="94.0" prefHeight="500.0" prefWidth="890.0">
+        <columns>
+          <TableColumn fx:id="articoloColumn" prefWidth="395.0" text="Articolo" />
+          <TableColumn fx:id="posizioneColumn" prefWidth="363.0" text="Posizione" />
+            <TableColumn fx:id="qtaColumn" prefWidth="131.0" text="Quantita" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>

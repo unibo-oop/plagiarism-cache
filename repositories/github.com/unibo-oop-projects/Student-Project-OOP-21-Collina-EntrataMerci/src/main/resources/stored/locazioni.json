@@ -1,0 +1,51 @@
+[
+
+   {
+      "area":{
+         "codice":"A01",
+         "descrizione":"AREA 01"
+      },
+      "codice":"LO01",
+      "descrizione":"Locazione 01"
+   },
+   {
+      "area":{
+         "codice":"A01",
+         "descrizione":"AREA 01"
+      },
+      "codice":"LO02",
+      "descrizione":"Locazione 02"
+   },
+   {
+      "area":{
+         "codice":"A01",
+         "descrizione":"AREA 01"
+      },
+      "codice":"LO03",
+      "descrizione":"Locazione 03"
+   },
+   {
+      "area":{
+         "codice":"A02",
+         "descrizione":"AREA 2"
+      },
+      "codice":"LO AP",
+      "descrizione":"Locazione Appoggio"
+   },
+   {
+      "area":{
+         "codice":"A03",
+         "descrizione":"AREA 3"
+      },
+      "codice":"LO01",
+      "descrizione":"Cella refrigerata"
+   },
+   {
+      "area":{
+         "codice":"A04",
+         "descrizione":"AREA 4"
+      },
+      "codice":"LO01",
+      "descrizione":"Cella refrigerata"
+   }
+]

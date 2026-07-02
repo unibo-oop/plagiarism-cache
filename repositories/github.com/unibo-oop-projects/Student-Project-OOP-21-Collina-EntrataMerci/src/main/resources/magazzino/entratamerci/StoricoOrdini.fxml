@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magazzino.entratamerci.controller.StoricoOrdiniController">
+   <children>
+      <TextField fx:id="filtroArticolo" layoutX="10.0" layoutY="30.0" prefHeight="30.0" prefWidth="280.0" />
+      <Button fx:id="searchBtn" layoutX="300.0" layoutY="30.0" mnemonicParsing="false" onAction="#filterOrder" prefHeight="30.0" prefWidth="100.0" text="Cerca">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tableStorico" layoutX="10.0" layoutY="70.0" prefHeight="520.0" prefWidth="880.0">
+         <columns>
+            <TableColumn fx:id="codiceColumn" prefWidth="110.0" text="Codice" />
+            <TableColumn fx:id="fornitoreColumn" prefWidth="216.0" text="Fornitore" />
+            <TableColumn fx:id="nomeColumn" prefWidth="195.0" text="Nome" />
+            <TableColumn fx:id="dataColumn" minWidth="0.0" prefWidth="205.0" text="Data" />
+            <TableColumn fx:id="numeroPezziColumn" minWidth="0.0" prefWidth="153.0" text="NumeroPezzi" />
+         </columns>
+      </TableView>
+   </children>
+</Pane>
