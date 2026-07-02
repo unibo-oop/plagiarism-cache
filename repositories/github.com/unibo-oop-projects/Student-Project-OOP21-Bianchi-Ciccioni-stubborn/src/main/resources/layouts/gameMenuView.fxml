@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox 
+	xmlns="http://javafx.com/javafx" 
+	xmlns:fx="http://javafx.com/fxml"
+	fx:controller="controllers.menuUIController">
+
+  <children>
+    <Label fx:id="lblTitle"
+    	alignment="TOP_CENTER"
+    	text="Stubborn" />
+
+    <Button fx:id="btnPlay"
+    	alignment="BOTTOM_LEFT"
+    	text="New Game"
+    	onMouseClicked="#btnPlayOnClickHandler" />
+    
+    <Button fx:id="btnScore"
+    	alignment="BOTTOM_RIGHT"
+    	text="Scoreboard"
+    	onMouseClicked="#btnScoreOnClickHandler" />
+  </children>
+</VBox >

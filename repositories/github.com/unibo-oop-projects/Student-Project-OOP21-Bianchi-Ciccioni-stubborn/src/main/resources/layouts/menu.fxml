@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.menuUIController">
+   <children>
+      <Button fx:id="playButton" layoutX="204.0" layoutY="98.0" mnemonicParsing="false" onAction="#newGame" prefHeight="25.0" prefWidth="195.0" text="Play" />
+      <Button fx:id="scoreButton" layoutX="204.0" layoutY="188.0" mnemonicParsing="false" onAction="#viewScores" prefHeight="25.0" prefWidth="195.0" text="Scores" />
+      <Button fx:id="exitButton" layoutX="204.0" layoutY="281.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="195.0" text="Exit" />
+   </children>
+</Pane>

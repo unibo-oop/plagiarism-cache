@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox 
+	xmlns="http://javafx.com/javafx" 
+	xmlns:fx="http://javafx.com/fxml"
+	fx:controller="controllers.backgroundsUIController">
+
+  <children>
+    <Label fx:id="lblTimer"
+    	alignment="TOP_LEFT"
+    	text="" />
+    <Label fx:id="lblScore"
+    	alignment="TOP_CENTER"
+    	text="" />
+    <Label fx:id="lblLife"
+    	alignment="BOTTOM_LEFT"
+    	text="" />
+  </children>
+</VBox >
