@@ -1,0 +1,50 @@
+[
+    {
+      "id": "powerups/maxhealth",
+      "name": "Health",
+      "description": "Increase character max health",
+      "price": 25,
+      "maxLevel": 5,
+      "statToModify": "MAX_HEALTH"
+    },
+    {
+      "id": "powerups/armor",
+      "name": "Armor",
+      "description": "Decrease damage taken",
+      "price": 10,
+      "maxLevel": 5,
+      "statToModify": "ARMOR"
+    },
+    {
+      "id": "powerups/speed",
+      "name": "Projectile Speed",
+      "description": "Increase projectile movement speed",
+      "price": 15,
+      "maxLevel": 5,
+      "statToModify": "SPEED"
+    },
+    {
+      "id": "powerups/movespeed",
+      "name": "Movement Speed",
+      "description": "Increase character movement speed",
+      "price": 15,
+      "maxLevel": 3,
+      "statToModify": "MOVE_SPEED"
+    },
+    {
+      "id": "powerups/might",
+      "name": "Might",
+      "description": "Increase character damage",
+      "price": 20,
+      "maxLevel": 5,
+      "statToModify": "MIGHT"
+    },
+    {
+      "id": "powerups/cooldown",
+      "name": "Cooldown",
+      "description": "Decrease time between the shots",
+      "price": 20,
+      "maxLevel": 3,
+      "statToModify": "COOLDOWN"
+    }
+  ]

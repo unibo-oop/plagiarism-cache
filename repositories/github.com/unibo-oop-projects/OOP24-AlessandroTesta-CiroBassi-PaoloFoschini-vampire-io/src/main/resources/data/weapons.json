@@ -1,0 +1,30 @@
+[
+  {
+    "id": "weapons/garlic",
+    "name": "Garlic",
+    "description": "Default Poe'Ratcho's weapon.",
+    "defaultCooldown": 1000.0,
+    "defaultAttacksPerCooldown": 1
+  },
+  {
+    "id": "weapons/magicWand",
+    "name": "Magic Wand",
+    "description": "Default Imelda Belpaese's weapon.",
+    "defaultCooldown": 1000.0,
+    "defaultAttacksPerCooldown": 1
+  },
+  {
+    "id": "weapons/santaWater",
+    "name": "Santa Water",
+    "description": "Default Suor Clerici's weapon.",
+    "defaultCooldown": 1000.0,
+    "defaultAttacksPerCooldown": 1
+  },
+  {
+    "id": "weapons/knife",
+    "name": "Knife",
+    "description": "Default Gennaro Belpaese's weapon.",
+    "defaultCooldown": 1000.0,
+    "defaultAttacksPerCooldown": 1
+  }
+]

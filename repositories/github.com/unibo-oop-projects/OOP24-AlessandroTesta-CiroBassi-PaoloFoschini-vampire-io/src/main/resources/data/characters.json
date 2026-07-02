@@ -1,0 +1,82 @@
+[
+  {
+    "characterStats": {
+      "statsMap": {
+        "MAX_HEALTH": 600.0,
+        "ARMOR": 1.0,
+        "SPEED": 1.0,
+        "MOVE_SPEED": 1.0,
+        "MIGHT": 1.0,
+        "COOLDOWN": 1.0
+      }
+    },
+    "id": "characters/poe",
+    "name": "Poe'Ratcho",
+    "description": "Grim old man, friend to death and rot.",
+    "price": 200,
+    "currentLevel": 0,
+    "maxLevel": 0,
+    "radius": 32.0,
+    "defaultWeapon": "weapons/garlic"
+  },
+  {
+    "characterStats": {
+      "statsMap": {
+        "MAX_HEALTH": 900.0,
+        "ARMOR": 1.0,
+        "SPEED": 1.0,
+        "MOVE_SPEED": 1.0,
+        "MIGHT": 1.0,
+        "COOLDOWN": 1.2
+      }
+    },
+    "id": "characters/imelda",
+    "name": "Imelda Belpaese",
+    "description": "Wise witch, unleashes arcane magic with deadly grace",
+    "price": 400,
+    "currentLevel": 0,
+    "maxLevel": 0,
+    "radius": 32.0,
+    "defaultWeapon": "weapons/magicWand"
+  },
+  {
+    "characterStats": {
+      "statsMap": {
+        "MAX_HEALTH": 1300.0,
+        "ARMOR": 1.0,
+        "SPEED": 1.0,
+        "MOVE_SPEED": 1.2,
+        "MIGHT": 1.0,
+        "COOLDOWN": 1.0
+      }
+    },
+    "id": "characters/clerici",
+    "name": "Suor Clerici",
+    "description": "Warrior nun, brings light… and destruction",
+    "price": 100,
+    "currentLevel": 0,
+    "maxLevel": 0,
+    "radius": 32.0,
+    "defaultWeapon": "weapons/santaWater"
+  },
+  {
+    "characterStats": {
+      "statsMap": {
+        "MAX_HEALTH": 1100.0,
+        "ARMOR": 1.3,
+        "SPEED": 1.1,
+        "MOVE_SPEED": 1.0,
+        "MIGHT": 1.0,
+        "COOLDOWN": 1.0
+      }
+    },
+    "id": "characters/gennaro",
+    "name": "Gennaro Belpaese",
+    "description": "Street-born fighter, hurls knives with deadly precision.",
+    "price": 0,
+    "currentLevel": 0,
+    "maxLevel": 0,
+    "radius": 32.0,
+    "defaultWeapon": "weapons/knife"
+  }
+]
