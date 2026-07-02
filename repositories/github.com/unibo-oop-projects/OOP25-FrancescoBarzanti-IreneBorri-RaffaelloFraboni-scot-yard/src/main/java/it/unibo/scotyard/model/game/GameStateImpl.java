@@ -1,0 +1,460 @@
+package it.unibo.scotyard.model.game;
+
+import it.unibo.scotyard.commons.patterns.MagicNumbers;
+import it.unibo.scotyard.commons.patterns.ViewConstants;
+import it.unibo.scotyard.model.Pair;
+import it.unibo.scotyard.model.entities.ExposedPosition;
+import it.unibo.scotyard.model.entities.MoveAction;
+import it.unibo.scotyard.model.entities.RunnerTurnTrackerImpl;
+import it.unibo.scotyard.model.game.turn.TurnState;
+import it.unibo.scotyard.model.game.turn.TurnStateImpl;
+import it.unibo.scotyard.model.inventory.Inventory;
+import it.unibo.scotyard.model.map.MapConnection;
+import it.unibo.scotyard.model.map.MapData;
+import it.unibo.scotyard.model.map.NodeId;
+import it.unibo.scotyard.model.map.TransportType;
+import it.unibo.scotyard.model.players.Bobby;
+import it.unibo.scotyard.model.players.Player;
+import it.unibo.scotyard.model.players.TicketType;
+import java.util.*;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
+/**
+ * The game state.
+ *
+ */
+public final class GameStateImpl implements GameState {
+
+    private final Random random;
+    private final List<GameStateSubscriber> subscribers = new ArrayList<>();
+    private GameStatus gameStatus;
+    private final GameMode gameMode;
+    private final GameDifficulty gameDifficulty;
+
+    private final List<ExposedPosition> exposedPositions;
+
+    /**
+     * It is used to keep track of the current player in the turn order.
+     */
+    private int indexCurrentPlayer;
+
+    private final Players players;
+
+    // They refer to the current player
+    private final Set<Pair<NodeId, TransportType>> possibleDestinations;
+    private final List<TransportType> availableTransports;
+
+    private TurnState turnState;
+    private final RunnerTurnTrackerImpl runnerTurnTracker;
+    private boolean runnerExposed;
+
+    private final long gameStartTime;
+    private long gameEndTime;
+    private long gameDuration;
+
+    private int round = 1;
+
+    private boolean hasWon;
+    private String resultGameString;
+
+    /**
+     * Creates a new game state.
+     *
+     * @param random   the seeded random instance used the active match
+     * @param gameMode the game mode
+     * @param players  the involved players
+     */
+    public GameStateImpl(
+            final Random random, final GameMode gameMode, final Players players, final GameDifficulty gameDifficulty) {
+        this.random = random;
+        this.gameMode = gameMode;
+        this.players = players;
+        this.gameDifficulty = gameDifficulty;
+        this.availableTransports = new ArrayList<>();
+        this.possibleDestinations = new HashSet<>();
+        this.runnerTurnTracker = new RunnerTurnTrackerImpl();
+        this.gameStatus = GameStatus.PLAYING;
+        this.gameStartTime = System.currentTimeMillis();
+        this.gameEndTime = 0;
+        this.gameDuration = 0;
+        this.hasWon = false;
+        this.resultGameString = "";
+        this.exposedPositions = new ArrayList<>();
+    }
+
+    @Override
+    public Random getSeededRandom() {
+        return random;
+    }
+
+    @Override
+    public boolean isGameOver() {
+        final NodeId runnerPosition = this.players.getMisterX().getPosition();
+        final boolean found =
+                this.players.getSeekers().anyMatch(it -> it.getPosition().equals(runnerPosition));
+        boolean isOver = false;
+
+        if (GameMode.DETECTIVE == this.gameMode) {
+            isOver = this.possibleDestinations.isEmpty();
+        } else {
+            if (this.getCurrentPlayer() != this.players.getMisterX()) {
+                isOver = this.possibleDestinations.isEmpty();
+            }
+        }
+
+        if (found || this.round > MagicNumbers.FINAL_ROUND_COUNT) {
+            isOver = true;
+        }
+
+        if (isOver) {
+            this.setGameStatus(GameStatus.PAUSE);
+        }
+        return isOver;
+    }
+
+    private void computeResultGame() {
+        final String victoryString = ViewConstants.WINNER_TEXT;
+        final String lossString = ViewConstants.LOSER_TEXT;
+
+        final NodeId runnerPosition = this.players.getMisterX().getPosition();
+        final boolean found =
+                this.players.getSeekers().anyMatch(it -> it.getPosition().equals(runnerPosition));
+
+        if (found) {
+            if (this.gameMode == GameMode.MISTER_X) {
+                this.resultGameString = lossString + ViewConstants.CAPTURED_MISTER_X_MODE_TEXT;
+            } else {
+                this.resultGameString = victoryString + ViewConstants.CAPTURED_DETECTIVE_MODE_TEXT;
+            }
+        } else {
+            if (this.possibleDestinations.isEmpty()) {
+                if (GameMode.DETECTIVE == this.gameMode) {
+                    this.resultGameString = lossString + ViewConstants.NO_MORE_TICKETS_AVAILABLE_TEXT;
+                } else {
+                    if (this.getCurrentPlayer().equals(this.players.getMisterX())) {
+                        this.resultGameString = lossString + ViewConstants.NO_MORE_MOVES_TEXT;
+                    } else {
+                        this.resultGameString = victoryString + ViewConstants.NO_MORE_TICKETS_AI_TEXT;
+                    }
+                }
+            } else {
+                if (this.round >= MagicNumbers.FINAL_ROUND_COUNT) {
+                    if (this.gameMode == GameMode.MISTER_X) {
+                        this.resultGameString = victoryString + ViewConstants.ESCAPED_MISTER_X_MODE_TEXT;
+                    } else {
+                        this.resultGameString = lossString + ViewConstants.ESCAPED_DETECTIVE_MODE_TEXT;
+                    }
+                }
+            }
+        }
+
+        this.hasWon = this.resultGameString.contains(ViewConstants.WINNER_TEXT);
+    }
+
+    @Override
+    public boolean hasUserWon() {
+        this.computeResultGame();
+        return this.hasWon;
+    }
+
+    @Override
+    public String getResultGameString() {
+        this.computeResultGame();
+        return this.resultGameString;
+    }
+
+    @Override
+    public Set<Pair<NodeId, TransportType>> loadPossibleDestinations(
+            final Set<Pair<NodeId, TransportType>> inputPossibleDestinations) {
+        this.possibleDestinations.clear();
+
+        /*
+         * Updating the variable possibleDestinations with the possible destinations
+         * given as input,
+         * with the removal of destinations in which other players are present :
+         * - Mister X can't go where the detective and bobbies are
+         * - Detective can't go where other bobbies are
+         * - Bobbies can't go where detective is
+         */
+        for (final Pair<NodeId, TransportType> destination : inputPossibleDestinations) {
+            final NodeId pos = destination.getX();
+            final TransportType transport = destination.getY();
+            this.possibleDestinations.add(destination);
+            /* Mister X can't go where detective is. */
+            if (this.gameMode == GameMode.MISTER_X
+                    && this.getCurrentPlayer().equals(this.players.getUserPlayer())
+                    && pos.equals(this.players.getComputerPlayer().getPosition())) {
+                this.possibleDestinations.remove(destination);
+            }
+            /* Mister X can't go where detective is. */
+            if (this.gameMode == GameMode.DETECTIVE
+                    && this.getCurrentPlayer().equals(this.players.getComputerPlayer())
+                    && pos.equals(this.players.getUserPlayer().getPosition())) {
+                this.possibleDestinations.remove(destination);
+            }
+            /*
+             * No player can go where other bobbies are.
+             * Bobbies can't go where detective is.
+             */
+            for (final Player bobby : this.players.getBobbies()) {
+                if (bobby.getPosition().equals(pos)
+                        || (this.gameMode == GameMode.DETECTIVE
+                                && this.getCurrentPlayer().equals(bobby)
+                                && pos.equals(this.players.getUserPlayer().getPosition()))) {
+                    this.possibleDestinations.remove(destination);
+                }
+            }
+            // Removal of destinations that can be reached by ferry, if player isn't Mister
+            // X
+            if ((GameMode.DETECTIVE.equals(this.gameMode)
+                            && this.getCurrentPlayer() != this.players.getComputerPlayer())
+                    || (GameMode.MISTER_X.equals(this.gameMode)
+                            && this.getCurrentPlayer() != this.players.getUserPlayer())) {
+                this.possibleDestinations.removeIf(item -> TransportType.FERRY == item.getY());
+            }
+            // Removal of destinations for which current player has no tickets
+            if (this.getCurrentPlayer().getNumberTickets(Inventory.getTicketTypeForTransport(transport)) == 0) {
+                this.possibleDestinations.remove(destination);
+            }
+        }
+
+        return this.possibleDestinations;
+    }
+
+    @Override
+    public Set<Pair<NodeId, TransportType>> getPossibleDestinations() {
+        return this.possibleDestinations;
+    }
+
+    @Override
+    public boolean isRoundLastTurn() {
+        return indexCurrentPlayer == players.getPlayersCount() - 1;
+    }
+
+    @Override
+    public void changeCurrentPlayer() {
+        indexCurrentPlayer = (indexCurrentPlayer + 1) % players.getPlayersCount();
+    }
+
+    private void loadAvailableTransports(final NodeId destinationId) {
+        this.availableTransports.clear();
+        for (final Pair<NodeId, TransportType> item : this.possibleDestinations) {
+            if (item.getX().equals(destinationId)) {
+                this.availableTransports.add(item.getY());
+            }
+        }
+    }
+
+    @Override
+    public boolean areMultipleTransportsAvailable(final NodeId destinationId) {
+        this.loadAvailableTransports(destinationId);
+        return this.availableTransports.size() > 1;
+    }
+
+    @Override
+    public List<TransportType> getAvailableTransports(NodeId destinationId) {
+        return this.availableTransports;
+    }
+
+    @Override
+    public boolean isMovableCurrentPlayer(final NodeId destinationId, final TransportType transport) {
+        return this.possibleDestinations.contains(new Pair<>(destinationId, transport));
+    }
+
+    @Override
+    public void moveCurrentPlayer(final NodeId destinationId, final TransportType transport) {
+        this.getCurrentPlayer().setPosition(destinationId);
+        this.getCurrentPlayer().useTicket(Inventory.getTicketTypeForTransport(transport));
+    }
+
+    @Override
+    public void nextRound() {
+        indexCurrentPlayer = 0;
+        round++;
+    }
+
+    @Override
+    public NodeId getLastRevealedMisterXPosition() {
+        if (this.exposedPositions.isEmpty()) {
+            return new NodeId(MagicNumbers.NOT_REVEALED_YET);
+        }
+
+        return this.exposedPositions.getLast().position();
+    }
+
+    @Override
+    public GameMode getGameMode() {
+        return this.gameMode;
+    }
+
+    @Override
+    public GameDifficulty getGameDifficulty() {
+        return this.gameDifficulty;
+    }
+
+    @Override
+    public int getNumberTicketsUserPlayer(final TicketType ticketType) {
+        return this.getNumberTickets(this.players.getUserPlayer(), ticketType);
+    }
+
+    private int getNumberTickets(final Player player, final TicketType ticketType) {
+        return player.getNumberTickets(ticketType);
+    }
+
+    @Override
+    public int getGameRound() {
+        return this.round;
+    }
+
+    @Override
+    public Player getCurrentPlayer() {
+        return this.players.getTurnOrder().get(indexCurrentPlayer);
+    }
+
+    @Override
+    public Players getPlayers() {
+        return players;
+    }
+
+    @Override
+    public NodeId getPositionPlayer(final Player player) {
+        return player.getPosition();
+    }
+
+    @Override
+    public Player getUserPlayer() {
+        return this.players.getUserPlayer();
+    }
+
+    @Override
+    public Player getComputerPlayer() {
+        return this.players.getComputerPlayer();
+    }
+
+    @Override
+    public int getNumberOfPlayers() {
+        return this.players.getPlayersCount();
+    }
+
+    @Override
+    public GameStatus getGameStatus() {
+        return this.gameStatus;
+    }
+
+    @Override
+    public void setGameStatus(final GameStatus state) {
+        if (this.gameStatus == GameStatus.PLAYING && state == GameStatus.PAUSE) {
+            this.gameEndTime = System.currentTimeMillis();
+            this.gameDuration = this.gameEndTime - this.gameStartTime;
+        }
+        this.gameStatus = state;
+    }
+
+    @Override
+    public List<Bobby> getBobbies() {
+        return this.players.getBobbies();
+    }
+
+    @Override
+    public Player getDetective() {
+        return this.players.getDetective();
+    }
+
+    @Override
+    public void resetTurn() {
+        final Player player = getCurrentPlayer();
+        this.turnState = new TurnStateImpl(player.getPosition());
+    }
+
+    @Override
+    public TurnState getTurnState() {
+        return this.turnState;
+    }
+
+    @Override
+    public RunnerTurnTrackerImpl getRunnerTurnTracker() {
+        return runnerTurnTracker;
+    }
+
+    @Override
+    public List<MoveAction> computeValidMoves(
+            final MapData mapData, final Player player, final List<NodeId> excludedNodes) {
+        final NodeId startingPosition = player.getPosition();
+        final List<MapConnection> connections = mapData.getConnectionsFrom(startingPosition);
+        final Set<NodeId> invalidPositions =
+                players.getSeekers().map(Player::getPosition).collect(Collectors.toUnmodifiableSet());
+
+        return connections.stream()
+                .filter(it -> !invalidPositions.contains(it.getTo())
+                        && !excludedNodes.contains(it.getTo())
+                        && player.getInventory().containsTicket(Inventory.getTicketTypeForTransport(it.getTransport())))
+                .map(it -> new MoveAction(it.getTo(), it.getTransport()))
+                .toList();
+    }
+
+    @Override
+    public void exposeRunnerPosition() {
+        final NodeId position = players.getMisterX().getPosition();
+        final ExposedPosition exposed = new ExposedPosition(position, round);
+        exposedPositions.add(exposed);
+        runnerExposed = true;
+        notifySubscribers(it -> it.onExposedPosition(exposed));
+    }
+
+    @Override
+    public void concealRunnerPosition() {
+        runnerExposed = false;
+        notifySubscribers(GameStateSubscriber::onConcealRunner);
+    }
+
+    @Override
+    public boolean isRunnerExposed() {
+        return runnerExposed;
+    }
+
+    @Override
+    public int maxRoundCount() {
+        return MagicNumbers.FINAL_ROUND_COUNT;
+    }
+
+    @Override
+    public void subscribe(final GameStateSubscriber subscriber) {
+        subscribers.add(subscriber);
+    }
+
+    @Override
+    public void notifySubscribers(final Consumer<GameStateSubscriber> action) {
+        for (final GameStateSubscriber subscriber : subscribers) {
+            action.accept(subscriber);
+        }
+    }
+
+    @Override
+    public long getGameStartTime() {
+        return gameStartTime;
+    }
+
+    @Override
+    public long getGameEndTime() {
+        return gameEndTime;
+    }
+
+    @Override
+    public long getGameDuration() {
+        return gameDuration;
+    }
+
+    @Override
+    public String getFormattedDuration() {
+        if (gameDuration == 0) {
+            return "00:00:00";
+        }
+        final long seconds = gameDuration / 1000;
+        final long hours = seconds / 3600;
+        final long minutes = seconds % 3600 / 60;
+        final long secs = seconds % 60;
+
+        return String.format("%02d:%02d:%02d", hours, minutes, secs);
+    }
+}

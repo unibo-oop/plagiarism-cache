@@ -1,0 +1,145 @@
+package it.unibo.scotyard.model;
+
+import it.unibo.scotyard.model.game.GameState;
+import it.unibo.scotyard.model.game.matchhistory.InMemoryMatchHistoryRepository;
+import it.unibo.scotyard.model.game.matchhistory.JsonMatchHistoryRepository;
+import it.unibo.scotyard.model.game.matchhistory.MatchHistoryRepository;
+import it.unibo.scotyard.model.map.MapConnection;
+import it.unibo.scotyard.model.map.MapData;
+import it.unibo.scotyard.model.map.MapReader;
+import it.unibo.scotyard.model.map.NodeId;
+import it.unibo.scotyard.model.map.TransportType;
+import it.unibo.scotyard.model.router.CommandDispatcher;
+import it.unibo.scotyard.model.router.CommandRouter;
+import it.unibo.scotyard.model.service.GameStateService;
+import it.unibo.scotyard.model.service.RoundService;
+import it.unibo.scotyard.model.service.TurnService;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/** model. Manages map data loading and game state. */
+public final class ModelImpl implements Model {
+
+    private static final Logger LOGGER = Logger.getLogger(ModelImpl.class.getName());
+    private final CommandDispatcher dispatcher;
+    private final MatchHistoryRepository matchHistoryRepository;
+    private MapData mapData;
+    private GameState gameState;
+    private Random random;
+    private boolean initialized;
+
+    /**
+     * The model layer state.
+     *
+     * @param dispatcher the command dispatcher
+     */
+    public ModelImpl(final CommandDispatcher dispatcher) {
+        this.dispatcher = dispatcher;
+        this.matchHistoryRepository = createMatchHistoryRepository();
+    }
+
+    @Override
+    public void initialize(final String gameMode, final String levelDifficulty) {
+        try {
+            final MapReader mapReader = new MapReader();
+            this.mapData = mapReader.loadDefaultMap();
+            this.random = new Random(System.currentTimeMillis());
+            this.initialized = true;
+        } catch (final MapReader.MapLoadException e) {
+            LOGGER.log(Level.SEVERE, "Errore caricamento mappa: " + e.getMessage());
+            throw new IllegalStateException("Impossibile inizializzare il modello", e);
+        }
+    }
+
+    @Override
+    public Random getSeededRandom() {
+        return random;
+    }
+
+    @Override
+    public MapData getMapData() {
+        if (!this.initialized || this.mapData == null) {
+            throw new IllegalStateException("Modello non inizializzato. Chiamare initialize() prima.");
+        }
+        return this.mapData;
+    }
+
+    @Override
+    public void setGameState(final GameState gameState) {
+        this.gameState = gameState;
+    }
+
+    @Override
+    public GameState getGameState() {
+        if (!this.initialized || this.mapData == null) {
+            throw new IllegalStateException("Modello non inizializzato. Chiamare initialize() prima.");
+        }
+        return this.gameState;
+    }
+
+    @Override
+    public CommandDispatcher getDispatcher() {
+        return dispatcher;
+    }
+
+    /**
+     * Creates the {@code Model} with the default command listeners.
+     *
+     * @return the model instance
+     */
+    public static Model createDefault() {
+        final CommandRouter store = new CommandRouter();
+        final Model model = new ModelImpl(store);
+
+        final GameStateService gameStateService = new GameStateService(model);
+        gameStateService.register(store);
+
+        final RoundService roundService = new RoundService(model);
+        roundService.register(store);
+
+        final TurnService turnService = new TurnService(model);
+        turnService.register(store);
+
+        return model;
+    }
+
+    @Override
+    public List<NodeId> getInitialPositions() {
+        return this.mapData.getInitialPositions();
+    }
+
+    @Override
+    public List<Pair<NodeId, TransportType>> getPossibleDestinations(final NodeId idStartPosition) {
+        final List<Pair<NodeId, TransportType>> resultList = new ArrayList<>();
+        final List<MapConnection> connections = this.getMapData().getConnectionsFrom(idStartPosition);
+        for (final MapConnection connection : connections) {
+            resultList.add(new Pair<>(connection.getTo(), connection.getTransport()));
+        }
+
+        return resultList;
+    }
+
+    @Override
+    public MatchHistoryRepository getMatchHistoryRepository() {
+        return matchHistoryRepository;
+    }
+
+    /**
+     * Creates the JsonMatchHistoryRepository and falls back to the InMemory version if it fails.
+     *
+     * @return a MatchHistoryRepository
+     */
+    private static MatchHistoryRepository createMatchHistoryRepository() {
+        try {
+            return JsonMatchHistoryRepository.initialize();
+        } catch (IOException e) {
+            // Since this is not critical for the game functionalities
+            // we fall back to an in-memory version and fail quietly
+            return new InMemoryMatchHistoryRepository();
+        }
+    }
+}

@@ -1,0 +1,115 @@
+package it.unibo.scotyard.view.menu;
+
+import it.unibo.scotyard.commons.patterns.MagicNumbers;
+import it.unibo.scotyard.commons.patterns.ScotColors;
+import it.unibo.scotyard.commons.patterns.ScotFont;
+import it.unibo.scotyard.commons.patterns.ViewConstants;
+import it.unibo.scotyard.controller.menu.MainMenuController;
+import java.awt.*;
+import java.util.Objects;
+import javax.swing.*;
+
+/**
+ * The main menu view.
+ */
+public final class MainMenuViewImpl implements MainMenuView {
+
+    private final MainMenuController controller;
+    private final JPanel mainPanel;
+    private final JPanel menuPanel; // Panel originale del menu
+
+    /**
+     * Creates the main menu view.
+     *
+     * @param controller the main menu controller
+     * @throws NullPointerException if any parameter is null
+     */
+    public MainMenuViewImpl(final MainMenuController controller) {
+        this.controller = Objects.requireNonNull(controller, "Controller cannot be null");
+
+        this.mainPanel = new JPanel(new BorderLayout());
+        this.menuPanel = createMenuPanel();
+        buildUI();
+        this.mainPanel.add(this.menuPanel, BorderLayout.CENTER);
+    }
+
+    @Override
+    public void close() {
+        this.controller.exit();
+    }
+
+    // UI components
+    private void buildUI() {
+        menuPanel.add(Box.createVerticalGlue());
+        menuPanel.add(createTitleLabel());
+        menuPanel.add(Box.createVerticalStrut(MagicNumbers.GAP_40));
+        menuPanel.add(createNewGameButton());
+        menuPanel.add(Box.createVerticalStrut(MagicNumbers.GAP_20));
+        menuPanel.add(createStatisticsButton());
+        menuPanel.add(Box.createVerticalStrut(MagicNumbers.GAP_20));
+        menuPanel.add(createExitButton());
+        menuPanel.add(Box.createVerticalStrut(MagicNumbers.GAP_20));
+        menuPanel.add(Box.createVerticalGlue());
+    }
+
+    // Menu panel
+    private JPanel createMenuPanel() {
+        final JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBackground(ScotColors.BACKGROUND_COLOR);
+        return panel;
+    }
+
+    @Override
+    public JPanel getMainPanel() {
+        return this.mainPanel;
+    }
+
+    // Title label
+    private JLabel createTitleLabel() {
+        final JLabel label = new JLabel(ViewConstants.SCOTLAND_YARD);
+        label.setFont(ScotFont.TITLE_FONT_36);
+        label.setForeground(ScotColors.ACCENT_COLOR);
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        return label;
+    }
+
+    // New game button
+    private JButton createNewGameButton() {
+        final JButton button = new JButton(ViewConstants.NEW_GAME_TEXT);
+        button.setFont(ScotFont.TEXT_FONT_20);
+        button.setBackground(ScotColors.ACCENT_COLOR);
+        button.setForeground(ScotColors.BACKGROUND_COLOR);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.addActionListener(e -> {
+            this.controller.newGameMenu();
+        });
+        return button;
+    }
+
+    // Statistics button
+    private JButton createStatisticsButton() {
+        final JButton button = new JButton(ViewConstants.STATISTICS_TEXT);
+        button.setFont(ScotFont.TEXT_FONT_20);
+        button.setBackground(ScotColors.ACCENT_COLOR);
+        button.setForeground(ScotColors.BACKGROUND_COLOR);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.addActionListener(e -> {
+            this.controller.showStatistics();
+        });
+        return button;
+    }
+
+    // Exit button
+    private JButton createExitButton() {
+        final JButton button = new JButton(ViewConstants.EXIT_TEXT);
+        button.setFont(ScotFont.TEXT_FONT_20);
+        button.setBackground(ScotColors.ACCENT_COLOR);
+        button.setForeground(ScotColors.BACKGROUND_COLOR);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.addActionListener(e -> {
+            close();
+        });
+        return button;
+    }
+}

@@ -1,0 +1,63 @@
+package it.unibo.scotyard.model.service;
+
+import it.unibo.scotyard.model.Model;
+import it.unibo.scotyard.model.command.game.GameOverCommand;
+import it.unibo.scotyard.model.command.round.EndRoundCommand;
+import it.unibo.scotyard.model.command.round.StartRoundCommand;
+import it.unibo.scotyard.model.command.turn.StartTurnCommand;
+import it.unibo.scotyard.model.game.GameState;
+import it.unibo.scotyard.model.game.GameStateSubscriber;
+import it.unibo.scotyard.model.router.CommandDispatcher;
+import it.unibo.scotyard.model.router.CommandHandlerStore;
+import java.util.Objects;
+
+public class RoundService implements Service {
+    private final Model model;
+
+    public RoundService(final Model model) {
+        this.model = Objects.requireNonNull(model, "model cannot be null");
+    }
+
+    /**
+     * Handles the {@code StartRoundCommand}.
+     *
+     * @param command a start round command.
+     */
+    public void handleStartRound(final StartRoundCommand command) {
+        final CommandDispatcher dispatcher = model.getDispatcher();
+        final GameState gameState = model.getGameState();
+        gameState.notifySubscribers(GameStateSubscriber::onRoundStart);
+
+        dispatcher.dispatch(new StartTurnCommand());
+    }
+
+    /**
+     * Handles the {@code EndRoundCommand}.
+     *
+     * @param command a end round command.
+     */
+    public void handleEndRound(final EndRoundCommand command) {
+        final CommandDispatcher dispatcher = model.getDispatcher();
+        final GameState gameState = model.getGameState();
+
+        if (gameState.isRunnerExposed()) {
+            gameState.concealRunnerPosition();
+        }
+
+        gameState.notifySubscribers(GameStateSubscriber::onRoundEnd);
+
+        gameState.nextRound();
+
+        if (gameState.isGameOver()) {
+            dispatcher.dispatch(new GameOverCommand());
+        } else {
+            dispatcher.dispatch(new StartRoundCommand());
+        }
+    }
+
+    @Override
+    public void register(final CommandHandlerStore store) {
+        store.register(StartRoundCommand.class, this::handleStartRound);
+        store.register(EndRoundCommand.class, this::handleEndRound);
+    }
+}

@@ -1,0 +1,140 @@
+package it.unibo.scotyard.model.service;
+
+import it.unibo.scotyard.model.Model;
+import it.unibo.scotyard.model.ai.RunnerBrain;
+import it.unibo.scotyard.model.ai.SeekerBrain;
+import it.unibo.scotyard.model.command.game.GameOverCommand;
+import it.unibo.scotyard.model.command.game.InitializeGameCommand;
+import it.unibo.scotyard.model.game.*;
+import it.unibo.scotyard.model.map.NodeId;
+import it.unibo.scotyard.model.players.Bobby;
+import it.unibo.scotyard.model.players.Detective;
+import it.unibo.scotyard.model.players.MisterX;
+import it.unibo.scotyard.model.router.CommandHandlerStore;
+import java.io.IOException;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+/**
+ * The service responsible for handling the commands regarding changes in the
+ * game state.
+ *
+ */
+public class GameStateService implements Service {
+    private final Model model;
+
+    /**
+     * Creates a new GameState service.
+     *
+     * @param model the model
+     */
+    public GameStateService(final Model model) {
+        this.model = model;
+    }
+
+    /**
+     * Handles the {@code InitializeGameCommand}.
+     *
+     * @param command an initialize game command.
+     */
+    public void handleInitialize(final InitializeGameCommand command) {
+        final Random random = new Random(command.seed());
+        final List<NodeId> initialPositions = model.getMapData().getInitialPositions();
+        final Iterator<NodeId> shuffledInitialPositions =
+                shuffleInitialPositions(random, initialPositions).iterator();
+        final int additionalPlayers = getAdditionalSeekersCount(command.gameMode(), command.difficulty());
+
+        final MisterX misterX = createMisterX(command.gameMode(), shuffledInitialPositions.next());
+        final Detective detective = createDetective(command.gameMode(), shuffledInitialPositions.next());
+
+        final List<Bobby> bobbies = Stream.generate(shuffledInitialPositions::next)
+                .limit(additionalPlayers)
+                .map(position -> createBobby(command.gameMode(), position))
+                .collect(Collectors.toList());
+
+        for (int i = 0; i < bobbies.size(); i++) {
+            final Bobby bobby = bobbies.get(i);
+            bobby.setName("Bobby" + (i + 1));
+        }
+
+        final Players players = new Players(command.gameMode(), misterX, detective, bobbies);
+
+        final GameStateImpl gameState = new GameStateImpl(random, command.gameMode(), players, command.difficulty());
+        this.model.setGameState(gameState);
+    }
+
+    /**
+     * Handles the {@code GameOverCommand}.
+     *
+     * @param command a game over command.
+     */
+    public void handleGameOver(final GameOverCommand command) {
+        final GameState gameState = model.getGameState();
+
+        gameState.notifySubscribers(GameStateSubscriber::onGameOver);
+
+        try {
+            this.model.getMatchHistoryRepository().trackOutcome(gameState.getGameMode(), gameState.hasUserWon());
+        } catch (final IOException e) {
+            // If we fail to update the match history we fail quietly
+        }
+    }
+
+    @Override
+    public void register(final CommandHandlerStore store) {
+        store.register(InitializeGameCommand.class, this::handleInitialize);
+        store.register(GameOverCommand.class, this::handleGameOver);
+    }
+
+    private MisterX createMisterX(final GameMode gameMode, final NodeId initialPosition) {
+        return switch (gameMode) {
+            case GameMode.DETECTIVE -> {
+                final RunnerBrain runnerBrain = new RunnerBrain(model.getMapData());
+                yield new MisterX(initialPosition, runnerBrain);
+            }
+            case GameMode.MISTER_X -> new MisterX(initialPosition);
+        };
+    }
+
+    private Detective createDetective(final GameMode gameMode, final NodeId initialPosition) {
+        return switch (gameMode) {
+            case GameMode.DETECTIVE -> new Detective(initialPosition);
+            case GameMode.MISTER_X -> {
+                final SeekerBrain detectiveBrain = new SeekerBrain(this.model.getSeededRandom());
+                yield new Detective(initialPosition, detectiveBrain);
+            }
+        };
+    }
+
+    private Bobby createBobby(final GameMode gameMode, final NodeId initialPosition) {
+        return switch (gameMode) {
+            case GameMode.DETECTIVE -> new Bobby(initialPosition);
+            case GameMode.MISTER_X -> {
+                final SeekerBrain bobbyBrain = new SeekerBrain(this.model.getSeededRandom());
+                yield new Bobby(initialPosition, bobbyBrain);
+            }
+        };
+    }
+
+    private List<NodeId> shuffleInitialPositions(final Random random, final List<NodeId> initialPositions) {
+        final List<NodeId> copy = new ArrayList<>(initialPositions);
+        Collections.shuffle(copy, random);
+        return copy;
+    }
+
+    private int getAdditionalSeekersCount(final GameMode gameMode, final GameDifficulty difficulty) {
+        final int seekers =
+                switch (difficulty) {
+                    case GameDifficulty.EASY -> 0;
+                    case GameDifficulty.MEDIUM -> 1;
+                    case GameDifficulty.DIFFICULT -> 2;
+                };
+
+        if (gameMode == GameMode.DETECTIVE) {
+            return 2 - seekers;
+        } else {
+            return seekers + 1;
+        }
+    }
+}
