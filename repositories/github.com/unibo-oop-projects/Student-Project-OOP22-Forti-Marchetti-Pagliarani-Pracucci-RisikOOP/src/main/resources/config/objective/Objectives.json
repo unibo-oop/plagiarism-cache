@@ -1,0 +1,70 @@
+[
+    {
+        "destroyObj": [
+            "BLUE",
+            "RED",
+            "GREEN",
+            "ORANGE",
+            "PURPLE",
+            "WHITE"
+        ],
+        "conquerObj": [
+            {
+                "scope": [
+                    "Asia",
+                    "South America",
+                    "false"
+                ]
+            },
+            {
+                "scope": [
+                    "Asia",
+                    "Africa",
+                    "false"
+                ]
+            },
+            {
+                "scope": [
+                    "North America",
+                    "Africa",
+                    "false"
+                ]
+            },
+            {
+                "scope": [
+                    "North America",
+                    "Oceania",
+                    "false"
+                ]
+            },
+            {
+                "scope": [
+                    "Europe",
+                    "South America",
+                    "true"
+                ]
+            },
+            {
+                "scope": [
+                    "Europe",
+                    "Oceania",
+                    "true"
+                ]
+            },
+            {
+                "scope": [
+                    18,
+                    2
+                ]
+            }
+        ],
+        "defaultObj": [
+            {
+                "scope": [
+                    24,
+                    1
+                ]
+            }
+        ]
+    }
+]
