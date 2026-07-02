@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="panel" prefHeight="2160.0" prefWidth="3840.0" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.menu.OptionsMenuUIController">
+   <children>
+      <Rectangle id="background" fx:id="background" height="2160.0" pickOnBounds="true" smooth="false" stroke="LIME" strokeType="INSIDE" width="3840.0" />
+      <ImageView fx:id="backgroundImage" fitHeight="1080.0" fitWidth="1920.0" layoutX="960.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/menuBackground.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="backButton" fitHeight="150.0" fitWidth="150.0" layoutX="79.0" layoutY="76.0" onMouseClicked="#backButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/backButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="resLButton" fitHeight="150.0" fitWidth="150.0" layoutX="1346.0" layoutY="681.0" onMouseClicked="#resLButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/leftArrowButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="resText" fitHeight="97.0" fitWidth="647.0" layoutX="1597.0" layoutY="708.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/texts/3840x2160Text.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="resRButton" fitHeight="150.0" fitWidth="150.0" layoutX="2344.0" layoutY="681.0" onMouseClicked="#resRButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/rightArrowButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="modeLButton" fitHeight="150.0" fitWidth="150.0" layoutX="1346.0" layoutY="897.0" onMouseClicked="#modeButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/leftArrowButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="modeText" fitHeight="97.0" fitWidth="537.0" layoutX="1652.0" layoutY="924.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/texts/windowedText.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="modeRButton" fitHeight="150.0" fitWidth="150.0" layoutX="2344.0" layoutY="897.0" onMouseClicked="#modeButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/rightArrowButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="audioVolText" fitHeight="97.0" fitWidth="490.0" layoutX="1291.0" layoutY="1140.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/texts/audioVolText.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="decVolButton" fitHeight="100.0" fitWidth="100.0" layoutX="1870.0" layoutY="1138.0" onMouseClicked="#decVolClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/minusButton.png" />
+         </image>
+      </ImageView>
+      <ProgressBar fx:id="audioVolume" layoutX="2054.0" layoutY="1163.0" prefHeight="50.0" prefWidth="500.0" progress="0.0" styleClass="prograss-bar" />
+      <ImageView fx:id="incVolButton" fitHeight="100.0" fitWidth="100.0" layoutX="2638.0" layoutY="1138.0" onMouseClicked="#incVolClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/plusButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="musicText" fitHeight="97.0" fitWidth="285.0" layoutX="1394.0" layoutY="1356.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/texts/musicText.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="musicButton" fitHeight="100.0" fitWidth="100.0" layoutX="1870.0" layoutY="1354.0" onMouseClicked="#musicButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="radio-button">
+         <image>
+            <Image url="@../images/buttons/radioButton.png" />
+         </image>
+      </ImageView>
+   </children>
+
+</Pane>

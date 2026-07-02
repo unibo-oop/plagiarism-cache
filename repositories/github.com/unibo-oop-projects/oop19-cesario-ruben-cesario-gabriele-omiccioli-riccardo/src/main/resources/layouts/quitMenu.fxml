@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="panel" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.menu.QuitMenuUIController">
+   <children>
+      <Rectangle fx:id="background" height="2160.0" smooth="false" width="3840.0" />
+      <ImageView fx:id="backgroundImage" fitHeight="1080.0" fitWidth="1920.0" layoutX="960.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/menuBackground.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="backButton" fitHeight="150.0" fitWidth="150.0" layoutX="79.0" layoutY="76.0" onMouseClicked="#backButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/backButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="quitText" fitHeight="98.0" fitWidth="1662.0" layoutX="1089.0" layoutY="707.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/texts/quitText.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="yesButton" fitHeight="200.0" fitWidth="300.0" layoutX="1386.0" layoutY="1031.0" onMouseClicked="#yesButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/yesButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="noButton" fitHeight="200.0" fitWidth="300.0" layoutX="2154.0" layoutY="1031.0" onMouseClicked="#noButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/noButton.png" />
+         </image>
+      </ImageView>
+   </children>
+
+</Pane>

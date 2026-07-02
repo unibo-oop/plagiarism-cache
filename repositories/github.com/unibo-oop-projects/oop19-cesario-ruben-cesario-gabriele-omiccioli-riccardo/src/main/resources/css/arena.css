@@ -1,0 +1,76 @@
+@font-face {
+    font-family: Robo_Clone_Semi_Straight;
+    /*font-name: Robo_Clone_Semi_Straight;*/
+    src: url("../fonts/roboclonesemistraight.ttf");
+}
+
+.label {
+    -fx-font-family: 'Robo_Clone_Semi_Straight';
+    -fx-font-size: 40px;
+    -fx-text-fill: #00FF00;
+    -fx-effect: dropshadow(gaussian, #00FF00, 7, 0, 0, 0);
+}
+
+.label-big {
+    -fx-font-family: 'Robo_Clone_Semi_Straight';
+    -fx-font-size: 95px;
+    -fx-text-fill: #00FF00;
+    -fx-effect: dropshadow(gaussian, #00FF00, 7, 0, 0, 0);
+}
+
+.button {
+}
+
+.button:hover {
+    /*-fx-effect: dropshadow(gaussian, #00FF00, 20, 0, 0, 0);*/
+    -fx-effect: innershadow(gaussian, #00FF00, 50, 0, 0, 0);
+}
+
+.button:pressed {
+}
+
+.progress-bar {
+	-fx-background-color: #003200;
+	-fx-border-color: #00FF00;
+}
+
+.progress-bar .bar {
+	-fx-background-color: #00FF00;
+	-fx-border-color: #00FF00;
+	-fx-effect: dropshadow(gaussian, #00FF00, 20, 0, 0, 0);
+}
+
+.progress-bar .track {
+	-fx-background-color: linear-gradient(to bottom, #003200, #000000);
+	-fx-border-color: #00FF00;
+}
+
+.enemy-progress-bar {
+	-fx-padding: 0;
+	-fx-background-insets: 0;
+	-fx-background-radius: 0;
+	-fx-background-color: #FFAA00;
+	-fx-border-color: #FFAA00;
+	-fx-border-width: 1;
+	-fx-border-radius: 0;
+	-fx-effect: dropshadow(gaussian, #FF6400, 3, 0, 0, 0);
+}
+
+.enemy-progress-bar .bar {
+	-fx-padding: 0;
+	-fx-background-insets: 0;
+	-fx-background-radius: 0;
+	-fx-background-color: #FFAA00;
+	-fx-border-color: #FFAA00;
+	-fx-border-width: 1;
+	-fx-border-radius: 0;
+	-fx-effect: dropshadow(gaussian, #FF6400, 3, 0, 0, 0);
+}
+
+.enemy-progress-bar .track {
+	-fx-padding: 0;
+	-fx-background-insets: 0;
+	-fx-background-radius: 0;
+	-fx-border-width: 0;
+	-fx-border-radius: 0;
+}

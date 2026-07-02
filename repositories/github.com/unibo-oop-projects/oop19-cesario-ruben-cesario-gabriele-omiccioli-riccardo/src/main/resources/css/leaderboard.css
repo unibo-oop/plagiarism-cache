@@ -1,0 +1,24 @@
+.button {
+}
+
+.button:hover {
+    -fx-effect: innershadow(gaussian, #00FF00, 50, 0, 0, 0);
+}
+
+.table-view .cell {
+	-fx-font-family:"Arial";
+	-fx-font-weight: bold;
+	-fx-alignment: center;
+	-fx-text-fill: lightgray;
+}
+
+.table-view {
+	-fx-font-family:"Arial";
+	-fx-font-weight: bold;
+	-fx-base: transparent;
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:empty {
+    -fx-background-color: transparent;
+}

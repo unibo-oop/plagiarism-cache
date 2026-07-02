@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="panel" stylesheets="@../css/arena.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.arena.ArenaUIController">
+   <children>
+      <Rectangle fx:id="background" height="2160.0" smooth="false" stroke="LIME" strokeType="INSIDE" strokeWidth="5.0" width="3840.0" />
+      <ProgressBar fx:id="health" layoutX="920.0" layoutY="2075.0" prefWidth="2000.0" progress="0.5" />
+      <ProgressBar fx:id="speed" layoutX="134.0" layoutY="2075.0" prefWidth="500.0" progress="0.5" />
+      <Label fx:id="score" layoutX="1866.0" layoutY="17.0" prefHeight="25.0" text="SCORE" textFill="LIME">
+         <font>
+            <Font name="Calibri" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="level" layoutX="3260.0" layoutY="2063.0" prefHeight="17.0" text="LEVEL" textFill="LIME">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="pauseBackground" fitHeight="1080.0" fitWidth="1920.0" layoutX="970.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/menuBackground.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pauseText" fitHeight="97.0" fitWidth="640.0" layoutX="1600.0" layoutY="816.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/texts/pauseText.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="mainMenuButton" fitHeight="200.0" fitWidth="700.0" layoutX="1186.0" layoutY="1196.0" onMouseClicked="#mainMenuButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/mainMenuButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="resumeButton" fitHeight="200.0" fitWidth="525.0" layoutX="2118.0" layoutY="1196.0" onMouseClicked="#resumeButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/resumeButton.png" />
+         </image>
+      </ImageView>
+   </children>
+
+</Pane>

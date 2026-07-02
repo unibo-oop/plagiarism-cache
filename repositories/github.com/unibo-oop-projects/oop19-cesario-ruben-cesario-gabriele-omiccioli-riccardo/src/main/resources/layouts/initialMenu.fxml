@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.menu.InitialMenuUIController">
+   <children>
+      <Rectangle fx:id="background" arcHeight="5.0" arcWidth="5.0" height="2160.0" stroke="BLACK" strokeType="INSIDE" width="3840.0" />
+      <ImageView fx:id="backgroundImage" fitHeight="1700.0" fitWidth="2300.0" layoutX="770.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/initialMenuBackground.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="okButton" fitHeight="200.0" fitWidth="300.0" layoutX="1770.0" layoutY="1628.0" onMouseClicked="#okButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/okButton.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label" alignment="CENTER" layoutX="820.0" layoutY="1483.0" prefHeight="58.0" prefWidth="2200.0" text="Resolution detected: XXXXxXXXX    Scaling detected: XXX%    The game will start in: XXXXxXXXX" textAlignment="CENTER" wrapText="true" />
+   </children>
+</Pane>

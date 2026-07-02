@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="panel" stylesheets="@../css/leaderboard.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.menu.LeaderboardUIController">
+
+  <children>
+      <Rectangle fx:id="background" height="2160.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="3840.0" />
+      <ImageView id="background" fx:id="backgroundImage" fitHeight="2160.0" fitWidth="3840.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/mainMenuBackground.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="back" fitHeight="150.0" fitWidth="150.0" layoutX="79.0" layoutY="76.0" onMouseClicked="#backtoMainMenu" onMouseEntered="#onBackMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/backButton.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="leaderboard" blendMode="GREEN" layoutX="920.0" layoutY="832.0" prefHeight="1000.0" prefWidth="2000.0">
+        <columns>
+          <TableColumn fx:id="playerName" editable="false" maxWidth="688.0" minWidth="-Infinity" prefWidth="666.0" sortable="false" text="Name" />
+          <TableColumn fx:id="playerScore" editable="false" maxWidth="1016.0" minWidth="-Infinity" prefWidth="666.0" sortable="false" text="Score" />
+            <TableColumn fx:id="levelBeaten" editable="false" maxWidth="1504.0" minWidth="-Infinity" prefWidth="666.0" sortable="false" text="Level" />
+        </columns>
+      </TableView>
+  </children>
+
+</Pane>

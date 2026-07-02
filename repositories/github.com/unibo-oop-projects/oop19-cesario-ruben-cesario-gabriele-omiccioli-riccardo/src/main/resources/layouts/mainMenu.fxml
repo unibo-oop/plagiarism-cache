@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="panel" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.menu.MainMenuUIController">
+
+  <children>
+      <Rectangle fx:id="background" height="2160.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="3840.0" />
+      <ImageView fx:id="backgroundImage" fitHeight="2160.0" fitWidth="3840.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/mainMenuBackground.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="startButton" fitHeight="200.0" fitWidth="1000.0" layoutX="1420.0" layoutY="764.0" onMouseClicked="#startButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/startButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="leaderboardButton" fitHeight="200.0" fitWidth="850.0" layoutX="1495.0" layoutY="1088.0" onMouseClicked="#leaderboardButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/leaderboardButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="optionsButton" fitHeight="200.0" fitWidth="550.0" layoutX="1645.0" layoutY="1412.0" onMouseClicked="#optionsButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/optionsButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="quitButton" fitHeight="200.0" fitWidth="350.0" layoutX="1745.0" layoutY="1736.0" onMouseClicked="#quitButtonClicked" onMouseEntered="#buttonMouseEntered" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../images/buttons/quitButton.png" />
+         </image>
+      </ImageView>
+  </children>
+
+</Pane>

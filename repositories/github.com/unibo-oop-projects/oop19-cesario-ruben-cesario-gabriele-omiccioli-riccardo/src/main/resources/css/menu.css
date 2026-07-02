@@ -1,0 +1,73 @@
+.label {
+	/* Arial font is the most likely to be installed by default on Windows, Linux and Mac platforms */
+	-fx-font-family:"Arial";
+  	-fx-font-size: 40px;
+}
+
+.button {
+}
+
+.button:hover {
+    /*-fx-effect: dropshadow(gaussian, #00FF00, 20, 0, 0, 0);*/
+    -fx-effect: innershadow(gaussian, #00FF00, 50, 0, 0, 0);
+}
+
+.button:pressed {
+}
+
+.radio-button-active {
+	    -fx-effect: innershadow(gaussian, #00FF00, 50, 0, 0, 0);
+}
+
+.radio-button-inactive {
+	    -fx-effect: innershadow(gaussian, #000000, 0, 0, 0, 0);
+}
+
+.progress-bar {
+	-fx-background-color: #003200;
+	-fx-border-color: #00FF00;
+}
+
+.progress-bar .bar {
+	-fx-background-color: #00FF00;
+	-fx-border-color: #00FF00;
+	-fx-effect: dropshadow(gaussian, #00FF00, 20, 0, 0, 0);
+}
+
+.progress-bar .track {
+	-fx-background-color: linear-gradient(to bottom, #003200, #000000);
+	-fx-border-color: #00FF00;
+}
+
+.text-field-name {
+	-fx-font-family:"Arial";
+	-fx-font-weight: bold;
+	-fx-font-size: 40px;
+	-fx-prompt-text-fill: #00FF00;
+	-fx-highlight-fill: #003200;
+	-fx-highlight-text-fill: #00FF00;
+    -fx-text-fill: #00FF00;
+
+    -fx-background-color: #050505;
+    -fx-background-radius: 15px;
+    -fx-border-width: 5px;
+    -fx-border-radius: 15px;
+    -fx-border-color: #00FF00;
+}
+
+.text-field-name:focused {
+	-fx-font-family:"Arial";
+	-fx-font-weight: bold;
+	-fx-font-size: 40px;
+	-fx-prompt-text-fill: #00FF00;	
+	-fx-highlight-fill: #003200;
+	-fx-highlight-text-fill: #00FF00;
+    -fx-text-fill: #00FF00;
+    
+    -fx-background-color: #050505;
+}
+
+.text-field-name:hover {
+    /*-fx-background-color: #003200;*/
+    -fx-effect: innershadow(gaussian, #00FF00, 50, 0, 0, 0);
+}
