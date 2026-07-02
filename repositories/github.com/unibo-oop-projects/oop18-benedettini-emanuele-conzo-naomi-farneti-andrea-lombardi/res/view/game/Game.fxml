@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import view.game.MyPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+
+<HBox fx:id="anchorPane1" onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" stylesheets="view/game/game.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.game.GameController">
+   	<children>
+   	<VBox fx:id="border">
+	   	<children>
+	   	   <MyPane fx:id="canvas"></MyPane>
+	   	</children>
+   	</VBox>
+	<VBox alignment="TOP_CENTER">
+	   	<children>
+	       	<VBox alignment="TOP_LEFT" style="-fx-padding: 10;-fx-border-style: solid inside;-fx-border-width: 2;-fx-border-radius: 5;-fx-border-color: blue;">
+	          	 <children>
+	           	    <Label text="Player red"></Label>
+	            	   <Label fx:id="plRedScore" text="12800"></Label>
+	            	   <!--<HBox fx:id="lifeCounterR" alignment="TOP_LEFT">
+		         	      <children>
+		               </children>
+	               </HBox> -->
+	               <HBox fx:id="bombCounterR" alignment="TOP_LEFT">
+		               <children>
+	                   </children>
+                   </HBox>
+	           </children>
+	       </VBox>
+	       <VBox alignment="TOP_LEFT"  style="-fx-padding: 10;-fx-border-style: solid inside;-fx-border-width: 2;-fx-border-insets: 5;-fx-border-radius: 5;-fx-border-color: blue;">
+               <children>
+                   <Label text="Player yellow"></Label>
+                   <Label fx:id="plYellScore" text="86800"></Label>
+                   <!--<HBox fx:id="lifeCounterY" alignment="TOP_LEFT">
+	                   <children>
+	                   </children>
+                   </HBox> -->
+                   <HBox fx:id="bombCounterY" alignment="TOP_LEFT">
+	                   <children>
+	                   </children>
+                   </HBox>
+               </children>
+           </VBox>
+           <Button fx:id="button" text="give up" focusTraversable="false" onAction="#buttonPressed">
+         </Button>
+	   </children>
+   </VBox>
+	</children>
+</HBox>
