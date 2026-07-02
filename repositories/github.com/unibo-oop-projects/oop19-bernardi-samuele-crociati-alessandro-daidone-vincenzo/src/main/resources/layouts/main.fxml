@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane minHeight="500.0" minWidth="500.0" prefHeight="543.0" prefWidth="592.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontrollers.MainMenuController">
+	<top>
+		<Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="BATTLE TACTICS" textAlignment="CENTER" BorderPane.alignment="CENTER">
+			<BorderPane.margin>
+				<Insets top="50.0" />
+			</BorderPane.margin>
+			<font>
+				<Font name="Cambria Math" size="62.0" />
+			</font>
+		</Text>
+	</top>
+	<center>
+		<VBox alignment="CENTER" BorderPane.alignment="CENTER">
+			<children>
+				<Button fx:id="btnGame" mnemonicParsing="false" onMouseClicked="#startGame" prefHeight="57.0" prefWidth="230.0" text="Start Game">
+					<VBox.margin>
+						<Insets bottom="10.0" />
+					</VBox.margin>
+				</Button>
+				<Button fx:id="btnEditor" mnemonicParsing="false" onMouseClicked="#openMapEditor" prefHeight="57.0" prefWidth="230.0" text="Level Editor">
+					<VBox.margin>
+						<Insets bottom="10.0" />
+					</VBox.margin>
+				</Button>
+				<Button fx:id="btnPgEditor" mnemonicParsing="false" onMouseClicked="#openCharacterEditor" prefHeight="57.0" prefWidth="230.0" text="Character Editor">
+					<VBox.margin>
+						<Insets bottom="10.0" />
+					</VBox.margin>
+				</Button>
+				<Button fx:id="btnQuit" mnemonicParsing="false" onAction="#exitGame" prefHeight="57.0" prefWidth="230.0" text="Quit">
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+				</Button>
+			</children>
+		</VBox>
+	</center>
+</BorderPane>
