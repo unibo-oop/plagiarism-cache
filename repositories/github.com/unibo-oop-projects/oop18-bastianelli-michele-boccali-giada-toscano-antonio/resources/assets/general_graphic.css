@@ -1,0 +1,58 @@
+ .root {
+    -fx-background-image : url("../images/background.jpg");
+    -fx-background-repeat : no-repeat;
+    -fx-background-size : cover;
+    -fx-background-alignment : bottom;
+	-fx-font : bold 14pt "Monospace", Courire New ;
+	-fx-text-fill: black;
+}
+
+HBox, VBox, GridPane {
+    -fx-alignment: CENTER;
+	-fx-spacing : 20px;
+}
+
+
+TilePane {
+	-fx-alignment: CENTER;
+	-fx-hgap: 20px;
+    -fx-vgap: 20px;
+}
+
+Button {
+	-fx-border-radius: 10px;
+	-fx-background-radius: 10px;
+    -fx-background-color: Greenyellow;
+    -fx-border-size: 2px;
+    -fx-border-color: Beige;
+}
+
+
+Textbox{
+	-fx-background-color: Chartreuse;
+}
+
+Label{
+	-fx-font-size: 120%;
+}
+
+#title {
+	-fx-font-size: 200%;
+	-fx-effect: dropshadow(two-pass-box , white, 7, 0.0 , 0.0, 0.0);
+}
+
+#error-label {
+	-fx-font-size: 80%;
+	-fx-text-fill: brown;
+	-fx-background-color: transparent;
+}
+
+
+#characters {
+	-fx-background-color: Beige;
+	-fx-border-radius: 5px;
+	-fx-background-radius: 5px;
+    -fx-border-color: Greenyellow;
+    -fx-spacing : 15px;
+    -fx-border-insets: 2px;
+}
