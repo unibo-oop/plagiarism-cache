@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="250.0" prefWidth="600.0" styleClass="anchor" stylesheets="@/stylesheets/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Overview" textAlignment="CENTER">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="You are a prisoner, as result of a revolt within the Starcatraz spaceship prison you have the opportunity to escape, but to do so you must obtain 8 missiles to defeat the robot guards. Starcatraz is a solitaire game, your opponent is the game itself.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="1"	/>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Content of the deck" textAlignment="CENTER" wrappingWidth="667.3671875" GridPane.rowIndex="2">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="The game contains 76 cards:&#10;     • 58 Component cards: Components are equipment of various types that you will find when you explore the ship, you will need them to build missiles.&#10;     • 8 Missile cards: Missiles are the object of your research, collect all of them to escape.&#10;     • 10 Robot cards: Robots will try to hinder your escape, when you draw one of these cards you are forced to choose a penalty to get rid of them.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="3" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The spaceship" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="4">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="It’s up to you to decide how to explore the ship, every card you play can change the fate of your escape. First rule: the suit of the card to be played must be different from the last one. There are three card suits: chip, missile tail and missile head.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="5" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Collect missiles" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="6">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="If you play three cards of the same color in a row, a missile card of that color is pulled from the deck, which is then reshuffled. Note: the fourth card of the same color in a row will be the first of a new series of cards of that color.&#10;"  textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="7" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Game round" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="8">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="With 5 cards in your hand, you have two options: play a card or discard one. To play a card left click on it, to discard right click on it.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="9" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Draw the cards" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="10">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="After each move, a card will be automatically drawn from the deck and added to your hand.&#10;     • Component cards will be added to your hand.&#10;     • Robot cards will trigger an event during which you will have to choose a penalty before continuing.&#10;     • Missile cards will be shuffled into the deck unless the player has a chip of the same color in his hand: in this case he can choose to get the missile using the chip or shuffle it.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="11" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Activating a terminal" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="12">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="If you discard a chip card, you will have access to the ship’s terminal, which will provide you with information about the battlefield: you will be able to see the top 5 cards of the deck, rearrange them and discard one of the top 5 cards in the deck. If only have missiles left in the deck, you automatically lose the game.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="13" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Robot" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="14">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="The discard pile is located at the bottom right. You can drag on it the cards you want to discard or click on it to see its contents.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="15" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="End of the game" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="16">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+           </Text>
+           <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="To win a game you must obtain all the eight missiles. If in order to have 5 cards in hand you would be forced to draw from the empty deck, you lose.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="17" />
+           <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Structure of the deck" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="18">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="•Red Components: 9 missile's tail, 4 missile's head, 3 chip and 2 missiles.&#10;     •Blue Components: 8 missile's tail, 4 missile's head, 3 chip and 2 missiles.&#10;     •Yellow Components: 7 missile's tail, 4 missile's head, 3 chip and 2 missiles.&#10;     •Gray Components: 6 missile's tail, 4 missile's head, 3 chip and 2 missiles.&#10;     • 10 Robot cards.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="19"/>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>

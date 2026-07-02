@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="loginScene" prefHeight="600.0" prefWidth="800.0" styleClass="menu" stylesheets="@/stylesheets/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="starcatraz.controller.MenuControllerImpl">
+   <children>
+      <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="300.0" prefWidth="300.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane GridPane.columnIndex="0">
+               <children>
+                  <GridPane styleClass="gridpane" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+                    <columnConstraints>
+                      <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="NEVER" maxWidth="1.7976931348623157E308" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints prefHeight="8.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints prefHeight="8.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints prefHeight="8.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints prefHeight="8.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints prefHeight="8.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints prefHeight="8.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints prefHeight="8.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints valignment="CENTER" vgrow="NEVER" />
+                        <RowConstraints />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fitWidth="270.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="0">
+                           <image>
+                              <Image url="@/images/logo.png" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane styleClass="bottone" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <children>
+                              <Button id="id_newgame" fx:id="newGameButton" mnemonicParsing="false" onAction="#buttonClickEvent" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" style="-fx-background-color: transparent;" styleClass="defaultFont" text="New Game" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane styleClass="bottone" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                           <children>
+                              <Button id="id_goals" fx:id="achievementsButton" mnemonicParsing="false" onAction="#buttonClickEvent" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" style="-fx-background-color: transparent;" styleClass="defaultFont" text="Achievements" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane styleClass="bottone" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                           <children>
+                              <Button id="id_statistics" fx:id="statisticsButton" mnemonicParsing="false" onAction="#buttonClickEvent" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" style="-fx-background-color: transparent;" styleClass="defaultFont" text="Statistics" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane styleClass="bottone" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+                           <children>
+                              <Button id="id_manual" fx:id="manualButton" mnemonicParsing="false" onAction="#buttonClickEvent" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" style="-fx-background-color: transparent;" styleClass="defaultFont" text="Manual" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane styleClass="bottone" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER">
+                           <children>
+                              <Button id="id_settings" fx:id="settingsButton" mnemonicParsing="false" onAction="#buttonClickEvent" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" style="-fx-background-color: transparent;" styleClass="defaultFont" text="Settings" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane styleClass="bottone" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER">
+                           <children>
+                              <Button id="id_credits" fx:id="creditsButton" mnemonicParsing="false" onAction="#buttonClickEvent" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" style="-fx-background-color: transparent;" styleClass="defaultFont" text="Credits" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane styleClass="bottone" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER">
+                           <children>
+                              <Button id="id_exit" fx:id="exitButton" mnemonicParsing="false" onAction="#buttonClickEvent" onMouseEntered="#buttonMouseEntered" onMouseExited="#buttonMouseExited" style="-fx-background-color: transparent;" styleClass="defaultFont" text="Exit" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+               </children>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </AnchorPane>
+            <BorderPane fx:id="rootPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="463.0" styleClass="borderpane" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

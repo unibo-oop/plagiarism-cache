@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="250.0" prefWidth="600.0" styleClass="anchor" stylesheets="@/stylesheets/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Panoramica" textAlignment="CENTER">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Sei un prigioniero, a seguito di una rivolta all’interno della prigione spaziale Starcatraz hai la possibilità di fuggire, ma per farlo devi ottenere 8 missili per poter sconfiggere i robot di guardia. Starcatraz è un gioco in solitario, il tuo avversario è il gioco stesso.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenuto del mazzo" textAlignment="CENTER" wrappingWidth="667.3671875" GridPane.rowIndex="2">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Il gioco contiene 76 carte:&#10;     • 58 carte Componente: le Componenti sono attrezzature di vario tipo che trovi esplorando la nave, ti serviranno per costruire i missili.&#10;     • 8 carte Missile: i Missili sono l’oggetto della tua ricerca, collezionali tutti per riuscire a fuggire.&#10;     • 10 carte Robot: i Robot cercheranno di ostacolare la tua fuga, quando peschi una di queste carte sei costretto a scegliere una fra le penalità proposte.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="3" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="L’astronave" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="4">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Sta a te decidere come esplorare la nave, ogni carta che giochi può cambiare le sorti della tua fuga. Vige una regola d’oro: il seme della carta Componente da giocare deve essere diverso da quello dell’ultima carta giocata. I semi sono tre: chip, coda del missile, testa del missile.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="5" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Raccogliere i missili" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="6">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Se giochi tre carte di fila dello stesso colore, ottieni una carta missile di quel colore. Dopo averla presa dal mazzo, quest’ultimo viene rimescolato. Nota bene: la quarta carta di fila dello stesso colore conterà come la prima di una nuova serie di carte di quel colore.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="7" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Turno di gioco" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="8">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Con 5 carte in mano, hai due possibilità: giocare una carta o scartarla per pescarne un'altra. Per giocare una carta fai click con il tasto sinistro del mouse su di essa, invece per scartarla click destro.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="9" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pescare le carte" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="10">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Dopo ogni mossa, una carta verrà automaticamente pescata dal mazzo.&#10;     • Le carte Componente si aggiungono alla tua mano &#10;     • Le carte Robot scatenano un evento durante il quale devi scegliere una penalità prima di poter proseguire &#10;     • Le carte Missile vengono rimescolate nel mazzo a meno che il giocatore non abbia in mano un chip dello stesso colore: in quel caso può scegliere se ottenere il missile utilizzando il chip oppure rimescolarlo.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="11" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Attivazione di un terminale" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="12">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Se scarti una carta con il seme del chip, avrai accesso al terminale della nave, che ti fornirà informazioni sul campo di battaglia: puoi vedere, riordinare e scartare una delle 5 carte in cima al mazzo. Se nel mazzo rimangono solo carte missile, perdi automaticamente la partita.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="13" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Robot" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="14">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Quando peschi una carta Robot, devi scegliere una fra 4 penalità:&#10;     • Scarta tutta la mano e pesca 5 carte Componente dal mazzo&#10;     • Scarta le prime 5 carte Componente dal mazzo&#10;     • Scarta una carta chip&#10;     • Rimescola nel mazzo uno dei missili già collezionati&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="15" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Mescolare il mazzo" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="16">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="La pila degli scarti si trova a destra sopra al mazzo. Basta un click destro del mouse sulla carta che desideri scartare per aggiungerla alla pila. &#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="17" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Fine della partita" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="18">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Per vincere la partita devi ottenere tutti e 8 i missili, invece se per avere 5 carte in mano saresti costretto a pescare una carta dal mazzo vuoto hai perso. &#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="19" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Struttura del mazzo" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="20">
+               <styleClass>
+                  <String fx:value="defaultFont" />
+                  <String fx:value="subtitle" />
+               </styleClass>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="•Componenti rosse: 9 code di missile, 4 teste di missile, 3 chip e 2 missili.&#10;     • Componenti blu: 8 code di missile, 4 teste di missile, 3 chip e 2 missili.&#10;     • Componenti gialle: 7 code di missile, 4 teste di missile, 3 chip e 2 missili.&#10;     • Componenti grigie: 6 code di missile, 4 teste di missile, 3 chip e 2 missili.&#10;     • 10 carte Robot.&#10;" textAlignment="CENTER" wrappingWidth="650.0" GridPane.rowIndex="21" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>

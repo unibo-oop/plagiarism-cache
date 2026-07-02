@@ -1,0 +1,200 @@
+.menu {
+    -fx-background-image: url('/images/background_menu.jpg');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+.newgame {
+	-fx-background-image: url('/images/background_game.jpg');
+	-fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+.borderpane {
+	-fx-border-style: none;
+	-fx-border-color: transparent;
+	-fx-border-width: 50;
+}
+
+.menuwindow {
+   -fx-background-color: linear-gradient(rgba(21,21,21, 0.9)30%, rgba(61,61,61,0.9)70%, rgba(21,21,21,0.9)100% );
+}
+
+.gamePopup {
+   -fx-background-color: rgba(0, 0, 0, 0.8);
+}
+
+.titleFont {
+    -fx-font-family: 'SF Distant Galaxy';
+    -fx-font-size: 36;
+}
+
+.defaultFont {
+    -fx-font-family: 'Xolonium';
+    -fx-font-size: 24;
+}
+
+.rocketDivider {
+    -fx-background-image: url('/images/component_rockets_divider.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+.victory{
+	-fx-font-family: 'SF Distant Galaxy';
+	-fx-font-weight: bold;
+	-fx-font-size: 96px;
+	-fx-alignment: center;
+	-fx-text-fill: #002F80;
+}
+.defeat{
+	-fx-font-family: 'SF Distant Galaxy';
+	-fx-font-weight: bold;
+	-fx-font-size: 96px;
+	-fx-alignment: center;
+	-fx-text-fill: #FF0000;
+}
+
+
+.subtitle {
+	-fx-font-weight: bold;
+	-fx-font-size: 30px;
+}
+
+.grassetto {
+	-fx-font-weight: bold;
+}
+.anchor {
+	-fx-background-color: transparent;
+}
+.pos {
+	-fx-alignment: center;
+}
+.content {
+	-fx-font-family: Arial;
+	-fx-font-size: 14px;
+}
+
+.bottone {
+	-fx-background-image: url('/images/component_button.png');
+	-fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+    -fx-pref-height: 90px;
+    -fx-pref-width: 291px;
+    -fx-cursor: hand;
+}
+
+#id_goals:pressed, #id_statistics:pressed, #id_newgame:pressed, #id_manual:pressed, #id_settings:pressed, #id_credits:pressed, #id_exit:pressed {
+	-fx-background-image: url('/images/component_button_flare.png');
+	-fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+    -fx-pref-height: 90px;
+    -fx-pref-width: 291px;
+}
+
+.small-bottone {
+	-fx-background-image: url('/images/component_button_small.png');
+	-fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+    -fx-pref-height: 45px;
+    -fx-pref-width: 145px;
+}
+
+.complete {
+	-fx-background-image: url('/images/component_counter.png');
+	-fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+    -fx-pref-height: 30px;
+    -fx-pref-width: 30px;
+}
+
+.not-again {
+	-fx-background-color: red;
+	-fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+    -fx-pref-height: 18px;
+    -fx-pref-width: 18px;
+}
+
+.gridpane {
+	-fx-alignment: center;
+}
+
+.subtitle,.title,.content {
+	-fx-fill: white;
+}
+
+.enter {
+	-fx-padding: 43px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+
+.scroll_pane {
+	-fx-background: transparent; 
+	-fx-background-color: transparent; 
+	-fx-control-inner-background: transparent;
+}
+
+.achievement_pane {
+	-fx-background-color: green;
+}
+
+.scroll-bar{
+ 	-fx-background-color: transparent;
+ 	-fx-background-radius: 2em;
+}
+
+.scroll-bar:vertical .track{
+    -fx-background-color :transparent;
+    -fx-border-color : transparent;
+    -fx-background-radius : 2.0em;
+}
+
+.scroll-bar:vertical .track-background{
+    -fx-background-color : derive(black,10.0%);
+    -fx-opacity: 0.5;
+    -fx-background-insets: 0;
+ 	-fx-background-radius: 2em;
+}
+
+.scroll-bar:vertical .increment-button ,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 10.0 0.0 0.0;
+
+}
+
+ .scroll-bar .increment-arrow,
+ .scroll-bar .decrement-arrow{
+    -fx-shape : " ";    
+    -fx-padding :0.15em 0.0;
+}
+
+ .scroll-bar:vertical .increment-arrow,
+ .scroll-bar:vertical .decrement-arrow{
+    -fx-shape : " ";    
+    -fx-padding :0.0 0.15em;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color :derive(white,90.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+.scroll-bar:vertical .thumb:hover{
+    -fx-background-color :derive(#C0C0C0,5.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+.scroll-bar:vertical .thumb:pressed {
+    -fx-background-color :derive(#A2A2A2,5.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}

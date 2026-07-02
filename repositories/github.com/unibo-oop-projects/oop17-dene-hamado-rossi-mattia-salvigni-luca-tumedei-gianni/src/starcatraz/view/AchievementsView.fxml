@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="achievementsRoot" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="anchor" stylesheets="@/stylesheets/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="starcatraz.controller.AchievementsControllerImpl">
+   <children>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <styleClass>
+            <String fx:value="menuwindow" />
+            <String fx:value="anchordim" />
+         </styleClass>
+         <children>
+         </children>
+      </AnchorPane>
+      <ImageView id="topRightCorner" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+         <image>
+            <Image url="@/images/component_menu_corner.png" />
+         </image>
+      </ImageView>
+      <ImageView id="bottomRightCorner" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
+         <image>
+            <Image url="@/images/component_menu_corner.png" />
+         </image>
+      </ImageView>
+      <ImageView id="topLeftCorner" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" rotate="90.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
+         <image>
+            <Image url="@/images/component_menu_corner.png" />
+         </image>
+      </ImageView>
+      <ImageView id="bottomLeftCorner" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0">
+         <image>
+            <Image url="@/images/component_menu_corner.png" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="50.0" layoutY="43.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="57.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="43.0">
+         <columnConstraints>
+           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+         </columnConstraints>
+         <rowConstraints>
+           <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="142.0" valignment="CENTER" vgrow="NEVER" />
+           <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <GridPane GridPane.rowIndex="0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="NEVER" prefWidth="16.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="NEVER" prefWidth="128.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                <ColumnConstraints halignment="CENTER" hgrow="NEVER" prefWidth="128.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="NEVER" prefWidth="16.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fitHeight="96.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                     <image>
+                        <Image url="@/images/icon_achievements.png" />
+                     </image>
+                  </ImageView>
+                  <Label styleClass="titleFont" text="Achievements" textFill="WHITE" GridPane.columnIndex="2" />
+                  <ImageView fitHeight="96.0" fitWidth="96.0" onMouseClicked="#closeAchievementsButtonClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                     <image>
+                        <Image url="@/images/icon_cancel.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" GridPane.rowIndex="1">
+               <children>
+                  <ScrollPane fitToWidth="true" styleClass="scroll_pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <GridPane prefWidth="700.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@/images/component_settings_separator.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@/images/component_settings_separator.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@/images/component_settings_separator.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@/images/component_settings_separator.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@/images/component_settings_separator.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="15" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@/images/component_settings_separator.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="18" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@/images/component_settings_separator.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="21" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@/images/component_settings_separator.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="24" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@/images/component_settings_separator.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="27" GridPane.valignment="CENTER">
+                                 <image>
+                                    <Image url="@/images/component_settings_separator.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Get your first win" GridPane.rowIndex="2" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Win 10 games" GridPane.rowIndex="5" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Win 100 games" GridPane.rowIndex="8" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Lose one game" GridPane.rowIndex="11" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Defeat 10 robots" GridPane.rowIndex="14" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Play 6 cards of the same color in a row" GridPane.rowIndex="17" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Win in less than 2 minutes" GridPane.rowIndex="20" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Win using less than half deck" GridPane.rowIndex="23" />
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="defaultFont" text="Play 50 games" GridPane.rowIndex="26" />
+                              <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.rowIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="complete">
+                                       <children>
+                                          <Pane fx:id="paneFirstWin" layoutX="6.0" layoutY="6.0" opacity="0.7" styleClass="not-again" />
+                                       </children>
+                                    </Pane>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Break the ice" GridPane.columnIndex="1">
+                                       <styleClass>
+                                          <String fx:value="defaultFont" />
+                                          <String fx:value="grassetto" />
+                                       </styleClass>
+                                    </Text>
+                                 </children>
+                                 <padding>
+                                    <Insets right="35.0" />
+                                 </padding>
+                              </GridPane>
+                              <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.rowIndex="4">
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="complete">
+                                       <children>
+                                          <Pane fx:id="paneRightPath" layoutX="6.0" layoutY="6.0" opacity="0.7" styleClass="not-again" />
+                                       </children></Pane>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="The right path" GridPane.columnIndex="1">
+                                       <styleClass>
+                                          <String fx:value="defaultFont" />
+                                          <String fx:value="grassetto" />
+                                       </styleClass>
+                                    </Text>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets right="35.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.rowIndex="7">
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="complete">
+                                       <children>
+                                          <Pane fx:id="paneSpaceMaster" layoutX="6.0" layoutY="6.0" opacity="0.7" styleClass="not-again" />
+                                       </children></Pane>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Space Master" GridPane.columnIndex="1">
+                                       <styleClass>
+                                          <String fx:value="defaultFont" />
+                                          <String fx:value="grassetto" />
+                                       </styleClass>
+                                    </Text>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets right="35.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.rowIndex="10">
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="complete">
+                                       <children>
+                                          <Pane fx:id="paneYouDied" layoutX="6.0" layoutY="6.0" opacity="0.7" styleClass="not-again" />
+                                       </children></Pane>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="You died" GridPane.columnIndex="1">
+                                       <styleClass>
+                                          <String fx:value="defaultFont" />
+                                          <String fx:value="grassetto" />
+                                       </styleClass>
+                                    </Text>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets right="35.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.rowIndex="13">
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="complete">
+                                       <children>
+                                          <Pane fx:id="paneKill" layoutX="6.0" layoutY="6.0" opacity="0.7" styleClass="not-again" />
+                                       </children></Pane>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Kill 'em all" GridPane.columnIndex="1">
+                                       <styleClass>
+                                          <String fx:value="defaultFont" />
+                                          <String fx:value="grassetto" />
+                                       </styleClass>
+                                    </Text>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets right="35.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.rowIndex="16">
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="complete">
+                                       <children>
+                                          <Pane fx:id="paneColorful" layoutX="6.0" layoutY="6.0" opacity="0.7" styleClass="not-again" />
+                                       </children></Pane>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Colorful" GridPane.columnIndex="1">
+                                       <styleClass>
+                                          <String fx:value="defaultFont" />
+                                          <String fx:value="grassetto" />
+                                       </styleClass>
+                                    </Text>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets right="35.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.rowIndex="19">
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="complete">
+                                       <children>
+                                          <Pane fx:id="paneHurryUp" layoutX="6.0" layoutY="6.0" opacity="0.7" styleClass="not-again" />
+                                       </children></Pane>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="HURRY UP!" GridPane.columnIndex="1">
+                                       <styleClass>
+                                          <String fx:value="defaultFont" />
+                                          <String fx:value="grassetto" />
+                                       </styleClass>
+                                    </Text>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets right="35.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.rowIndex="22">
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="complete">
+                                       <children>
+                                          <Pane fx:id="paneHalf" layoutX="6.0" layoutY="6.0" opacity="0.7" styleClass="not-again" />
+                                       </children></Pane>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Half left 3" GridPane.columnIndex="1">
+                                       <styleClass>
+                                          <String fx:value="defaultFont" />
+                                          <String fx:value="grassetto" />
+                                       </styleClass>
+                                    </Text>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets right="35.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.rowIndex="25">
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="complete">
+                                       <children>
+                                          <Pane fx:id="paneCatch" layoutX="6.0" layoutY="6.0" opacity="0.7" styleClass="not-again" />
+                                       </children></Pane>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Catch 'em all" GridPane.columnIndex="1">
+                                       <styleClass>
+                                          <String fx:value="defaultFont" />
+                                          <String fx:value="grassetto" />
+                                       </styleClass>
+                                    </Text>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+                                 </columnConstraints>
+                                 <padding>
+                                    <Insets right="35.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
