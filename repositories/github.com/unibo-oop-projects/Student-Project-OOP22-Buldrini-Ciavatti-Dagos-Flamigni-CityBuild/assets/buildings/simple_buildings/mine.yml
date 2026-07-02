@@ -1,0 +1,9 @@
+revenue:
+  GOLD: 75
+construction: 
+  WOOD: 250
+  METAL: 500
+upgrade:
+  WOOD: 500
+  METAL: 1000
+  

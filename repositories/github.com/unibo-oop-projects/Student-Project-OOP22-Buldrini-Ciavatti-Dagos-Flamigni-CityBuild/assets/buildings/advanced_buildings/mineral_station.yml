@@ -1,0 +1,10 @@
+#advanced building of mine
+revenue:
+  GOLD: 125
+construction: 
+  WOOD: 500
+  METAL: 1000 
+upgrade:
+  WOOD: 1000
+  METAL: 1200
+  

@@ -1,0 +1,9 @@
+revenue:
+  WATER: 10
+  CITIZEN: 2
+construction: 
+  WOOD: 20
+  GOLD: 50
+upgrade:
+  WOOD: 50
+  GOLD: 100

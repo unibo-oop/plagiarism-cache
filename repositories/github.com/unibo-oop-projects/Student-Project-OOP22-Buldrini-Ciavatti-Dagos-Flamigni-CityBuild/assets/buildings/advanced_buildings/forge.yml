@@ -1,0 +1,9 @@
+#advanced building of foundry
+revenue:
+  METAL: 30
+construction: 
+  WOOD: 300
+  METAL: 500
+  GOLD: 500
+upgrade:
+  GOLD: 1000

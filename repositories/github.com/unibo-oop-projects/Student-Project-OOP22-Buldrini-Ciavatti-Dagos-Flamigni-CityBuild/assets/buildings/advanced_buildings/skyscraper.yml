@@ -1,0 +1,9 @@
+#advanced building of house
+revenue:
+  CITIZEN: 60
+construction: 
+  WOOD: 50
+  GOLD: 50
+upgrade:
+  GOLD: 100
+  WOOD: 100

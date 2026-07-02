@@ -1,0 +1,7 @@
+#Advanced building of woodcutter
+revenue:
+  WOOD: 20
+construction: 
+  GOLD: 100
+upgrade:
+  GOLD: 250
