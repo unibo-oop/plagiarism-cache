@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import com.gluonhq.charm.glisten.control.Icon?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="1456.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <Pane id="dashbord-container" layoutY="70.0" prefHeight="707.0" prefWidth="218.0" style="-fx-background-color: #282828; -fx-border-color: #282828;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="#d7ec35" focusTraversable="true" layoutX="53.0" layoutY="235.0" stroke="#e80c0c" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Account">
+               <font>
+                  <Font name="Courier New" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+            <Icon content="ACCOUNT_BOX" layoutX="21.0" layoutY="214.0" style="-fx-background-color: #d7ec35;" />
+            <Text fill="#d7ec35" focusTraversable="true" layoutX="53.0" layoutY="278.0" stroke="#e80c0c" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Your clients">
+               <font>
+                  <Font name="Courier New" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+            <Icon content="LIST" layoutX="21.0" layoutY="257.0" style="-fx-background-color: #d7ec35;" />
+            <Text fill="#d7ec35" focusTraversable="true" layoutX="53.0" layoutY="317.0" stroke="#e80c0c" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Appointments">
+               <font>
+                  <Font name="Courier New" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+            <Icon content="ACCESS_TIME" layoutX="21.0" layoutY="299.0" style="-fx-background-color: #d7ec35;" />
+            <Text fill="#d7ec35" focusTraversable="true" layoutX="52.0" layoutY="722.0" stroke="#e80c0c" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Log out">
+               <font>
+                  <Font name="Courier New" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="W_RESIZE" />
+               </cursor>
+            </Text>
+            <Icon content="EXIT_TO_APP" layoutX="21.0" layoutY="705.0" style="-fx-background-color: #d7ec35;" />
+            <Text fill="#d7ec35" focusTraversable="true" layoutX="48.0" layoutY="683.0" stroke="#e80c0c" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Settings">
+               <font>
+                  <Font name="Courier New" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="W_RESIZE" />
+               </cursor>
+            </Text>
+            <Icon content="SETTINGS" layoutX="21.0" layoutY="665.0" style="-fx-background-color: #d7ec35;" />
+            <ImageView fitHeight="93.0" fitWidth="130.0" layoutX="32.0" layoutY="-13.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../res/images/gym-logo.png" />
+               </image>
+            </ImageView>
+            <Text fill="#d7ec35" focusTraversable="true" layoutX="56.0" layoutY="356.0" stroke="#e80c0c" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Exercises">
+               <font>
+                  <Font name="Courier New" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+            <Icon content="VIEW_WEEK" layoutX="21.0" layoutY="338.0" style="-fx-background-color: #d7ec35;" />
+            <Text fill="#d7ec35" focusTraversable="true" layoutX="56.0" layoutY="393.0" stroke="#e80c0c" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Workout Plan">
+               <font>
+                  <Font name="Courier New" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+            <Icon content="RECEIPT" layoutX="20.0" layoutY="377.0" style="-fx-background-color: #d7ec35;" />
+         </children>
+    </Pane>
+    <Pane id="first-row-pane" layoutX="221.0" layoutY="84.0" prefHeight="693.0" prefWidth="1139.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+      <children>
+        <GridPane gridLinesVisible="false" layoutX="-1.0" layoutY="-8.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="1235.0" style="-fx-background-color: #F0F0F0;">
+          <children>
+            <GridPane alignment="CENTER_LEFT" prefWidth="700.0" style="-fx-background-insets: 12; -fx-effect: dropshadow; -fx-background-radius: 12;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+              <children>
+                  <Pane prefHeight="662.0" prefWidth="731.0">
+                  <children>
+                    <TextField layoutX="14.0" layoutY="-1.0" prefWidth="288.0" promptText="DADWAD" style="-fx-background-color: #e5e5e5;" text="Name / surname / CF">
+                                 <font>
+                                    <Font name="Courier New Italic" size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                              </TextField>
+                    <Button alignment="CENTER" contentDisplay="TEXT_ONLY" layoutX="310.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="61.0" style="-fx-background-color: #565656; -fx-text-fill: #d7ec35; -fx-padding: -10; -fx-background-radius: 5;" text="Search" textFill="#1e1d1d" textOverrun="LEADING_WORD_ELLIPSIS" wrapText="true">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                              <TableView id="table-details" fixedCellSize="1.0" layoutX="20.0" layoutY="87.0" prefHeight="428.0" prefWidth="592.0">
+                                <columns>
+                                  <TableColumn prefWidth="127.73336791992188" text="            CF" />
+                                  <TableColumn prefWidth="99.46661376953125" text="    Surname" />
+                                    <TableColumn minWidth="0.0" prefWidth="88.5333251953125" text="    Name" />
+                                    <TableColumn prefWidth="76.5333251953125" text="   Gender" />
+                                    <TableColumn prefWidth="97.06671142578125" text="  Date of birth" />
+                                    <TableColumn prefWidth="90.0" text="Member status" />
+                                </columns>
+                                 <effect>
+                                    <DropShadow blurType="GAUSSIAN" color="#81827b" radius="8.807500000000001" spread="0.09" width="16.23" />
+                                 </effect>
+                              </TableView>
+                  </children>
+                  </Pane>
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="662.3999999999999" minHeight="10.0" prefHeight="662.3999999999999" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <GridPane id="details-client-pane" prefHeight="706.0" prefWidth="455.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+              <children>
+                        <Pane prefHeight="421.0" prefWidth="424.0">
+                           <children>
+                              <Pane layoutX="39.0" layoutY="102.0" prefHeight="392.0" prefWidth="400.0" style="-fx-background-color: #eaeaea; -fx-background-radius: 14;">
+                                 <children>
+                                    <Text fill="#676a6c" layoutX="133.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 100; -fx-font-size: 24; -fx-font-style: normal;" text="Mario Rossi">
+                                       <font>
+                                          <Font name="Roboto" size="24.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#676a6c" layoutX="25.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth : ">
+                                       <font>
+                                          <Font name="Roboto Bold" size="17.0" />
+                                       </font>
+                                    </Text>
+                                    <Label layoutX="145.0" layoutY="185.0" prefHeight="18.0" prefWidth="164.0" text="27/08/1998" textFill="#676a6c">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fill="#676a6c" layoutX="24.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender : ">
+                                       <font>
+                                          <Font name="Roboto Bold" size="17.0" />
+                                       </font>
+                                    </Text>
+                                    <Label layoutX="99.0" layoutY="210.0" prefHeight="18.0" prefWidth="164.0" text="Male" textFill="#676a6c">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fill="#676a6c" layoutX="25.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Membership expieres in  :">
+                                       <font>
+                                          <Font name="Roboto Bold" size="17.0" />
+                                       </font>
+                                    </Text>
+                                    <Label layoutX="233.0" layoutY="241.0" prefHeight="18.0" prefWidth="164.0" text="35 days" textFill="#676a6c">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fill="#676a6c" layoutX="25.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member status :">
+                                       <font>
+                                          <Font name="Roboto Bold" size="17.0" />
+                                       </font>
+                                    </Text>
+                                    <Label layoutX="157.0" layoutY="271.0" prefHeight="18.0" prefWidth="164.0" text="Active" textFill="#676a6c">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Icon accessibleRole="TEXT" content="SORT" focusTraversable="true" layoutX="190.0" layoutY="337.0" style="-fx-background-color: #c7c3c3; -fx-border-color: #676a6c;" styleClass="avatar-icons">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <BoxBlur height="0.5" width="0.5" />
+                                       </effect>
+                                    </Icon>
+                                    <Icon accessibleRole="TEXT" content="ACCESSIBILITY" focusTraversable="true" layoutX="145.0" layoutY="337.0" prefWidth="24.0" style="-fx-background-color: #c7c3c3; -fx-border-color: #676a6c;" styleClass="avatar-icons">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <BoxBlur height="0.5" width="0.5" />
+                                       </effect>
+                                    </Icon>
+                                    <Icon accessibleRole="TEXT" content="RECEIPT" focusTraversable="true" layoutX="100.0" layoutY="337.0" style="-fx-background-color: #c7c3c3; -fx-border-color: #676a6c;" styleClass="avatar-icons">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <BoxBlur height="0.5" width="0.5" />
+                                       </effect>
+                                    </Icon>
+                                    <Icon accessibleRole="TEXT" content="DO_NOT_DISTURB" focusTraversable="true" layoutX="235.0" layoutY="337.0" style="-fx-background-color: #c7c3c3; -fx-border-color: #676a6c;" styleClass="avatar-icons">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <BoxBlur height="0.5" width="0.5" />
+                                       </effect>
+                                    </Icon>
+                                <!--  <Avatar layoutX="184.0" layoutY="92.0">
+                                       <image>
+                                          <Image url="@../../res/images/avatar-img01.png" />
+                                       </image></Avatar> -->
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="541.7334045410156" minHeight="10.0" prefHeight="541.7334045410156" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="499.0" minHeight="10.0" prefHeight="164.66659545898438" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="813.3333740234375" minWidth="10.0" prefWidth="657.8666625976563" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="582.2666503906249" minWidth="10.0" prefWidth="576.9333374023437" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+    </Pane>
+      <Pane layoutX="221.0" layoutY="1.0" prefHeight="50.0" style="-fx-background-color: #363636;" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" layoutX="227.0" layoutY="-3.0" prefHeight="50.0" style="-fx-background-color: red;" />
+            <Icon content="MENU" layoutX="15.0" layoutY="14.0" prefHeight="26.0" prefWidth="25.0" style="-fx-background-color: #d7ec35;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Icon>
+            <Label layoutX="106.0" prefHeight="50.0" prefWidth="151.0" text="Your clients" textFill="#d7ec35">
+               <font>
+                  <Font name="Courier New Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+  </children>
+</AnchorPane>

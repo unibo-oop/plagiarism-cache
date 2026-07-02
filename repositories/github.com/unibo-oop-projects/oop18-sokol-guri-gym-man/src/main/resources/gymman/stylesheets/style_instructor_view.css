@@ -1,0 +1,61 @@
+@charset "ISO-8859-1";
+
+
+#view-container{
+	-fx-border-color: black;
+}
+
+
+#first-row-pane {
+	-fx-border-color: black;
+}
+
+#dashbord-container {
+	-fx-border-color: black;
+}
+
+#details-client-pane {
+	-fx-border-color: black;
+}
+
+#back-img-button {
+	
+}
+
+#menu-voice {
+	-fx-font-size: 20pt;
+    -fx-font-family: "Segoe UI Semibold",  Helvetica, Arial, sans-serif;
+    -fx-text-fill: black;
+    -fx-opacity: 0.6;
+	-fx-background-color: white;
+}
+
+#selected_voice_menu{
+	-fx-background-color: black;
+}
+
+#table-details{
+	-fx-padding: 1; 
+   -fx-border-color:red; 
+   -fx-background-color:yellow;
+   -fx-focus-color: #f25f29;
+   -fx-faint-focus-color: #f25f2933;
+       -fx-background-color: purple;
+    -fx-border-color: red;
+}
+
+
+
+#avatar {
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+-fx-padding: 10;
+-fx-background-color: firebrick;
+-fx-background-radius: 55;
+
+}
+
+
+
+
+
+
