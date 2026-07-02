@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="968.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="view.scenecontroller.RulebookPage2Controller">
+   <children>
+      <Label alignment="CENTER" layoutX="344.0" layoutY="7.0" prefHeight="29.0" prefWidth="231.0" text="Regole del Gioco:" textFill="#21d95b" textOverrun="WORD_ELLIPSIS" underline="true">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Text fontSmoothingType="LCD" layoutX="99.0" layoutY="64.0" strokeType="INSIDE" strokeWidth="0.0" text="Dopo aver tirato il Dado, ciascun giocatore ha le seguenti opzioni :" textAlignment="JUSTIFY" wrappingWidth="532.2008056640625">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Label layoutX="101.0" layoutY="69.0" prefHeight="29.0" prefWidth="231.0" text="-Facce con numeri:" textFill="#23a0d9" textOverrun="WORD_ELLIPSIS" underline="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Text fontSmoothingType="LCD" layoutX="99.0" layoutY="117.0" strokeType="INSIDE" strokeWidth="0.0" text="Quando con il lancio del dado si ottiene un numero, il giocatore può muovere un eroe del numero di spazi corrispondente al numero indicato. L'eroe non può oltrepassare gli altri eroi nè fermarsi sopra di essi. Inoltre non può essere spostato in diagonale o attraversare muri, siepi o il Minotauro. Può essere spostato solo un eroe per turno. " textAlignment="JUSTIFY" wrappingWidth="773.0007999539375">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="50.0" layoutY="138.0">
+         <image>
+            <Image url="@../dice/SIX.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="14.0" layoutY="102.0">
+         <image>
+            <Image url="@../dice/THREE.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="50.0" layoutY="102.0">
+         <image>
+            <Image url="@../dice/FOUR.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="14.0" layoutY="138.0">
+         <image>
+            <Image url="@../dice/FIVE.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="99.0" layoutY="172.0" prefHeight="29.0" prefWidth="231.0" text="-Muri: " textFill="#23a0d9" textOverrun="WORD_ELLIPSIS" underline="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="52.0" fitWidth="77.0" layoutX="877.0" layoutY="203.0">
+         <image>
+            <Image url="@../menuImages/wall.jpg" />
+         </image>
+      </ImageView>
+      <Text fontSmoothingType="LCD" layoutX="99.0" layoutY="216.0" strokeType="INSIDE" strokeWidth="0.0" text="Quando con il lancio del dado si ottiene il colore grigio si può spostare un muro con lo scopo di impedire l'avanzata degli eroi degli avversari. I muri non possono essere collocati su un eroe o sul Minotauro." textAlignment="JUSTIFY" wrappingWidth="754.6007803380489">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="53.0" layoutY="203.0">
+         <image>
+            <Image url="@../dice/GREY.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="102.0" layoutY="256.0" prefHeight="29.0" prefWidth="231.0" text="-Minotauro:" textFill="#23a0d9" textOverrun="WORD_ELLIPSIS" underline="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="53.0" layoutY="286.0">
+         <image>
+            <Image url="@../dice/BLACK.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="58.0" layoutX="887.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../menuImages/hero.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="58.0" layoutX="21.0" layoutY="625.0" onMouseClicked="#openGuideScene">
+         <image>
+            <Image url="@../menuImages/backArrow.jpg" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Text fontSmoothingType="LCD" layoutX="99.0" layoutY="298.0" strokeType="INSIDE" strokeWidth="0.0" text="Quando con il lancio del dado si ottiene il colore nero, il giocatore può spostare il Minotauro di 8 spazi (se tale valore non è stato modificato nella modalità personalizzata). Il Minotauro non può attraversare muri o siepi (quest'ultime solo se non si è indicato diversamente nelle impostazioni). Se il Minotauro s’imbatte in un eroe, sovrapponendosi alla sua casella, mentre si sposta, l’eroe deve ritornare al punto di partenza, mentre il Minotauro ritorna al tempio segreto al centro del tabellone. Solo i blocchi di partenza colorati e l’area colorata al centro del tabellone sono al sicuro dal Minotauro." textAlignment="JUSTIFY" wrappingWidth="754.6007804870605">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="118.0" fitWidth="77.0" layoutX="877.0" layoutY="271.0">
+         <image>
+            <Image url="@../menuImages/minotaurImage.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="99.0" layoutY="395.0" prefHeight="29.0" prefWidth="231.0" text="-Siepi:" textFill="#23a0d9" textOverrun="WORD_ELLIPSIS" underline="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Text fontSmoothingType="LCD" layoutX="99.0" layoutY="584.0" strokeType="INSIDE" strokeWidth="0.0" text="I giocatori non devono ottenere il numero esatto di spazi rimanenti con il tiro di dado per poter accedere alla propria area colorata al tempio; è sufficiente che l’eroe entri nell’area colorata quando si sposta. " textAlignment="JUSTIFY" wrappingWidth="844.2008731365204">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Text>
+      <Text fontSmoothingType="LCD" layoutX="99.0" layoutY="440.0" strokeType="INSIDE" strokeWidth="0.0" text="Nella modalità Hedge Jumping, nel dado è presente, al posto della faccia 3, il colore verde. Se il giocatore lanciando il dado ottiene questa faccia può  muovere un eroe di 3 passi saltando una siepe. Le siepi contano come uno spazio e i giocatori non possono terminare il proprio turno con l’eroe su una siepe inoltre non possono far saltare all'eroe un muro quando ottengono il riquadro verde. Se nessun eroe è in vicinanza di una siepe o il giocatore preferisce non far saltare siepi a nessuna delle sue pedine può muovere un eroe di 3 passi. " textAlignment="JUSTIFY" wrappingWidth="558.6008365154266">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="50.0" layoutY="432.0">
+         <image>
+            <Image url="@../dice/GREEN.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="133.0" fitWidth="279.0" layoutX="675.0" layoutY="424.0">
+         <image>
+            <Image url="@../menuImages/exampleHedgeJumping.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="232.0" layoutY="625.0" prefHeight="30.0" prefWidth="721.0" text="Per concludere il turno il giocatore deve premere invio" textFill="#df4141">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
