@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+
+<Pane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HelpController">
+    <BorderPane fx:id="rootPane" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: black;" >
+        <top>
+            <VBox>
+                <ImageView preserveRatio="true">
+                    <Image url="@./../images/bottomScore.png" />
+                </ImageView>
+                <ImageView preserveRatio="true">
+                    <Image url="@./../images/bodyBackgroundTop.png" />
+                </ImageView>
+            </VBox>
+        </top>
+        <center>
+            <VBox>
+                <VBox alignment="TOP_RIGHT" >
+                    <ImageView onMouseClicked="#backHome" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" >
+                        <Image url="@./../images/home-button.png" />
+                        <VBox.margin>
+                            <Insets top="10.0" right="15" bottom="15"/>
+                        </VBox.margin>
+                    </ImageView>
+                </VBox>
+                <VBox alignment="CENTER">
+                    <ImageView fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@./../images/instruction_BBTAN.jpg" />
+                    </ImageView>
+                </VBox>
+            </VBox>
+        </center>
+        <bottom>
+            <ImageView preserveRatio="true">
+                <Image url="@./../images/bodyBackgroundBot.png" />
+            </ImageView>
+        </bottom>
+    </BorderPane>
+</Pane>

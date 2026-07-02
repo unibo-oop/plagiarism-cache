@@ -1,0 +1,31 @@
+@font-face {
+    src: url("../fonts/Square.ttf");
+}
+
+.scrollpane-text{
+    -fx-text-fill:#FFFFFF;
+    -fx-font-family: "SquareFont";
+    -fx-font-size:20px;
+}
+
+.blockPageLabel{
+    -fx-font-family: "SquareFont";
+    -fx-font-size:35px;
+}
+
+.button_style{
+    -fx-font-size:12px;
+    -fx-background-color: rgba(80, 5, 70, 1);
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #d9157b;
+    -fx-border-width: 3;
+}
+
+.button_style:hover {
+    -fx-background-color: rgba(80, 5, 70, 0.7);
+}
+
+.textfield_style{
+    -fx-border-color: #d9157b;
+    -fx-border-width: 3;
+}

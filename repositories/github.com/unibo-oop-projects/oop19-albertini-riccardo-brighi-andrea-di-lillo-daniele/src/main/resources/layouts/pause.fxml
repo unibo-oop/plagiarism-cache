@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="layouts.Pause">
+   <children>
+       <BorderPane fx:id="contenitore" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: transparent;">
+         <top>
+             <VBox>
+                <ImageView fx:id="pauseIcon" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@./../images/pause.png" />
+                    </image>
+                </ImageView>
+               <ImageView fx:id="homeIcon" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@./../images/home.png" />
+                   </image>
+               </ImageView>
+
+             </VBox>
+         </top>
+         <center>
+            <Label text="PAUSA" BorderPane.alignment="CENTER" />
+         </center>
+       </BorderPane>
+   </children>
+</Pane>

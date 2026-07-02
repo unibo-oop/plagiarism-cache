@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="mainPageContent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #000000;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlayerInsertionPage">
+   <bottom>
+      <ImageView fitHeight="150.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../images/bodyBackgroundBot.png" />
+         </image>
+      </ImageView>
+   </bottom>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" style="-fx-text-fill: #FFFFFF;" styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Inserisci il tuo nome utente">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtTextBox" maxWidth="200.0" prefHeight="4.0" prefWidth="350.0" styleClass="textfield_style">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </TextField>
+            <HBox alignment="CENTER" prefHeight="102.0" prefWidth="350.0">
+               <children>
+                  <Button fx:id="btnGetBack" defaultButton="true" mnemonicParsing="false" onMouseClicked="#btnGetBack_onClick" prefHeight="41.0" prefWidth="90.0" style="-fx-font-family: &quot;SquareFont&quot;;" styleClass="button_style" text="Indietro">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnSelect" mnemonicParsing="false" onMouseClicked="#btnSelect_onClick" prefHeight="41.0" prefWidth="90.0" style="-fx-font-family: &quot;SquareFont&quot;;" styleClass="button_style" text="Seleziona">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </HBox>
+            <Label fx:id="lblControl" styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Controllo" textFill="WHITE" />
+            <ImageView fx:id="imgPlay" fitHeight="74.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/play-again.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </ImageView>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <VBox prefHeight="173.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane prefHeight="34.0" prefWidth="350.0">
+               <children>
+                  <ImageView fitHeight="154.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/bottomScore.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblCurrentPlayer" alignment="CENTER" styleClass="scrollpane-text" text="Label" textFill="WHITE" StackPane.alignment="CENTER" />
+               </children>
+            </StackPane>
+            <ImageView fitHeight="150.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/bodyBackgroundTop.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

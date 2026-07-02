@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding ="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.Label?>
+<Pane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UIController">
+	<BorderPane fx:id="container" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: black;" >
+		<top>
+			<VBox>
+				<Label fx:id="top_score" contentDisplay="TOP" text="Roast Beef">
+					<graphic>
+						<ImageView preserveRatio="true">
+							<Image url="@./../images/bottomScore.png"/>
+						</ImageView>
+					</graphic>
+				</Label>
+
+				<ImageView preserveRatio="true">
+					<Image url="@./../images/bodyBackgroundTop.png"/>
+				</ImageView>
+			</VBox>
+		</top>
+		<center>
+			<VBox>
+				<BorderPane>
+					<left>
+						<VBox>
+							<ImageView onMouseClicked="#clickStats" fitWidth="30.0"
+									   pickOnBounds="true" preserveRatio="true">
+								<VBox.margin>
+									<Insets top="10.0" left="10" bottom="10" right="25"/>
+								</VBox.margin>
+								<Image url="@./../images/top-scores.png"/>
+							</ImageView>
+						</VBox>
+					</left>
+					<center>
+						<VBox alignment="CENTER">
+							<ImageView onMouseClicked="#clickPlayer" fitWidth="60.0"
+									   pickOnBounds="true" preserveRatio="true">
+								<VBox.margin>
+									<Insets top="13.0" bottom="10"/>
+								</VBox.margin>
+								<Image url="@./../images/Login-button.png"/>
+							</ImageView>
+						</VBox>
+					</center>
+					<right>
+						<VBox alignment="TOP_RIGHT">
+							<ImageView onMouseClicked="#clickHelp" fitWidth="60.0" pickOnBounds="true"
+									   preserveRatio="true">
+								<VBox.margin>
+									<Insets top="13.0" right="10" bottom="10"/>
+								</VBox.margin>
+								<Image url="@./../images/help-button.png"/>
+							</ImageView>
+						</VBox>
+					</right>
+				</BorderPane>
+				<VBox alignment="TOP_CENTER">
+					<padding>
+						<Insets bottom="25.0" top="10.0"/>
+					</padding>
+					<ImageView fx:id="BBTAN_bot" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true"
+							   preserveRatio="true">
+						<Image url="@./../images/BBTAN-bot-start-menu.png"/>
+					</ImageView>
+					<ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true"
+							   preserveRatio="true">
+						<VBox.margin>
+							<Insets fx:id="marginOverBall" bottom="30.0" top="30.0"/>
+						</VBox.margin>
+						<Image url="@./../images/BBTAN-logo.png"/>
+					</ImageView>
+					<ImageView fx:id="ball" fitHeight="8.0" fitWidth="8.0" pickOnBounds="true" preserveRatio="true">
+						<Image url="@./../images/ball.png"/>
+					</ImageView>
+					<HBox alignment="TOP_CENTER" prefWidth="220.0">
+						<ImageView onMouseClicked="#clickShop" fitWidth="100.0" pickOnBounds="true"
+								   preserveRatio="true">
+							<HBox.margin>
+								<Insets right="5"/>
+							</HBox.margin>
+							<Image url="@./../images/shop-button.png"/>
+						</ImageView>
+						<ImageView fx:id="play" onMouseClicked="#clickPlay" fitWidth="100.0" pickOnBounds="true"
+								   preserveRatio="true">
+							<HBox.margin>
+								<Insets left="5"/>
+							</HBox.margin>
+							<Image url="@./../images/play-again.png"/>
+						</ImageView>
+					</HBox>
+				</VBox>
+			</VBox>
+		</center>
+		<bottom>
+			<ImageView preserveRatio="true">
+				<Image url="@./../images/bodyBackgroundBot.png"/>
+			</ImageView>
+		</bottom>
+	</BorderPane>
+</Pane>

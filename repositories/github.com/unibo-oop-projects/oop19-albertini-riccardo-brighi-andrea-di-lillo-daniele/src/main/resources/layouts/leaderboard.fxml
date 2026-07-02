@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="MainPageContent" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LBController">
+    <BorderPane maxHeight="600.0" maxWidth="350.0" prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #500546;" stylesheets="@../css/style.css">
+        <top>
+            <VBox BorderPane.alignment="CENTER">
+                <children>
+                    <ImageView fitHeight="150.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/bodyBackgroundTop.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </VBox>
+        </top>
+        <bottom>
+            <ImageView fitHeight="150.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                <image>
+                    <Image url="@../images/bodyBackgroundBot.png" />
+                </image>
+            </ImageView>
+        </bottom>
+        <center>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                <children>
+                    <Label alignment="TOP_CENTER" contentDisplay="TOP" style="-fx-font-family: SquareFont;" text="LEADERBOARD" textFill="#eaff00">
+                        <font>
+                            <Font size="34.0" />
+                        </font></Label>
+                    <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background: #500546;">
+                        <children>
+                            <ImageView fitHeight="342.0" fitWidth="351.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../images/leaderboard.png" />
+                                </image>
+                            </ImageView>
+                            <ScrollPane maxHeight="299.0" maxWidth="304.0" minHeight="80.0" minWidth="60.0" prefHeight="299.0" prefWidth="304.0" style="-fx-background-color: #500546;" vbarPolicy="NEVER">
+                                <cursor>
+                                    <Cursor fx:constant="S_RESIZE" />
+                                </cursor>
+                                <content>
+                                    <VBox prefHeight="240.0" prefWidth="230.0">
+                                        <children>
+                                            <BorderPane fx:id="leaderPane" minWidth="-Infinity" prefHeight="577.0" prefWidth="266.0">
+                                                <left>
+                                                    <VBox>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" stylesheets="@../css/style.css" text="Label" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                    </VBox>
+
+                                                </left>
+                                                <right>
+                                                    <VBox>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+                                                        <Label styleClass="scrollpane-text" text="45" BorderPane.alignment="TOP_LEFT">
+                                                            <font>
+                                                                <Font size="20.0" />
+                                                            </font></Label>
+
+                                                    </VBox>
+                                                </right>
+                                            </BorderPane>
+                                        </children>
+                                    </VBox>
+                                </content></ScrollPane>
+
+                        </children>
+                    </StackPane>
+                    <ImageView fx:id="restartButton" fitHeight="53.0" fitWidth="164.0" onMouseClicked="#onClick" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/play-again_mouseOver.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </VBox>
+        </center>
+    </BorderPane>
+</Pane>

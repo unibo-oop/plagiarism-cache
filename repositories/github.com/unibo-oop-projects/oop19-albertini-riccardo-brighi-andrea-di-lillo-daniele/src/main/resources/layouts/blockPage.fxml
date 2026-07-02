@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BLKController">
+    <top>
+        <VBox>
+            <children>
+                <BorderPane>
+
+                    <left>
+                        <BorderPane>
+                            <left>
+                                <VBox alignment="TOP_LEFT">
+                                    <children>
+                                        <ImageView fx:id="pause" fitWidth="60.0" onMouseClicked="#clickPause" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@./../images/pause.png" />
+                                            </image>
+                                            <VBox.margin>
+                                                <Insets bottom="10" left="10" right="25" top="10.0" />
+                                            </VBox.margin>
+                                        </ImageView>
+                                    </children>
+                                </VBox>
+                            </left>
+                            <center>
+                                <VBox alignment="TOP_LEFT">
+                                    <children>
+                                        <ImageView fx:id="help" fitWidth="35.0" onMouseClicked="#clickHelp" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@./../images/help.png" />
+                                            </image>
+                                            <VBox.margin>
+                                                <Insets bottom="10" left="-40" right="-5" top="21.5" />
+                                            </VBox.margin>
+                                        </ImageView>
+                                    </children>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+
+                    </left>
+
+                    <center>
+                        <VBox alignment="TOP_CENTER">
+                            <children>
+                                    <Label fx:id="lblPoint" style="-fx-font-family: &quot;SquareFont&quot;;" stylesheets="@../css/style.css" text="0" textFill="WHITE">
+
+                                        <font>
+                                            <Font size="35.0" />
+                                        </font>
+
+                                        <VBox.margin>
+                                            <Insets bottom="10" right="-25" top="18.5"/>
+                                        </VBox.margin>
+
+                                    </Label>
+                            </children>
+                        </VBox>
+                    </center>
+
+                    <right>
+                        <VBox>
+                            <children>
+                                    <Label fx:id="lblTopScore" style="-fx-font-family: &quot;SquareFont&quot;;" text="SCORE: 0" textFill="WHITE">
+
+                                        <font>
+                                            <Font size="20.0" />
+                                        </font>
+
+                                        <VBox.margin>
+                                            <Insets bottom="10" right="95" top="27" />
+                                        </VBox.margin>
+
+                                    </Label>
+                            </children>
+                        </VBox>
+                    </right>
+
+                    <bottom>
+                        <ImageView fx:id="header_image">
+                            <image>
+                                <Image url="@./../images/bodyBackgroundTop.png" />
+                            </image>
+                        </ImageView>
+                    </bottom>
+
+                </BorderPane>
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox>
+            <children>
+                <GridPane fx:id="Grid" />
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <ImageView fx:id="footer_image">
+            <image>
+                <Image url="@./../images/bodyBackgroundBot.png" />
+            </image>
+        </ImageView>
+    </bottom>
+</BorderPane>
