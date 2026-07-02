@@ -1,0 +1,719 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{alltt, fancyvrb, url}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+
+\usepackage[italian]{babel}
+
+\usepackage[italian]{cleveref}
+
+
+\newcommand\pathgenerale{img/generali/}
+\newcommand\pathsofia{img/sofia/}
+\newcommand\pathlaura{img/laura/}
+\newcommand\pathgianluca{img/gianluca/}
+\newcommand\pathalessandro{img/alessandro/}
+\newcommand\pathserafino{img/serafino/}
+\newcommand\pathguida{img/guidautente/}
+
+\title{Relazione:\break``DUKEMANIA''}
+
+\author{Gianluca Migliarini, \\ Serafino Pandolfini,\\ Sofia Tosi,\\ Laura Leonardi, \\ Alessandro Brasini}
+\date{25 Agosto 2021}
+
+ 
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+
+\chapter{Analisi}
+\section{Requisiti}
+Il gruppo si pone come obbiettivo quello di realizzare un clone del videogioco musicale "BeatManiaIIDX".
+Lo sviluppo mira alla completa funzionalità a livello di gameplay, e, in aggiunta all'opera originale
+dalla quale viene presa ispirazione, offrire all'utente la possibilità di importare i propri livelli giocabili tramite file Midi (Musical Instrument Digital Interface). Viene inoltre considerato come requisito la sostituzione della riproduzione di una traccia audio con la sintesi sonora in tempo reale.
+\begingroup
+\fontsize{11pt}{10pt}\selectfont
+
+\subsubsection{Requisiti funzionali}
+\begin{itemize}
+	\item L'utente è in grado di scegliere quale canzone giocare a partire dalla scelta di un file Midi.
+	\item L'applicativo deve riprodurre fedelmente tutte le tracce componenti la canzone, con un timbro musicale
+	simile a quello di un GameBoy.
+	\item L'applicativo deve offrire un gameplay su varie colonne, il giocatore dovrà premere le note sulla rispettiva colonna a ritmo di musica per ottenere punti.
+	\item L'applicativo deve memorizzare una scoreboard con tutti i punteggi delle varie partite relative alla canzone selezionata.
+	\item La traccia giocabile viene scelta dall'utente dalla lista delle tracce componenti la canzone.
+	\item L'applicativo deve "semplificare" le traccie musicali complesse rendendole giocabili, segnalando un grado di difficoltà.
+\end{itemize}
+
+\subsubsection{Requisiti non funzionali}
+\begin{itemize}
+	\item L'applicativo deve funzionare correttamente sia su Windows sia su sistemi basati su Unix.
+	\item La fluidità del gameplay e la qualità dell'audio non devono essere compromesse dalla pesantezza del file midi (ovviamente se non troppo complesso).
+\end{itemize}
+\endgroup
+\newpage
+
+% section analisi di modello e dominio
+\section{Analisi e modello del dominio}
+
+
+Dukemania dovrà essere in grado di fare selezionare all'utente il proprio nickname e una canzone in formato Midi. Dovrà inoltre permettere la configurazione dei nomi di tracce e strumenti associati alla canzone selezionata. Inoltre, la traccia da giocare, sara' anch'essa selezionabile dall'utente.
+I vari strumenti saranno caricati a partire da un file di configurazione in locale all'avvio del gioco e saranno detti sintetizzatori.
+Ci sarà una entità responsabile della gestione e riproduzione del tono e del volume in entrata e in uscita. Le tracce della canzone, con le relative note, verranno individuate da un parser. A ogni traccia verrà associato un solo sintetizzatore che riprodurrà uno strumento.
+Il gameplay si svolgerà su varie colonne, in ognuna delle quali cadranno note relative alla traccia selezionata, opportunamente semplificata per garantirne la giocabilità.
+Le difficoltà primarie riguarderanno il calcolo del punteggio in base alla precisione del giocatore e la sincronizzazione tra la caduta delle note e il suono riprodotto.
+Alla fine della partita, dovrà essere visualizzata una schermata contenente il punteggio migliore di ogni singolo giocatore ottenuto sulla canzone selezionata in precedenza.
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathgenerale uml_analisi.jpg}}
+	\caption{Schema UML della fase di analisi.}
+	\label{img:analysis}
+\end{figure}
+\newpage
+
+
+\chapter{Design}
+\section{Architettura}
+L'architettura di DukeMania è basata sul pattern MVC.
+La classe DukeMania è l'entry point dell'applicazione, al suo interno vengono inizializzate tutte le View e il WindowManager, la classe che fungerà da Controller principale.
+Il compito pricipale di WindowManager è quello di cambiare, tra le varie View, la finestra da renderizzare e visualizzare, occupandosi inoltre di passare il Model alle varie schermate, che a loro volta lo passeranno al relativo Controller.
+Il Model principale, rappresentato da GameModel, conterrà le configurazioni di gioco, rendendole così accessibili a tutte le View.
+La classe WindowManager implementa l'interfaccia SwitchWindowNotifier, il cui compito principale e' quello di notificare il WindowManager, segnalandogli che un controller di una View vuole sostituire la finestra attiva.
+Tutte le View implementano l'interfaccia Window, la quale le rende predisposte a ricevere i dati del Model, e ad utilizzare lo SwitchWindowNotifier tramite il proprio controller.
+Utilizzando questa strategia è semplice aggiungere nuove View e definirne il comportamento.
+Un sistema di window-switching è già implementato in LibGDX ma, al fine di rendere il più riutilizzabile possibile e platform-indipendent 
+questa meccanica, è stato deciso di implementare una versione generale che può essere applicata a qualsiasi tipo di libreria grafica.
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathgenerale architettura.png}}
+	\caption{Schema UML dell'architettura MVC.}
+	\label{img:architecture}
+\end{figure}
+\clearpage
+
+
+\section{Design dettagliato}
+\subsection{Gianluca Migliarini}
+Nella mia parte di design dettagliato viene descritto il funzionamento del motore audio.
+La classe Engine si occupa di aggiornare e valutare lo stato dei vari sintetizzatori (tastiere simulate), ad ogni chiamata del metodo render viene riempito un buffer di samples (campioni audio). Ogni campione audio viene calcolato sommando i campioni audio di tutti i sintetizzatori al momento della chiamata.
+Una volta che il buffer e' pieno, viene mandato al dispositivo audio che si occupa di suonare i vari campioni.
+Ogni traccia della canzone viene affidata ad un sintetizzatore di tastiera o di percussioni. Per differenziarli, e' stata creata l' interfaccia Synth, contenente i metodi comuni tra i due, per calcolare quante note/percussioni stanno suonando e per ottenere un campione audio.
+Le variabili di impostazioni che garantiscono il corretto funzionamento dell'audio sono scritte nella classe Settings.java, come campi finali statici.
+Per evitare costi computazionali troppo alti, i vari campioni delle varie note di tutti i sintetizzatori vengono pre-caricati in istanze anonime dell'interfaccia BufferManager. Lo scopo di quest'ultima e' quello di rendere una nota risuonabile in ogni momento tramite il metodo refresh, e, tramite i meotodi di iterator, ottenere il prossimo campione suonabile e controllarne l'esistenza. \\ \\
+I sintetizzatori di tastiera e di percussioni si differenziano nel seguente modo:
+\newpage
+\subsubsection{KeyboardSynth}
+Per i vari sintetizzatori di tastiere, oltre ai metodi dell'interaccia Synth, e' presente il metodo playTimeNote, per suonare una nota ad una determinata frequenza per un determinato tempo espresso in microsecondi. \\
+Per aumentare le performance, i vari campioni delle note sono caricati all'instanziamento della classe, a partire da una lista contenente gli indici delle note utilizzate e il relativo tempo di suonata. \\
+I BufferManager vengono creati a partire da una classe Enveloper, che si occupa di gestire il volume della nota in entrata e in uscita.
+Per impostare correttamente tutti i parametri dei sintetizzatori di tastiera ho deciso di utilizzare il pattern "builder", in quanto alcune impostazioni non sono sempre necessarie, ad esempio gli LFO, visti in dettaglio piu' avanti. \\ \\ \\
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathgianluca synth_builder}}
+	\caption{Schema UML del Builder dei sintetizzatori di tastiere.}
+	\label{img:SynthBuilder}
+\end{figure}
+\clearpage
+\subsubsection{DrumSynth}
+Nel caso del sintetizzatore per le percussioni, le varie istanze di BufferManager sono presenti come campo read only dell'enum DrumSamples. Ho scelto di utilizzare questo enum come pattern "singleton" in quanto non richiede l' istanziazione di oggetto, e perchè le percussioni non cambiano tra i diversi file Midi, a differenza delle note le quali hanno lunghezze diverse.
+L'unico metodo esterno all'interfaccia Synth e' playPercussion, il quale si occupa di ri-iniziare la riproduzione di un elemento della batteria. \\
+Per aggiungere nuove percussioni, in futuro, basterà aggiungere un nuovo valore all'enum e caricare il relativo BufferManager, questo verrà assegnato automaticamente alle percussioni Midi idonee.
+\\ \\ \\
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathgianluca drum_singleton}}
+	\caption{Schema UML del Singleton Drum Samples.}
+	\label{img:drumSingleton}
+\end{figure}
+\clearpage
+\subsubsection{Creazione delle note e timbri sonori}
+Durante il caricamento, i sintetizzatori utilizzano l'enum Wavetables, contenente le varie forme audio utilizzabili assumibili dalle note; queste forme sono caricate all'avvio in array, i quali possono essere letti in intervalli più o meno distaccati per simulare le varie frequenze.
+Per differenziare i timbri sonori faccio uso degli LFO, funzioni adibite al cambio del tono e del volume nel tempo. Ho deciso di utilizzare il pattern "static factory" a causa della necessità di essere utilizzata senza istanze.
+Per aggiungere funzioni LFO in futuro, e avere ancora più varietà del suono,
+SynthBuilder utilizza una strategy con "Function Long,Float" come interfaccia funzionale, la funzione che rappresenta l'LFO. 
+\\ \\
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathgianluca wavetables}}
+	\caption{Schema UML dell'interazione tra LFOFactory, keyboardSynth e Wavetable.}
+	\label{img:wavetables}
+\end{figure}
+\clearpage
+
+\subsection{Serafino Pandolfini}
+Il package logic si occupa di ricevere Song fornite dal MidiParser e di elaborare le tracce e le note che la compongono. Vi sono inoltre presenti metodi e classi per il calcolo del punteggio e per l'avvio della traccia audio. Il tutto si può dividere nelle seguenti sezioni:
+\subsubsection{Filtraggio delle note e difficoltà tracce}
+Il primo passaggio svolto è la riduzione del numero di note per ogni traccia. Prima vengono eliminate tracce non giocabili, generalmente tracce di percussioni identificate da un canale; poi da ogni traccia vengono eliminate le note troppo piccole per poter essere giocate con successo; infine, basandosi sul numero di note, vengono eliminate ulteriori note in modo da portare il numero di note di ogni traccia sotto una soglia predeterminata. Questo ultimo filtro è basato sull'ordine cronologico delle note, in modo da preservare l'uniformità della traccia e garantire una certa diversità di numero di note tra le tracce di una Song. Si precisa che ogni volta che è necessario eliminare note dalla traccia invece che eliminarle si preferisce ricreare la traccia stessa tramite una factory in modo da utilizzare gli stream più agilmente.
+Dopo che ogni traccia è stata filtrata queste vengono mostrate a schermo con l'aggiunta di un livello di difficoltà per ognuna di esse. Questo livello è basato sul numero di note della traccia dopo essere stata filtrata. I vari livelli sono contenuti all'intenro dell'enum DifficultyLevel.
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathserafino TrackFilter.jpg}}
+	\caption{Schema UML del Track Filter.}
+	\label{img:trackfilter}
+\end{figure}
+\clearpage \hfill\break
+\subsubsection{Incolonnamento delle note e passaggio alla grafica}
+Dopo che viene scelta una traccia da giocare è necessario posizionare le note nelle colonne presenti nell'enum Columns. In questo processo vengono anche generati i range che poi saranno sfruttati nel calcolo del punteggio. Dopo aver incolonnato le colonne queste vengono convertite tramite un pattern adapter. In questo caso il pattern, invece che connettere due interfacce, si occupa di rendere compatibili una classe astratta AbstractNote e un interfaccia LogicNote. Tramite questo adattamento è possibile connettere gli aspetti logici e grafici del progetto. \\ \\ \\ \\
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathserafino adapter.jpg}}
+	\caption{Schema UML dell'adapter.}
+	\label{img:incollamentonote}
+\end{figure}
+\clearpage \hfill\break
+
+\subsubsection{Calcolo del punteggio}
+Per ogni nota premuta dal giocatore viene calcolato un punteggio. Viene prima deciso il range della nota premuta su quelli creati precedentemente, poi si passa al calcolo effettivo. L'algoritmo utilizzato per questo calcolo è strutturato usando il pattern strategy in modo da permettere in futuro l'aggiunta di ulteriori algoritmi per il calcolo del punteggio. \\ \\ \\ \\
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathserafino Strategy.jpg}}
+	\caption{Schema UML della strategy per il calcolo del punteggio.}
+	\label{img:calcpunteggio}
+\end{figure}
+\clearpage \hfill\break
+
+\subsubsection{Observer - PlayerAudio}
+Per garantire una corretta gestione delle tracce ho deciso di implementare, nella classe PlayerAudio, il pattern observer. Ho scelto questo pattern in quanto, a causa del framerate variabile sui vari dispositivi, risulta comodo avere un singolo metodo per notificare tutte le tracce (gli Observer) di suonare le note il cui tempo di inizio è inferiore o uguale a quello scandito dalla chiamata di Player, l'Observable.
+La lista di observer "playableTracks" viene riempita dal costruttore una volta passata la canzone. Gli observer vengono caricati come istanze anonime di PlayableTrack, interfaccia contenente il metodo per essere notificata dall'Observable e per controllare se un'altra nota puo' essere suonata.
+Ad ogni chiamata del metodo playNotes, verranno rimosse le tracce non più utilizzabili e tutte quelle rimanenti verranno notificate di suonare, se possibile, delle note.
+Infine, per non rendere dipendente l'audio dal metodo di render, questo viene delegato ad un thread, il quale gira in modo asincrono rispetto al gioco e termina una volta suonate tutte le note.
+ \\ \\ \\ \\
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathserafino observer.jpg}}
+	\caption{Schema UML per la gestione del player audio tramite observer.}
+	\label{img:observer}
+\end{figure}
+\clearpage \hfill\break
+
+
+
+
+\subsection{Sofia Tosi}
+\subsubsection{Adapter - EventsFromKeyboard}
+Questo paragrafo illustra il design relativo alla gestione dell'input e degli assets.
+In seguito ad un'attenta valutazione, si è deciso di far interfacciare l'utente all'applicazione DukeMania tramite l'utilizzo di
+una tastiera per pc. 
+Durante la progettazione della sezione concernente l'input, ho ritenuto oppurtuno utilizzare il pattern Adapter.
+La classe EventsFromKeyboardImpl rappresenta l'Adapter in sè che, implementando l'interfaccia omonima, riesce a semplificare e a permettere l'interazione
+tra la tastiera, che sfrutta la libreria com.badlogic.gdx.Input, e la classe relativa alla grafica PlayScreen.
+Per non superare eccessivamente l'ammontare di ore, l'applicazione attuale è stata implementata per consentire solo l'utilizzo della tastiera del pc. 
+Laddove si volesse, in futuro, cambiare la periferica, l'applicazione non esclude questa possibilità. Si potrebbe infatti implementare EventsFromKeyboard 
+e sostituire la classe dell'adapter con un altro adapter che interagisca con una diversa periferica (ad esempio un gamepad, una SG Guitar Hero o una tastiera midi). \\ \\
+\newline
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathsofia sofia_adapter.jpg}}
+	\caption{Schema UML dell'Adapter.}
+	\label{img:adapter}
+\end{figure}
+\clearpage \hfill\break
+\subsubsection{Singleton - AssetsManager}
+Un'altra peculiare classe che merita di essere citata è l'AssetsManager che, come dice il nome, si dedica all'organizzazione degli assets, ovvero tutte le risorse grafiche
+necessarie per il corretto funzionamento dell'applicazione. Queste risorse, che possono essere, ad esempio, le texture degli elementi nella GUI o i file con i font utilizzati,
+vengono caricate una sola volta in memoria.
+Ho deciso di sfruttare il pattern Singleton per la realizzazione di tale classe. Difatti è importante che ci sia una sola istanza dell'AssetsManager per evitare che le risorse 
+grafiche vengano istanziate più volte in memoria sprecando spazio inutilmente. \\ \\
+\newline
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathsofia sofia_singleton.png}}
+	\caption{Schema UML del Singleton.}
+	\label{img:singleton}
+\end{figure}
+\clearpage \hfill\break
+\subsection{Laura Leonardi}
+Per quanto riguarda il parsing dei file midi è stata realizzata la classe MidiParser che ha lo scopo di ottenere, a partire da un file .mid, un oggetto di classe Song contenente una serie di informazioni utili per sintesi audio e la generazione delle tracce di gioco. Dalla classe Song saranno infatti ottenibili delle tracce (ParsedTrack), una per strumento più quella dedicata alle percussioni, da cui saranno a loro volta ottenibili le AbstractNotes, ovvero le note che le compongono. La classe MidiParser è stata dotata di un'interfaccia Parser per permettere un futura implementazione di un nuovo parser a partire da un tipo di file differente dal midi.
+
+\subsubsection{Abstract Factory}
+
+\begingroup
+\fontsize{10pt}{12pt}\selectfont
+Le tracce e le note possono essere di due tipologie: normali e percussioni. Per semplificare la costruzione di questi diversi tipi di tracce e note ho pensato di utilizzare il pattern abstract factory, che permette la creazione di famiglie di oggetti della stessa tipologia. Sebbene infatti i campi e i metodi richiamabili dai differenti tipi di tracce e note coincidano solo in parte, ho ritenuto utile l'implementazione di questo pattern per separare la costruzione di queste tipologie di oggetti dal resto del codice, facilitandone così la lettura e l'utilizzo e portando la complessità di questa distinzione fuori dal MidiParser. Nello specifico questo pattern è stato realizzato tramite l'interfaccia AbstractFactory, che viene implementata dalle Concrete Factory PercussionFactoryImpl e FactoryImpl, che a loro volta si occuperanno di creare prodotti, quali PercussionNote o Note (che estendono la classe astratta AbstractNote, contenente i metodi in comune), e PercussionTrack o KeyboardTrack(che estendono la classe astratta ParsedTrack, contenente i metodi in comune). La scelta di utilizzare classi astratte invece di interfacce è stata effettuata per ottimizzare quanto più possibile il riuso del codice, in partcolare le parti riguardanti i campi privati in comune, mantenendo comunque il vincolo della non istanziabiltà dei prodotti dell'abstract factory. Inoltre nonstante la classe PercussionTrack non aggiunga nulla alla classe astratta ParsedTrack si è compiuta questa scelta implementativa per favorire una futura estensione della classe PercussionTrack o una proliferazione di altri tipi di track, cosa che sarebbe resa più difficile dalla sostituzione dell'abstract class ParsedTrack con la classe PercussionTrack. Per quanto riguarda la selezione della factory corretta è stata implementata un'utility class FactoryConfigurator che ritorna la concrete factory corretta a partire dal canale midi.
+\endgroup
+\newpage
+
+
+
+
+
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.6]{\pathlaura umlfactory.jpg}}
+	\caption{Schema UML della Factory.}
+	\label{img:midifactory}
+\end{figure}
+\hfill\break\break\break\break\break\break
+
+\subsubsection{Singleton}
+Nell'implementare le concrete factory ho ritenuto opportuno che non si generassero, per ogni creazione di nota o traccia, nuove istanze di factory, di conseguenza ho applicato il pattern Singleton alle classi PercussionFactoryImpl e FactoryImpl. Il pattern singleton è stato utilizzato anche nella classe MidiParser poiché è sufficiente una sola sua istanza per il corretto funzionamento del programma.
+\newpage
+
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.8]{\pathlaura midiparser.jpg}}
+	\caption{Schema UML del singleton MidiParser.}
+	\label{img:midiparser}
+\end{figure}  
+\hfill\break\break
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.8]{\pathlaura percfactimpl.jpg}}
+	\caption{Schema UML del singleton PercussionFactoryImpl.}
+	\label{img:percfactimpl}
+\end{figure}
+\hfill\break\break
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.8]{\pathlaura factimpl.jpg}}
+	\caption{Schema UML del singleton FactoryImpl.}
+	\label{img:factimpl}
+\end{figure}
+\clearpage
+
+\subsection{Alessandro Brasini}
+In questa sezione di design si parlerà del sistema di storage, window-switching, serializzazione e deserializzazione di oggetti (configurazioni di canzoni, preset di sintetizzatori, leaderboards).  
+\subsubsection{Storage}
+All'interno del progetto bisogna inoltre accedere a diverse directory "fisse", tra le quali la cartella di configurazione presente nella home
+directory dell'utente \emph{.dukemania}, degli asset oppure lavorare semplicemente su singoli file.
+L'accesso a tali cartelle deve essere pratico e senza dover immettere ogni volta il percorso preciso del file/directory a cui si vuole accedere,
+bensì vi si vuole accedere introducendo solamente il percorso parziale a partire dalla directory richiesta. \\
+Ad esempio, se si volesse accedere ad un file di configurazione all'interno della cartella delle configurazioni del gioco \\
+(come ad esempio \emph{\//home\//user\//.dukemania\//configs\//synthesizers\_config$.json$}), deve essere sufficiente inserire nel metodo per ottenere il file
+la stringa \\ \emph{configs\//synthesizers\_config$.json$}.
+A tal proposito ho ritenuto opportuno implementare il pattern \textbf{Strategy}.
+In questo caso l'interfaccia rappresentante la Strategy è l'interfaccia funzionale  \\ 
+\emph{Function$<String, FileHandle>$}, la quale esegue il mapping della path troncata (nell'esempio precedente
+\emph{configs\//synthesizers\_config$.json$}) nella path completa (sempre dall'esempio precedente \\
+\emph{\//home\//user\//.dukemania\//configs\//synthesizers\_config$.json$}) rappresentata dall'oggetto FileHandle di LibGDX per
+questioni di praticità. \\ \\
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathalessandro uml_strategy_storage}}
+	\caption{Rappresentazione UML dell'applicazione del pattern Strategy per il local storage}
+	\label{img:uml_strategy_storage}
+\end{figure}
+\clearpage \hfill\break
+E' stato implementato anche il pattern \textbf{Factory} che, al momento, permette di ottenere oggetti implementati l'interfaccia \textbf{Storage} che lavorano
+sulla cartella degli asset, delle configurazioni e su un file generico presente nel filesystem. 
+Al momento il ruolo di questa factory è solamente quella di passare la corretta Strategy alla classe statica innestata \textbf{LocalStorageImpl} ma, 
+in futuro, questa factory potrà implementare anche metodi per la creazione di oggetti che permettono di accedere a dello storage presente, ad esempio, su un server (un possibile metodo potrà essere getServerStorage()),
+rendendo di conseguenza poco efficace la creazione di una specifica Strategy, in quanto il codice per l'accesso ai dati dovrà
+essere del tutto riadattato. \\
+Come possibile addizione futura a questa Factory è quella dell' aggiunta di un metodo per creare Storage che permettono solo la lettura e scrittura
+senza la possibilità di creazione di cartelle e/o file (o comunque di implementare un comportamento diverso). Di questa aggiunta ne andrebbe a 
+beneficiare la classe di lettura/scrittura delle configurazioni (citata nella sottosezione successiva), in quanto non ha necessariamente bisogno 
+di creare file e/o cartelle.
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathalessandro uml_factory_storage}}
+	\caption{Rappresentazione UML dell'applicazione del pattern Factory per la creazione degli oggetti storage}
+	\label{img:uml_factory_storage}
+\end{figure}
+\clearpage
+\subsubsection{Serializzatori e Deserializzatori}
+Per leggere e scrivere le varie configurazioni delle canzoni, sintetizzatori e leaderboards, in formato JSON, 
+sono stati implementati serializzatori e relativi deserializzatori. La lettura e scrittura di questi oggetti 
+serializzati è demandata alla classe \textbf{ConfigurationsModelImpl}, mentre la serializzazione dei singoli è demandata alle apposite classi presenti
+nel package model.serializers. Queste ultime sono state implementate sfruttando la libreria Jackson e, per ogni classe da serializzare/deserializzare, sono state aggiunte le annotazioni che indicano
+quali classe usare per deserializzare e serializzare la stessa.
+Ritornando alla classe ConfigurationsModelImpl, ho sempre ritenuto opportuno implementare il pattern \textbf{Strategy}, dove l'interfaccia rappresentante
+la Strategy, in questo caso, è \textbf{Storage}.
+In questo modo è possibile scegliere se dover leggere e/o scrivere in locale le configurazioni oppure, nel caso in futuro si voglia leggere/creare
+configurazioni di canzoni preesistenti e accedere ad una leaderbord globale (quindi entrambe presenti su un server), sarà necessario passare la Strategy
+opportuna creata dalla Factory citata nella sottosezione precedente come, ad esempio, getServerStorage(). \\ \\
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathalessandro uml_configurationsmodel_strategy}}
+	\caption{Rappresentazione UML dell'applicazione del pattern Strategy per il ConfigurationsModel}
+	\label{img:uml_configurationsmodel_strategy}
+\end{figure}
+\clearpage \hfill\break
+\subsubsection{Menu}
+Per quanto riguarda le finestre del menu (e della leaderboard) è stato implementato per ognuno il pattern \textbf{MVC}, dove la View richiama i metodi del Controller
+per aggiornare a schermo i dati da visualizzare e il Controller richiama gli eventuali Model per leggere e/o modificare i dati. \\
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathalessandro uml_mvc_menu}}
+	\caption{Rappresentazione UML dell'applicazione del pattern MVC di una generica schermata di menù}
+	\label{img:uml_mvc_menu}
+\end{figure}
+\clearpage \hfill\break
+Tutte le view implementano l'interfaccia \textbf{Window} che definisce i metodi necessari per permettere la creazione e renderizzazione della stessa.
+Questi metodi saranno poi richiamati appropriatamente dal WindowManager.
+In fase di scrittura del codice ho notato che molte righe di codice si ripetevano in tutte le view del menu, per questo motivo ho deciso di implementare il pattern \textbf{Template Method},
+dove il metodo template è rappresentato dalla classe astratta AbstractView. Le classi che estendono quest'ultima andranno ad eseguire l'override dei soli metodi che cambiano, nel caso delle 
+view del menu viene eseguito in quasi tutte solamente l'override del metodo pubblico \textbf{create()}, richiamando ovviamente prima la relativa \textbf{super.create()} che contiene
+codice simile a tutte le view del menu.
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathalessandro uml_template_method_menu_views}}
+	\caption{Rappresentazione UML dell'applicazione del Template method per la creazione di menù views}
+	\label{img:uml_template_method_menu_views}
+\end{figure}
+\clearpage \hfill\break
+\subsubsection{Window Switching}
+L'architettura generale del WindowManager è già stata spiegata in generale nella parte di design dell'architettura nel paragrafo precedente.
+In questa sezione si vuole parlare in modo più dettagliato del suo funzionamento.
+All'interno della classe entry point \textbf{DukeMania} viene istanziato l'oggetto WindowManager al quale vengono associate le varie view del gioco, tutte implementanti l'interfaccia \textbf{Window},
+al relativo enum state (tutti implementati l'interfaccia WindowState) che associa lo stato della view. Ad esempio per la view \emph{TitleWindow} è associato lo stato \emph{DukeManiaWindowState.TITLE}.
+WindowManager, inoltre, implementa l'interfaccia \textbf{SwitchWindowNotifier} che contiene come unico contratto il metodo \textbf{switchWindow(WindowState, GameModel)}, che prende in input come 
+argomenti un oggetto implementante WindowState, il quale sostanzialmente dice di implementare un metodo che ritorna un intero associato allo stato, e l'oggetto GameModel che rappresenta il
+modello che ci si passa tra le varie view, che a loro volta passeranno al controller.
+Il metodo switchWindow non fa altro che notificare il WindowManager, mediante un meccanismo di callback, che un controller/view vuole cedere il controllo alla view specificata.
+\newpage
+
+
+
+\chapter{Sviluppo}
+\section{Testing}
+Abbiamo deciso di eseguire test automatizzati prevalentemente per le classi più complesse. Per quanto riguarda le varie schermate e la gestione di queste, una volta prese in considerazione le limitazioni causate da libGdx, abbiamo preferito eseguire accurati test manuali. \\ \\ Per il testing del file midi sono stati utilizzati anche dei test manuali, specialmente nella fase iniziale, con lo scopo di comprendere appieno e con quanta più precisone possibile la struttura del file midi \\
+{\setstretch{0.6}
+\begin{itemize}
+	\begingroup
+	\fontsize{10pt}{12pt}\selectfont	
+	\item \textbf{testStraightLFO - testSquareLFO - testSineLFO - testIntervalLFO:} per ogni funzione LFO è presente un test per garantirne il corretto funzionamento.	
+	\item \textbf{TestKeyboardSynth:} testata la correttezza del conto di quante note stanno suonando al momento, il metodo per ottenere il campione audio, il metodo per risuonare una nota.	
+	\item \textbf{DrumSynthTest:} testata la correttezza del conto di quante percussioni stanno suonando al momento, il metodo per ottenere il campione audio, il metodo per risuonare una percussione.	
+	\item \textbf{TestBuilder:} testate le eccezioni e il corretto funzionamento di metodo per ritornare l'istanza di KeyboardSynth.
+	\item \textbf{TrackFilter:} testate singole tracce con numeri diversi di note e liste di tracce richiedenti filtraggi differenti.	
+	\item \textbf{GameUtilities:} testata l'attribuzione delle difficoltà alle tracce.	
+	\item \textbf{ColumnLogic - noteQueuing:} testate diverse configurazioni di numero di note, sia sovrapposte che non, e colonne.	
+	\item \textbf{ColumnLogic - verifyNote:} testato il calcolo del punteggio in relazione a precisione della nota e combo di note.
+	\item \textbf{testMidiParser:} testata la correttezza della song restituita e degli elementi che la compongono.
+	\endgroup
+\end{itemize}
+}
+\newpage
+\section{Metodologia di lavoro}
+\subsection{Gestione del lavoro}
+Lo sviluppo del progetto è stato preceduto da una fase preliminare di analisi, durante la quale tutti insieme abbiamo lavorato per definire le basi dell'applicazione e, successivamente, per specificare i vari dettagli implementativi tramite UML.
+La suddivisione delle parti del progetto è avvenuta in modo equo assegnando a ciascuno una parte significativa e importante del progetto.
+\subsection*{Gestione del DVCS}
+Per il DVCS è stato utilizzato git, in quanto è stato il Software spiegato a lezione. Abbiamo creato una repository su github e abbiamo deciso di creare un branch per ogni membro del team. In seguito, quando ritenuto che ognuno di noi avesse implementato il "core" della propria parte, abbiamo deciso di eseguire un merge in un nuovo branch "alpha", sul quale ogni membro ha continuato a salvare le proprie modifiche e sul quale sono stati effettuati i primi test di giocabilità.
+\newpage
+
+\subsection*{Suddivisione del lavoro}
+\subsection{Gianluca Migliarini}
+
+In questo progetto, mi sono dedicato principalmente della riproduzione audio.
+Gli oggetti principali del mio package sono i Synth, i quali sono in grado, alla chiamata di un metodo, di restituire un campione audio ottenuto dalla somma di tutte le note o percussioni che stanno suonando simultaneamente.
+La classe Engine, si occupa di ottenere i campioni dai vari sintetizzatori, comporre il buffer audio, regolarne il volume e riprodurlo in uscita.
+Mi sono inoltre dedicato allo sviluppo di delle classi LFOFactory ed Enveloper, per, rispettivamente aggiungere varietà ai timbri sonori e per regolare il volume delle singole note in entrata e in uscita al fine di eliminare i "click" audio, sgradevoli all'udito.
+Infine, per semplificare la gestione delle forme audio da caricare nelle note, ho sviluppato l'enum read-only WaveTable. \\ \\ \\
+Classi sviluppate singolarmente:
+{\setstretch{0.6}
+	\begin{itemize}
+		\item DrumSynth
+		\item Engine
+		\item Enveloper
+		\item Filters
+		\item KeyboardSynth
+		\item LFOFactory
+		\item Settings
+		\item SynthBuilder
+	\end{itemize}
+} 
+\hfill\break
+Inoltre, a mio parere, anche gli enum WaveTable DrumSamples devono essere listati, in quanto contenti metodi e campi oltre alla semplice enumerazione.
+\newpage
+
+\subsection{Serafino Pandolfini}
+Per questo progetto mi sono focalizzato principalmente sugli aspetti di logica del gioco comprendenti la gestione di tracce e note e della precisione,
+sia nell’aspetto audio-video che nel calcolo dei punteggi di gioco. Per quanto
+concerne l’aspetto delle tracce, la classe fondamentale da me implementata
+è TrackFilterImpl che, fornita in input una Song, ottenuta dal midiParser,
+riduce il numero di note presenti in ogni sua traccia in modo da renderle giocabili. Questa classe è stata particolarmente facile da integrare in quanto
+si occupa di elaborare dati già esistenti e a restituirli come era stato previsto
+in fase di progettazione. Per le note e il calcolo del punteggio ho realizzato un
+unica classe principale ColumnLogicImpl che divide le note nelle varie colonne
+grafiche eliminando le eventuali collisioni e, utilizzando la classe secondaria
+NoteRange, permette di fornire un punteggio per ogni nota premuta durante
+il gioco sulla base delle classi di calcolo del punteggio. Questa classe è stata particolarmente difficile da
+finalizzare per una divergenza di classi/interfacce tra la parte logica e grafica,
+ed è stato quindi necessario creare una classe intermediaria LogicNoteImpl, la rispettiva interfaccia e
+dei metodi aggiuntivi in grado di fornire i dati mancanti per permettere un
+integrazione tra le due parti. In merito agli aspetti di precisione audio-video
+ho sviluppato la classe PlayerAudio che suona le note in base al tempo trascorso dall’inizio della traccia, ottimizzando la latenza tra ciò che appare a
+schermo e l’audio di gioco creando una relazione tra l’aspetto grafico e quello
+audio. L’integrazione di questa classe non ha generato particolari problemi se
+non la necessità di avere una conoscenza superficiale del funzionamento delle
+altre classi presenti nell’AudioEngine. L’ultima parte sviluppata singolarmente è quella relativa alla classe GameUtilitiesImpl, utilizzata per attribuire a
+ogni traccia restituita dal trackFilter una difficoltà basata sul numero di note.
+ \\ \\
+Classi sviluppate singolarmente:
+{\setstretch{0.6}
+	\begin{itemize}
+		\item ColumnLogicImpl
+		\item NoteRange
+		\item LogicNoteImpl
+		\item ScoreContext
+		\item FullCalculator
+		\item TrackFilterImpl
+		\item GameUtilitiesImpl
+		\item PlayerAudio
+		\item TestLogic
+	\end{itemize}
+\newpage
+
+\subsection{Sofia Tosi}
+In questa sezione si parlerà di grafica. La classe principale è PlayScreen, il cuore della View relativa al game, attraverso la
+quale vengono richiamate tutte le altre classi implementate dalla sottoscritta e alcune classi dei miei compagni. 
+Questa classe, alla quale ho dedicato più tempo, mi ha messo alla prova e mi ha stimolato a voler conoscere cose nuove. Infatti per implementarla
+mi sono servita della libreria grafica Libgdx, con la quale non avevo mai lavorato. Un'idea che mi è balenata in mente mentre la implementavo, che non si è 
+manifestata durante l'analisi svolta all'inizio del progetto, è quella di creare una classe a parte, EventsFromKeyboardImpl, 
+per gestire i comandi di input. EventsFromKeyboardImpl, come vuole suggerire il nome, è stata pensata per essere compatibile con una tastiera per pc. 
+Nulla vieta di avvalersi di un'altra periferica. Infatti, ho cercato di limitare al massimo le dipendenze in PlayScreen in modo tale che risulti semplice sostituirla, 
+avendo a disposizione un'altra classe compatibile con un'altra periferica.
+Ho ritenuto opportuno implementare AssetsManager per gestire le risorse grafiche. Questa classe permette di caricare in memoria tutte gli asset grafici in una
+sola volta. Sarà poi il compito di PlayScreen richiamarli singolarmente, al momento opportuno, e mostrarli a video.
+Tra i miei compagni del gruppo, quello con cui ho dovuto interagire di più è Serafino Pandolfini, ed è stato proprio da quest'interazione che è scaturita la classe
+KeyImpl. Lo scopo di KeyImpl è proprio quello di fornirgli dei metodi per poter ottenere il tempo di inizio e di fine nel quale l'utente preme un tasto.
+Una classe fondamentale da utilizzare in PlayScreen è GraphicNoteImpl. GraphicNoteImpl rappresenta la nota dal punto di vista grafico. In questa classe sono presenti i metodi per disegnare la nota, per disegnare le scintille che compaiono sulla nota quando l'utente la
+preme al momento giusto. Nonostante sia una classe che implementa metodi legati alla grafica si è cercato di limitare l'uso di libgdx, per ridurre il più
+possibile le dipendenze. Un'ultima classe che merita di essere citata è senza dubbio SizeImpl, la quale adatta la GUI alla dimensione dello schermo del pc sul quale viene 
+lanciata l'applicazione.
+Per collaborare io e i miei compagni abbiamo deciso di stabilire insieme come dovevano essere strutturate le interfacce e, successivamente, abbiamo implementato il codice basandoci sulle decisioni prese. Nonostante ciò, sono sorte delle problematiche che abbiamo dovuto risolvere insieme in un secondo momento (ad esempio, la lunghezza del suono di ogni nota non corrispondeva all'altezza della texture mostrata a video).  
+\\ \\
+Classi sviluppate singolarmente:
+{\setstretch{0.6}
+	\begin{itemize}
+		\item PlayScreen
+		\item AssetsManager
+		\item EventsFromKeyboardImpl
+		\item GraphicNoteImpl
+		\item SizeImpl
+		\item KeyImpl
+		\item ComputingShiftImpl
+	\end{itemize}
+}
+\hfill\break
+
+\subsection{Laura Leonardi}}
+In questo progetto mi sono dedicata al midi parsing, ovvero la restituzione, a partire da un file midi, di una classe Song contenente informazioni generali sulla canzone e composta da tracce. Queste ultime sono identificate da un numero di canale e dallo strumento utilizzato, e sono a loro volta composte da note, dotate di attributi quali durata, tempo di inizio e identificatore. Vi sono inoltre un tipo particolare di tracce e corrispettive note, ovvero tracce e note di tipo percussione. in questo caso la traccia non sarà associata ad uno strumento, bensì saranno le note ad essere identificate, invece che da una frequenza, da un tipo particolare di percussione. Per quanto riguarda il collegamento tra gli elementi dell'enum Percussion a DrumSamples e l'associazione di Instrument al rispettivo SynthBuilderImpl ho agito in collaborazione con gli autori delle classi non di mia pertinenza, specialmente per comprendere meglio il modo con cui interfacciarmi ad esse. Dal mio punto di vista durante lo sviluppo non sono sorti grossi problemi, se non qualche aggiunta di metodo del tutto ordinaria.\\ \\
+Classi sviluppate singolarmente:
+{\setstretch{0.6}
+\begin{itemize}
+	\item AbstractNote
+	\item FactoryConfigurator
+	\item FactoryImpl
+	\item Instrument
+	\item InvalidNoteException
+	\item MidiParser
+	\item ParsedTrack
+	\item Note
+	\item PercussionFactoryImpl
+	\item PercussionNote
+	\item PercussionTrack
+	\item Song
+	\item TestMidiParser
+	\item KeyboardTrack
+\end{itemize}
+}
+\hfill\break
+\newpage
+
+\subsection{Alessandro Brasini}
+All'interno del progetto mi sono occupato di sviluppare le view e relativi controller per le varie schermate del menù; realizzazione di serializzatori e 
+deserializzatori custom per le configurazioni delle canzoni salvate, leaderboard e preset dei sintetizzatori; gestione dell'accesso ai file di configurazione;
+implementazione della core architecture.
+Il processo di integrazione della mia parte con le altre è stato relativamente semplice in quanto non necessitava di molte interazioni
+tra le varie classi sviluppate dai miei colleghi. Le parti in cui si necessitava di una integrazione, come quella per integrare la schermata di PlayScreen,
+è stata risolta facendo implementare a quest'ultima l'interfaccia Window, mentre per il passaggio dei dati tra le varie Window è stata implementata la 
+classe GameModel, la quale racchiude tutti i dati attuali della partita (nome del giocatore, traccia e canzone selezionata, punteggio, hash della canzone e il numero di 
+colonne sul quale vuole giocare). \\
+Package sviluppati:
+\begin{itemize}
+	\item \textbf{it.dukemania.controller.filedialog}
+	\item \textbf{it.dukemania.controller.leaderboard}
+	\item \textbf{it.dukemania.controller.option}
+	\item \textbf{it.dukemania.controller.songselection}
+	\item \textbf{it.dukemania.model}
+	\item \textbf{it.dukemania.util.storage}
+	\item \textbf{it.dukemania.view.menu}
+	\item \textbf{it.dukemania.windowmanager}
+\end{itemize}
+Classi sviluppate:
+\begin{itemize}
+	\item \textbf{DukeMania.java}
+\end{itemize}
+\newpage
+
+
+
+\section{Note di sviluppo}
+\subsection{Gianluca Migliarini}
+Feature avanzate del linguaggio:
+\begin{itemize}
+	\item \textbf{lambda:} usate per caricare gli iteratori delle note per ogni traccia e i buffer dei campioni audio nei sintetizzatori di tastiere.
+	\item \textbf{stream:} usati per controllare lo stato di tutti i sintetizzatori e sommare i vari campioni di questi ultimi.
+	\item \textbf{optional:} usati per i campi opzionali nel builder dei sintetizzatori di tastiera. 
+	\item \textbf{function:} usate per gestire gli LFO.
+\end{itemize}
+Librerie utilizzate:
+\begin{itemize}
+	\item \textbf{libgdx:} utilizzata per Gdx.audio.newAudioDevice, necessario per riprodurre sul dispositivo audio hardware il buffer di campioni.
+\end{itemize}
+ Classi riutilizzate:
+\begin{itemize}
+	\item \textbf{Pair:} Per comodità, ho riutilizzato la classe generica Pair, fornita dal prof Viroli durante il corso. 
+\end{itemize}
+ A causa della mia inespertezza sulla sintesi audio dal punto di vista matematico, mi sono ritrovato spesso a consultare vari forum online, in particolare, quello che mi è stato più di aiuto è il forum di JUCE (https://forum.juce.com/) un framework in c++ per la gestione dell'audio.
+\newpage
+
+\subsection{Serafino Pandolfini}
+Feature avanzate del linguaggio:
+\begin{itemize}
+	\item \textbf{lambda:} utilizzate per il filtraggio delle tracce, l'incolonnamento delle note, l'individuazione del range della nota premuta, l'assegnazione delle difficoltà alle tracce, all'interno del note player.
+	\item \textbf{stream:} utilizzate per il filtraggio delle tracce, l'incolonnamento delle note, l'individuazione del range della nota premuta, l'assegnazione delle difficoltà alle tracce, all'interno del note player.
+	\item \textbf{optional:} utilizzate per il filtraggio delle tracce, l'incolonnamento delle note, l'individuazione del range della nota premuta, l'assegnazione delle difficoltà alle tracce, all'interno del note player, nell'adapter per il passaggio dati alla grafica.
+\end{itemize}
+ Classi riutilizzate:
+\begin{itemize}
+	\item \textbf{Pair:} Per comodità, ho riutilizzato la classe generica Pair, fornita dal prof Viroli durante il corso. 
+\end{itemize}
+\newpage
+
+\subsection{Sofia Tosi}
+Feature avanzate del linguaggio:
+\begin{itemize}
+	\item \textbf{lambda:} usate nella dispose dell'AssetsManager per rilasciare ogni singola risorsa utilizzata e nel PlayScreen per cambiare lo stile dei bottoni.
+	\item \textbf{stream:} usato nel metodo associationKeyColumn per associare in maniera efficiente ogni colonna al relativo tasto della tastiera e nel PlayScreen per calcolarmi la lista con le note che stanno suonando al momento.
+	\item \textbf{interfacce funzionali:} usate per eliminare le note che hanno terminato di suonare.
+	\item \textbf{Optional:} usati nella classe GraphicNoteImpl.
+\end{itemize}
+librerie utilizzate:
+\begin{itemize}
+	\item \textbf{libgdx:} libreria grafica Libgdx: studio autonomo di tale libreria per realizzare l'interfaccia di gioco.
+\end{itemize}
+ Classi riutilizzate:
+\begin{itemize}
+	\item \textbf{Pair:} Per comodità, ho riutilizzato la classe generica Pair, fornita dal prof Viroli durante il corso. 
+\end{itemize}
+\newpage
+
+\subsection{Laura Leonardi}
+Feature avanzate del linguaggio:
+\begin{itemize}
+	\item \textbf{lambda:} usate negli stream
+	\item \textbf{stream:} utilizzati per l'aggiunta e la gestione delle note, per il riempimento di una mappa che associa note a durata massima, per l'associazione tra strumento e sintetizzatore e per l'associazione di percussioni ai relativi DrumSamples e per ottenere tracce correttamente nella classe di testing.
+	\item \textbf{optional:} usati per l'inserimento di note "parziali" in attesa della loro conclusione dettata dal midi.
+\end{itemize}
+librerie utilizzate:
+\begin{itemize}
+	\item \textbf{javax.sound.midi:} gestione file .mid
+\end{itemize}
+ Classi riutilizzate:
+\begin{itemize}
+	\item \textbf{Pair:} Per comodità, ho riutilizzato la classe generica Pair, fornita dal prof Viroli durante il corso. 
+\end{itemize}
+\newpage
+
+\subsection{Alessandro Brasini}
+Aspetti avanzati del linguaggio:
+\begin{itemize}
+	\item \textbf{Lambda}
+	\item \textbf{Stream:} utilizzati ampiamente nelle implementazioni dei vari controller delle view
+	\item \textbf{Interfaccia funzionale Function}: utilizzata come interfaccia strategy per la creazione dei vari tipi di storage.
+\end{itemize}
+Librerie utilizzate:
+\begin{itemize}
+	\item \textbf{Jackson:} utilizzata per la serializzazione e deserializzazione delle leaderboard, preset dei sintetizzatori e configurazioni delle canzoni
+	in formato JSON.
+	\item \textbf{Libgdx:} libreria grafica utilizzata per la creazione dell'interfaccia grafica.
+\end{itemize}
+ Classi riutilizzate:
+ \begin{itemize}
+ 	\item \textbf{Pair:} Per comodità, ho riutilizzato la classe generica Pair, fornita dal prof Viroli durante il corso. 
+ \end{itemize}
+Per comodità, ho riutilizzato la classe generica Pair, fornita dal prof Viroli durante il corso. 
+A seguito della mia scarsa iniziale conoscenza della libreria LibGDX e Jackson, ho consultato vari siti e forum che mostravano piccole snippet di codice 
+che mostravano come utilizzare, a livello basico, le librerie citate. 
+Siti utilizzati principalmente:
+\begin{itemize}
+	\item \textbf{LibGDX wiki:} \url{https://github.com/libgdx/libgdx/wiki/Table} (Sono riportate delle snippet di codice per la creazione di Table con annesse spiegazioni di funzionamento)
+	\item \textbf{Baeldung:} \url{https://www.baeldung.com/jackson} (Tutorial seguito per implementare, a livello basico, i serializzatori) 
+	\item \textbf{Stackoverflow:} \url{https://stackoverflow.com/} (Utilizzato estensivamente per la risoluzione di alcuni problemi legati alla libreria LibGDX)
+\end{itemize}
+\newpage
+
+
+
+
+\chapter{Difficoltà, Commenti Finali e Autovalutazione}
+
+
+\section{Gianluca Migliarini}
+\subsection{commenti}
+Sono molto soddisfatto del gruppo e del lavoro che siamo riusciti a portare a termine.
+Essendo una delle mie prime esperienze di lavoro in team ho trovato delle difficoltà principalmente riguardanti
+la gestione del tempo e a volte la coordinazione con gli altri membri, per questo ringrazio i miei compagni per la disponibilità e per aver tenuto sempre un clima sereno durante lo sviluppo; ritengo quindi che questo progetto mi abbia permesso di crescere notevolmente dal punto di vista organizzativo, in particolare per l'utilizzo di un software per la gestione del versioning.
+Inoltre sono molto felice di essere riuscito ad inserire in un progetto concreto il mio interesse per la sintesi audio.
+\subsection{difficoltà riscontrate}
+In conclusione, ritengo che il corso sia stato più che sufficiente per garantirmi uno sviluppo del progetto senza problematiche troppo grandi a livello implementativo, e che mi abbia incentivato ad utilizzare gli aspetto più avanzati del linguaggio, i quali avrei probabilmente evitato.
+\newpage
+\section{Serafino Pandolfini}
+\subsection{commenti}
+Sono personalmente soddisfatto del lavoro che ho svolto; fin dai miei primi approcci alla programmazione ho sempre preferito, piuttosto che dedicarmi a particolari funzionalità di librerie, a porre il mio interesse sulle strutture dati e le loro organizzazioni e in questo progetto ho avuto modo di mettermi alla prova in un contesto che non fosse il mio solito programma giocattolo scoprendo le mie effettive conoscenze e capacità. Ho avuto modo di apprezzare in particolare gli stream e le loro funzionalità che riuscivano sempre a stupirmi. È stata ricorrente la situazione in cui emergeva un problema ed esisteva già un operazione in grado di risolverlo in modo quasi istantaneo.
+Non ho intenzione di continuare a sviluppare questo progetto ma se non mi fossi limitato al monte ore richiesto mi sarebbe piaciuto sviluppare altre modalità di gioco con calcoli dei punteggi e gameplay differenti prendendo ispirazione da altri giochi simili. 
+\subsection{difficoltà riscontrate}
+Il progetto non è stato esente da difficoltà, principalmente la coordinazione tra i vari membri per quanto ottimale ha portato a incomprensioni sul funzionamento di certi aspetti e talvolta si è dovuto ricorrere a soluzioni non ottimali dal mio punto di vista. Dal mio punto di vista però l'emergere di queste difficoltà mi ha permesso di avere una comprensione più completa del progetto che non avrei avuto altrimenti.
+\newpage
+\section{Sofia Tosi}
+\subsection{commenti}
+DukeMania è stato il primo grande progetto a cui ho preso parte. 
+Non nego la mia preoccupazione iniziale, poi, pian piano durante l'analisi e implementando codice, è svanita.
+Questo progetto mi ha permesso di crescere ampiamente, in vari ambiti.
+In primo luogo, ho imparato cosa significa scrivere codice di qualità e quanto siano importanti i pattern.
+Al contempo, ho anche aumentato la mia conoscenza studiando una nuova libreria grafica e imparando meglio le potenzialità di Git e LaTex. 
+Realizzare DukeMania non è stato affatto facile, soprattutto perchè si tratta di un gioco musicale e le mie conoscenze in quell'ambito
+sono esigue. Ma grazie alla collaborazione con i miei compagni, tutti molto disponibili e gentili siamo riusciti nel nostro intento.
+Indipendentemente dalla valutazione finale, mi ritengo molto soddisfatta del progetto.
+\subsection{difficoltà riscontrate}
+Ritengo il corso di Programmazione ad Oggetti un corso molto valido e interessante. 
+Mi ha permesso di approfondire nuovi argomenti non soltanto da autodidatta, ma anche con le lezioni dei prof 
+che ho trovato chiare e stimolanti. L'unica modifica che apporterei è l'aggiunta di ore di laboratorio per
+imparare già da subito ad applicare correttamente i pattern e C\#. Nella mia modesta opinione avere più ore da dedicare a questi argomenti
+comporterebbe un notevole aiuto.
+\newpage
+\section{Laura Leonardi}
+\subsection{commenti}
+Personalmente ritengo che in questo progetto sia stata effettuata un'ottima collaborazione tra membri del team, ognuno di quali è sempre stato molto disponibile, inoltre sebbene non possedessi molta esperienza col DVCS sono riuscita comunque a farne uso e a comprenderne la comodità. Un altro lato decisamente positivo del progetto è stata la possibilità di approfondire nuovi argomenti, infatti ho trovato molto interessante lavorare e scoprire il funzionamento del protocollo MIDI, del quale prima di questo progetto, non essendo particolarmente appassionata di musica, non conoscevo neppure l'esistenza. Sono in definitiva soddisfatta dell'esito del progetto.
+\subsection{difficoltà riscontrate}
+Dal mio punto di vista il corso di oop si è rivelato impegnativo ma decisamente utile per quanto riguarda le pratiche di buona programmazione e l'utilizzo di DVCS, nonostante questo ritengo che purtroppo le ore di laboratorio dedicate all'effettiva programmazione siano state un poco ridotte, in particolare per quanto riguarda C\#.
+\newpage
+
+\section{Alessandro Brasini}
+\subsection{commenti}
+Sono molto soddisfatto di come è stato sviluppato questo progetto che, grazie anche alla competenza e disponibilità dei membri del team, 
+lo sviluppo è risultato molto lineare. Ovviamente delle difficoltà sono comunque emerse a seguito della nostra poca esperienza nel gestire 
+un progetto di tali dimensioni ma questo non ha fatto altro che farci crescere.
+Voglio inoltre rimarcare la competenza dei membri del team che, a differenza mia, si sono cimentati in challenge molto più complesse dal punto
+di vista implementativo e di integrazione tra le varie parti di codice, risolvendole egregiamente.
+Per quanto riguarda il codice da me prodotto lo giudico mediocre, molte cose a livello architetturale potevano essere implementate meglio
+come, ad esempio, il sistema di window-switching dove, la meccanica di notifica tra le varie window, poteva essere implementata meglio: 
+al posto di passare un oggetto implementante WindowState (che fa implementare il metodo getStateValue(), che ritorna un intero associato
+allo stato), si poteva fare in modo che accettasse un enum definito nel momento di creazione del WindowManager.
+Allo stato attuale questo permette quindi di passare un qualsiasi oggetto implementante l'interfaccia definita sopra, rendendo quindi
+il WindowManager possibilmente soggetto a diversi bug comportamentali.
+Una possibile soluzione poteva essere quella di rendere WindowManager generico che faceva estendere solamente enum, come del tipo \\
+\texttt{public interface WindowManager<X extends Enum<?>> \{ \\
+	public void switchWindow(X state, GameModel model);\\
+	\}} \\
+\subsection{difficoltà riscontrate}
+Durante il mio percorso formativo avevo già avuto occasione di programmare ad oggetti, ma è stato solamente dopo questo corso che ho capito la vera utilità di concetti come interfacce e classi astratte. Inoltre sono grato di aver utilizzato java, in quanto ho avuto la possibilità di imparare a programmare in un linguaggio del tutto nuovo, e per la prima volta ricco di sfaccettature e funzioni avanzate.
+Ritengo infine che le uniche problematiche inerenti al corso siano dovute dalla metodologia di lezione a distanza, problemi che purtroppo si sono riversati durante gli appelli d'esame e che mi hanno impedito di beneficiare degli insegnamenti al massimo.
+\newpage
+
+\chapter{Appendice - Guida Utente}
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.7]{\pathguida titlescreen2}}
+	\caption{La schermata iniziale del gioco.}
+	\label{img:title}
+\end{figure}
+\clearpage \hfill\break
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.6]{\pathguida songconfig}}
+	\caption{La schermata di configurazione della partita.}
+	\label{img:select}
+\end{figure} \\ \\
+Per garantire una giocabilità immediata, all'apertura del File Dialog tramite Select Song, si potrà utilizzare un file Midi già presente nell'applicazione, posto nella prima directory che viene mostrata.
+\clearpage \hfill\break
+\begin{figure}[!htb]
+	\centerline{\includegraphics[scale=0.3]{\pathguida game}}
+	\caption{La schermata di gioco.}
+	\label{img:game}
+\end{figure} \\ \\
+Known Issue: su Linux, a causa di un problema di resize di libGdx, la finestra di gioco potrebbe scomparire se trascinata con il mouse. \\ A causa del peso del metodo di render e della necessità di sincronizzare il video all'audio, su alcuni dispositivi quest'ultimo potrebbe risultare sgradevole. \\ \\ Insieme alla release, saranno messi a disposizione dei file midi per provare il gioco, selezionabili durante la fase di configurazione della partita. Per giocare nella maniera ottimale le impostazioni consigliate sono quelle default. 
+
+
+
+\end{document}
