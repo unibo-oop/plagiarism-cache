@@ -1,0 +1,95 @@
+package jvmt.model.round.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+
+import jvmt.model.player.api.PlayerChoice;
+import jvmt.model.player.api.Player;
+import jvmt.model.round.api.RoundPlayersManager;
+
+/**
+ * Concrete implementation of {@link RoundPlayersManager}
+ * <p>
+ * Keeps track of the players that are still exploring the path.
+ * This implementation treats the list of players as a circular list in which
+ * those found to be exited are skipped.
+ * </p>
+ * 
+ * @see Player
+ * @author Emir Wanes Aouioua
+ */
+public final class RoundPlayersManagerImpl implements RoundPlayersManager {
+
+    private final List<Player> players; // all players partecipating in the round
+    private int current;
+
+    /**
+     * Constuct a RoundPlayersManagerImpl object based of a list of active players.
+     * 
+     * @param players a list containing all the players that are going to play in
+     *                the round.
+     * @throws IllegalArgumentException if the list of players contains a player
+     *                                  that is not active.
+     * @throws NullPointerException     if {@code players} is null.
+     */
+    public RoundPlayersManagerImpl(final List<Player> players) {
+        Objects.requireNonNull(players);
+
+        this.players = new ArrayList<>(players);
+
+        if (!this.getExitedPlayers().isEmpty()) {
+            throw new IllegalArgumentException("All players must be in active state at the beginning of a round.");
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean hasNext() {
+        return !this.getActivePlayers().isEmpty();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Player next() {
+        // tries to find the first active player from this.current
+        int checked = 0;
+        while (checked < players.size()) {
+            final Player candidate = players.get(this.current);
+            this.current = (this.current + 1) % players.size();
+            checked++;
+
+            if (candidate.getChoice() == PlayerChoice.STAY) {
+                return candidate;
+            }
+        }
+
+        throw new NoSuchElementException("No active players left.");
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<Player> getActivePlayers() {
+        return this.players.stream()
+                .filter(p -> p.getChoice() == PlayerChoice.STAY)
+                .toList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<Player> getExitedPlayers() {
+        final List<Player> exiting = new ArrayList<>(this.players);
+        exiting.removeAll(this.getActivePlayers());
+        return exiting;
+    }
+
+}
