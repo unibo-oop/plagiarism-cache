@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Groenlandia",
+        "x": 36.5,
+        "y": 5.0
+    },
+    {
+        "name": "Canada",
+        "x": 29.0,
+        "y": 2.8
+    },
+    {
+        "name": "Messico",
+        "x": 16.5,
+        "y": 19.2
+    },
+    {
+        "name": "Appalachia",
+        "x": 9.0,
+        "y": 26.0
+    },
+    {
+        "name": "Arabia",
+        "x": 51.0,
+        "y": 58.5
+    },
+    {
+        "name": "Nord Africa",
+        "x": 33.5,
+        "y": 63.0
+    },
+    {
+        "name": "Congo",
+        "x": 34.5,
+        "y": 76.0
+    },
+    {
+        "name": "Sud Africa",
+        "x": 49.5,
+        "y": 90.0
+    },
+    {
+        "name": "Amazzonia",
+        "x": 24.0,
+        "y": 57.0
+    },
+    {
+        "name": "Sud America",
+        "x": 16.5,
+        "y": 80.0
+    },
+    {
+        "name": "Australia",
+        "x": 82.0,
+        "y": 65.5
+    },
+    {
+        "name": "India",
+        "x": 67.5,
+        "y": 77.0
+    },
+    {
+        "name": "Madagascar",
+        "x": 64.0,
+        "y": 89.0
+    },
+    {
+        "name": "Antartica",
+        "x": 89.5,
+        "y": 87.0
+    },
+    {
+        "name": "Baltica",
+        "x": 53.0,
+        "y": 7.3
+    },
+    {
+        "name": "Europa",
+        "x": 55.0,
+        "y": 22.0
+    },
+    {
+        "name": "Siberia",
+        "x": 78.5,
+        "y": 12.5
+    },
+    {
+        "name": "Asia Centrale",
+        "x": 69.7,
+        "y": 27.0
+    },
+    {
+        "name": "Cina",
+        "x": 73.0,
+        "y": 35.0
+    },
+    {
+        "name": "Tibet",
+        "x": 70.0,
+        "y": 45.0
+    },
+    {
+        "name": "Indonesia",
+        "x": 96.0,
+        "y": 59.0
+    }
+]

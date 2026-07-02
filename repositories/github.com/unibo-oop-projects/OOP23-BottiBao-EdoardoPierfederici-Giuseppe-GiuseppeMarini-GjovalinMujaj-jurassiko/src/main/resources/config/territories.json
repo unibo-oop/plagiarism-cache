@@ -1,0 +1,180 @@
+[
+    {
+        "name": "Groenlandia",
+        "continent": "Nord America",
+        "neighbours": [
+            "Canada",
+            "Messico"
+        ]
+    },
+    {
+        "name": "Canada",
+        "continent": "Nord America",
+        "neighbours": [
+            "Groenlandia",
+            "Messico"
+        ]
+    },
+    {
+        "name": "Messico",
+        "continent": "Nord America",
+        "neighbours": [
+            "Canada",
+            "Appalachia",
+            "Groenlandia"
+        ]
+    },
+    {
+        "name": "Appalachia",
+        "continent": "Nord America",
+        "neighbours": [
+            "Messico"
+        ]
+    },
+    {
+        "name": "Arabia",
+        "continent": "Gondwana Occidentale",
+        "neighbours": [
+            "Nord Africa"
+        ]
+    },
+    {
+        "name": "Nord Africa",
+        "continent": "Gondwana Occidentale",
+        "neighbours": [
+            "Arabia",
+            "Amazzonia",
+            "Congo",
+            "Sud America"
+        ]
+    },
+    {
+        "name": "Congo",
+        "continent": "Gondwana Occidentale",
+        "neighbours": [
+            "Nord Africa",
+            "Sud America",
+            "Sud Africa"
+        ]
+    },
+    {
+        "name": "Sud Africa",
+        "continent": "Gondwana Occidentale",
+        "neighbours": [
+            "Congo",
+            "Sud America"
+        ]
+    },
+    {
+        "name": "Amazzonia",
+        "continent": "Gondwana Occidentale",
+        "neighbours": [
+            "Nord Africa",
+            "Sud America"
+        ]
+    },
+    {
+        "name": "Sud America",
+        "continent": "Gondwana Occidentale",
+        "neighbours": [
+            "Nord Africa",
+            "Amazzonia",
+            "Congo",
+            "Sud Africa"
+        ]
+    },
+    {
+        "name": "Australia",
+        "continent": "Gondwana Orientale",
+        "neighbours": [
+            "India",
+            "Antartica",
+            "Madagascar"
+        ]
+    },
+    {
+        "name": "India",
+        "continent": "Gondwana Orientale",
+        "neighbours": [
+            "Australia",
+            "Madagascar"
+        ]
+    },
+    {
+        "name": "Madagascar",
+        "continent": "Gondwana Orientale",
+        "neighbours": [
+            "India",
+            "Antartica",
+            "Australia"
+        ]
+    },
+    {
+        "name": "Antartica",
+        "continent": "Gondwana Orientale",
+        "neighbours": [
+            "Madagascar",
+            "Australia"
+        ]
+    },
+    {
+        "name": "Baltica",
+        "continent": "Eurasia",
+        "neighbours": [
+            "Siberia",
+            "Europa"
+        ]
+    },
+    {
+        "name": "Europa",
+        "continent": "Eurasia",
+        "neighbours": [
+            "Baltica",
+            "Siberia",
+            "Asia Centrale"
+        ]
+    },
+    {
+        "name": "Siberia",
+        "continent": "Eurasia",
+        "neighbours": [
+            "Baltica",
+            "Europa",
+            "Asia Centrale"
+        ]
+    },
+    {
+        "name": "Asia Centrale",
+        "continent": "Eurasia",
+        "neighbours": [
+            "Europa",
+            "Siberia",
+            "Cina"
+        ]
+    },
+    {
+        "name": "Cina",
+        "continent": "Eurasia",
+        "neighbours": [
+            "Asia Centrale",
+            "Tibet",
+            "Indonesia"
+        ]
+    },
+    {
+        "name": "Tibet",
+        "continent": "Eurasia",
+        "neighbours": [
+            "Cina",
+            "Indonesia"
+        ]
+    },
+    {
+        "name": "Indonesia",
+        "continent": "Eurasia",
+        "neighbours": [
+            "Cina",
+            "Tibet"
+        ]
+    }
+]

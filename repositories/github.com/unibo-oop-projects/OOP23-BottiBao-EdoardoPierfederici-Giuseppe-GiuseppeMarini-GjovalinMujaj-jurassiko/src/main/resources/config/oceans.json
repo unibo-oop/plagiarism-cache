@@ -1,0 +1,49 @@
+[
+    {
+        "name": "Oceano Pacifico",
+        "neighbours": [
+            "Oceano Tetide"
+        ],
+        "territories": [
+            "Canada",
+            "Messico",
+            "Appalachia",
+            "Amazzonia",
+            "Sud America",
+            "Nord Africa"
+        ]
+    },
+    {
+        "name": "Oceano Tetide",
+        "neighbours": [
+            "Oceano Pacifico",
+            "Oceano Atlantico"
+        ],
+        "territories": [
+            "Groenlandia",
+            "Arabia",
+            "Baltica",
+            "Siberia",
+            "Europa",
+            "Asia Centrale",
+            "Cina"
+        ]
+    },
+    {
+        "name": "Oceano Atlantico",
+        "neighbours": [
+            "Oceano Tetide"
+        ],
+        "territories": [
+            "Tibet",
+            "Indonesia",
+            "Nord Africa",
+            "Congo",
+            "Sud Africa",
+            "Australia",
+            "India",
+            "Madagascar",
+            "Antartica"
+        ]
+    }
+]

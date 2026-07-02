@@ -1,0 +1,47 @@
+[
+    {
+        "type": "conquerTerritories",
+        "value": 12,
+        "minDinos": 0
+    },
+    {
+        "type": "conquerTerritories",
+        "value": 9,
+        "minDinos": 3
+    },
+    {
+        "type": "destroyArmy",
+        "value": "RED"
+    },
+    {
+        "type": "destroyArmy",
+        "value": "BLUE"
+    },
+    {
+        "type": "destroyArmy",
+        "value": "GREEN"
+    },
+    {
+        "type": "conquerContinents",
+        "value": [
+            "Gondwana Orientale",
+            "Gondwana Occidentale"
+        ],
+        "selectable": false
+    },
+    {
+        "type": "conquerContinents",
+        "value": [
+            "Gondwana Occidentale",
+            "Nord America"
+        ],
+        "selectable": false
+    },
+    {
+        "type": "conquerContinents",
+        "value": [
+            "Eurasia"
+        ],
+        "selectable": true
+    }
+]

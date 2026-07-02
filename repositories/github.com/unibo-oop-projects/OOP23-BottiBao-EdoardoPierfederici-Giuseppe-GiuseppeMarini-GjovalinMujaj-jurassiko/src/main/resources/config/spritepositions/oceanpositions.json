@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Oceano Pacifico",
+        "x": 16.0,
+        "y": 43.0
+    },
+    {
+        "name": "Oceano Tetide",
+        "x": 40.0,
+        "y": 32.0
+    },
+    {
+        "name": "Oceano Atlantico",
+        "x": 58.0,
+        "y": 73.0
+    }
+]
