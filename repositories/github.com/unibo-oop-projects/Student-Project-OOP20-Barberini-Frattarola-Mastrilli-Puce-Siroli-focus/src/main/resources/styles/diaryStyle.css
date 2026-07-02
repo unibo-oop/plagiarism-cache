@@ -1,0 +1,7 @@
+.totalTimeLabel {
+	-fx-border-color: #000000;
+}
+.counterValue {
+	-fx-font-weight: bold;
+	-fx-font-size: 25;
+}

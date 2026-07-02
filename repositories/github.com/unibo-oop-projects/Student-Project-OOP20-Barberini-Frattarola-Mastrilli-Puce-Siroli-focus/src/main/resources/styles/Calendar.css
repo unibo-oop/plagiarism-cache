@@ -1,0 +1,18 @@
+.calendar-upper-button {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-background-color: #fc8282;
+}
+.grid-event {
+    -fx-background-color: #fc8282;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: gray;
+}
+.grid {
+    -fx-background-color: #1C00ff00;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: gray;
+}
+

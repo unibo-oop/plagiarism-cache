@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="67.0" prefWidth="497.0" xmlns="http://javafx.com/javafx/11.0.2"
+            xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <HBox BorderPane.alignment="CENTER">
+         <Label fx:id="circleLabel" alignment="CENTER" prefHeight="10000.0" text="●" visible="false">
+            <font>
+               <Font size="45.0"/>
+            </font>
+            <HBox.margin>
+               <Insets left="15.0"/>
+            </HBox.margin>
+         </Label>
+         <Label fx:id="firstLabel" prefHeight="10000.0">
+            <font>
+               <Font name="System Bold" size="12.0"/>
+            </font>
+            <HBox.margin>
+               <Insets left="15.0"/>
+            </HBox.margin>
+         </Label>
+      </HBox>
+   </left>
+   <right>
+      <HBox BorderPane.alignment="CENTER">
+         <Label fx:id="minusLabel" alignment="CENTER_RIGHT" prefHeight="10000.0" text="-" visible="false">
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin></Label>
+         <Label fx:id="currencyLabel" alignment="CENTER_RIGHT" prefHeight="10000.0" text="€  " />
+         <Label fx:id="amountLabel" prefHeight="10000.0">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin>
+         </Label>
+      </HBox>
+   </right>
+   <center>
+      <Label fx:id="secondLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="67.0" prefWidth="111.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" />
+         </BorderPane.margin></Label>
+   </center>
+</BorderPane>

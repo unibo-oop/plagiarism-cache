@@ -1,0 +1,19 @@
+.upper-button {
+    -fx-font-size: 16;
+    -fx-background-color: #fc8282;
+}
+.lateral-button {
+    -fx-font-size: 16;
+    -fx-background-color: #fc8282;
+}
+.label {
+    -fx-font-size: 16;
+}
+
+.button {
+    -fx-padding: 3px;
+}
+
+.scroll-pane:focused {
+    -fx-focus-color: transparent;
+}
