@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane" maxHeight="1080.0" maxWidth="1920.0" minHeight="480.0" minWidth="640.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unibo.osu.view.MainMenuController">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../image/montagneAnimeMenu.png" />
+         </image>
+      </ImageView>
+      <VBox fx:id="vboxButtons" alignment="CENTER" layoutX="622.0" layoutY="316.0" prefHeight="434.0" prefWidth="1296.0" scaleShape="false" spacing="25.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <StackPane fx:id="playButton">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="1418.0" opacity="0.89" pickOnBounds="true">
+                     <image>
+                        <Image url="@../image/menuButton.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#9de8ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Play" wrappingWidth="240.13671875">
+                     <font>
+                        <Font name="Verdana Italic" size="37.0" />
+                     </font>
+                  </Text>
+               </children>
+            </StackPane>
+            <StackPane fx:id="optionButton">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="1300.0" opacity="0.89" pickOnBounds="true" style="-fx-image-border-radius: 10;">
+                     <image>
+                        <Image url="@../image/menuButton.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#9de8ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Options" wrappingWidth="240.13671875">
+                     <font>
+                        <Font name="Verdana Italic" size="37.0" />
+                     </font>
+                  </Text>
+               </children>
+            </StackPane>
+            <StackPane fx:id="exitButton">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="1300.0" opacity="0.89" pickOnBounds="true" style="-fx-image-border-radius: 10;">
+                     <image>
+                        <Image url="@../image/menuButton.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#9de8ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit" wrappingWidth="240.13671875">
+                     <font>
+                        <Font name="Verdana Italic" size="37.0" />
+                     </font>
+                  </Text>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+      <ImageView fx:id="icon" fitHeight="663.0" fitWidth="676.0" layoutX="190.0" layoutY="219.0" opacity="0.87" pickOnBounds="true" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="1054.0" AnchorPane.topAnchor="219.0">
+         <image>
+            <Image url="@../image/uso_icon2.png" />
+         </image></ImageView>
+      <StackPane fx:id="optionPane" layoutX="130.0" layoutY="982.0" prefHeight="98.0" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="982.0" />
+   </children>
+</AnchorPane>

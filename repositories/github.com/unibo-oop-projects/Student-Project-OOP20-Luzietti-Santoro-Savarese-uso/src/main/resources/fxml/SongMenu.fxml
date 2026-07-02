@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="1080.0" prefWidth="960.0" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unibo.osu.view.SongMenuController">
+   <content>
+      <VBox fx:id="vbox1" alignment="CENTER_LEFT" fillWidth="false" prefHeight="1080.0" prefWidth="694.0" spacing="20.0" />
+   </content>
+   <padding>
+      <Insets bottom="50.0" left="50.0" top="50.0" />
+   </padding>
+</ScrollPane>
