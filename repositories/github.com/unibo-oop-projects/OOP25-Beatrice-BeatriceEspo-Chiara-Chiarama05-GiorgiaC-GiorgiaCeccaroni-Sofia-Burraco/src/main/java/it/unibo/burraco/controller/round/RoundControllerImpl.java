@@ -1,0 +1,73 @@
+package it.unibo.burraco.controller.round;
+
+import it.unibo.burraco.controller.distribution.DistributionController;
+import it.unibo.burraco.model.GameModel;
+import it.unibo.burraco.model.player.Player;
+import it.unibo.burraco.view.table.BurracoView;
+import it.unibo.burraco.view.table.DistributionView;
+
+/**
+ * Concrete implementation of RoundController.
+ * Every round, including the very first, passes through processNewRound,
+ * guaranteeing a single code path. On the first call the reset step is skipped
+ * because no previous state exists to clear.
+ */
+public final class RoundControllerImpl implements RoundController {
+
+    private final BurracoView tableView;
+    private final ResetManager resetManager;
+    private final GameModel model;
+    private final DistributionController distributionController;
+    private final DistributionView distributionView;
+
+    private boolean isFirstRound = true;
+
+    /**
+     * Constructs a RoundControllerImpl with all required collaborators.
+     *
+     * @param tableView the main game table view
+     * @param resetManager the component responsible for resetting round state
+     * @param model the game model
+     * @param distributionController the controller handling initial card distribution
+     * @param distributionView the view component displaying the distributed hands
+     */
+    public RoundControllerImpl(final BurracoView tableView,
+                               final ResetManager resetManager,
+                               final GameModel model,
+                               final DistributionController distributionController,
+                               final DistributionView distributionView) {
+        this.tableView = tableView;
+        this.resetManager = resetManager;
+        this.model = model;
+        this.distributionController = distributionController;
+        this.distributionView = distributionView;
+    }
+
+    @Override
+    public void processNewRound() {
+        final Player p1 = model.getPlayer1();
+        final Player p2 = model.getPlayer2();
+
+        if (isFirstRound) {
+            isFirstRound = false;
+        } else {
+            resetManager.resetRound(p1, p2,
+                    model.getCommonDeck(),
+                    model.getDiscardPile());
+            model.resetForNewRound();
+        }
+
+        tableView.startNewRound();
+
+        distributionController.distribute(p1, p2,
+                model.getCommonDeck(),
+                model.getDiscardPile());
+
+        distributionView.refresh(p1.getHand(), p2.getHand());
+
+        tableView.updateDiscardPile(model.getDiscardPile().getCards());
+        tableView.refreshTurnLabel(true);
+        tableView.refreshHandPanel(true, p1.getHand());
+        tableView.repaintTable();
+    }
+}

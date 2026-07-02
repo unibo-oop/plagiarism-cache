@@ -1,0 +1,162 @@
+package it.unibo.burraco.view.table.hand;
+
+import it.unibo.burraco.model.cards.Card;
+
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import javax.swing.BorderFactory;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Implementation of HandView.
+ * Displays cards as interactive button components, handling visual
+ * feedback for selection, hover effects and Jolly-specific styling.
+ * Card value and seed checks use CardValue and Seed enum predicates
+ * instead of raw strings.
+ */
+public final class HandViewImpl extends JPanel implements HandView {
+
+    private static final long serialVersionUID = 1L;
+
+    private static final int GAP = 5;
+    private static final int CARD_WIDTH = 65;
+    private static final int CARD_HEIGHT = 90;
+    private static final int PREF_CARD_STEP = 70;
+    private static final int PREF_WIDTH_OFFSET = 20;
+    private static final int PANEL_HEIGHT = 105;
+
+    private static final int JOLLY_FONT_SIZE = 27;
+    private static final int NORMAL_FONT_SIZE = 19;
+    private static final int HOVER_BORDER_THICKNESS = 2;
+    private static final int HOVER_OFFSET = 2;
+
+    private static final Color PANEL_BG = new Color(180, 220, 180);
+    private static final Color JOLLY_COLOR = new Color(219, 112, 147);
+    private static final Color HOVER_BG = new Color(255, 255, 225);
+    private static final Color HOVER_BORDER = new Color(240, 230, 140);
+
+    private static final String JOLLY_FONT = "Segoe UI Symbol";
+    private static final String NORMAL_FONT = "Monospaced";
+
+    private final transient SelectionCardManager selectionManager;
+    private transient CardSelectionListener cardSelectionListener;
+
+    /**
+     * Constructs a HandViewImpl with a specific selection manager.
+     *
+     * @param selectionManager the manager responsible for tracking selected cards
+     */
+    public HandViewImpl(final SelectionCardManager selectionManager) {
+        super(new FlowLayout(FlowLayout.LEFT, GAP, GAP));
+        this.selectionManager = selectionManager;
+        this.setBackground(PANEL_BG);
+    }
+
+    @Override
+    public void refreshHand(final List<Card> hand) {
+        this.removeAll();
+
+        final int preferredWidth = (hand.size() * PREF_CARD_STEP) + PREF_WIDTH_OFFSET;
+        this.setPreferredSize(new Dimension(preferredWidth, PANEL_HEIGHT));
+
+        for (final Card c : hand) {
+            this.add(buildCardButton(c));
+        }
+
+        this.revalidate();
+        this.repaint();
+    }
+
+    /**
+     * Creates a styled, interactive button for a single card.
+     *
+     * @param c the card to render
+     * @return the configured button
+     */
+    private JButton buildCardButton(final Card c) {
+        final boolean isJolly = c.getValue().isJolly();
+        final String text = isJolly ? c.getSeed().getSymbol() : c.toString();
+
+        final JButton btn = new JButton(text);
+
+        if (isJolly) {
+            btn.setFont(new Font(JOLLY_FONT, Font.BOLD, JOLLY_FONT_SIZE));
+            btn.setForeground(JOLLY_COLOR);
+        } else {
+            btn.setFont(new Font(NORMAL_FONT, Font.BOLD, NORMAL_FONT_SIZE));
+            btn.setForeground(c.getSeed().isRed() ? Color.RED : Color.BLACK);
+        }
+
+        btn.setPreferredSize(new Dimension(CARD_WIDTH, CARD_HEIGHT));
+        btn.setOpaque(true);
+        btn.setBackground(selectionManager.isSelected(c) ? Color.YELLOW : Color.WHITE);
+        btn.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+
+        btn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(final MouseEvent e) {
+                if (!selectionManager.isSelected(c)) {
+                    btn.setBackground(HOVER_BG);
+                }
+                btn.setBorder(BorderFactory.createLineBorder(HOVER_BORDER, HOVER_BORDER_THICKNESS));
+                btn.setLocation(btn.getX(), btn.getY() - HOVER_OFFSET);
+            }
+
+            @Override
+            public void mouseExited(final MouseEvent e) {
+                btn.setBackground(selectionManager.isSelected(c) ? Color.YELLOW : Color.WHITE);
+                btn.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+                btn.setLocation(btn.getX(), btn.getY() + HOVER_OFFSET);
+            }
+        });
+
+        btn.addActionListener(e -> {
+            selectionManager.toggleSelection(c);
+            btn.setBackground(selectionManager.isSelected(c) ? Color.YELLOW : Color.WHITE);
+            if (cardSelectionListener != null) {
+                cardSelectionListener.onCardSelected(c);
+            }
+        });
+
+        return btn;
+    }
+
+    @Override
+    public List<Card> getSelectedCards() {
+        return new ArrayList<>(this.selectionManager.getSelectedCards());
+    }
+
+    @Override
+    public void clearSelection() {
+        this.selectionManager.clearSelection();
+        this.revalidate();
+        this.repaint();
+    }
+
+    @Override
+    public void setCardSelectionListener(final CardSelectionListener listener) {
+        this.cardSelectionListener = listener;
+    }
+
+    @Override
+    public void updateHand(final List<Card> hand) {
+        this.refreshHand(hand);
+    }
+
+    /**
+     * Returns the selected card if exactly one is selected, null otherwise.
+     *
+     * @return the single selected card, or null
+     */
+    public Card getSingleSelectedCard() {
+        final List<Card> selected = this.getSelectedCards();
+        return selected.size() == 1 ? selected.get(0) : null;
+    }
+}
