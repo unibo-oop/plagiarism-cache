@@ -1,0 +1,39 @@
+{
+    "vf" : 0.001,
+    "levels" : [
+        {
+            "level" : "I",
+            "powerlevel" : 10000
+        },
+        {
+            "level" : "II",
+            "powerlevel" : 20000
+        },
+        {
+            "level" : "III",
+            "powerlevel" : 40000
+        },
+        {
+            "level" : "IV",
+            "powerlevel" : 80000
+        },
+        {
+            "level" : "V",
+            "powerlevel" : 160000
+        }
+    ],
+    "archetypes" : [
+        {
+            "archetype" : "A",
+            "rateo" : 1.2
+        },
+        {
+            "archetype" : "B",
+            "rateo" : 0.5
+        },
+        {
+            "archetype" : "C",
+            "rateo" : 0.05
+        }
+    ]
+}

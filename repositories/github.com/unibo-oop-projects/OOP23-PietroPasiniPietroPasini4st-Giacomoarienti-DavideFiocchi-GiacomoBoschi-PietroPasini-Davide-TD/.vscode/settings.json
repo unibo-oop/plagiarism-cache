@@ -1,0 +1,20 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "cSpell.words": [
+        "drawables",
+        "dtos",
+        "gamelauncher",
+        "jsondata",
+        "saveloader",
+        "Scalr",
+        "towerdefense",
+        "unibo"
+    ],
+    "files.eol": "\n",
+    "cSpell.enabled": true,
+    "java.debug.settings.onBuildFailureProceed": true,
+    "cSpell.ignoreWords": [
+        "Buildable"
+    ]
+}

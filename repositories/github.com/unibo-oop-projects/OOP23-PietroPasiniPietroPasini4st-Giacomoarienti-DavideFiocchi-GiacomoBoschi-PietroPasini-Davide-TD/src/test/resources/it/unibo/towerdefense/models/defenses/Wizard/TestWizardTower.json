@@ -1,0 +1,21 @@
+{
+    "level" : 1,
+    "type" : "WIZARDTOWER",
+    "damage" : 5,
+    "speed" : 3,
+    "range" : 7,
+    "buildingCost" : 20,
+    "sellingValue" : 10,
+    "position":"{\"x\":10,\"y\":10}",
+    "upgrades" : [
+        {
+            "level" : 2,
+            "type" : "WIZARDTOWER",
+            "damage" : 10,
+            "speed" : 4,
+            "range" : 8,
+            "buildingCost" : 31,
+            "sellingValue" : 18
+        }
+    ]
+}
