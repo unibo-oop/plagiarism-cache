@@ -1,0 +1,102 @@
+{
+    "sprites": [
+        {
+            "name": "barry",
+            "path": "barry.png",
+            "width": 50,
+            "height": 50
+        },
+        {
+            "name": "barryUp",
+            "path": "barryUp.png",
+            "width": 50,
+            "height": 50
+        },
+        {
+            "name": "barryWoman",
+            "path": "barryWoman.png",
+            "width": 50,
+            "height": 50
+        },
+        {
+            "name": "barryWomanUp",
+            "path": "barryWomanUp.png",
+            "width": 50,
+            "height": 50
+        },
+        {
+            "name": "rocket",
+            "path": "rocket.png",
+            "width": 50,
+            "height": 25
+        },
+        {
+            "name": "vElectrode",
+            "path": "vElectrode.png",
+            "width": 25,
+            "height": 100
+        },
+        {
+            "name": "hElectrode",
+            "path": "hElectrode.png",
+            "width": 100,
+            "height": 25
+        },
+        {
+            "name": "shield",
+            "path": "shield.png",
+            "width": 50,
+            "height": 50
+        },
+        {
+            "name": "speedup",
+            "path": "speedup.png",
+            "width": 50,
+            "height": 50
+        },
+        {
+            "name": "rightScientist",
+            "path": "rightScientist.png",
+            "width": 30,
+            "height": 50
+        },
+        {
+            "name": "leftScientist",
+            "path": "leftScientist.png",
+            "width": 30,
+            "height": 50
+        },
+        {
+            "name": "laser",
+            "path": "laser.png",
+            "width": 30,
+            "height": 30
+        },
+        {
+            "name": "money",
+            "path": "money.png",
+            "width": 25,
+            "height": 25
+        },
+        {
+            "name": "warning",
+            "path": "warning.png",
+            "width": 50,
+            "height": 50
+        }
+    ],
+    "map": [
+        {
+            "name": "background1",
+            "path": "background1.png",
+            "width": 1180,
+            "height": 600
+        },
+        {
+            "name": "background2",
+            "path": "background2.png",
+            "width": 1180,
+            "height": 600
+        }
+    ]
+}
