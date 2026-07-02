@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane id="gridPane" fx:id="grid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/registerStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<columnConstraints>
+  		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    	<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    	<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  	</columnConstraints>
+	<rowConstraints>
+    	<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    	<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      	<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    	<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    	<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    	<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  	</rowConstraints>
+    <children>
+    	<Label fx:id="pswLabel" text="Enter your password:" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+      	<Label fx:id="confPswLabel" text="Confirm your password:" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+      	<Label fx:id="nickLabel" text="Nickname:" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />   
+        <Label fx:id="regLabel" text="SIGN IN" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+        	<font>
+            	<Font name="System Bold" size="12.0" />
+         	</font></Label>
+      	<Label fx:id="usrLabel" text="Username:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />  
+      	<TextField id="textField" fx:id="usrField" GridPane.columnIndex="1" GridPane.rowIndex="1" />  
+      	<TextField id="textField" fx:id="nickField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      	<PasswordField id="passwordField" fx:id="pswField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      	<CheckBox fx:id="pswCheckBox" mnemonicParsing="false" onAction="#changePswField" text="Show password" textFill="#e8e0e0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+      	<PasswordField id="passwordField" fx:id="confPswField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      	<CheckBox fx:id="confPswCheckBox" mnemonicParsing="false" onAction="#changeConfPswField" text="Show password" textFill="#d7cdcd" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+      	<TextField id="textField" fx:id="pswTextField" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+      	<TextField id="textField" fx:id="confPswTextField" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+ 	  	<Button id="signBtn" fx:id="regBtn" mnemonicParsing="false" onAction="#register" text="Sign" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+      	<Button id="cancelBtn" fx:id="closeBtn" mnemonicParsing="false" onAction="#close" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+   			<GridPane.margin>
+            	<Insets left="50.0" />
+         	</GridPane.margin></Button>
+   	</children>
+   	<cursor>
+    	<Cursor fx:constant="HAND" />
+   	</cursor>
+</GridPane>

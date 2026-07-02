@@ -1,0 +1,71 @@
+.background {
+    /*-fx-background-image: url("/backgroundSurvival.jpg");*/
+    -fx-background-image: url("/highScore.png");
+    -fx-background-size: 100% 100%;
+}
+
+.label {
+    -fx-text-fill: #d8d8d8;
+    -fx-font-size: 30pt;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-color: rgba(0, 0, 0, 0.623);
+    -fx-font-size: 13pt;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover {
+   -fx-background-color: rgba(245, 240, 240, 0.692);
+   -fx-font-size: 15pt;
+   -fx-text-fill: #000000;
+   -fx-font-weight: bold;
+}
+
+.button:pressed, .button:hover:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.39);
+    -fx-font-size: 13pt;
+    -fx-text-fill: #0c0c0c;
+    -fx-font-weight: bold;
+    
+}
+
+.table-view, .table-view:focused, .table-view .column-header{
+   -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(#131313da 0%, #424141d8 100%);
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: white;
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #616161dc;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; 
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #424242de;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;   
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #b6970aef;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}

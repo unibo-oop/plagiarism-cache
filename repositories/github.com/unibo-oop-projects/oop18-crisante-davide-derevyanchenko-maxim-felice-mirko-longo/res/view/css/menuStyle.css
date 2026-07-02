@@ -1,0 +1,59 @@
+
+.bodybg {
+    -fx-background-image: url("/mainMenu.jpg");
+    -fx-background-size: 100% 100%;
+}
+
+.button {
+    -fx-background-color: rgba(0, 0, 0, 0.623);
+    -fx-font-size: 20pt;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover {
+   -fx-background-color: rgba(245, 240, 240, 0.692);
+   -fx-font-size: 30pt;
+   -fx-text-fill: #000000;
+   -fx-font-weight: bold;
+}
+
+.button:pressed, .button:hover:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.39);
+    -fx-font-size: 25pt;
+    -fx-text-fill: #0c0c0c;
+    -fx-font-weight: bold;
+    
+}
+
+#exitBtn:hover {
+     -fx-background-color: rgb(248, 4, 4);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 30pt;
+    -fx-font-weight: bold;
+}
+
+#exitBtn:hover:pressed {
+    -fx-background-color: rgba(255, 0, 0, 0.651);
+    -fx-font-size: 25pt;
+    -fx-text-fill: #0c0c0c;
+    -fx-font-weight: bold;
+}
+
+#playBtn:hover {
+     -fx-background-color: rgb(9, 218, 37);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 30pt;
+    -fx-font-weight: bold;
+}
+
+#playBtn:hover:pressed {
+    -fx-background-color: rgba(3, 184, 42, 0.651);
+    -fx-font-size: 25pt;
+    -fx-text-fill: #0c0c0c;
+    -fx-font-weight: bold;
+}
+

@@ -1,0 +1,56 @@
+.background {
+    -fx-background-image: url("/options.jpg");
+    -fx-background-size: 100% 100%;
+}
+
+.label {
+    -fx-text-fill: #d8d8d8;
+    -fx-font-size: 30pt;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-color: rgba(0, 0, 0, 0.623);
+    -fx-font-size: 10pt;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover {
+   -fx-background-color: rgba(245, 240, 240, 0.692);
+   -fx-font-size: 11pt;
+   -fx-text-fill: #000000;
+   -fx-font-weight: bold;
+}
+
+.button:pressed, .button:hover:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.39);
+    -fx-font-size: 10pt;
+    -fx-text-fill: #0c0c0c;
+    -fx-font-weight: bold;
+}
+
+#choice {
+    -fx-background-color: rgba(0, 0, 0, 0.623);
+    -fx-border-color: #e2e2e2;
+}
+
+#choice:hover {
+    -fx-background-color: rgba(78, 77, 77, 0.623);
+    -fx-border-color: #e2e2e2;
+}
+
+.choice-box .context-menu { 
+    -fx-background-color: black; 
+}
+
+.choice-box .menu-item:focused { 
+    -fx-background-color: rgb(187, 255, 0); 
+}
+
+.choice-box .menu-item:focused > .label {
+     -fx-text-fill: black;
+ }
