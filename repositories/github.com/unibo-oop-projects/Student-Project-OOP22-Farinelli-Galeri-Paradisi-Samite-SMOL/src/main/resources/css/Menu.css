@@ -1,0 +1,49 @@
+.label {
+    -fx-text-fill: black;
+}
+
+#box {
+    background-color: #82a43a;
+    -fx-background-color: #82a43a;
+}
+
+.button {
+    background-color: #965B21;
+    font-stretch: extra-condensed;
+    font-weight: bolder;
+    font-size: x-large;
+    -fx-background-color: #965B21;
+    -fx-font-stretch: extra-condensed;
+    -fx-font-weight: bolder;
+    -fx-font-size: x-large;
+    -fx-text-fill: black;
+}
+
+.button:hover {
+    background-color: green;
+    font-stretch: extra-condensed;
+    font-weight: bolder;
+    font-size: x-large;
+    animation: pulse 5s infinite;
+    -fx-background-color: green;
+    -fx-font-stretch: extra-condensed;
+    -fx-font-weight: bolder;
+    -fx-font-size: x-large;
+    -fx-animation: pulse 5s infinite;
+}
+
+#dropDown {
+    background-color: #965B21;
+    font-stretch: extra-condensed;
+    font-weight: bolder;
+    font-size: x-large;
+    -fx-background-color: #965B21;
+    -fx-font-stretch: extra-condensed;
+    -fx-font-weight: bolder;
+    -fx-font-size: x-large;
+}
+
+.context-menu {
+    background-color: #A1764B;
+    -fx-background-color: #A1764B;
+}

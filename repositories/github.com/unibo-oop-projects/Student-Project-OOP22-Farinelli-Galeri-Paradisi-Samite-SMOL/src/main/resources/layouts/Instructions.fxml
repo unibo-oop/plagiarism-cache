@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:id="box" stylesheets="css/Instructions.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <HBox id="hboxtitle" alignment="CENTER">
+            <Text id="title">INSTRUCTIONS</Text>
+        </HBox>
+    </top>
+    <left>
+        <VBox id="vboxleft" alignment="TOP_CENTER">
+            <children>
+                <Text id="movetitle">MOVEMENT:</Text>
+                <Text id="up">UP</Text>
+                <ImageView id="WasdImage">
+                    <image>
+                        <Image url="images/common/Wasd.gif"/>
+                    </image>
+                </ImageView>
+                <Text id="down">DOWN</Text>
+                <ImageView id="waSdImage">
+                    <image>
+                        <Image url="images/common/wa_Sd.gif"/>
+                    </image>
+                </ImageView>
+                <Text id="left">LEFT</Text>
+                <ImageView id="wAsdImage">
+                    <image>
+                        <Image url="images/common/w_Asd.gif"/>
+                    </image>
+                </ImageView>
+                <Text id="right">RIGHT</Text>
+                <ImageView id="wasDImage">
+                    <image>
+                        <Image url="images/common/was_D.gif"/>
+                    </image>
+                </ImageView>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <BorderPane id="borderpane">
+            <left>
+                <VBox id="vboxcenter" alignment="TOP_CENTER">
+                    <children>
+                        <Text id="hititle">HIT:</Text>
+                        <Text id="hit1line">Move the hammer sight with your mouse</Text> 
+                        <Text id="hit2line">and left click to hit</Text>
+                        <ImageView id="target">
+                            <image>
+                                <Image url="images/pixel_moles/weapon_target.png"/>
+                            </image>
+                        </ImageView>
+                        <Text id="range1">Keep it pressed to expand </Text>
+                        <Text id="range2">the range of the hammer</Text>
+                        <ImageView id="target1">
+                            <image>
+                                <Image url="images/common/instructions_sight1.png"/>
+                            </image>
+                        </ImageView>
+                        <ImageView id="target2">
+                            <image>
+                                <Image url="images/common/instructions_sight2.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+            </left>
+            <right>
+                <VBox id="boxenemies" alignment="TOP_CENTER">
+                    <children>
+                        <Text id="enemiestitle">ENEMIES:</Text>
+                        <Text id="tmole">Basic mole</Text>
+                        <ImageView id="basicmole">
+                            <image>
+                                <Image url="images/pixel_moles/mole1.gif"/>
+                            </image>
+                        </ImageView>
+                        <Text id="thmole">Helmet mole (takes two hit to kill)</Text>
+                        <ImageView id="hmole">
+                            <image>
+                                <Image url="images/pixel_moles/Helmet_mole.gif"/>
+                            </image>
+                        </ImageView>
+                        <Text id="tamole">Angry mole (move faster)</Text>
+                        <ImageView id="amole">
+                            <image>
+                                <Image url="images/pixel_moles/Angry_mole.gif"/>
+                            </image>
+                        </ImageView>
+                        <Text id="tbmole">Bomb mole (stuns the player)</Text>
+                        <ImageView id="bmole">
+                            <image>
+                                <Image url="images/pixel_moles/Bomb_mole.gif"/>
+                            </image>
+                        </ImageView>
+                        <Text id="tground">Each mole can not be hit when underground</Text>
+                        <ImageView id="ground">
+                            <image>
+                                <Image url="images/pixel_moles/Ground.gif"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+            </right>
+        </BorderPane>
+    </center>
+    <right>
+        <VBox id="boxlife" alignment="TOP_CENTER">
+            <children>
+                <Text id="healthtitle">HEALTH:</Text>
+                <Text id="tplants">Defend the plants from moles</Text>
+                <ImageView id="normalplants">
+                    <image>
+                        <Image url="images/pixel_moles/Life_plants.png"/>
+                    </image>
+                </ImageView>
+                <Text id="thealth1">Moles eat the plants when they are on them</Text>
+                <Text id="thealth2">(also the player does damage)</Text>
+                <ImageView id="choppedplants">
+                    <image>
+                        <Image url="images/pixel_moles/Life_plants_chopped.png"/>
+                    </image>
+                </ImageView>
+                <Text id="tbar">Pay attention to the health bar</Text>
+                <ImageView id="health">
+                    <image>
+                        <Image url="images/common/healthBar_instr.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </VBox>
+    </right>
+    <bottom>
+        <HBox id="boxbutton" alignment="TOP_CENTER">
+             <Button fx:id="menu" text="MENU"/>
+        </HBox>
+    </bottom>
+</BorderPane>
