@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane styleClass="rootBackground" stylesheets="@../styles/mini-game.css" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox fx:id="mainWrapper" alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity">
+         <children>
+            <GridPane fx:id="wordsGrid" alignment="CENTER" style="-fx-border-color: red;" styleClass="gridBackground" VBox.vgrow="ALWAYS">
+      </GridPane>
+            <HBox fx:id="controlWrapper" alignment="CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox fx:id="commandsWrapper" alignment="CENTER" fillHeight="false" styleClass="gridBackground">
+                     <children>
+                        <VBox fx:id="keyboardVbox" alignment="CENTER" fillWidth="false" HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <GridPane fx:id="firstRowGrid" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <GridPane fx:id="secondRowGrid" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="60.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <GridPane fx:id="thirdRowGrid" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox fx:id="buttonsWrapper" alignment="CENTER">
+               <children>
+                  <Button fx:id="leaveButton" mnemonicParsing="false" onAction="#leaveGame" styleClass="redButton" text="Abbandona" />
+                  <Button fx:id="sendWord" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#nextScene" styleClass="greenButton" text="Invia" />
+                  <Button fx:id="deleteButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelWord" styleClass="orangeButton" text="cancella" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>
