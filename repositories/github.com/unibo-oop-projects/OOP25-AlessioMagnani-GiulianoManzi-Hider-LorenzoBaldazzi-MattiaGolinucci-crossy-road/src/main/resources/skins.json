@@ -1,0 +1,60 @@
+{
+    "skins": [
+        {
+            "name": "Chicken",
+            "id": "default",
+            "price": 0,
+            "overheadImage": "/skins/default_overhead.png",
+            "frontalImage":"/skins/default_front.png"
+        },
+        {
+            "name": "Headphones",
+            "id": "headphones",
+            "price": 30,
+            "overheadImage": "/skins/headphones_overhead.png",
+            "frontalImage":"/skins/headphones_front.png"
+        },
+        {
+            "name": "Skeleton",
+            "id": "skeleton",
+            "price": 45,
+            "overheadImage": "/skins/skeleton_overhead.png",
+            "frontalImage":"/skins/skeleton_front.png"
+        },
+        {
+            "name": "Conductor",
+            "id": "conductor",
+            "price": 60,
+            "overheadImage": "/skins/conductor_overhead.png",
+            "frontalImage":"/skins/conductor_front.png"
+        },
+        {
+            "name": "Gentleman",
+            "id": "gentleman",
+            "price": 75,
+            "overheadImage": "/skins/gentleman_overhead.png",
+            "frontalImage":"/skins/gentleman_front.png"
+        },
+        {
+            "name": "King",
+            "id": "king",
+            "price": 90,
+            "overheadImage": "/skins/king_overhead.png",
+            "frontalImage":"/skins/king_front.png"
+        }, 
+        {
+            "name": "Wizard",
+            "id": "wizard",
+            "price": 105,
+            "overheadImage": "/skins/wizard_overhead.png",
+            "frontalImage":"/skins/wizard_front.png"
+        }, 
+        {
+            "name": "Aura",
+            "id": "aura",
+            "price": 120,
+            "overheadImage": "/skins/aura_overhead.png",
+            "frontalImage":"/skins/aura_front.png"
+        }
+    ]
+}

@@ -1,0 +1,572 @@
+package it.unibo.crossyroad.model.impl.managers;
+
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Queue;
+import java.util.Random;
+import java.util.Set;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
+import com.google.common.collect.Range;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
+import it.unibo.crossyroad.model.api.chunks.AbstractChunk;
+import it.unibo.crossyroad.model.api.chunks.Chunk;
+import it.unibo.crossyroad.model.api.Dimension;
+import it.unibo.crossyroad.model.api.Direction;
+import it.unibo.crossyroad.model.api.EntityType;
+import it.unibo.crossyroad.model.api.managers.GameManager;
+import it.unibo.crossyroad.model.api.GameParameters;
+import it.unibo.crossyroad.model.api.obstacles.Obstacle;
+import it.unibo.crossyroad.model.api.Pair;
+import it.unibo.crossyroad.model.api.pickables.Pickable;
+import it.unibo.crossyroad.model.api.Position;
+import it.unibo.crossyroad.model.api.Positionable;
+import it.unibo.crossyroad.model.api.pickables.PowerUp;
+import it.unibo.crossyroad.model.api.obstacles.CollisionType;
+import it.unibo.crossyroad.model.impl.PositionablePlayer;
+import it.unibo.crossyroad.model.impl.chunks.Grass;
+import it.unibo.crossyroad.model.impl.chunks.Railway;
+import it.unibo.crossyroad.model.impl.chunks.River;
+import it.unibo.crossyroad.model.impl.chunks.Road;
+import it.unibo.crossyroad.model.impl.obstacles.Rock;
+import it.unibo.crossyroad.model.impl.obstacles.Tree;
+import it.unibo.crossyroad.model.impl.pickables.Coin;
+
+/**
+ * Implementation of the GameManager interface.
+ * 
+ * @see GameManager
+ */
+public final class GameManagerImpl implements GameManager {
+
+    private static final double MAP_WIDTH = 10;
+    private static final double MAP_HEIGHT = 9;
+    private static final double Y_MOVE_MAP_MARK = 4; 
+    private static final double Y_DISPOSE_CHUNK_MARK = MAP_WIDTH + 2;
+    private static final double Y_MAP_MOVEMENT = 1;
+    private static final int Y_UPPER_CHUNK = -12;
+    private static final int Y_LOWER_CHUNK = 6;
+    private static final double Y_CREATE_CHUNK_MARK = -9;
+    private static final double FIRST_PROBABILITY = 0.3;
+    private static final double SECOND_PROBABILITY = 0.6;
+    private static final double THIRD_PROBABILITY = 0.8;
+    private static final double COMPARISON_EPSILON = 0.000_01;
+    private static final Dimension CHUNK_DIMENSION = new Dimension(MAP_WIDTH, MAP_HEIGHT / 3); 
+    private static final Position PLAYER_START_POSITION = new Position(5, 8);
+    private static final Position CHUNK_START_POSITION = new Position(0, -12);
+    private static final Random RANDOM = new Random();
+
+    private static final int INCREASE_SPEED_MULTIPLIER_FREQUENCY = 25;
+    private static final double CAR_SPEED_MULTIPLIER_INCREMENT = 0.05;
+    private static final double TRAIN_SPEED_MULTIPLIER_INCREMENT = 0.025;
+    private static final double LOG_SPEED_MULTIPLIER_INCREMENT = 0.2;
+    private static final double MAX_CAR_SPEED_MULTIPLIER = 5.0;
+    private static final double MAX_TRAIN_SPEED_MULTIPLIER = 3.0;
+    private static final double MAX_LOG_SPEED_MULTIPLIER = 5.0;
+
+    private final GameParameters gameParameters;
+    private List<Chunk> chunks;
+    private Pair<EntityType, Integer> lastGenerated;
+    private Optional<Obstacle> currentTransport = Optional.empty();
+    private PositionablePlayer player;
+    private boolean isGameOver;
+    private boolean wasOnTransport;
+
+    /**
+     * Initializes the GameManager with the GameParameters.
+     * 
+     * @param g the GameParameters to use in the game.
+     */
+    @SuppressFBWarnings(
+        value = "EI2",
+        justification = "GameParameters are required to be an externally mutable object."
+    )
+    public GameManagerImpl(final GameParameters g) {
+        Objects.requireNonNull(g, "Game parameters cannot be null");
+        this.gameParameters = g;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<Positionable> getPositionables() {
+        final List<Positionable> positionables = new LinkedList<>();
+        positionables.add(this.player);
+        positionables.addAll(this.chunks);
+        positionables.addAll(this.getObstaclesOnMap());
+        positionables.addAll(this.getPickablesOnMap().stream().filter(p -> !p.isPickedUp()).toList());
+
+        return List.copyOf(positionables);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Map<EntityType, Long> getActivePowerUps() {
+        return this.chunks.stream()
+                          .flatMap(c -> c.getActivePowerUp().stream())
+                          .collect(Collectors.toMap(Pickable::getEntityType, PowerUp::getRemaining, Math::min));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void update(final long deltaTime) {
+        final Optional<Obstacle> transport = this.getTransportCarryingPlayer();
+        final Optional<Position> positionBefore = transport.map(Obstacle::getPosition);
+
+        this.chunks.stream()
+                   .filter(c -> c instanceof AbstractChunk)
+                   .map(c -> (AbstractChunk) c)
+                   .forEach(ac -> ac.update(this.gameParameters, deltaTime));
+
+        if (transport.isPresent() && positionBefore.isPresent()) {
+            movePlayerWithTransport(positionBefore.get(), transport.get().getPosition());
+        }
+        this.currentTransport = transport;
+        this.runIfPlayerLeftTransport(this::alignPlayerHorizontally);
+        this.wasOnTransport = transport.isPresent();
+
+        this.checkCoinsCollision();
+        this.checkPowerUpCollisions();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void movePlayer(final Direction d) {
+        final boolean pathStatus = this.isThereAPath(Optional.empty());
+
+        if (this.canPlayerMove(d)) {
+            if (d == Direction.UP && this.player.getPosition().y() <= Y_MOVE_MAP_MARK) {
+                if (pathStatus && !this.isThereAPath(Optional.empty())) {
+                    this.isGameOver = true;
+                } else {
+                    this.moveMap();
+                    this.gameParameters.incrementScore();
+                    this.increaseSpeedsMultiplier();
+                }
+            } else {
+                this.player.move(d, 1);
+            }
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean isGameOver() {
+        if (!this.isGameOver) {
+            this.isGameOver = this.checkDeadlyCollisions();
+        }
+        return this.isGameOver;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void reset() {
+        this.player = new PositionablePlayer(PLAYER_START_POSITION);
+        this.chunks = new LinkedList<>();
+        this.isGameOver = false;
+        this.gameParameters.reset();
+
+        //Adds the first chunks to start the game
+        for (int i = Y_UPPER_CHUNK; i <= Y_LOWER_CHUNK; i += 3) {
+            if (i <= Y_CREATE_CHUNK_MARK || i >= 0) {
+                this.chunks.add(new Grass(new Position(0, i), CHUNK_DIMENSION, true));
+            } else {
+                this.chunks.add(new Road(new Position(0, i), CHUNK_DIMENSION));
+            }
+        }
+        this.lastGenerated = new Pair<>(EntityType.GRASS, 2);
+
+        //Regenerate until there's a valid path
+        if (!this.isThereAPath(Optional.empty())) {
+            this.reset();
+        }
+
+        this.removeUnreachablePickables();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void endGame() {
+        this.isGameOver = true;
+    }
+
+    /**
+     * Checks if there is a valid path the player can use.
+     *
+     * @param destination the optional precise destination to reach,
+     *     if empty it checks a path to reach the end of the map.
+     *
+     * @return true if there is a valid path, false otherwise.
+     */
+    private boolean isThereAPath(final Optional<Position> destination) {
+        final Set<Position> visited = new HashSet<>();
+        final Queue<Position> queue = new LinkedList<>();
+
+        queue.add(this.player.getPosition());
+        visited.add(this.player.getPosition());
+
+        while (!queue.isEmpty()) {
+            final Position current = queue.poll();
+
+            //If a destination is passed check if it's reached
+            if (destination.isPresent() && current.equals(destination.get())) {
+                return true;
+            }
+
+            //If a destination is not passed check for the map end
+            if (destination.isEmpty() && Math.abs(current.y() - CHUNK_START_POSITION.y()) < COMPARISON_EPSILON) {
+                return true;
+            }
+
+            for (final Direction d : Direction.values()) {
+                final Position newPosition = d.apply(current);
+                if (newPosition.x() >= 0 && newPosition.x() < MAP_WIDTH && newPosition.y() < MAP_HEIGHT
+                    && newPosition.y() >= CHUNK_START_POSITION.y() && this.getObstaclesOnMap().stream()
+                                                                           .filter(o -> o instanceof Rock || o instanceof Tree)
+                                                                           .noneMatch(o -> o.getPosition().equals(newPosition))
+                    && !visited.contains(newPosition)) {
+
+                    visited.add(newPosition);
+                    queue.add(newPosition);
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks if the player got off the transport obstacle and if so, executes the Runnable given as parameter.
+     *
+     * @param onOffTransport the Runnable to execute when the player gets off the transport obstacle
+     */
+    private void runIfPlayerLeftTransport(final Runnable onOffTransport) {
+        if (this.wasOnTransport && this.currentTransport.isEmpty()) {
+            onOffTransport.run();
+        }
+    }
+
+    /**
+     * Moves the player of the deltaX between the old and new position of the transport obstacle.
+     *
+     * @param oldPosition old position of the transport obstacle
+     * @param newPosition new position of the transport obstacle
+     */
+    private void movePlayerWithTransport(final Position oldPosition, final Position newPosition) {
+        final double deltaX = newPosition.x() - oldPosition.x();
+
+        if (Math.abs(deltaX) > 0) {
+            this.player.move(deltaX > 0 ? Direction.RIGHT : Direction.LEFT, Math.abs(deltaX));
+        }
+    }
+
+    /**
+     * Gets the transport Active Obstacle the player is on.
+     *
+     * @return the transport Active Obstacle the player is currently on, or null if there is none.
+     */
+    private Optional<Obstacle> getTransportCarryingPlayer() {
+        return this.getObstaclesOnMap().stream()
+            .filter(o -> o.getCollisionType() == CollisionType.TRANSPORT)
+            .filter(o -> o.contains(
+                Position.of(player.getDimension().width() / 2, player.getDimension().height() / 2)
+                    .relative(player.getPosition())
+            ))
+            .findFirst();
+    }
+
+    /**
+     * Increases the speed multipliers of the transport obstacles every INCREASE_SPEED_MULTIPLIER_FREQUENCY ms.
+     */
+    private void increaseSpeedsMultiplier() {
+        if (this.gameParameters.getScore() % INCREASE_SPEED_MULTIPLIER_FREQUENCY == 0) {
+            incrementMultiplier(
+                this.gameParameters.getCarSpeedMultiplier(),
+                MAX_CAR_SPEED_MULTIPLIER,
+                CAR_SPEED_MULTIPLIER_INCREMENT,
+                this.gameParameters::setCarSpeedMultiplier
+            );
+            incrementMultiplier(
+                this.gameParameters.getTrainSpeedMultiplier(),
+                MAX_TRAIN_SPEED_MULTIPLIER,
+                TRAIN_SPEED_MULTIPLIER_INCREMENT,
+                this.gameParameters::setTrainSpeedMultiplier
+            );
+            incrementMultiplier(
+                this.gameParameters.getLogSpeedMultiplier(),
+                MAX_LOG_SPEED_MULTIPLIER,
+                LOG_SPEED_MULTIPLIER_INCREMENT,
+                this.gameParameters::setLogSpeedMultiplier
+            );
+        }
+    }
+
+    /**
+     * Increments multiplier of increment value, up to max value.
+     *
+     * @param current current multiplier value
+     * @param max max allowed value
+     * @param increment increment to apply
+     * @param setter the setter method, used to update the multiplier in the GameParameters
+     */
+    private void incrementMultiplier(
+        final double current,
+        final double max,
+        final double increment,
+        final Consumer<Double> setter
+    ) {
+        if (current < max) {
+            setter.accept(Math.min(current + increment, max));
+        }
+    }
+
+    /**
+     * Aligns the player horizontally after he gets off a transport Obstacle (to the nearest integer position).
+     */
+    private void alignPlayerHorizontally() {
+        if (this.player.getPosition().x() % 1 != 0) {
+            final double nearestX = Math.round(this.player.getPosition().x());
+            this.player.move(
+                this.player.getPosition().x() < nearestX ? Direction.RIGHT : Direction.LEFT,
+                Math.abs(nearestX - this.player.getPosition().x())
+            );
+        }
+    }
+
+    /**
+     * Checks if the player is colliding with an active obstacle or the map border.
+     * 
+     * @return true if there's a collision, false otherwise.
+     */
+    private boolean checkDeadlyCollisions() {
+        //Check if player is outside the map (deadly)
+        final Range<Double> xRange = Range.closed(0.0, MAP_WIDTH);
+        if (!xRange.contains(this.player.getPosition().x())) {
+            return true;
+        }
+
+        boolean deadlyCollision = false;
+        boolean transportCollision = false;
+
+        //Check obstacles collisions (deadly if player is not on transport)
+        if (!this.gameParameters.isInvincible()) {
+            for (final Obstacle obs : this.getObstaclesOnMap().stream().filter(o -> o.overlaps(this.player)).toList()) {
+                if (obs.getCollisionType() == CollisionType.DEADLY) {
+                    deadlyCollision = true;
+                } else if (obs.getCollisionType() == CollisionType.TRANSPORT && this.currentTransport.isPresent()) {
+                    transportCollision = true;
+                }
+            }
+        }
+
+        return deadlyCollision && !transportCollision;
+    }
+
+    /**
+     * Generates a new Chunk.
+     */
+    private void generateChunk() {
+        Chunk newChunk = new Grass(CHUNK_START_POSITION, CHUNK_DIMENSION);
+
+        //Place a Grass chunk after every railway, every river and every 2 roads
+        if (this.lastGenerated.e1() != EntityType.RAILWAY && this.lastGenerated.e1() != EntityType.RIVER
+            && (this.lastGenerated.e1() != EntityType.ROAD || this.lastGenerated.e2() < 2)) {
+            //Generate a random chunk, each one with different probability
+            final double number = RANDOM.nextDouble();
+            if (number <= FIRST_PROBABILITY) {
+                newChunk = new Grass(CHUNK_START_POSITION, CHUNK_DIMENSION);
+            } else if (number <= SECOND_PROBABILITY) {
+                newChunk = new Road(CHUNK_START_POSITION, CHUNK_DIMENSION);
+            } else if (number <= THIRD_PROBABILITY) {
+                newChunk = new Railway(CHUNK_START_POSITION, CHUNK_DIMENSION);
+            } else {
+                final Direction riverDirection = RANDOM.nextBoolean() ? Direction.LEFT : Direction.RIGHT;
+                newChunk = new River(CHUNK_START_POSITION, CHUNK_DIMENSION, riverDirection);
+            }
+        }
+        this.chunks.add(newChunk);
+
+        //Regenerate until there's a valid path
+        if (!this.isThereAPath(Optional.empty())) {
+            this.chunks.removeIf(c -> c.getPosition().equals(CHUNK_START_POSITION));
+            this.generateChunk();
+        }
+        this.updateLastGenerated(newChunk.getEntityType());
+
+        this.removeUnreachablePickables();
+    }
+
+    /**
+     * Remove the unreachable pickables on the map.
+     */
+    private void removeUnreachablePickables() {
+        this.chunks.forEach(c -> c.getPickables().stream()
+                                                 .filter(p -> !p.isPickedUp() && !this.isThereAPath(Optional.of(p.getPosition())))
+                                                 .forEach(c::removePickable)
+                            );
+    }
+
+    /**
+     * Updates the Pair that tracks the last generated type of Chunk.
+     * 
+     * @param type the last generated type of Chunk.
+     * 
+     * @see EntityType
+     */
+    private void updateLastGenerated(final EntityType type) {
+        if (this.lastGenerated.e1() == type) {
+            this.lastGenerated = new Pair<>(type, lastGenerated.e2() + 1);
+        } else {
+            this.lastGenerated = new Pair<>(type, 1);
+        }
+    }
+
+    /**
+     * Whether the player can move in the given direction.
+     * 
+     * @param d the direction the player wants to move upon.
+     * 
+     * @return true if the player can move, false otherwise.
+     */
+    private boolean canPlayerMove(final Direction d) {
+        //Checks Passive obstacles collisions
+        for (final Obstacle obs : this.getObstaclesOnMap()) {
+            if ((obs instanceof Rock || obs instanceof Tree) && d.apply(this.player.getPosition()).equals(obs.getPosition())) {
+                return false;
+            }
+        }
+
+        //Checks map border collisions
+        final Range<Double> xRange = Range.closed(0.0, MAP_WIDTH - 1);
+        final Range<Double> yRange = Range.closed(0.0, MAP_HEIGHT - 1);
+        return xRange.contains(d.apply(this.player.getPosition()).x()) && yRange.contains(d.apply(this.player.getPosition()).y());
+    }
+
+    /**
+     * Checks if the player is colliding with a Coin, if so pickup the coin.
+     */
+    private void checkCoinsCollision() {
+        this.getPickablesOnMap().stream()
+                                .filter(p -> p instanceof Coin && p.overlaps(this.player))
+                                .map(p -> (Coin) p)
+                                .forEach(c -> {
+                                    c.pickUp(this.gameParameters);
+                                    this.chunks.forEach(ch -> ch.removePickable(c));
+                                });
+    }
+
+    /**
+     * Picks up the PowerUps the player is colliding with. 
+     */
+    private void checkPowerUpCollisions() {
+        this.chunks.forEach(chunk -> {
+            final List<PowerUp> collectablePowerUps = chunk.getPickables().stream()
+                    .filter(this::isCollectablePowerUp)
+                    .map(p -> (PowerUp) p)
+                    .toList();
+
+            collectablePowerUps.forEach(powerUp ->
+                    this.activateOrExtendPowerUp(powerUp, chunk));
+        });
+    }
+
+    /**
+     * Checks if a pickable is a power-up that can be collected by the player.
+     *
+     * @param pick the pickable object to check
+     * @return true if it's a PowerUp that hasn't been picked up yet and overlaps with the player
+     */
+    private boolean isCollectablePowerUp(final Pickable pick) {
+        return pick.getEntityType().isPowerup()
+            && !pick.isPickedUp()
+            && pick.overlaps(this.player);
+    }
+
+    /**
+     * If a power-up of the same type is already active, extends its duration.
+     * Otherwise, activates the new power-up.
+     *
+     * @param powerUp the power-up
+     * @param chunk the chunk containing the power-up
+     */
+    private void activateOrExtendPowerUp(final PowerUp powerUp, final Chunk chunk) {
+        if (this.getActivePowerUps().containsKey(powerUp.getEntityType())) {
+            extendExistingPowerUp(powerUp, chunk);
+        } else {
+            powerUp.pickUp(this.gameParameters);
+        }
+    }
+
+    /**
+     * Extends the duration of an already active power-up.
+     *
+     * @param newPowerUp the newly collected power-up
+     * @param chunk the chunk containing the new power-up
+     */
+    private void extendExistingPowerUp(final PowerUp newPowerUp, final Chunk chunk) {
+        this.getPickablesOnMap().stream()
+            .filter(p -> p.getEntityType() == newPowerUp.getEntityType() && p.isPickedUp())
+            .findFirst()
+            .ifPresent(existing -> {
+                ((PowerUp) existing).addTime(newPowerUp.getRemaining());
+                chunk.removePickable(newPowerUp);
+            });
+    }
+
+    /**
+     * Gets the Obstacles currently present on the map.
+     * 
+     * @return a List of the Obstacles currently present on the map.
+     */
+    private List<Obstacle> getObstaclesOnMap() {
+        final List<Obstacle> obstacles = new LinkedList<>();
+        this.chunks.forEach(c -> obstacles.addAll(c.getObstacles()));
+        return obstacles;
+    }
+
+    /**
+     * Gets the Pickables currently present on the map.
+     * 
+     * @return a List of the Pickables currently present on the map.
+     */
+    private List<Pickable> getPickablesOnMap() {
+        final List<Pickable> pickables = new LinkedList<>();
+        this.chunks.forEach(c -> pickables.addAll(c.getPickables()));
+        return pickables;
+    }
+
+    /**
+     * Handles the map movement and creates new Chunks if necessary.
+     */
+    private void moveMap() {
+        //First move the Chunks
+        this.chunks.forEach(c -> c.increaseY(Y_MAP_MOVEMENT));
+        this.chunks.removeIf(c -> c.getPosition().y() >= Y_DISPOSE_CHUNK_MARK && c.getActivePowerUp().isEmpty());
+
+        //Then move the other elements.
+        this.chunks.forEach(c -> c.getPositionables().forEach(p -> p.increaseY(Y_MAP_MOVEMENT)));
+
+        if (this.chunks.stream().anyMatch(c -> c.getPosition().y() == Y_CREATE_CHUNK_MARK)) {
+            this.generateChunk();
+        }
+    }
+}
