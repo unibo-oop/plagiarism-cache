@@ -1,0 +1,29 @@
+{
+  "id": 3,
+  "name": "Inferno Tower",
+  "type": "Base",
+  "imgPath": "towers/img/tower3.png",
+  "position2d": null,
+  "direction2d": null,
+  "cost": 100,
+  "level": 1,
+  "range": 7,
+  "weapons": [
+    {
+      "id": 1,
+      "name": "Bolt",
+      "type": "Gun",
+      "imgPath": "bullet/img/bolt-icon.png",
+      "frequency": 3
+    }
+  ],
+  "currentWeapon": {
+    "id": 1,
+    "name": "Bolt",
+    "type": "Gun",
+    "imgPath": "bullet/img/bolt-icon.png",
+    "frequency": 3
+  },
+  "attackStrategy": "SingleTargetAttack",
+  "targetSelectionStrategy": "DistanceBasedTargetSelection"
+}

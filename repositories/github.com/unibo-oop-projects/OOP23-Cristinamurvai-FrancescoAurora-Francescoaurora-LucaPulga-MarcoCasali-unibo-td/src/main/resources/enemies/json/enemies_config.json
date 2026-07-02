@@ -1,0 +1,30 @@
+{
+    "enemies": [
+        {
+            "name": "rat",
+            "type": "base",
+            "imgPath": "enemies/img/rat_move.gif",
+            "lp": 100,
+            "reward": 10,
+            "quantity": 10
+        },
+    
+        {
+            "name": "gobby",
+            "type": "medium",
+            "imgPath": "enemies/img/gobby_move.gif",
+            "lp": 200,
+            "reward": 25,
+            "quantity": 5
+        },
+    
+        {
+            "name": "knight",
+            "type": "advanced",
+            "imgPath": "enemies/img/knight_move.gif",
+            "lp": 300,
+            "reward": 50,
+            "quantity": 2
+        }
+    ]
+}
