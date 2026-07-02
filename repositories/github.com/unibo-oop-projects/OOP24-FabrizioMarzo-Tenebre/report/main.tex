@@ -1,0 +1,380 @@
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{alltt, fancyvrb, url}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% Questo commentalo se vuoi scrivere in inglese.
+\usepackage[italian]{babel}
+
+\usepackage[italian]{cleveref}
+
+\title{``L'Armata delle Tenebre''}
+
+\author{Fabrizio Marzo}
+\date{Luglio 2025}
+
+
+\begin{document}%Questo specifica l'inizio del Documento
+
+\maketitle
+
+\tableofcontents % Il comando genera automaticamente l’indice (cioè la tabella dei contenuti) del documento, in base a tutte le sezioni, sottosezioni, capitoli, ecc. che hai usato con i comandi \chapet, \section, \subsection, ecc.
+
+\chapter{Analisi} % Definisco il primo Capitolo.
+
+% Questo è come fare commenti in latex, con il simbolo '%'.
+% \textit{testo}, definisco quello che voglio scrivere in corsivo.
+% \textbf{testo}, definisco quello che voglio scrivere in grassetto.
+% \emph{testo}, definisco del testo che voglio mettere in evidenza.
+% \begin{itemize} (Dico dove inizia le sezione con i pallini) \item (Indico un pallino) \end{itemize} (Dico dove finisce la sezione con i pallini).
+% \chapter{nome capitolo}, Indico un capitolo e il nome del capitolo.
+% \section{nome sezione capitolo}, Indico una sezione del capitolo, con il suo nome.
+%\subsection{nome sotto-sezione}, Indico una sotto-sezione di una sezione.
+
+\section{Descrizione e Requisiti}
+
+L'applicazione emula il gioco 2D per smartphone \emph{Survivor.io}, con alcune modifiche alla gestione del personaggio (il \emph{Survivor}) e al comportamento dei nemici (gli \emph{Zombie}). L'obiettivo del gioco è far sopravvivere il Survivor a tutte le ondate di Zombie previste per il livello.
+
+\begin{itemize}
+    \item \textbf{Inizio partita:} Il Survivor inizia la partita in una posizione predefinita, già equipaggiato con un’arma (una \emph{pistola}). Gli Zombie entrano nel livello da posizioni casuali, che possono trovarsi sia all’interno che all’esterno dei confini della mappa, e iniziano immediatamente a inseguire il Survivor.
+
+    \item \textbf{Fase di combattimento:} Il Survivor deve evitare gli Zombie spostandosi liberamente all’interno dei limiti del livello (\textbf{non} oltre). Può sparare in tutte le direzioni con l’arma equipaggiata. I colpi sono infiniti, grazie a un meccanismo di \emph{ricarica automatica}.
+
+    \item \textbf{Fine partita:} La partita termina quando il Survivor riesce a sopravvivere a tutte le ondate zombie stabilite per il livello, eliminando tutti gli Zombie presenti, oppure alla morte del Survivor.
+\end{itemize}
+
+
+\subsection*{Requisiti Funzionali}
+\begin{itemize}
+	\item Il gioco deve gestire correttamente il movimento degli Zombie verso il target (Survivor), evitando la sovrapposizione tra di essi durante il movimento e rallentandone la velocità quando si trovano vicini ad altri Zombie.
+	
+	\item Il gioco deve gestire correttamente la meccanica di sparo del Survivor verso gli Zombie, includendo una gestione precisa delle collisioni tra munizioni e Zombie, oltre al movimento del Survivor all'interno dei limiti della mappa di gioco.
+	
+	\item Una gestione corretta delle ondate di Zombie in base a intervalli di tempo.
+	
+\end{itemize}
+
+\section{Modello del Dominio}
+
+Il gioco deve essere in grado di presentare al giocatore un Livello dove affronterà dei zombi, il giocatore deve evitare di entrare in contatto con i zombi per non perdere vita, il personaggio ha a disposizione un armentatario con vari munizioni, caricatori e armi, pronti per essere usati contro i zombi, il personaggio e i zombi hanno una specifica fisica che li contraddistinue, ogni livello ha una sua specifica gestione dei Zombie al suo iterno, si dal loro posizionamento iniziale e anche il tipo di Zombie che il personaggio dovrà sconfiggere.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{img/Domain.png}
+    \caption{Diagramma UML dell'analisi del dominio rappresentante alcune interfaccie e i vari concetti di gioco}
+    \label{fig:placeholder}
+\end{figure}
+
+
+\chapter{Design}
+
+\section{Architettura}
+
+L'architettura dell' \textit{Armata delle Tenebre} segue una versione semplificata del pattern MVC (Model-View-Controller), e utilizza librerie di Java Swing per gestire l'interazione con i pulsanti della tastiera e, quando un pulsante viene premuto il controller invia l'input al modello che lo processa e aggiorna i valori interni, la pressione di un pulsante determina un'azione corripondente al giocatore.
+Inoltre o deciso di utilizzare per il modello del gioco una versione anch'essa semplificata del pattern Entity-Component-System (ECS), questo pattern mi è sembrato il più adatto a modellare il gioco perchè supporta la facile creazioni di nuovi attori (ad esempio nuovi survivor, zombie, armi, ecc), cosi facendo garantisco una buona suddivisione del codice e delle responsabilità.
+Di seguito viene spiegato le varie parti del architettura del progetto:
+
+\begin{itemize}
+    \item \textbf{Model}: Si occupa del modello, cioè della gestione di tutti i valori interni e delle azioni su zombi, survivor e livelli.
+
+    \item \textbf{Input-Controller}: Viene usato per mettere in comunicazione il modello con l'interfaccia grafica, in particolare il controller gestisce l'input da tastiera, interpretando i comandi dell'utente e aggiornando di conseguenza lo stato del modello.
+
+    \item \textbf{View}: Contiene le interfaccie grafiche utilizzate per le varie scene del gioco e delle componenti grafiche dei vari elementi del model, mi sono servito Java Swing.
+
+    \item \textbf{Game-Model}: E' un raccoglitore di Component, ogni Entità è descritta dai suoi componenti che permettono alla stessa di distinguerla dalle altre entità in gioco, ad esempio, diverse entità presenti nel gioco potrebbero contenere una GraphicsComponent o InputComponent diversi.
+
+    \item \textbf{Game-Engine e Game-State}: Contengono le classi che controllano effettivamente lo svolgersi del gioco. \textmd{Engine} si occupa di gestire il \textit{game loop}, mentre \textmd{State} con il suo \textit{manager} gestisce i cambiamenti di state del gioco.    
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/Architettura.png}
+\end{figure}
+
+\section{Design Dettagliato}
+
+\subsubsection*{\textbf{MVC e Composite}}
+
+\paragraph{Problema}:
+Come rappresentare in modo modulare, estendibile e mantenibile gli elementi di gioco, assicurando una netta separazione tra logica di gioco, rappresentazione visiva e interazione utente, in conformità con il pattern architetturale MVC?
+
+\paragraph{Soluzione}:
+Per risolvere questo problema architetturale, ho scelto di adottare una composizione basata sul \textit{pattern Composite}, integrandolo all’interno del modello \textit{MVC}. Ogni elemento di gioco viene costruito come un'entità composta da diverse componenti, ognuna con una responsabilità ben definita. Ad esempio, tutti gli elementi condividono una \textbf{componente grafica}, indispensabile per la loro rappresentazione sullo schermo, mentre solo alcuni – come il personaggio controllato dal giocatore (es. il \texttt{Survivor}) – includono anche una \textbf{componente di input} per gestire l’interazione diretta dell’utente.
+
+Questa architettura consente di trattare ogni oggetto del gioco come un insieme modulare di sotto-componenti indipendenti, rendendo semplice l’aggiunta, la modifica o la rimozione di funzionalità senza dover riscrivere l’intera logica dell’entità. Inoltre, la separazione tra \textit{model}, \textit{view} e \textit{controller} è garantita dalla natura stessa del Composite: la logica (model) viene definita in un modulo dedicato, mentre le componenti grafiche e di input (view e controller) risiedono nel modulo di gioco vero e proprio (\texttt{game}). Questo approccio migliora la manutenibilità del codice, promuove il riutilizzo delle componenti e semplifica la gestione degli oggetti complessi nel contesto dinamico di un videogioco.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/MVC_ECS.png}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Generazione Entità}
+
+\paragraph{Problema}:
+Come gestire la variabilità e la flessibilità delle componenti che costituiscono gli elementi di gioco, evitando di dover modificare continuamente il codice  ogni volta che cambia l'implementazione di una componente (grafica, input, ecc.)?
+
+\paragraph{Soluzione}:
+Per affrontare questa esigenza progettuale, ho combinato l'uso del \textit{pattern Composite} con l'introduzione del \textit{pattern Factory}. Mentre il Composite consente di strutturare ogni entità di gioco come un insieme modulare di componenti (es. grafica, input, logica), la Factory permette di astrarre e centralizzare la creazione di queste componenti, rendendola flessibile e configurabile. In altre parole, la Factory si occupa di istanziare le componenti corrette in base al contesto o ai parametri specifici, senza che il codice client debba conoscere i dettagli delle implementazioni concrete.
+
+Questa strategia si applica in due contesti principali del progetto. Da un lato, nel \texttt{package game}, la Factory viene utilizzata per creare oggetti di gioco come \texttt{GameSurvivor}, \texttt{GameZombie} e \texttt{GameLevel}, assegnando loro le componenti grafiche e di input appropriate a seconda della configurazione desiderata. Dall'altro lato, anche nel \texttt{model} la Factory è impiegata per l’istanziazione centralizzata e flessibile delle entità base, come \texttt{Survivor}, \texttt{Zombie} e \texttt{Level}. In questo modo si ottiene un sistema altamente modulare, facilmente estendibile e manutenibile, dove le modifiche alle componenti non impattano sul codice che le utilizza.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/Generazione_Entità1.png}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Level System}
+
+\paragraph{Problema} :
+Come progettare un sistema di livelli che sia flessibile, estendibile e autonomo nella gestione degli eventi di gioco, mantenendo una netta separazione tra la logica interna del gioco e gli aspetti legati al gameplay o all’interfaccia utente?
+
+\paragraph{Soluzione} :
+Per affrontare questo problema, ho progettato la logica dei livelli come parte integrante del \textbf{model}, separandola completamente dalla logica di presentazione e di interazione. In questo modo, la gestione degli elementi di gioco e le loro regole rimangono indipendenti dalla visualizzazione o dall’input, facilitando la manutenzione e l’estensione del progetto.
+
+Alla base di questa architettura c’è l’interfaccia \texttt{Level}, che definisce le funzionalità comuni a tutti i livelli, ed è implementata da classi concrete come \texttt{LevelTutorial}, utilizzata come esempio di livello base. Questa struttura permette di creare facilmente nuovi livelli con comportamenti personalizzati semplicemente implementando nuove classi che rispettano l’interfaccia.
+
+Una componente chiave di ciascun livello è il \textbf{\texttt{LevelManager}}, un oggetto interno che si occupa della gestione dinamica degli eventi di gioco. Questo manager agisce come un coordinatore centrale, responsabile di orchestrare tutte le dinamiche specifiche del livello, evitando che la logica si disperda in più parti del codice. Tra le sue responsabilità principali ci sono:
+
+\begin{itemize}
+    \item \textbf{Spawn del Survivor}: posiziona il personaggio controllato dal giocatore in una posizione iniziale predefinita, assicurando coerenza e bilanciamento all’interno dello scenario;
+    \item \textbf{Monitoraggio dello stato del Survivor}: controlla condizioni come la fase di attacco, permettendo di adattare il comportamento del gioco in tempo reale;
+    \item \textbf{Gestione delle ondate di Zombie}: coordina la comparsa di zombie secondo tempistiche e quantità configurabili, aumentando la sfida durante il livello;
+    \item \textbf{Creazione di zombie personalizzati}: genera nemici con caratteristiche uniche in base al livello, favorendo varietà e profondità del gameplay.
+\end{itemize}
+
+Dal punto di vista strutturale, ogni oggetto \texttt{Level} contiene:
+
+\begin{itemize}
+    \item Il \texttt{Survivor} attualmente presente;
+    \item Una lista di \texttt{Zombie} attivi nel livello;
+    \item Una lista di \texttt{Munition}, ovvero i proiettili generati durante gli scontri;
+    \item Le dimensioni del livello (larghezza e altezza in centimetri);
+    \item Un flag booleano che indica se il livello è stato completato.
+\end{itemize}
+
+Infine, il comportamento dinamico del livello è governato dal metodo ciclico \texttt{updateLevelState}, che viene chiamato regolarmente durante il gioco. Questo metodo aggiorna lo stato delle entità, gestisce la comparsa di nuovi nemici, rileva eventi e sincronizza le azioni all’interno del livello, garantendo una simulazione fluida e coerente.
+
+Grazie a questa architettura, ogni livello è \textbf{modulare}, \textbf{autonomo} e \textbf{facilmente estendibile}, permettendo di implementare logiche specifiche e personalizzate senza impattare sugli altri componenti del gioco. Ciò consente di mantenere il codice pulito, organizzato e pronto per futuri ampliamenti o modifiche.
+
+\bigskip
+\begin{figure}[H]
+\includegraphics[width=0.8\textwidth]{img/LevelManager.png}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Rappresentazione grafica delle Entità}
+
+\paragraph{Problema} : Come strutturare la parte grafica dell'applicazione in modo da separarla completamente dalla logica del gioco?
+
+\paragraph{Soluzione} :
+Per capirla al meglio prendiamo in esempio come ho gestito la grafica del Survivor.
+Nel progetto, la \texttt{GameSurvivor} svolge un ruolo centrale nella gestione della View. Per usare un’analogia artistica, può essere intesa come la \emph{tela} su cui si disegnano tutte le componenti visive relative al Survivor. Essa incapsula la logica per la visualizzazione del personaggio nel contesto di gioco, mantenendo così isolata la parte grafica dai dettagli interni del modello.
+
+All’interno di \texttt{GameSurvivor} troviamo la \texttt{GraphicsSurvivorComponent}, la componente grafica dedicata alla rappresentazione visiva del Survivor. Questa classe si occupa di:
+
+\begin{itemize}
+    \item Gestire la \textbf{sprite sheet}, ovvero l’insieme delle immagini che compongono le diverse pose e animazioni del personaggio.
+    \item Controllare l’\textbf{aggiornamento delle animazioni}, effettuando l’update dei frame per ottenere una rappresentazione fluida e dinamica del movimento e delle azioni del Survivor.
+    \item Coordinare la resa grafica, che in termini artistici rappresenta la definizione dei \emph{colori}, delle forme e delle transizioni visive necessarie per mostrare lo stato attuale del personaggio.
+\end{itemize}
+
+Il metodo fondamentale di questa componente è \texttt{update}, che riceve come parametri un oggetto \texttt{Survivor} (ovvero il soggetto da disegnare, o la “modella” in termini artistici) e un’istanza di \texttt{GraphicsSurvivor}. Quest’ultima classe definisce lo \textbf{stile di disegno} e può essere implementata utilizzando diverse librerie grafiche Java, come \texttt{Java Swing} o \texttt{JavaFX}. In termini artistici, \texttt{GraphicsSurvivor} rappresenta la \emph{tecnica pittorica} o il \emph{medium} con cui la tela viene decorata, permettendo quindi di scegliere l’approccio grafico più adatto alle esigenze del progetto o alle preferenze di implementazione.
+
+Questa suddivisione tra componente grafica e stile di disegno permette di mantenere una forte modularità e flessibilità nella gestione della View, facilitando l’estensione o la modifica delle tecniche di rendering senza impattare sulla logica del modello o del gioco.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/Grafica_Entità.png}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Logica d'Input}
+
+\paragraph{Problema}: Come posso progettare un sistema di gestione degli input che sia flessibile, scalabile e coerente permettendo l’interazione dell’utente con i personaggi senza compromettere la separazione tra logica e interfaccia grafica?
+
+\paragraph{Soluzione}: Nel progetto, la gestione degli input rappresenta una componente fondamentale per l'interazione tra l'utente e i personaggi del gioco. Ogni oggetto di tipo \texttt{GameSurvivor} è associato a una componente di input, incaricata di aggiornare lo stato del personaggio sulla base delle azioni dell’utente. Il metodo \texttt{update} di tale componente riceve un oggetto \texttt{InputController}, che ha il compito di rilevare e notificare gli input ricevuti durante ciascun ciclo di aggiornamento. Attualmente, il sistema include una specifica implementazione denominata \texttt{KeyboardInputController}, dedicata alla gestione degli input da tastiera. Tuttavia, l’intera architettura è progettata per essere facilmente estendibile: ciò consente, ad esempio, l’integrazione di nuovi dispositivi di input, come un gamepad, senza modificare la logica di comunicazione con il \texttt{GameSurvivor}.
+
+L’istanza di \texttt{KeyboardInputController} è inoltre utilizzata dalla classe \texttt{SwingSceneTutorial}, la quale si occupa della rilevazione degli eventi da tastiera tramite l’interfaccia Swing e della loro trasmissione al controller. In questo schema, l’\texttt{InputController} agisce da intermediario tra la vista (la scena grafica) e il modello (la logica di controllo del personaggio), mantenendo una netta separazione dei ruoli secondo il paradigma Model-View-Controller (MVC). Questa organizzazione architetturale garantisce modularità e riusabilità, facilitando l’integrazione di nuovi dispositivi di input e la manutenzione del codice.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/LogicaInput1.png}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{AI NPC}
+
+\paragraph{Problema}:
+Come posso progettare un sistema per il comportamento degli NPC capace di garantire comportamenti credibili?
+
+\paragraph{Soluzione}:
+Nel mio progetto, la creazione del comportamento di base per gli NPC avviene tramite un metodo della factory chiamato createBaseNPCBehavior(), il quale restituisce un’istanza della classe \texttt{AIZombieBehavior}. Quest’ultima rappresenta una strategia composita, costruita unendo tre comportamenti distinti ma strettamente correlati, ognuno dei quali incapsula una logica fondamentale per garantire un'interazione credibile degli zombie all’interno del livello.
+
+In particolare, \texttt{AIZombieBehavior} è configurata con i seguenti tre componenti principali:
+
+\begin{itemize}
+    \item \textbf{Componente di movimento verso il target}: si occupa della logica di inseguimento del \texttt{Survivor}. Gli zombie calcolano la direzione ottimale in base alla posizione del giocatore e aggiornano la propria traiettoria di conseguenza, garantendo un comportamento dinamico e reattivo.
+
+    \item \textbf{Componente di separazione (separation)}: implementa un meccanismo di “distanziamento” tra gli zombie. Quando due o più entità si trovano a una distanza minima predefinita, questa strategia regola la loro velocità o modifica leggermente la direzione di movimento, impedendo la sovrapposizione e mantenendo un comportamento collettivo realistico. Questo approccio si ispira a tecniche utilizzate nei sistemi di boid e flocking.
+
+    \item \textbf{Componente di gestione delle collisioni tra gruppi di zombie}: interviene quando più zombie entrano in contatto diretto. In questo caso, viene applicata una logica di risoluzione delle collisioni che impedisce comportamenti incoerenti (come il completo blocco o la sovrapposizione visiva), mantenendo una corretta fisicità e interazione tra i personaggi non giocanti.
+\end{itemize}
+
+Tutte queste strategie sono iniettate all’interno dell’istanza di \texttt{AIZombieBehavior} tramite la factory. In tal modo, il comportamento dell’NPC non è rigido o codificato staticamente, ma altamente modulare e riutilizzabile. Questo design favorisce la flessibilità, poiché è possibile creare rapidamente nuove combinazioni comportamentali semplicemente sostituendo una o più delle strategie componenti, senza alterare la struttura generale del codice.
+
+Questo approccio, che unisce il pattern Factory e il principio di composizione, si è rivelato estremamente efficace nella gestione dell'intelligenza artificiale nemica. Non solo ha permesso di ottenere comportamenti diversificati e realistici da parte degli zombie, ma ha anche semplificato notevolmente l'estensione futura del progetto, rendendo possibile l'introduzione di nuove tipologie di NPC dotati di logiche comportamentali alternative, come movimenti erratici, attacchi coordinati o reazioni ambientali.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/NPCBehavior.png}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Game System}
+
+\paragraph{Problema}:
+Come posso strutturare l’esecuzione del gioco in modo fluido e modulare, garantendo un controllo efficiente delle diverse fasi (input, logica e rendering) e permettendo una gestione flessibile dei vari stati di gioco, come il gameplay attivo o la schermata di fine partita?
+
+\paragraph{Soluzione}:
+Nel progetto, la logica principale di esecuzione è affidata alla classe \texttt{GameEngine}, che implementa il \textit{game loop}, un ciclo continuo responsabile dell’esecuzione sincronizzata delle principali fasi del gioco. In particolare, il metodo \texttt{mainLoop()} esegue ciclicamente quattro operazioni fondamentali: il processamento dell’input, l’aggiornamento della logica, il rendering e la sincronizzazione del frame rate.
+
+\begin{itemize}
+    \item \textbf{Processamento dell’input}: delegato all’attuale stato di gioco tramite il \texttt{GameStateManager}.
+    \item \textbf{Aggiornamento della logica di gioco}: gestito attraverso il metodo \texttt{updateGame()}, che utilizza il tempo trascorso per mantenere una simulazione temporale coerente.
+    \item \textbf{Rendering}: visualizzazione grafica dello stato corrente del gioco.
+    \item \textbf{Sincronizzazione del frame rate}: mediante il metodo \texttt{waitForNextFrame()}, che regola la velocità del ciclo per mantenere un intervallo fisso (circa 25 ms, corrispondenti a 40 FPS).
+\end{itemize}
+
+Questa struttura assicura un flusso regolare e prevedibile, separando in modo chiaro le responsabilità tra input, logica e output grafico.
+
+Per gestire le diverse fasi operative del gioco, è stato adottato il \textit{pattern State}. Questo pattern consente di incapsulare il comportamento specifico di ciascuno stato in classi che implementano l’interfaccia \texttt{GameState}, la quale definisce metodi comuni come \texttt{setUp()}, \texttt{processInput()}, \texttt{updateGame()} e \texttt{render()}. La classe \texttt{GameStateManager} funge da gestore centrale, mantenendo il riferimento allo stato corrente e delegando a esso le chiamate appropriate.
+
+La transizione tra stati avviene tramite il metodo \texttt{setState()}, che garantisce l’inizializzazione del nuovo stato al momento del cambio. Tra le implementazioni principali vi è la classe \texttt{PlayState}, che gestisce la modalità attiva di gioco: carica i livelli tramite il \texttt{PlayStateManager}, elabora gli input del giocatore, aggiorna la logica (incluso il comportamento dei nemici) e gestisce le condizioni di fine partita. Al termine del gioco, la transizione avviene verso lo stato \texttt{GameOverState}, che visualizza una schermata conclusiva senza ulteriori aggiornamenti o interazioni.
+
+Questo approccio, basato su una struttura modulare e il principio di separazione delle responsabilità, facilita l’estensione del progetto con nuovi stati (come menu, pause, livelli speciali), migliorando la manutenibilità e la leggibilità del codice, e garantendo un'esperienza utente fluida e coerente.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{img/Game_System.png}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Sviluppo}
+
+\section{Testing}
+
+Per garantire l'affidabilità e la correttezza del sistema, è stata adottata una strategia di testing basata su test unitari automatici, realizzati principalmente con JUnit 5. L'approccio utilizzato mira a verificare il comportamento corretto di ogni singola componente, assicurandone il corretto funzionamento in condizioni ordinarie e al contempo gestendo correttamente casi limite e situazioni di errore.
+
+\subsubsection*{Test delle componenti di armamento}
+
+Le classi relative all'armamento, quali \texttt{Charger}, \texttt{Munition} e \texttt{Pistol}, sono state testate approfonditamente per validarne l'inizializzazione, il corretto comportamento dinamico e le interazioni tra oggetti.
+
+In particolare, per la classe \texttt{Charger} si è verificato che la fabbrica crei istanze non nulle e del tipo corretto, che la capacità iniziale sia rispettata e che l'estrazione delle munizioni comporti la riduzione del carico disponibile.
+
+La classe \texttt{Munition}, nello specifico la munizione \texttt{Parabellum}, è stata testata per la corretta inizializzazione delle proprietà (danno, dimensioni, posizione), la corretta generazione della bounding box e la gestione dello stato di tiro, con particolare attenzione al movimento post-sparo e alla gestione delle condizioni non valide.
+
+Per quanto riguarda la classe \texttt{Pistol}, i test hanno verificato il corretto conteggio delle munizioni, il rispetto del cooldown tra i colpi e il corretto comportamento anche in presenza di più proiettili per singolo sparo.
+
+\subsubsection*{Test delle entità e della fisica}
+
+Sono stati realizzati test anche per le entità del gioco, quali \texttt{Survivor} e \texttt{Zombie}. Questi test verificano la corretta gestione dei danni subiti, l'aggiornamento di posizione e velocità, la modifica dello stato interno, nonché l'integrazione con armi (mockate per isolare il test dell'entità).
+
+I test sul \texttt{Zombie} includono la verifica della posizione iniziale, la capacità di attacco, la riduzione dei punti vita in seguito a danni e la corretta transizione di stato in caso di morte.
+
+\subsubsection*{Test del livello di gioco}
+
+La classe \texttt{Level} è stata sottoposta a test per confermare la corretta inizializzazione delle dimensioni e della bounding box, la presenza di almeno un sopravvissuto e di una lista non vuota di zombie all'avvio, la corretta gestione delle liste di proiettili e la valutazione dello stato di completamento del livello in relazione alla progressione delle ondate nemiche.
+
+\subsubsection*{Test delle componenti grafiche e di collisione}
+
+Infine, la classe \texttt{BoundingBox} è stata testata per validare il corretto calcolo degli angoli, la rilevazione delle collisioni (sia in presenza di sovrapposizioni che nel caso di semplici contatti sui bordi) e l'aggiornamento dinamico delle dimensioni in relazione allo spostamento dell'entità a cui è associata.
+
+\subsubsection*{Approccio metodologico}
+
+L'utilizzo di framework di mocking come Mockito ha permesso di isolare i test delle entità dal comportamento delle armi, consentendo di valutare il funzionamento delle componenti singolarmente senza dipendere da implementazioni esterne. I test sono stati organizzati in modo da coprire scenari tipici, casi limite, e comportamenti attesi in presenza di input errati o stati non validi.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Note di sviluppo}
+
+\subsubsection*{Utilizzo di Streams e Lambda Expressions}
+Utilizzo di Streams e Lambda Expressions per migliorare l'efficienza e la chiarezza del codice. Alcuni esempi:
+\begin{itemize}
+    \item{Permalink:} \url{https://github.com/Fabrizio-Marzo/L-armata-delle-Tenebre/blob/6ea3c50a29f4dbb5efa86e0a9aca1f45569ffa03/src/main/java/model/level/manager/LevelManagerBase.java#L92C7-L95C1}
+    \item{Permalink:} \url{https://github.com/Fabrizio-Marzo/L-armata-delle-Tenebre/blob/6ea3c50a29f4dbb5efa86e0a9aca1f45569ffa03/src/main/java/model/physics/physics_level/PhysicsLevelTutComponent.java#L48C9-L52C20}
+    \item{Permalink :} \url{}
+\end{itemize}
+
+\subsubsection*{Utilizzo di Optional}
+Utilizzo di Optional per evitare la notazione Null.
+
+\begin{itemize}
+    \item{Permalink:} \url{https://github.com/Fabrizio-Marzo/L-armata-delle-Tenebre/blob/6ea3c50a29f4dbb5efa86e0a9aca1f45569ffa03/src/main/java/game/game_state/PlayStateManager.java#L50C1-L53C78}
+\end{itemize}
+
+\subsubsection*{Uso Libreria Apache Commons Lang}
+L'Uso di \textbf{Pair} di questa Libreria è usata per sostituire il concetto di \textit{Vettore}, visto che Pair e Vettore sono molto simili nella loro implementazione, la classe Pair viene usata int tutti il progetto.
+\begin{itemize}
+    \item{Permalink:} \url{https://github.com/Fabrizio-Marzo/L-armata-delle-Tenebre/blob/6ea3c50a29f4dbb5efa86e0a9aca1f45569ffa03/src/main/java/model/bounding_box/RectBoundingBox.java#L27C5-L33C1}
+\end{itemize}
+
+
+\chapter{Commenti finali}
+
+\section{Autovalutazione}
+
+Sono molto soddisfatto del lavoro svolto durante lo sviluppo del progetto, non soltanto per la quantità e qualità del codice prodotto, ma soprattutto per l'approccio adottato nella fase di progettazione. Un aspetto che ritengo particolarmente significativo è stata la ricerca e lo studio necessari per individuare e applicare correttamente i design pattern più adatti alle esigenze del progetto. In particolare, l'adozione del pattern \textit{Composite} ha rappresentato una soluzione efficace per la gestione gerarchica degli oggetti di gioco, mentre l'implementazione del pattern MVC è stata curata con attenzione per garantire una separazione chiara tra modello, vista e controllo.
+
+Sono altresì molto soddisfatto dell'architettura sviluppata per la gestione degli input, pensata non solo per supportare gli input da tastiera, ma anche per poter essere estesa in futuro a nuovi dispositivi, come controller o touch input, senza alterare le componenti esistenti. Questo approccio riflette una visione generale di estendibilità e modularità che ha guidato l'intero progetto. L'attenzione rivolta alla futura manutenzione e all'adattabilità del codice mi ha spinto a ragionare in modo più strutturato e orientato alla progettazione software, portandomi a migliorare sensibilmente le mie competenze.
+
+Nel complesso, considero il progetto ben riuscito sia dal punto di vista tecnico che metodologico, e rappresenta un passo significativo nel mio percorso formativo.
+
+\section{Difficoltà Riscontrate}
+
+Durante lo sviluppo del progetto, una delle principali difficoltà è stata la gestione autonoma di alcune componenti che inizialmente non rientravano nella mia assegnazione. A causa dell'assenza o dell'impossibilità di collaborazione con alcuni membri del gruppo, mi sono trovato a dover realizzare parti aggiuntive del sistema, con conseguente ridefinizione delle tempistiche e delle priorità del lavoro.
+
+Questa situazione ha comportato un inevitabile aumento del carico di lavoro individuale e ha richiesto una riorganizzazione della pianificazione iniziale. Di conseguenza, in alcune sezioni è stato necessario procedere con soluzioni meno ottimizzate rispetto a quanto inizialmente previsto, e non è stato possibile completare pienamente tutte le funzionalità desiderate.
+
+Nonostante ciò, l'idea progettuale di base è rimasta solida e coerente, e la struttura del progetto ha mantenuto una buona modularità. Tuttavia, l'impegno profuso per supplire ad attività non previste ha inevitabilmente influenzato la qualità e la completezza di alcune parti del codice.
+
+\chapter{Guida Utente}
+
+Una volta avviato il gioco e caricato il livello, il personaggio principale (\textit{Survivor}) viene automaticamente posizionato all'interno dell'ambiente di gioco. Da questo momento, l’utente può controllarne i movimenti e le azioni tramite la tastiera, secondo la seguente configurazione dei comandi:
+
+\begin{itemize}
+    \item \textbf{Movimento del personaggio}
+    \begin{itemize}
+        \item \texttt{W} -- Sposta il personaggio verso l’alto
+        \item \texttt{A} -- Sposta il personaggio verso sinistra
+        \item \texttt{S} -- Sposta il personaggio verso il basso
+        \item \texttt{D} -- Sposta il personaggio verso destra
+    \end{itemize}
+
+    \item \textbf{Azione di attacco (sparo)}
+    \begin{itemize}
+        \item \texttt{Freccia su ($\uparrow$)} -- Spara verso l’alto
+        \item \texttt{Freccia sinistra ($\leftarrow$)} -- Spara verso sinistra
+        \item \texttt{Freccia giù ($\downarrow$)} -- Spara verso il basso
+        \item \texttt{Freccia destra ($\rightarrow$)} -- Spara verso destra
+    \end{itemize}
+\end{itemize}
+
+Questa configurazione consente un controllo intuitivo e diretto del personaggio, permettendo al giocatore di muoversi liberamente nello spazio di gioco e di difendersi in tutte le direzioni. I comandi sono stati scelti per offrire reattività e semplicità, facilitando l’interazione anche durante le fasi più concitate del gameplay.
+
+Al termine della partita, sia in caso di vittoria (completamento del livello) che in caso di sconfitta (morte del personaggio), verrà visualizzata una schermata conclusiva. Per terminare definitivamente l’esecuzione del gioco, l’utente deve premere il pulsante \texttt{Exit Game}, che chiude correttamente l'applicazione e consente di uscire in modo controllato.
+
+
+\appendix
+
+
+\end{document}
+
