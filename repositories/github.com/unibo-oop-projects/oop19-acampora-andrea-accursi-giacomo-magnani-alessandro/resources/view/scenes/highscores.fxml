@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="900.0" maxWidth="700.0" minHeight="741.0" minWidth="627.0" prefHeight="741.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bubbleshooter.view.scene.controller.HighscoreController">
+   <children>
+      <TableView fx:id="tableBaseView">
+        <columns>
+          <TableColumn fx:id="nameBaseColumn" />
+          <TableColumn fx:id="scoreBaseColumn" />
+        </columns>
+      </TableView>
+      <Label fx:id="titleLabel" textFill="RED"> </Label>
+      <Label fx:id="basicModeLabel" textFill="RED"> </Label>
+      <TableView fx:id="tableSurvivalView">
+         <columns>
+            <TableColumn fx:id="nameSurvivalColumn" />
+            <TableColumn fx:id="scoreSurvivalColumn" />
+         </columns>
+      </TableView>
+      <Label fx:id="survivalModeLabel" textFill="RED"> </Label>
+      <Button fx:id="backMenuButton" onMouseClicked="#backToMenu" textFill="RED"> </Button>
+   </children>
+</AnchorPane>

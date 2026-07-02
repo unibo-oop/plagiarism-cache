@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane maxHeight="700.0" maxWidth="705.0" minHeight="700.0" minWidth="705.0" prefHeight="700.0" prefWidth="705.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bubbleshooter.view.scene.controller.GameOverController">
+   <children>
+      <Button fx:id="buttonAdd" onMouseClicked="#addToHighscore" textFill="RED"> </Button>
+      <Label fx:id="gameOverLabel" textFill="RED"> </Label>
+      <Label fx:id="scoreLabel" textFill="RED"> </Label>
+      <TextArea fx:id="textArea" > </TextArea>
+      <Label fx:id="destroyedBubbleLabel" textFill="RED"> </Label>
+      <Label fx:id="gameTimeLabel" textFill="RED"> </Label>
+   </children>
+</AnchorPane>

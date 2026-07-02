@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane fx:id="pane" maxHeight="700.0" maxWidth="705.0" minHeight="700.0" minWidth="705.0" prefHeight="700.0" prefWidth="705.0" style="-fx-background-color: LIGHTCYAN;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bubbleshooter.view.scene.controller.GameController">
+   <children>
+      <Canvas fx:id="canvas" height="700.0" width="705.0" />
+      <Button fx:id="pause" layoutX="573.0" layoutY="645.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onMouseClicked="#pause" prefHeight="28.0" prefWidth="62.0" text="Pause" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="70.0" />
+      <Button layoutX="635.0" layoutY="645.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onMouseClicked="#restart" prefHeight="28.0" prefWidth="62.0" text="Restart" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="8.0" />
+      <CheckBox fx:id="helpCheckBox" layoutX="14.0" layoutY="645.0" mnemonicParsing="false" onMouseClicked="#helpSelected" text="Help" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="14.0" />
+      <Line endX="375.0" layoutX="330.0" layoutY="574.0" startX="-330.0" AnchorPane.bottomAnchor="125.5" />
+      <Button fx:id="switchButton" layoutX="511.0" layoutY="645.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onMouseClicked="#switchBall" prefHeight="28.0" prefWidth="62.0" text="Switch" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="132.0" />
+   </children>
+</AnchorPane>
