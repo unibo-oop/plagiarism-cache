@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.scenes.ContactsController">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="929.0" layoutX="-329.0" opacity="0.25">
+            <image>
+                <Image url="@../images/mainBackground.jpg" />
+            </image>
+            <effect>
+                <Blend />
+            </effect>
+        </ImageView>
+        <Label alignment="CENTER" layoutX="124.0" layoutY="24.0" prefHeight="57.0" prefWidth="353.0" text="Super Mario Run" textFill="RED">
+            <font>
+                <Font name="Agency FB" size="65.0" />
+            </font></Label>
+        <VBox alignment="CENTER" layoutX="78.0" layoutY="137.0" prefHeight="126.0" prefWidth="446.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="42.0" prefWidth="447.0" text="Leonardo Delvecchio : leonardo.delvecchio@studio.unibo.it" textFill="#1a00ff">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="446.0" text="Cristiano Aprigliano : cristiano.aprigliano@studio.unibo.it" textFill="#1a00ff">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="55.0" prefHeight="44.0" prefWidth="446.0" text="Nicholas Ciarafoni : nicholas.ciarafoni@studio.unibo.it" textFill="#1a00ff">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+        </VBox>
+      <Button alignment="CENTER" layoutX="241.0" layoutY="293.0" mnemonicParsing="false" onAction="#returnMainMenu" prefHeight="36.0" prefWidth="119.0" text="Home">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <cursor>
+             <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+    </children>
+</AnchorPane>

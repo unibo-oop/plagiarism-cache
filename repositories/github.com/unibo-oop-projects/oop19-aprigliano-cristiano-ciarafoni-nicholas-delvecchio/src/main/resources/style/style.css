@@ -1,0 +1,33 @@
+.game-score {
+    -fx-font-size: 30.0px;
+    -fx-text-fill: #E42217;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+}
+
+.game-points {
+    -fx-font-size: 30.0px;
+	-fx-text-fill: #E42217;
+	-fx-font-family: "Arial";
+	-fx-font-weight: bold;
+}
+
+.scoreGroup {
+    -fx-background-color: #736AFF;
+}
+
+.btnGameOver {
+    -fx-font-size: 50.0px;
+    -fx-text-fill: #E42217;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-opacity: 0.8;
+    -fx-border-color: #E42217;
+    -fx-border-width: 10;
+}
+
+.btnGameOver:hover{
+    -fx-background-color: blue;
+    -fx-cursor: hand;
+}
