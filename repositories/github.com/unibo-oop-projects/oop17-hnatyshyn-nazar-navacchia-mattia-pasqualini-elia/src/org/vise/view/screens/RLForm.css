@@ -1,0 +1,25 @@
+.vbox {
+	-fx-background-color: #2A2A2A;
+}
+
+.button {
+	-fx-background-color: transparent;
+	-fx-text-fill: #ffffff;
+}
+
+.button:hover {
+	-fx-cursor: hand;
+}
+
+.button-form {
+	-fx-background-color: #07807D;
+}
+
+.button-form:hover {
+	-fx-background-color: #066b69;
+}
+
+.text-field:focused{
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: #3399ff; /* here rgba (corrected) */
+}

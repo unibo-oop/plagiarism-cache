@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.net.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane styleClass="grid-pane" stylesheets="@Player.css">
+         <left>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" percentHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="25.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="25.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox alignment="CENTER" styleClass="vbox">
+                     <children>
+                        <Button fx:id="btnLoadSong" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#btnLoadSongClicked" text="Carica Canzone">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <graphic>
+                              <Button contentDisplay="BOTTOM" mnemonicParsing="false">
+                                 <styleClass>
+                                    <String fx:value="button-canzone-singola" />
+                                    <String fx:value="button-svg-distort" />
+                                 </styleClass>
+                              </Button>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.rowIndex="1">
+                     <children>
+                        <Button contentDisplay="TOP" mnemonicParsing="false" text="Playlist">
+                           <graphic>
+                              <Button mnemonicParsing="false">
+                                 <styleClass>
+                                    <String fx:value="button-list-playlists" />
+                                    <String fx:value="button-svg-distort" />
+                                 </styleClass>
+                              </Button>
+                           </graphic>
+                        </Button>
+                        <ListView fx:id="listViewPlaylist" editable="true" onMouseClicked="#selectPlaylist">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ListView>
+                        <Button fx:id="btnAddPlaylist" mnemonicParsing="false" onMouseClicked="#btnAddPlaylistClicked" styleClass="button-special" text="Aggiungi" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="vbox" />
+                        <String fx:value="vbox-split" />
+                     </styleClass>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.rowIndex="2">
+                     <children>
+                        <Button contentDisplay="TOP" mnemonicParsing="false" styleClass="button-search" />
+                        <TextField fx:id="textFieldSearch" promptText="Cerca">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Button fx:id="btnSearch" mnemonicParsing="false" onMouseClicked="#btnSearchClicked" styleClass="button-special" text="Cerca" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <styleClass>
+                        <String fx:value="vbox" />
+                        <String fx:value="vbox-split" />
+                     </styleClass>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.rowIndex="3">
+                     <children>
+                        <Button fx:id="btnLoginLogout" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#btnGoToLoginClicked" text="Login">
+                           <graphic>
+                              <Button contentDisplay="BOTTOM" mnemonicParsing="false" onMouseClicked="#btnGoToLoginClicked" styleClass="button-login" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="btnExit1" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#btnSaveOfflineClicked" text="Salva Offline">
+                           <graphic>
+                              <Button contentDisplay="BOTTOM" mnemonicParsing="false" onMouseClicked="#btnSaveOfflineClicked" styleClass="button-exit" />
+                           </graphic>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="vbox" />
+                        <String fx:value="vbox-split" />
+                     </styleClass>
+                  </VBox>
+               </children>
+            </GridPane>
+         </left>
+         <center>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" percentHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <GridPane>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <ImageView fx:id="imageViewSong" pickOnBounds="true" preserveRatio="true" />
+                              <VBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <Label fx:id="labelNomeCanzoneCorrente" text="Nome Canzone" textFill="WHITE" />
+                                    <Label fx:id="labelCantanteCanzoneCorrente" text="Cantante" textFill="WHITE" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </HBox>
+                        <VBox alignment="CENTER" GridPane.columnIndex="1">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="btnChangeQueueMode" mnemonicParsing="false" onMouseClicked="#btnChangeQueueModeClicked">
+                                       <styleClass>
+                                          <String fx:value="button-svg" />
+                                          <String fx:value="button-shuffle" />
+                                       </styleClass>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="btnPrev" mnemonicParsing="false" onMouseClicked="#btnPrevClicked">
+                                       <styleClass>
+                                          <String fx:value="button-svg" />
+                                          <String fx:value="button-prev" />
+                                       </styleClass>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="btnPlay" mnemonicParsing="false" onMouseClicked="#btnPlayClicked">
+                                       <styleClass>
+                                          <String fx:value="button-svg" />
+                                          <String fx:value="button-play" />
+                                       </styleClass>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="btnNext" mnemonicParsing="false" onMouseClicked="#btnNextClicked">
+                                       <styleClass>
+                                          <String fx:value="button-svg" />
+                                          <String fx:value="button-next" />
+                                       </styleClass>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onMouseClicked="#btnStopClicked">
+                                       <styleClass>
+                                          <String fx:value="button-svg" />
+                                          <String fx:value="button-replay" />
+                                       </styleClass>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Slider fx:id="sliderVolume" blockIncrement="0.0" max="5.0" min="-60.0" onMouseReleased="#slideVolumeReleased" value="5.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <Slider fx:id="sliderPosition">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Slider>
+                           </children>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </GridPane>
+                  <StackPane fx:id="stackPaneCurrentPlaylist" styleClass="stack-pane-player" GridPane.rowIndex="1">
+                     <children>
+                        <ScrollPane fx:id="scrollPaneSearch" />
+                        <VBox fx:id="vboxPlayer" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="3">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Playlist">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                              <SplitPane dividerPositions="0.7, 0.5" style="-fx-background-color: #37373C;">
+                                 <padding>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </padding>
+                                 <items>
+                                    <HBox alignment="BOTTOM_LEFT">
+                                       <children>
+                                          <Label fx:id="labelNomePlaylist" text="Nome Playlist" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="labelAutorePlaylist" text="di Nome Cognome" textFill="WHITE">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="4.0" left="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="btnRemoveSongToCurrent" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#btnRemoveSongToCurrentClicked" style="-fx-background-color: #CC2E4F;" text="-" textFill="WHITE" />
+                                    <Button fx:id="btnAddSongToCurrent" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#btnAddSongToCurrentClicked" style="-fx-background-color: #07807D;" text="+" textFill="WHITE" />
+                                 </items>
+                              </SplitPane>
+                              <TableView fx:id="tableViewSongsCurrentPlaylist" editable="true">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </StackPane>
+                  <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label fx:id="labelYouTube" text="Effettua un doppio click per cercare la canzone su YouTube." visible="false">
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </center>
+         <right>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" percentHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="vbox">
+                     <children>
+                        <Button mnemonicParsing="false">
+                           <graphic>
+                              <Button mnemonicParsing="false" styleClass="button-account" />
+                           </graphic>
+                        </Button>
+                        <Label fx:id="labelUsername" text="Nome Cognome" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" styleClass="vbox" GridPane.rowIndex="1">
+                     <children>
+                        <Label fx:id="labelFriends" text="I tuoi Amici" />
+                        <ListView fx:id="listViewActivity">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </ListView>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </GridPane>
+         </right>
+      </BorderPane>
+   </children>
+</VBox>

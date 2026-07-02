@@ -1,0 +1,26 @@
+.vbox {
+	-fx-background-color: #2A2A2A;
+	-fx-alignment: top_center;
+}
+
+.hbox {
+	-fx-alignment: center;
+}
+
+.text-field {
+    -fx-padding: 13px;
+    -fx-border-insets: 7px;
+    -fx-background-insets: 7px;
+}
+
+.button {
+    -fx-padding: 13px;
+    -fx-border-insets: 7px;
+    -fx-background-insets: 7px;
+    -fx-background-color: #07807D;
+    -fx-text-fill: #ffffff;
+}
+
+.label {
+	-fx-text-fill: white;
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.net.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="vbox" stylesheets="@RLForm.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="imageViewLogo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="txtUsername" disable="true" editable="false" maxWidth="300.0" promptText="Username">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </TextField>
+      <TextField fx:id="txtEmail" maxWidth="300.0" promptText="Email">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </TextField>
+      <TextField fx:id="txtPassword" maxWidth="300.0" promptText="Password">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </TextField>
+      <Button fx:id="btnSubmit" defaultButton="true" mnemonicParsing="false" onAction="#btnSubmitClicked" styleClass="button-form" text="Login" textFill="WHITE">
+         <VBox.margin>
+            <Insets bottom="10.0" top="20.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+         </padding>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnChangeFormMode" mnemonicParsing="false" onMouseClicked="#changeFormMode" text="Non hai un Account? Registrati." />
+      <Button fx:id="btnGoToOfflineMode" mnemonicParsing="false" onMouseClicked="#goToOfflineMode" text="Utilizza Offline." />
+      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Vise Music. Realizzato da Hnatyshyn Nazar, Navacchia Mattia, Pasqualini Elia, Pazzaglia Marco." textAlignment="CENTER">
+         <VBox.margin>
+            <Insets top="40.0" />
+         </VBox.margin>
+      </Text>
+   </children>
+   <padding>
+      <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+   </padding>
+</VBox>
