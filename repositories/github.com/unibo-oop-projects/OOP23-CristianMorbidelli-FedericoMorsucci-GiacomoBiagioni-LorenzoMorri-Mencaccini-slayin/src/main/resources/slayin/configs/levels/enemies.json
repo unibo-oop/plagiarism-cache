@@ -1,0 +1,110 @@
+{
+    "levels": [
+        {
+            "id": 0,
+            "enemies": [
+                {
+                    "id": 0,
+                    "qnt": 1
+                }
+            ],
+            "capacity": 1
+        },
+        {
+            "id": 1,
+            "enemies": [
+                {
+                    "id": 1,
+                    "qnt": 10
+                },
+                {
+                    "id": 2,
+                    "qnt": 5
+                }
+            ],
+            "capacity": 10
+        },
+        {
+            "id": 2,
+            "enemies": [
+                {
+                    "id": 1,
+                    "qnt": 20
+                },
+                {
+                    "id": 2,
+                    "qnt": 7
+                },
+                {
+                    "id": 3,
+                    "qnt": 3
+                }
+            ],
+            "capacity": 15
+        },
+        {
+            "id": 3,
+            "enemies": [
+                {
+                    "id": 5,
+                    "qnt": 1
+                }
+            ],
+            "capacity": 1
+        },
+        {
+            "id": 4,
+            "enemies": [
+                {
+                    "id": 1,
+                    "qnt": 15
+                },
+                {
+                    "id": 2,
+                    "qnt": 5
+                },
+                {
+                    "id": 3,
+                    "qnt": 4
+                },
+                {
+                    "id": 4,
+                    "qnt": 1
+                }
+            ],
+            "capacity": 20
+        },
+        {
+            "id": 5,
+            "enemies": [
+                {
+                    "id": 1,
+                    "qnt": 15
+                },
+                {
+                    "id": 2,
+                    "qnt": 10
+                },
+                {
+                    "id": 3,
+                    "qnt": 5
+                },
+                {
+                    "id": 4,
+                    "qnt": 1
+                }
+            ],
+            "capacity": 20
+        },
+        {
+            "id": 6,
+            "enemies": [
+                {
+                    "id": 6,
+                    "qnt": 1
+                }
+            ],
+            "capacity": 1
+        }
+    ]
+}
