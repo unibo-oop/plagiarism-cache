@@ -1,0 +1,20 @@
+[
+  {
+    "type": "utilitiesimpl.factoryimpl.FilmBasicImpl",
+    "name": "Spiderman",
+    "genre": "Action",
+    "description": "Nice film",
+    "coverImagePath": {},
+    "duration": 120,
+    "id": 1
+  },
+  {
+    "type": "utilitiesimpl.factoryimpl.FilmBasicImpl",
+    "name": "Thor",
+    "genre": "Action",
+    "description": "Amazing film",
+    "coverImagePath": {},
+    "duration": 150,
+    "id": 2
+  }
+]

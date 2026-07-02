@@ -1,0 +1,13 @@
+{
+  "Type": "modelimpl.managefilms.ManagerIdsFilmImpl",
+  "containerFilmsIds": [
+    1,
+    2
+  ],
+  "idsGenerator": {
+    "Type": "modelimpl.managefilms.IdsGeneratorImpl",
+    "lastGeneratedId": {
+      "value": 2
+    }
+  }
+}

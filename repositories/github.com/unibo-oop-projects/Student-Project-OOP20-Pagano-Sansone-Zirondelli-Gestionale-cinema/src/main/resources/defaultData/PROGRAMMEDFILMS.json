@@ -1,0 +1,80 @@
+[
+  {
+    "type": "utilitiesimpl.factoryimpl.ProgrammedFilmImpl",
+    "id": 1,
+    "hall": "HALL_1",
+    "price": 8.0,
+    "date": {
+      "year": 2021,
+      "month": 7,
+      "day": 15
+    },
+    "timeSlot": {
+      "Type": "utilitiesimpl.factoryimpl.TimeSlotImpl",
+      "startTime": {
+        "hour": 16,
+        "minute": 55,
+        "second": 0,
+        "nano": 0
+      },
+      "endTime": {
+        "hour": 18,
+        "minute": 55,
+        "second": 0,
+        "nano": 0
+      }
+    }
+  },
+  {
+    "type": "utilitiesimpl.factoryimpl.ProgrammedFilmImpl",
+    "id": 2,
+    "hall": "HALL_3",
+    "price": 7.0,
+    "date": {
+      "year": 2021,
+      "month": 7,
+      "day": 15
+    },
+    "timeSlot": {
+      "Type": "utilitiesimpl.factoryimpl.TimeSlotImpl",
+      "startTime": {
+        "hour": 16,
+        "minute": 56,
+        "second": 0,
+        "nano": 0
+      },
+      "endTime": {
+        "hour": 19,
+        "minute": 26,
+        "second": 0,
+        "nano": 0
+      }
+    }
+  },
+  {
+    "type": "utilitiesimpl.factoryimpl.ProgrammedFilmImpl",
+    "id": 2,
+    "hall": "HALL_4",
+    "price": 7.0,
+    "date": {
+      "year": 2021,
+      "month": 7,
+      "day": 16
+    },
+    "timeSlot": {
+      "Type": "utilitiesimpl.factoryimpl.TimeSlotImpl",
+      "startTime": {
+        "hour": 16,
+        "minute": 57,
+        "second": 0,
+        "nano": 0
+      },
+      "endTime": {
+        "hour": 19,
+        "minute": 27,
+        "second": 0,
+        "nano": 0
+      }
+    }
+  }
+]

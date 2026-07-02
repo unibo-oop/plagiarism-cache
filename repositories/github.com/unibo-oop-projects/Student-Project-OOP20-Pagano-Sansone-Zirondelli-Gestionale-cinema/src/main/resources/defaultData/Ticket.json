@@ -1,0 +1,154 @@
+[
+  {
+    "Type": "utilitiesimpl.TicketImpl",
+    "data": {
+      "year": 2021,
+      "month": 7,
+      "day": 15
+    },
+    "time": {
+      "hour": 16,
+      "minute": 56,
+      "second": 0,
+      "nano": 0
+    },
+    "setSeat": [
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "E",
+        "column": 3
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "G",
+        "column": 2
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "D",
+        "column": 6
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "D",
+        "column": 4
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "E",
+        "column": 8
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "E",
+        "column": 5
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "F",
+        "column": 6
+      }
+    ],
+    "price": 7.0,
+    "id": 2,
+    "hall": "HALL_3"
+  },
+  {
+    "Type": "utilitiesimpl.TicketImpl",
+    "data": {
+      "year": 2021,
+      "month": 7,
+      "day": 16
+    },
+    "time": {
+      "hour": 16,
+      "minute": 57,
+      "second": 0,
+      "nano": 0
+    },
+    "setSeat": [
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "I",
+        "column": 6
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "E",
+        "column": 3
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "C",
+        "column": 6
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "J",
+        "column": 2
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "E",
+        "column": 5
+      }
+    ],
+    "price": 7.0,
+    "id": 2,
+    "hall": "HALL_4"
+  },
+  {
+    "Type": "utilitiesimpl.TicketImpl",
+    "data": {
+      "year": 2021,
+      "month": 7,
+      "day": 15
+    },
+    "time": {
+      "hour": 16,
+      "minute": 55,
+      "second": 0,
+      "nano": 0
+    },
+    "setSeat": [
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "I",
+        "column": 5
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "I",
+        "column": 2
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "C",
+        "column": 4
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "D",
+        "column": 7
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "F",
+        "column": 2
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "E",
+        "column": 6
+      },
+      {
+        "Type": "utilitiesimpl.SeatImpl",
+        "row": "F",
+        "column": 6
+      }
+    ],
+    "price": 8.0,
+    "id": 1,
+    "hall": "HALL_1"
+  }
+]
