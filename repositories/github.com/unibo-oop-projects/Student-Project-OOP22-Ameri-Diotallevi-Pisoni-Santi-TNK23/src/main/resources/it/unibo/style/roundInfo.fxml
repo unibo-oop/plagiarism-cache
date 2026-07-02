@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="280.0" style="-fx-background-color: #909090;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="50.0" layoutY="40.0" prefHeight="47.0" prefWidth="180.0" text="Enemis in this round">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="randomEnemiesImage" fitHeight="48.0" fitWidth="48.0" layoutX="116.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="aiEnemiesImage" fitHeight="48.0" fitWidth="48.0" layoutX="116.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />
+      <Label alignment="CENTER" layoutX="50.0" layoutY="316.0" prefHeight="27.0" prefWidth="180.0" text="Remaining Enemies:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="missingEnemiesImage" fitHeight="48.0" fitWidth="48.0" layoutX="117.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true" />
+      <Label alignment="CENTER" layoutX="66.0" layoutY="430.0" prefHeight="17.0" prefWidth="149.0" text="Round number:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="roundLabel" alignment="CENTER" layoutX="64.0" layoutY="457.0" prefHeight="39.0" prefWidth="154.0" text="1">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutY="14.0" prefHeight="27.0" prefWidth="280.0" text="ROUND INFORMATION" textFill="#ff5700">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="randomEnemiesLabel" alignment="CENTER" layoutX="215.0" layoutY="98.0" prefHeight="48.0" prefWidth="48.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="aiEnemiesLabel" alignment="CENTER" layoutX="215.0" layoutY="217.0" prefHeight="48.0" prefWidth="48.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="missingEnemiesLabel" alignment="CENTER" layoutX="215.0" layoutY="364.0" prefHeight="48.0" prefWidth="48.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
