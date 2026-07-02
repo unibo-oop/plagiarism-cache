@@ -1,0 +1,1318 @@
+# Game cards configuration file.
+# Each card defines the character presenting the proposal, the card description,
+# and the effects produced by refusal or approval.
+# Effects modify one or more game parameters through positive or negative deltas.
+cards:
+  - id: prof_publish_pressure #professor 1
+    character: PROFESSOR
+    description: "The faculty senate wants stricter publication targets for all professors."
+    refusal:
+      text: "No, quality matters more"
+      effects:
+        - parameter: PROFESSORS
+          delta: 9
+        - parameter: FINANCES
+          delta: -2
+    approval:
+      text: "Yes, raise expectations"
+      effects:
+        - parameter: PROFESSORS
+          delta: -10
+        - parameter: REPUTATION
+          delta: 6
+
+  - id: prof_equipment_upgrade
+    character: PROFESSOR
+    description: "Several departments are requesting modern laboratory equipment."
+    refusal:
+      text: "The old tools still work"
+      effects:
+        - parameter: PROFESSORS
+          delta: -7
+        - parameter: STUDENTS
+          delta: -8
+    approval:
+      text: "Approve the investment"
+      effects:
+        - parameter: PROFESSORS
+          delta: 7
+        - parameter: FINANCES
+          delta: -8
+
+  - id: prof_cancel_hours
+    character: PROFESSOR
+    description: "We would like to join the short week by reducing the weekly working hours."
+    refusal:
+      text: "Students need support"
+      effects:
+        - parameter: PROFESSORS
+          delta: -6
+        - parameter: STUDENTS
+          delta: 2
+    approval:
+      text: "Reduce the requirement"
+      effects:
+        - parameter: PROFESSORS
+          delta: 8
+        - parameter: REPUTATION
+          delta: 5
+
+  - id: prof_research_bonus
+    character: PROFESSOR
+    description: "Should professors who secure research grants receive financial bonuses?"
+    refusal:
+      text: "No special rewards"
+      effects:
+        - parameter: PROFESSORS
+          delta: -8
+        - parameter: REPUTATION
+          delta: -4
+    approval:
+      text: "Reward initiative"
+      effects:
+        - parameter: PROFESSORS
+          delta: 10
+        - parameter: FINANCES
+          delta: -7
+
+  - id: prof_merge_departments #5
+    character: PROFESSOR
+    description: "The administration is considering merging smaller academic departments."
+    refusal:
+      text: "Keep them independent"
+      effects:
+        - parameter: PROFESSORS
+          delta: 11
+        - parameter: STUDENTS
+          delta: 5
+    approval:
+      text: "Proceed with the merger"
+      effects:
+        - parameter: PROFESSORS
+          delta: -13
+        - parameter: FINANCES
+          delta: 10
+
+  - id: prof_free_travel
+    character: PROFESSOR
+    description: "Some professors are asking for fully funded international conference travel."
+    refusal:
+      text: "Travel budgets stay limited"
+      effects:
+        - parameter: PROFESSORS
+          delta: -9
+        - parameter: FINANCES
+          delta: 9
+    approval:
+      text: "Academic exchange is vital"
+      effects:
+        - parameter: PROFESSORS
+          delta: 12
+        - parameter: FINANCES
+          delta: -9
+
+  - id: prof_badge_access
+    character: PROFESSOR
+    description: "The campus must allow access only to those in possession of the badge."
+    refusal:
+      text: "No, we are a public university"
+      effects:
+        - parameter: PROFESSORS
+          delta: -8
+        - parameter: REPUTATION
+          delta: 8
+    approval:
+      text: "I will raise the security"
+      effects:
+        - parameter: PROFESSORS
+          delta: 8
+        - parameter: STUDENTS
+          delta: -12
+
+  - id: prof_increase_salaries
+    character: PROFESSOR
+    description: "Given the current crisis, the university could increase salaries to help employees."
+    refusal:
+      text: "We can't afford it"
+      effects:
+        - parameter: PROFESSORS
+          delta: -9
+        - parameter: FINANCES
+          delta: 12
+    approval:
+      text: "Ok, let's help them"
+      effects:
+        - parameter: PROFESSORS
+          delta: 17
+        - parameter: FINANCES
+          delta: -15
+
+  - id: prof_interdisciplinary_center
+    character: PROFESSOR
+    description: "A group of academics proposes a new interdisciplinary research center."
+    refusal:
+      text: "Too ambitious right now"
+      effects:
+        - parameter: PROFESSORS
+          delta: -7
+        - parameter: FINANCES
+          delta: 3
+    approval:
+      text: "Launch the initiative"
+      effects:
+        - parameter: PROFESSORS
+          delta: 11
+        - parameter: REPUTATION
+          delta: 5
+
+  - id: prof_introduce_kotlin #10
+    character: PROFESSOR
+    description: "Should we introduce a new curriculum on the Kotlin language?"
+    refusal:
+      text: "It's not important"
+      effects:
+        - parameter: PROFESSORS
+          delta: -6
+        - parameter: STUDENTS
+          delta: -5
+    approval:
+      text: "Yeah, I like it"
+      effects:
+        - parameter: PROFESSORS
+          delta: 7
+        - parameter: FINANCES
+          delta: -6
+
+  - id: prof_expand_parking
+    character: PROFESSOR
+    description: "We want a more spacious covered parking lot for cars"
+    refusal:
+      text: "There is no space"
+      effects:
+        - parameter: PROFESSORS
+          delta: -6
+        - parameter: FINANCES
+          delta: 4
+    approval:
+      text: "Ok"
+      effects:
+        - parameter: PROFESSORS
+          delta: 9
+        - parameter: FINANCES
+          delta: -7
+
+  - id: prof_llms_using
+    character: PROFESSOR
+    description: "Let's abolish the use of LLMs because they worsen learning."
+    refusal:
+      text: "No, I use them too"
+      effects:
+        - parameter: PROFESSORS
+          delta: -6
+        - parameter: REPUTATION
+          delta: 3
+    approval:
+      text: "Yes I agree"
+      effects:
+        - parameter: PROFESSORS
+          delta: 4
+        - parameter: STUDENTS
+          delta: -7
+
+  - id: prof_drug_test
+    character: PROFESSOR
+    description: "Should we introduce a weekly drug test for all teachers?"
+    refusal:
+      text: "No, It's money wasted"
+      effects:
+        - parameter: PROFESSORS
+          delta: 5
+        - parameter: FINANCES
+          delta: 8
+    approval:
+      text: "Yes better check"
+      effects:
+        - parameter: PROFESSORS
+          delta: -8
+        - parameter: FINANCES
+          delta: -6
+
+  - id: prof_student_feedback
+    character: PROFESSOR
+    description: "Should student evaluations heavily influence professor promotions?"
+    refusal:
+      text: "Academic merit first"
+      effects:
+        - parameter: PROFESSORS
+          delta: 7
+        - parameter: REPUTATION
+          delta: 6
+    approval:
+      text: "Student voices matter"
+      effects:
+        - parameter: PROFESSORS
+          delta: -9
+        - parameter: STUDENTS
+          delta: 8
+
+  - id: prof_apartments_cesena #15
+    character: PROFESSOR
+    description: "Commuting professors would like free apartments to move into in Cesena."
+    refusal:
+      text: "WTF? Absolutely not"
+      effects:
+        - parameter: PROFESSORS
+          delta: -15
+        - parameter: REPUTATION
+          delta: -7
+    approval:
+      text: "Student voices matter"
+      effects:
+        - parameter: PROFESSORS
+          delta: 20
+        - parameter: FINANCES
+          delta: -12
+
+  - id: prof_representatives_senate
+    character: PROFESSOR
+    description: "Student representatives are blocking all our proposals in the academic senate."
+    refusal:
+      text: "Sorry, but I have to remain neutral"
+      effects:
+        - parameter: PROFESSORS
+          delta: -6
+        - parameter: REPUTATION
+          delta: 7
+    approval:
+      text: "In the future I will take your position"
+      effects:
+        - parameter: PROFESSORS
+          delta: 6
+        - parameter: STUDENTS
+          delta: -10
+
+  - id: prof_river_proximity
+    character: PROFESSOR
+    description: "Given the recent floods, we are concerned about the proximity of the faculty to the Savio River"
+    refusal:
+      text: "I can't do anything"
+      effects:
+        - parameter: PROFESSORS
+          delta: -4
+        - parameter: REPUTATION
+          delta: -7
+    approval:
+      text: "Ok, let's move everything"
+      effects:
+        - parameter: PROFESSORS
+          delta: 6
+        - parameter: FINANCES
+          delta: -20
+
+  - id: prof_christmas_dinner #18
+    character: PROFESSOR
+    description: "We would like to have a Christmas dinner with the professors of the department in the garden"
+    refusal:
+      text: "The garden is too tight"
+      effects:
+        - parameter: PROFESSORS
+          delta: -9
+        - parameter: REPUTATION
+          delta: -4
+    approval:
+      text: "Good idea"
+      effects:
+        - parameter: PROFESSORS
+          delta: 7
+        - parameter: FINANCES
+          delta: -9
+
+  - id: stud_record_lectures #student 1
+    character: STUDENT
+    description: "We want that all lectures recorded and uploaded online."
+    refusal:
+      text: "Teaching stays in class"
+      effects:
+        - parameter: FINANCES
+          delta: 4
+        - parameter: STUDENTS
+          delta: -18
+    approval:
+      text: "Make recordings mandatory"
+      effects:
+        - parameter: REPUTATION
+          delta: 6
+        - parameter: STUDENTS
+          delta: 12
+
+  - id: stud_psychology_parking
+    character: STUDENT
+    description: "Let's block the new psychology department otherwise there won't be enough parking for everyone."
+    refusal:
+      text: "It's too late"
+      effects:
+        - parameter: STUDENTS
+          delta: -10
+        - parameter: FINANCES
+          delta: -4
+    approval:
+      text: "You're right, let's stop everything"
+      effects:
+        - parameter: STUDENTS
+          delta: 8
+        - parameter: REPUTATION
+          delta: -12
+
+  - id: stu_weight_room
+    character: STUDENT
+    description: "The students want a renovation of the machines in the campus weight room."
+    refusal:
+      text: "Not a priority"
+      effects:
+        - parameter: STUDENTS
+          delta: -6
+        - parameter: FINANCES
+          delta: -3
+    approval:
+      text: "Yeah, I'm also a gym bro"
+      effects:
+        - parameter: STUDENTS
+          delta: 15
+        - parameter: FINANCES
+          delta: 4
+
+  - id: stu_petition_presence
+    character: STUDENT
+    description: "An online petition is demanding remove mandatory presence."
+    refusal:
+      text: "Rules remain strict"
+      effects:
+        - parameter: STUDENTS
+          delta: -10
+        - parameter: PROFESSORS
+          delta: 7
+    approval:
+      text: "Allow flexibility"
+      effects:
+        - parameter: STUDENTS
+          delta: 8
+        - parameter: REPUTATION
+          delta: 5
+
+  - id: stu_exam_pressure #5
+    character: STUDENT
+    description: "Several students are complaining about excessive exam workload."
+    refusal:
+      text: "They must adapt"
+      effects:
+        - parameter: STUDENTS
+          delta: -11
+        - parameter: REPUTATION
+          delta: 7
+    approval:
+      text: "Reduce exam pressure"
+      effects:
+        - parameter: STUDENTS
+          delta: 9
+        - parameter: PROFESSORS
+          delta: -5
+
+  - id: stu_night_transport
+    character: STUDENT
+    description: "The on-site students want late-night buses service for coming back from parties."
+    refusal:
+      text: "We are not a social service"
+      effects:
+        - parameter: STUDENTS
+          delta: -6
+        - parameter: FINANCES
+          delta: 5
+    approval:
+      text: "Student enjoyment is important"
+      effects:
+        - parameter: STUDENTS
+          delta: 7
+        - parameter: FINANCES
+          delta: -9
+
+  - id: stu_oop_useless
+    character: STUDENT
+    description: "The second-year students say that OOP course is useless."
+    refusal:
+      text: "They don't understand anything"
+      effects:
+        - parameter: STUDENTS
+          delta: -7
+        - parameter: REPUTATION
+          delta: 8
+    approval:
+      text: "I absolutely agree"
+      effects:
+        - parameter: STUDENTS
+          delta: 9
+        - parameter: PROFESSORS
+          delta: -20
+
+  - id: stu_cafeteria_prices
+    character: STUDENT
+    description: "Campus cafeteria VOLUME prices have increased sharply this semester."
+    refusal:
+      text: "Prices stay unchanged"
+      effects:
+        - parameter: STUDENTS
+          delta: -9
+        - parameter: FINANCES
+          delta: 10
+    approval:
+      text: "Introduce discounts"
+      effects:
+        - parameter: STUDENTS
+          delta: 9
+        - parameter: PROFESSORS
+          delta: 6
+
+  - id: stu_support_palestine
+    character: STUDENT
+    description: "Students are asking Unibo stand in favor of the state of Palestine."
+    refusal:
+      text: "University is apolitical"
+      effects:
+        - parameter: STUDENTS
+          delta: -10
+        - parameter: PROFESSORS
+          delta: 4
+    approval:
+      text: "Free Gaza!"
+      effects:
+        - parameter: STUDENTS
+          delta: 12
+        - parameter: REPUTATION
+          delta: 8
+
+  - id: stu_garden_state #10
+    character: STUDENT
+    description: "The raised steps in the internal garden of the campus are unusable, they should be fixed."
+    refusal:
+      text: "We haven't the resources"
+      effects:
+        - parameter: STUDENTS
+          delta: -7
+        - parameter: FINANCES
+          delta: 7
+    approval:
+      text: "You're right, we'll fix them"
+      effects:
+        - parameter: STUDENTS
+          delta: 7
+        - parameter: FINANCES
+          delta: -10
+
+  - id: stu_reduce_fees
+    character: STUDENT
+    description: "Many students can't afford to pay their tuition fees. Do you think you can lower them?"
+    refusal:
+      text: "No, I can't"
+      effects:
+        - parameter: STUDENTS
+          delta: -8
+        - parameter: REPUTATION
+          delta: -7
+    approval:
+      text: "Yes for sure"
+      effects:
+        - parameter: STUDENTS
+          delta: 10
+        - parameter: FINANCES
+          delta: -13
+
+  - id: stu_gender_bathroom
+    character: STUDENT
+    description: "The campus needs third gender bathrooms."
+    refusal:
+      text: "Men and women are enough"
+      effects:
+        - parameter: STUDENTS
+          delta: -18
+        - parameter: FINANCES
+          delta: 7
+    approval:
+      text: "Absolutely"
+      effects:
+        - parameter: STUDENTS
+          delta: 10
+        - parameter: REPUTATION
+          delta: 11
+
+  - id: stu_surprise_exams
+    character: STUDENT
+    description: "Some departments want to introduce surprise oral exams."
+    refusal:
+      text: "Students need preparation time"
+      effects:
+        - parameter: STUDENTS
+          delta: 9
+        - parameter: PROFESSORS
+          delta: -4
+    approval:
+      text: "Allow surprise exams"
+      effects:
+        - parameter: STUDENTS
+          delta: -10
+        - parameter: REPUTATION
+          delta: -5
+
+  - id: stu_professor_age
+    character: STUDENT
+    description: "Professors over 60 should no longer teach."
+    refusal:
+      text: "Older means expert"
+      effects:
+        - parameter: STUDENTS
+          delta: -8
+        - parameter: PROFESSORS
+          delta: 10
+    approval:
+      text: "Let's lower the average age"
+      effects:
+        - parameter: STUDENTS
+          delta: 8
+        - parameter: PROFESSORS
+          delta: -12
+
+  - id: stu_remove_physics #15
+    character: STUDENT
+    description: "Computer science students want to eliminate physics from their curriculum."
+    refusal:
+      text: "They need it, they will be engineers"
+      effects:
+        - parameter: STUDENTS
+          delta: -7
+        - parameter: REPUTATION
+          delta: 9
+    approval:
+      text: "Physics is useless with computer"
+      effects:
+        - parameter: STUDENTS
+          delta: 9
+        - parameter: PROFESSORS
+          delta: -6
+
+  - id: stu_dormitory_rules
+    character: STUDENT
+    description: "New dormitory regulations would impose stricter curfews."
+    refusal:
+      text: "Enforce stricter rules"
+      effects:
+        - parameter: STUDENTS
+          delta: -8
+        - parameter: REPUTATION
+          delta: 3
+    approval:
+      text: "Students deserve freedom"
+      effects:
+        - parameter: STUDENTS
+          delta: 7
+        - parameter: REPUTATION
+          delta: -2
+
+  - id: stu_course_cuts
+    character: STUDENT
+    description: "Several elective courses may be removed to reduce costs."
+    refusal:
+      text: "Keep the electives"
+      effects:
+        - parameter: STUDENTS
+          delta: 10
+        - parameter: FINANCES
+          delta: -11
+    approval:
+      text: "Cut the courses"
+      effects:
+        - parameter: STUDENTS
+          delta: -11
+        - parameter: FINANCES
+          delta: 7
+
+  - id: stu_multipurpose_small #18
+    character: STUDENT
+    description: "The multipurpose room is too small: when you study you can't breathe."
+    refusal:
+      text: "The students must study at home"
+      effects:
+        - parameter: STUDENTS
+          delta: -10
+        - parameter: FINANCES
+          delta: 5
+    approval:
+      text: "Ok, let's make it bigger"
+      effects:
+        - parameter: STUDENTS
+          delta: 10
+        - parameter: FINANCES
+          delta: -9
+
+  - id: mum_pasta_sunday #mum 1
+    character: MUM
+    description: "Several mothers are complaining that the cafeteria removed pasta on the evening menù."
+    refusal:
+      text: "The menu stays modern"
+      effects:
+        - parameter: REPUTATION
+          delta: -9
+        - parameter: FINANCES
+          delta: 4
+    approval:
+      text: "Bring pasta back"
+      effects:
+        - parameter: REPUTATION
+          delta: 10
+        - parameter: FINANCES
+          delta: -3
+
+  - id: mum_scarf_weather
+    character: MUM
+    description: "Students are getting sick because they don't wear scarves."
+    refusal:
+      text: "That's not our responsibility"
+      effects:
+        - parameter: REPUTATION
+          delta: -6
+        - parameter: STUDENTS
+          delta: -5
+    approval:
+      text: "Distribute winter scarves"
+      effects:
+        - parameter: REPUTATION
+          delta: 7
+        - parameter: FINANCES
+          delta: -12
+
+  - id: mum_coffee_quality
+    character: MUM
+    description: "Parents are outraged by the terrible espresso served on campus."
+    refusal:
+      text: "Coffee is coffee"
+      effects:
+        - parameter: REPUTATION
+          delta: -11
+        - parameter: STUDENTS
+          delta: -5
+    approval:
+      text: "Upgrade the coffee machines"
+      effects:
+        - parameter: REPUTATION
+          delta: 10
+        - parameter: FINANCES
+          delta: -7
+
+  - id: mum_family_openday
+    character: MUM
+    description: "A group of mothers wants monthly family visits to inspect dormitories."
+    refusal:
+      text: "Campus stays private"
+      effects:
+        - parameter: REPUTATION
+          delta: -7
+        - parameter: STUDENTS
+          delta: 7
+    approval:
+      text: "Organize family visits"
+      effects:
+        - parameter: REPUTATION
+          delta: 8
+        - parameter: STUDENTS
+          delta: -6
+
+  - id: mum_elite_professors #5
+    character: MUM
+    description: "A group of ambitious parents wants internationally recognized professors hired."
+    refusal:
+      text: "Current faculty is enough"
+      effects:
+        - parameter: REPUTATION
+          delta: -9
+        - parameter: PROFESSORS
+          delta: 8
+    approval:
+      text: "Recruit prestigious academics"
+      effects:
+        - parameter: REPUTATION
+          delta: 10
+        - parameter: FINANCES
+          delta: -10
+
+  - id: mum_credit_compensation
+    character: MUM
+    description: "Would you guarantee 24 credits for my son in exchange for a generous compensation?."
+    refusal:
+      text: "I am not corruptible"
+      effects:
+        - parameter: REPUTATION
+          delta: 10
+        - parameter: STUDENTS
+          delta: -4
+    approval:
+      text: "Yes, but no one will have to know."
+      effects:
+        - parameter: REPUTATION
+          delta: -20
+        - parameter: PROFESSORS
+          delta: -15
+
+  - id: mum_video_calls
+    character: MUM
+    description: "Parents request mandatory weekly video calls for first-year students."
+    refusal:
+      text: "Students need independence"
+      effects:
+        - parameter: REPUTATION
+          delta: -4
+        - parameter: STUDENTS
+          delta: 5
+    approval:
+      text: "Encourage family calls"
+      effects:
+        - parameter: REPUTATION
+          delta: 8
+        - parameter: STUDENTS
+          delta: -9
+
+  - id: mum_master_placement
+    character: MUM
+    description: "Rival universities have better graduate placement statistics. What will you do?."
+    refusal:
+      text: "Nothing, results will improve naturally"
+      effects:
+        - parameter: REPUTATION
+          delta: -12
+        - parameter: PROFESSORS
+          delta: 4
+    approval:
+      text: "I'll Invest in career services"
+      effects:
+        - parameter: REPUTATION
+          delta: 12
+        - parameter: FINANCES
+          delta: -10
+
+  - id: mum_lovestory_events
+    character: MUM
+    description: "The university should organize events to encourage love stories among students."
+    refusal:
+      text: "It's not our job"
+      effects:
+        - parameter: REPUTATION
+          delta: -6
+        - parameter: STUDENTS
+          delta: -7
+    approval:
+      text: "Good idea!"
+      effects:
+        - parameter: REPUTATION
+          delta: 8
+        - parameter: STUDENTS
+          delta: 10
+
+  - id: mum_exam_blessing #10
+    character: MUM
+    description: "A group of parents wants a priest to bless students before exams."
+    refusal:
+      text: "Are you serious?"
+      effects:
+        - parameter: REPUTATION
+          delta: -5
+        - parameter: FINANCES
+          delta: 5
+    approval:
+      text: "Organize the blessing"
+      effects:
+        - parameter: REPUTATION
+          delta: 7
+        - parameter: STUDENTS
+          delta: 5
+
+  - id: mum_security_attacks
+    character: MUM
+    description: "Does the university have security systems to prevent attacks?."
+    refusal:
+      text: "No, they won't happen"
+      effects:
+        - parameter: REPUTATION
+          delta: -8
+        - parameter: STUDENTS
+          delta: -7
+    approval:
+      text: "Not yet but we are getting ready"
+      effects:
+        - parameter: REPUTATION
+          delta: 12
+        - parameter: FINANCES
+          delta: -10
+
+  - id: mum_legal_coverage
+    character: MUM
+    description: "Will my child have legal coverage if he or she is sued?."
+    refusal:
+      text: "We are not responsibile for what he does"
+      effects:
+        - parameter: REPUTATION
+          delta: -9
+        - parameter: STUDENTS
+          delta: -7
+    approval:
+      text: "We have several lawyer"
+      effects:
+        - parameter: REPUTATION
+          delta: 11
+        - parameter: FINANCES
+          delta: -8
+
+  - id: mum_christmas_presents
+    character: MUM
+    description: "with all the money we pay, you should give Christmas presents to our children."
+    refusal:
+      text: "We don't have all this money"
+      effects:
+        - parameter: REPUTATION
+          delta: -7
+        - parameter: STUDENTS
+          delta: -6
+    approval:
+      text: "Christmas presents for everyone"
+      effects:
+        - parameter: REPUTATION
+          delta: 9
+        - parameter: FINANCES
+          delta: -20
+
+  - id: mum_java_professor
+    character: MUM
+    description: "I heard that the professor who teaches Java is not very renowned."
+    refusal:
+      text: "Our professors are great"
+      effects:
+        - parameter: REPUTATION
+          delta: -9
+        - parameter: PROFESSORS
+          delta: -5
+    approval:
+      text: "I will replace him"
+      effects:
+        - parameter: REPUTATION
+          delta: 10
+        - parameter: PROFESSORS
+          delta: -15
+
+  - id: mum_phone_addiction #15
+    character: MUM
+    description: "Parents claim students spend too much time on their phones during lectures."
+    refusal:
+      text: "Technology is normal"
+      effects:
+        - parameter: REPUTATION
+          delta: 8
+        - parameter: PROFESSORS
+          delta: -6
+    approval:
+      text: "Limit phone usage"
+      effects:
+        - parameter: REPUTATION
+          delta: -6
+        - parameter: STUDENTS
+          delta: -15
+
+  - id: mum_international_exchages
+    character: MUM
+    description: "Do you support international student exchanges?"
+    refusal:
+      text: "Our country is enough"
+      effects:
+        - parameter: REPUTATION
+          delta: -10
+        - parameter: STUDENTS
+          delta: -10
+    approval:
+      text: "Of course"
+      effects:
+        - parameter: REPUTATION
+          delta: 10
+        - parameter: FINANCES
+          delta: -7
+
+  - id: mum_emergency_defibrillator
+    character: MUM
+    description: "Parents are asking for defibrillators in all the building."
+    refusal:
+      text: "It seems a bit exaggerated to me"
+      effects:
+        - parameter: REPUTATION
+          delta: -9
+        - parameter: PROFESSORS
+          delta: -8
+    approval:
+      text: "Health first"
+      effects:
+        - parameter: REPUTATION
+          delta: 15
+        - parameter: FINANCES
+          delta: -5
+
+  - id: mum_work_seminar #18
+    character: MUM
+    description: "Are there seminars on how the modern world of work operates?"
+    refusal:
+      text: "Students must inform themselves"
+      effects:
+        - parameter: REPUTATION
+          delta: -8
+        - parameter: STUDENTS
+          delta: -8
+    approval:
+      text: "We do one once a month"
+      effects:
+        - parameter: REPUTATION
+          delta: 10
+        - parameter: STUDENTS
+          delta: 7
+
+  - id: stu_security_checks #folllow up
+    character: STUDENT
+    description: "Security checks at campus entrances are slowing down student access."
+    refusal:
+      text: "Reduce the controls"
+      effects:
+        - parameter: STUDENTS
+          delta: 6
+        - parameter: REPUTATION
+          delta: -3
+    approval:
+      text: "Maintain strict checks"
+      effects:
+        - parameter: STUDENTS
+          delta: -7
+        - parameter: REPUTATION
+          delta: 5
+
+  - id: bus_aws_cloud #businessman 1
+    character: BUSINESSMAN
+    description: "Amazon Web Services proposes to include a new curriculum about cloud training program called AWS Cloud."
+    refusal:
+      text: "Cloud can wait"
+      effects:
+        - parameter: FINANCES
+          delta: -5
+        - parameter: STUDENTS
+          delta: -6
+    approval:
+      text: "Activate the program"
+      effects:
+        - parameter: FINANCES
+          delta: 10
+        - parameter: STUDENTS
+          delta: 8
+
+  - id: bus_cisco_cyber_lab
+    character: BUSINESSMAN
+    description: "Cisco offers a cybersecurity lab for teachers taught by its technicians."
+    refusal:
+      text: "Our teachers already know everything"
+      effects:
+        - parameter: FINANCES
+          delta: -6
+        - parameter: PROFESSORS
+          delta: -12
+    approval:
+      text: "Open the lab"
+      effects:
+        - parameter: FINANCES
+          delta: 8
+        - parameter: PROFESSORS
+          delta: 9
+
+  - id: bus_nvidia_reseller
+    character: BUSINESSMAN
+    description: "NVIDIA offers us the opportunity to become a chip reseller in Italy."
+    refusal:
+      text: "It's not our mission"
+      effects:
+        - parameter: FINANCES
+          delta: -15
+        - parameter: REPUTATION
+          delta: 7
+    approval:
+      text: "Great proposal"
+      effects:
+        - parameter: FINANCES
+          delta: 10
+        - parameter: REPUTATION
+          delta: -18
+
+  - id: bus_polytechnic_acquisition
+    character: BUSINESSMAN
+    description: "Lately the Polytechnic of Milan has been in financial difficulty, we could propose to acquire it."
+    refusal:
+      text: "It's too expensive"
+      effects:
+        - parameter: PROFESSORS
+          delta: -7
+        - parameter: REPUTATION
+          delta: -6
+    approval:
+      text: "Milan l'è un gran Milan"
+      effects:
+        - parameter: FINANCES
+          delta: -18
+        - parameter: REPUTATION
+          delta: 20
+
+  - id: bus_pnrr_research #5
+    character: BUSINESSMAN
+    description: "The Ministry opens a PNRR opportunity for research infrastructure and data analysis."
+    refusal:
+      text: "Skip the call"
+      effects:
+        - parameter: FINANCES
+          delta: -10
+        - parameter: REPUTATION
+          delta: -10
+    approval:
+      text: "Apply for funding"
+      effects:
+        - parameter: FINANCES
+          delta: 10
+        - parameter: REPUTATION
+          delta: 6
+
+  - id: bus_erasmus_alliance
+    character: BUSINESSMAN
+    description: "A French business school proposes an Erasmus+ cooperation with super high tuition fees."
+    refusal:
+      text: "We don't create elite projects"
+      effects:
+        - parameter: FINANCES
+          delta: -5
+        - parameter: STUDENTS
+          delta: 7
+    approval:
+      text: "Build the alliance"
+      effects:
+        - parameter: FINANCES
+          delta: 11
+        - parameter: REPUTATION
+          delta: 9
+
+  - id: bus_mediolanum_system
+    character: BUSINESSMAN
+    description: "Would you agree to create the new management system for Mediolanum Bank?."
+    refusal:
+      text: "No, we are not able"
+      effects:
+        - parameter: FINANCES
+          delta: -7
+        - parameter: REPUTATION
+          delta: -9
+    approval:
+      text: "We could try"
+      effects:
+        - parameter: FINANCES
+          delta: 9
+        - parameter: REPUTATION
+          delta: 8
+
+  - id: bus_buildings_dormitory
+    character: BUSINESSMAN
+    description: "There are some old buildings in the center of Cesena. Would you like to buy them to create student housing?."
+    refusal:
+      text: "What we have is enough"
+      effects:
+        - parameter: REPUTATION
+          delta: -5
+        - parameter: STUDENTS
+          delta: -5
+    approval:
+      text: "Sure, let's by them"
+      effects:
+        - parameter: FINANCES
+          delta: -14
+        - parameter: STUDENTS
+          delta: 8
+
+  - id: bus_enel_renewable
+    character: BUSINESSMAN
+    description: "Enel proposes to install photovoltaic panels and wind turbines next to the campus to produce energy on-site."
+    refusal:
+      text: "Gas is cheaper"
+      effects:
+        - parameter: FINANCES
+          delta: 6
+        - parameter: REPUTATION
+          delta: -4
+    approval:
+      text: "Renewable energy is the future"
+      effects:
+        - parameter: FINANCES
+          delta: -7
+        - parameter: REPUTATION
+          delta: 6
+
+  - id: bus_cars_dealership #10
+    character: BUSINESSMAN
+    description: "We could provide the teachers with cars by sponsoring a dealership in the city."
+    refusal:
+      text: "I don't want to change my MINI"
+      effects:
+        - parameter: FINANCES
+          delta: -3
+        - parameter: REPUTATION
+          delta: -8
+    approval:
+      text: "Ok, I really needed a new car"
+      effects:
+        - parameter: REPUTATION
+          delta: 11
+        - parameter: PROFESSORS
+          delta: 8
+
+  - id: bus_ranking_judges
+    character: BUSINESSMAN
+    description: "Your university has lost a few positions in the world ranking, you could remedy this by inviting some judges to take a guided tour."
+    refusal:
+      text: "I don't care"
+      effects:
+        - parameter: FINANCES
+          delta: 4
+        - parameter: REPUTATION
+          delta: -10
+    approval:
+      text: "Good idea"
+      effects:
+        - parameter: FINANCES
+          delta: -5
+        - parameter: REPUTATION
+          delta: 9
+
+  - id: bus_google_microsoft
+    character: BUSINESSMAN
+    description: "Google wants to be our software partner instead of Microsoft."
+    refusal:
+      text: "Microsoft 365 is better"
+      effects:
+        - parameter: STUDENTS
+          delta: -6
+        - parameter: PROFESSORS
+          delta: 7
+    approval:
+      text: "I've always wanted to be a Googler"
+      effects:
+        - parameter: FINANCES
+          delta: -7
+        - parameter: STUDENTS
+          delta: 8
+
+  - id: bus_leonardo_weapons
+    character: BUSINESSMAN
+    description: "Given the recent wars, Leonardo offers us a set of defense weapons at a discounted price."
+    refusal:
+      text: "They are out of their minds"
+      effects:
+        - parameter: FINANCES
+          delta: 5
+        - parameter: REPUTATION
+          delta: 9
+    approval:
+      text: "It's better be safe"
+      effects:
+        - parameter: FINANCES
+          delta: -12
+        - parameter: REPUTATION
+          delta: -15
+
+  - id: bus_region_project
+    character: BUSINESSMAN
+    description: "Regione Emilia-Romagna wants to start a project for technology literacy among the over 70s."
+    refusal:
+      text: "Do not apply"
+      effects:
+        - parameter: REPUTATION
+          delta: -7
+        - parameter: PROFESSORS
+          delta: -9
+    approval:
+      text: "Submit the project"
+      effects:
+        - parameter: FINANCES
+          delta: 15
+        - parameter: PROFESSORS
+          delta: 5
+
+  - id: bus_technogym_offer #15
+    character: BUSINESSMAN
+    description: "Technogym is offering cash in exchange for our top 20 graduates."
+    refusal:
+      text: "Students must be free"
+      effects:
+        - parameter: REPUTATION
+          delta: 6
+        - parameter: STUDENTS
+          delta: 10
+    approval:
+      text: "Let's take that money"
+      effects:
+        - parameter: FINANCES
+          delta: 18
+        - parameter: REPUTATION
+          delta: -12
+
+  - id: bus_bologna_shutdown
+    character: BUSINESSMAN
+    description: "The Bologna computer science department fears our competition and wants to shut us down."
+    refusal:
+      text: "Fuck them!"
+      effects:
+        - parameter: PROFESSORS
+          delta: 10
+        - parameter: REPUTATION
+          delta: 20
+    approval:
+      text: "I reluctantly accept"
+      effects:
+        - parameter: STUDENTS
+          delta: -20
+        - parameter: REPUTATION
+          delta: -20
+
+  - id: bus_resident_protest
+    character: BUSINESSMAN
+    description: "Residents of Cesena protest the invasion of students in the city."
+    refusal:
+      text: "They'll get over it"
+      effects:
+        - parameter: STUDENTS
+          delta: 7
+        - parameter: REPUTATION
+          delta: -9
+    approval:
+      text: "Let's pay them to stay silent"
+      effects:
+        - parameter: FINANCES
+          delta: -8
+        - parameter: REPUTATION
+          delta: 6
+
+  - id: businessman_partenship_project #18
+    character: BUSINESSMAN
+    description: "A company proposes a partnership to fund research in exchange for influence over projects. Do you accept?"
+    refusal:
+      text: "No, academic independence comes first"
+      effects:
+        - parameter: PROFESSORS
+          delta: 9
+        - parameter: REPUTATION
+          delta: 7
+    approval:
+      text: "Yes, funding is essential for growth"
+      effects:
+        - parameter: FINANCES
+          delta: 12
+        - parameter: REPUTATION
+          delta: -13
