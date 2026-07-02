@@ -1,0 +1,509 @@
+\documentclass[a4paper,12pt]{report}
+
+\usepackage{alltt, fancyvrb, url}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{hyperref}
+
+% Questo commentalo se vuoi scrivere in inglese.
+\usepackage[italian]{babel}
+
+\usepackage[italian]{cleveref}
+
+\title{Relazione per\\``Programmazione ad Oggetti''}
+
+\author{Nicolò Guerra \and
+Emma Leonardi \and 
+Filippo Casadei \and
+Lorenzo Tagliani}
+\date{\today}
+
+\begin{document} 
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Analisi}
+
+Bubble Blaster è un gioco della categoria puzzle games, clone del gioco arcade Puzzle Bubble. Il gioco è formato da una schermata
+rettangolare in cui vengono create file di bolle colorate che scendono dall'alto. Obiettivo del gioco è utilizzare il cannone
+posto in fondo alla schermata per formare gruppi di bolle dello stesso colore e farle così esplodere, cercando di ottenere il maggior
+punteggio possibile. La partita è persa se le bolle arrivano in fondo allo schermo.
+
+\section{Requisiti}
+
+\subsubsection{Requisiti funzionali}
+\begin{itemize}
+	\item All'apertura del gioco verrà mostrata una schermata per la scelta delle modalità di gioco e delle opzioni.
+	\item Il gioco dovrà generare una griglia di bolle colorate in maniera casuale.
+	\item Il cannone in basso dovrà permettere di sparare bolle generate casualmente, muovendosi angolarmente a destra e sinistra.
+	\item Le bolle sparate dal cannone potranno rimbalzare sui muri del campo di gioco se colpiti.
+	\item Le bolle dovranno scoppiare alla formazione di gruppi di almeno 4 bolle dello stesso colore adiacenti, facendo cadere eventuali altre bolle sottostanti senza ulteriori sostegni.
+	\item Il gioco dovrà dare una schermata di game over se le palline raggiungono il fondo dello schermo.
+	\item Il gioco dovrà gestire un punteggio.
+\end{itemize}
+
+\subsubsection{Requisiti non funzionali}
+\begin{itemize}
+	\item Il gioco dovrà fornire una esperienza fluida.
+	\item Il gioco dovrà avere musica di sottofondo e effetti sonori per lo scoppio delle bolle e il game over.
+\end{itemize}
+
+\subsection{Requisiti facoltativi}
+Questi requisiti non sono necessari al funzionamento di base del gioco e per questioni di tempistica potrebbero non essere implementati.
+\begin{itemize}
+	\item Salvataggio e caricamento della partita
+	\item Gestione di una leaderboard con i punteggi migliori
+	\item Effetti sonori e musica
+	\item Preview della prossima pallina che verrà caricata sul cannone e possibilità di scambiarla con quella caricata
+	\item Diversi livelli di difficoltà
+	\item Animazioni fluide
+	\item Modalità 2 giocatori
+\end{itemize}
+
+\section{Analisi e modello del dominio}
+
+L'entità principale in gioco è la Bubble, un insieme di Bubble formano una Grid. Una Grid dovrà poter essere generata in maniera casuale.
+Una bolla potrà essere sparata da un cannone, il quale potrà anche decidere di scambiarla con la successiva. Lo scoppio delle bolle dovrà inoltre far incrementare il punteggio.
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics{img/analysis.pdf}
+	\caption{UML delle entità che rappresentano il dominio del problema.}
+	\label{img:analysis}
+\end{figure}
+
+\chapter{Design}
+
+\section{Architettura}
+
+Per questo progetto è stato scelto di fare uso del pattern MVC, che consente di separare in maniera efficace la logica del dominio da quella di visualizzazione e interazione con l'utente.
+L'interfaccia principale del Model è rappresentata dal Level che fornisce le informazioni necessarie alla rappresentazione di una partita. La view è nascosta da un interfaccia che non dipende dalla sua
+implementazione, in questo modo una sua sostituzione in blocco non dovrebbe comportare modifiche al resto dell'architettura dell'applicazione, questo perché il modello non è in alcun modo a conoscenza
+di come venga rappresentato all'esterno.
+%
+Il punto d'ingresso del Model è il Cannon, che permette al Controller di modificare lo stato del gioco muovendo il cannone e sparando le bolle.
+Il tempo del gioco è scandito dal Controller. Il movimento del cannone è invece un evento generato dalla View, che viene passato al Model attraverso il controller e gestito in maniera asincrona.
+
+\begin{figure}[h]
+	\centering{}
+	\includegraphics[width=\textwidth]{img/arch.pdf}
+	\caption{Schema UML architetturale del gioco. L'interfaccia \texttt{Controller} gestisce il flusso dell'applicazione, mentre la \texttt{View} gestisce l'interazione con l'utente e il \texttt{Model} fornisce le informazioni sul \texttt{Level}.}
+\end{figure}
+
+\section{Design dettagliato}
+\subsection{Nicolò Guerra}
+\subsubsection{Caratteristiche della griglia di bolle}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=\textwidth]{img/strategy_gridinfo.pdf}
+	\caption{Rappresentazione UML dell'oggetto GridInfo}
+\end{figure}
+
+\paragraph{Problema} Potenzialmente il gioco può gestire più tipi di griglie diverse per quanto riguarda dimensioni, forme delle caselle e altre caratteristiche, il che può portare a disallineamenti e incoerenze
+tra parti diverse del modello, oltre a una difficoltà di rappresentazione delle bolle nello spazio da parte della View, che non conosce griglie o altre entità specifiche del Model.
+
+\paragraph{Soluzione} Le caratteristiche della griglia vengono fornite da una interfaccia di tipo GridInfo implementata come \textit{Strategy}, in questo caso ad esempio la RegularHexGridInfo viene
+inizializzata con le dimensioni in bolle della griglia e si occupa autonomamente di effettuare i calcoli necessari per avere una griglia di esagoni regolari. Un'ulteriore implementazione potrebbe essere
+ad'esempio una SquareGridInfo che fornisce informazioni per una griglia a celle quadrate.
+
+\subsubsection{Gestione del GameOver}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=\textwidth]{img/gameover.pdf}
+	\caption{Rappresentazione UML del gestore dei GameOver}
+\end{figure}
+
+\paragraph{Problema} I GameOver potrebbero essere generati in modi diversi (tempo scaduto, raggiungimento dell'ultima riga...) e voler essere gestiti in maniera diversa.
+
+\paragraph{Soluzione} Un interfaccia GameOverHandler con 2 metodi per controllare se è avvenuto un GameOver e per gestirlo, implementando questa interfaccia è possibile definire quando avviene un GameOver
+e come questo venga gestito. Per separare ulteriormente controllo e gestione una classe astratta ViewDelegateGameOverHandler che implementa la gestione passando l'evento di gameover alla View, e con un metodo
+astratto per controllare se è accaduto un gameover. Quest'ultimo viene implementato dalla sottoclasse LastRowGameOverHandler, la quale non fa altro che controllare se le bolle nella griglia hanno raggiunto l'ultima
+riga.
+
+\subsubsection{Salvataggio su file}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=.7\textwidth]{img/persister.pdf}
+	\caption{Strategy per un oggetto che salva oggetti}
+\end{figure}
+
+\paragraph{Problema} Spesso l'applicazione ha necessita di salvare lo stato di alcuni suoi oggetti per poi recuperarlo in un secondo momento.
+
+\paragraph{Soluzione} Per poter salvare lo stato di oggetti diversi su disco ho creato un interfaccia generica persister che fa da strategy, con un metodo per salvare un oggetto e un metodo per leggerlo.
+L'implementazione di questa nasconde all'utilizzatore il modo in cui vengono persistiti. Si possono quindi creare ad esempio diverse implementazioni che salvano su file, su database o in cloud implementando i
+metodi read e write. Rispettando la stessa interfaccia le sottoclassi diventano intercambiabili tra di loro.
+
+\subsubsection{Caricamento degli assets della View}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=.7\textwidth]{img/assetsloader}
+	\caption{Decorator per cache di un assets loader}
+\end{figure}
+
+\paragraph{Problema} L'implementazione grafica della View ha bisogno che le vengano forniti gli assets del gioco come le figure delle bolle e del cannone. Deve essere un caricamento efficiente perché gli assets
+possono anche essere richiesti più volte al secondo.
+
+\paragraph{Soluzione} Per delegare il caricamento degli assets a un altro componente è stata creata l'interfaccia AssetsLoader che ha un metodo in grado di caricare un assets la cui implementazione
+non è specificata. Una classe StandardAssetsLoader carica gli assets dalla cartella resources su richiesta e un CachedAssetsLoader la decora implementando un meccanismo di cache per ridurre gli accessi a disco
+e aumentarne l'efficienza. In questo modo è facile riutilizzare il meccanismo di cache per un AssetsLoader che carica altri tipi di assets.
+
+\subsubsection{Gestione del tempo di gioco}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=.7\textwidth]{img/gameloop.pdf}
+	\caption{UML del Gameloop}
+\end{figure}
+
+\paragraph{Problema} Il gioco ha bisogno di essere aggiornato a intervalli regolari, ad esempio per gestire il movimento delle palline o per far ridisegnare la View.
+
+\paragraph{Soluzione} È stato utilizzato il pattern Gameloop, creando un interfaccia che ne definisce le interazioni con il Controller, presso cui altri componenti che implementano Updatable possono registrarsi
+per essere aggiornati ad ogni ciclo.
+
+\subsection{Emma Leonardi}
+\subsubsection{Gestione del campo di Bolle}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=.7\textwidth]{img/bubble_grid.pdf}
+	\caption{UML del BubblesGrid}
+\end{figure}
+
+\paragraph{Problema} La griglia di Bolle deve essere indipendente dalla forma delle bolle
+
+\paragraph{Soluzione} Un interfaccia BubblesGrid con metodi che astraggono la forma delle bolle. 
+In particolare l'implementazione di BubblesGridImpl è per griglie di esagoni con la punta verso l'alto, 
+ma implementando l'interfaccia si possono creare griglie di qualsiasi forma di bolle.
+
+\subsubsection{Gestione di tre valori appaiati}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=.7\textwidth]{img/triplet.pdf}
+	\caption{UML del Triplet}
+\end{figure}
+
+\paragraph{Problema} Nella griglia ho usato coordinate con tre valori e avevo necessità di un oggetto per memorizzarle
+
+\paragraph{Soluzione} Ho creato un'interfaccia generica che supporta qualsiasi tipo di tripletta di valori, poi implementata in una classe generica.
+Per poter sommare i valori ho poi creato una classe con metodi statici che fa la somma delle triplette.
+
+\subsection{Filippo Casadei}
+\subsubsection{Movimento e collisioni delle bolle}
+
+\paragraph{Problema} Le bolle normalmente sono identificate da un colore e una posizione, ma hanno bisogno di una velocità per potersi spostare all'interno della griglia di gioco.
+Perciò è necessaria un tipo di bolla che può avere una sua velocità.
+
+\paragraph{Soluzione} Per risolvere questo punto è stata modellata una MovingBubble, che estende una bolla normale, che però è caratterizzata da una velocità e da varie operazioni su di essa.
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=.7\textwidth]{img/movingbubble.pdf}
+	\caption{UML della MovingBubble}
+\end{figure}
+
+\paragraph{Problema} L'applicazione si comporrà di una griglia di gioco, sulla quale saranno presenti a loro volta una griglia di bolle e la bolla che verrà sparata dal cannone,
+quest'ultima potrà muoversi liberamente finchè non verrà a contatto con le bolle già presenti, perciò bisogna controllare che gli spostamenti della bolla in
+movimento siano "legali" e che quando questa collida con la griglia di bolle si annetta ad essa.
+Inoltre la bolla dovrà poter rimbalzare sui muri laterali facendole cambiare direzione di movimento.
+
+\paragraph{Soluzione} L'entità che gestirà i movimenti della bolla sarà il MovementHandler, quest'ultimo avrà il compito di muovere la bolla solo in posizioni "legali" e nel caso stia per uscire dalla griglia
+gestisca il movimento della bolla riposizionandola coerentemente a seconda della sua velocità, facendola rimbalzare se necessario.
+Il MovementHandler deve sapere che bolla dovrà controllare, di base non c'è nessuna bolla da controllare.  
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=.7\textwidth]{img/movementhandler.pdf}
+	\caption{UML del MovementHandler}
+\end{figure}
+
+\subsubsection{Gestione dei livelli}
+
+\paragraph{Problema} L'applicazione dovrà creare ogni volta un nuovo livello che il giocatore potrà giocare, questo livello deve poter essere modificabile in base al livello di sfida che vorrà affrontare
+il giocatore. 
+
+\paragraph{Soluzione} Il Level è stato modellato per contenere gli elementi fondamentali di una partita, ovvero è suo compito generare la nuova griglia e il cannone con cui il giocatore interagirà,
+inoltre contiene anche il valore numerico del punteggio attuale. Dato che implementa l'interfaccia Serializable è anche possibile salvare lo stato del livello in
+qualsiasi momento per poi riprendere da dove si era rimasti.
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=.7\textwidth]{img/level.pdf}
+	\caption{UML del Level}
+\end{figure}
+
+\subsubsection{Rappresentazione grafica delle bolle e del campo di gioco}
+
+\paragraph{Problema} L'utente per interagire correttamente con l'applicazione necessita di avere una corretta rappresentazione grafica delle posizioni delle bolle e del cannone,
+questa dovrà inoltre esser aggiornata coerentemente durante lo svolgimento della partita.
+
+\paragraph{Soluzione} Per aggiornare continuamente l'intera griglia la view principale farà utilizzo del CanvasDrawer, il quale ha il compito di ridisegnare ad ogni tick 
+ogni elemento di gioco, per fare ciò delega il compito di disegnare le bolle, sia quelle della griglia sia quella in movimento, ad un BubbleDrawer, mentre il compito
+di disegnare il cannone alla giusta angolazione è delegato ad un CannonDrawer.
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=.7\textwidth]{img/drawers.pdf}
+	\caption{UML del CanvasDrawer}
+\end{figure}
+
+\subsection{Lorenzo Tagliani}
+\subsubsection{Generazione delle bolle}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=\textwidth]{img/bubblegenerator.pdf}
+	\caption{Rappresentazione UML dell'oggetto BubbleGenerator}
+\end{figure}
+
+\paragraph{Problema} Nel progetto è stata necessaria, molteplici volte, una generazione casuale delle bolle.
+
+\paragraph{Soluzione} È stato creato un generatore che, basandosi sulla posizione della bolla da posizionare sulla griglia, sfrutta una lista di colori dichiarata per generare
+una bolla di colore casuale. 
+Si è preferito fare un generatore come oggetto a sé stante invece di implementarlo nel cannone o nella griglia stessa.
+
+\subsubsection{Gestione dei punteggi}
+
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=\textwidth]{img/score.pdf}
+	\caption{Rappresentazione UML della gestione dei punteggi}
+\end{figure}
+
+\paragraph{Problema} Uno degli obiettivi pricipali del progetto era il salvataggio dei punteggi su file, ed al caricamento di essi a richiesta del sistema.
+
+\paragraph{Soluzione} È stato deciso che il punteggio ottenuto dall'utente dovesse essere composto di nome dell'utente, punteggio e data, per questo è stato creato
+l'oggetto Score, usato poi nello ScoreManager per poter salvare i punteggi su un file, tramite il File Persister creato da Nicolò Guerra.
+La lista viene creata e gestita dalla classe ScoreTable, creata per semplificare e organizzare meglio il tutto.
+
+\chapter{Sviluppo}
+\section{Testing automatizzato}
+
+Abbiamo usato JUnit 5 per fare test automatici delle classi. 
+Abbiamo testato le seguenti classi:
+\begin{itemize}
+	\item GameLoop
+	\item RegularHexGrid
+	\item Level
+	\item BubbleGenerator
+	\item BubblesGrid
+	\item Bubble
+	\item Cannon
+	\item COLOR
+	\item MovementHandler
+	\item MovingBubble
+	\item Persister
+	\item Position
+	\item Score
+	\item ScoreManager
+	\item Triplet
+	\item TripletIntegerUtility
+	\item VectorConverter
+
+\end{itemize}
+
+\section{Metodologia di lavoro}
+
+Per lavorare in parallelo su parti diverse del software abbiamo iniziato definendo le interfacce principali dell'applicazione, per poi procedere a sviluppare ognuno a valle delle interfacce che costituivano la sua
+parte di progetto. Abbiamo utilizzato branch separati per le feature effettuando il merge sul main alla conclusione di ogni parte di progetto.
+
+\subsection{Nicolò Guerra}
+
+In questo progetto i miei compiti sono stati:
+\begin{itemize}
+	\item Gestire l'avvio dell'applicazione e la connessione tra i componenti MVC (package bbblast.application)
+	\item Gameover (package bbblast.controller.gameover)
+	\item Tempo di gioco (package bbblast.controller.gameover)
+	\item Informazioni sulla griglia (GridInfo e RegularHexGridInfo nel package bbblast.model)
+	\item Persistenza (package bbblast.utils.persister)
+	\item Menu principale (package bbblast.utils.menu)
+	\item View per le opzioni (package bbblast.view.options)
+	\item Caricamento degli assets (package bbblast.view.singleplayer.assetsloader)
+\end{itemize}
+
+\subsection{Emma Leonardi}
+
+In questo progetto i miei compiti sono stati:
+\begin{itemize}
+	\item Gestire il comportamento di Griglie di bolle (package bbblast.model BubblesGrid e BubblesGridImpl)
+	\item Bolle statiche (package bbblast.model Bubble e BubbleImpl)
+	\item Comportamento del cannone (package bbblast.model Cannon e CannonImpl)
+	\item Grafica del cannone (package bblast.view.singleplayer CannonDrawerImpl e CannonDrawer)
+	\item Triplette di valori (package bbblast.utils Triplet, TripletImpl )
+	\item Somma di Triplette di valori interi (package bbblast.utils TripletIntegerUtility)
+	\item Conversione velocità vettoriale in componenti (package bbblast.utils VectorConverter e VectorConverterImpl)
+\end{itemize}
+
+\subsection{Filippo Casadei}
+In questo progetto i miei compiti sono stati:
+\begin{itemize}
+	\item Bolle dinamiche (MovingBubble e MovingBubbleImpl, package bbblast.model)
+	\item Gestione del movimento e delle collisioni (MovementHandler e MovementHandlerImpl, package bbblast.model)
+	\item Divisione in punti (Position e PositionImpl, package bbblast.utils)
+	\item Grafica delle bolle (BubbleDrawer e BubbleDrawerImpl, package bbblast.view.singleplayer)
+	\item Disegnare la grafica di gioco (CanvasDrawer e CanvasDrawerImpl, package bbblast.view.singleplayer)
+	\item Creazione del livello di gioco (Level e LevelImpl, package bbblast.model.level)
+\end{itemize}
+
+\subsection{Lorenzo Tagliani}
+
+In questo progetto i miei compiti sono stati:
+\begin{itemize}
+	\item Generazione delle bolle sul campo (BubbleGenerator e BubbleGeneratorImpl, package bbblast.model)
+	\item Scrittura, salvataggio e caricamento dei punteggi (ScoreManager e ScoreManagerImpl, package bbblast.utils)
+	\item Struttura dello score (Score e ScoreImpl, package bbblast.utils)
+	\item Strutturazione della lista di score (ScoreTable, package bbblast.utils)
+	\item Gestione dell'aggiornamento in tempo reale dello score
+\end{itemize}
+
+\section{Note di sviluppo}
+
+\subsection{Nicolò Guerra}
+\begin{itemize}
+	\item Progettazione di classi generiche
+	\item Lambda expressions
+	\item Stream
+	\item Optional
+	\item JavaFX
+	\item Thread
+\end{itemize}
+
+\subsection{Emma Leonardi}
+\begin{itemize}
+	\item Stream
+	\item Progettazione di classi generiche
+	\item Lambda expressions
+	\item JavaFX
+\end{itemize}
+
+Per la gestione delle coordinate su tre assi ho usato lo pseudocodice di Amit Patel \url{https://www.redblobgames.com/grids/hexagons/} e ho usato sempre il suo codice per cercare gli esagoni vicini.
+
+\subsection{Filippo Casadei}
+\begin{itemize}
+	\item JavaFX
+	\item Optional
+\end{itemize}
+
+\subsection{Lorenzo Tagliani}
+\begin{itemize}
+	\item JavaFX
+	\item Lambda expressions
+\end{itemize}
+
+\chapter{Commenti finali}
+
+In quest'ultimo capitolo si tirano le somme del lavoro svolto e si delineano eventuali sviluppi
+futuri.
+
+\section{Autovalutazione e lavori futuri}
+
+\subsection{Nicolò Guerra}
+
+Non sono soddisfatto del progetto che abbiamo svolto. Purtroppo abbiamo avuto diversi problemi già a partire dalla parte di design generale dell'applicazione, complice anche l'inesperienza essendo la prima
+volta che ognuno di noi portava avanti un progetto che tutto sommato comincia ad avere dimensioni importanti. Ci sono stati alcuni problemi anche nella coordinazione interna del team, e sicuramente questo
+non ha influito positivamente sul risultato finale. Probabilmente avremmo dovuto iniziare scegliendo un progetto diverso da sviluppare e una divisone di compiti diversa, cosa che purtroppo non potevamo sapere
+prima di iniziare il progetto. Avremmo dovuto inoltre soffermarci meglio sulle interazioni tra le diverse parti del software. Sono aspetti a cui starò molto più attento una prossima volta.
+
+\subsection{Emma Leonardi}
+
+Sono soddisfatta del mio lavoro individuale, ma non del progetto in totale. Ci sono stati parecchi problemi sulle parti del codice in comune, 
+perchè ci sono stati dei problemi di comunicazione e incomprensioni, spesso dovute a una prima fase di design poco precisa. Questo mi ha rallentato nello sviluppo della mia parte di progetto e a tratti ha costretto a riscrivere parti di codice frutto di aspettative diverse di implementazione. 
+Non ha aiutato la coordinazione del progetto anche l'inesperienza, che ci ha fatto sottovalutare alcuni aspetti che si sono rivelati problemi implementativi. 
+In futuro cercherò di spiegarmi meglio sulle caratteristiche del software prodotto da me e comunicare meglio con i miei compagni di progetto. 
+
+\subsection{Filippo Casadei}
+Non sono soddisfatto di come è stato svolto il progetto. Sin dall'inizio della progettazione ci sono state numerose incomprensioni, che hanno portato a dover discutere più volte punti già trattati e capire come risolvere i problemi generati,
+rallentando di molto il lavoro di tutti i componenti. A causa di questi problemi, a cui si aggiunge anche l'inesperienza di lavorare in progetti più complessi con un team di sviluppo, la qualità del risultato finale è indubbiamente calato. 
+Sicuramente però è stata un'esperienza formativa considerando che da ogni sbaglio commesso si è potuto comprendere come sarebbe stato meglio agire, ad esempio una miglior comunicazione
+iniziale tra i membri definidendo più nello specifico gli aspetti dell'applicazione ed una miglior suddivisione dello sviluppo del software. 
+
+\subsection{Lorenzo Tagliani}
+Non sono soddisfatto sia dello svolgimento del progetto, sia del mio lavoro individuale. Abbiamo riscontrato molti problemi nella condivisione del codice comune, dovuti
+alla nostra poca esperienza e poca organizzazione. Il grande vantaggio di questo progetto è l'esperienza che ne abbiamo guadagnato, la consapevolezza delle difficoltà
+organizzative e tecnice che abbiamo riscontrato non può che aiutarci per i futuri lavori.
+Devo, comunque, dirmi soddisfatto, nel finale, nel vedere il lavoro complessivo, per quanto disorganizzato e complesso, funzionare. 
+
+\section{Difficoltà incontrate e commenti per i docenti}
+\subsection{Nicolò Guerra}
+Sicuramente la caratteristica che ho apprezzato del corso è la disponibilità dei docenti, le correzioni in laboratorio allo svolgimento di ogni esercizio risultano molto utili per migliorare la tecnica.
+Sarebbe interessante approfondire meglio la parte di analisi di dominio di un problema e di design di una soluzione, al di la di quella che è la programmazione Java, che forse è più semplice da capire.
+
+\subsection{Emma Leonardi}
+Mi è piaciuta la struttura del corso, i laboratori e l'attenzione dei docenti verso gli studenti. 
+Ho trovato di difficile comprensione gli aspetti di Programmazione ad Oggetti avanzati, come Stream e Pattern e avrei voluto gli si fosse dedicato più tempo.
+
+\subsection{Filippo Casadei}
+Il corso è stato molto interessante, i docenti hanno avuto la capacità di motivare gli studenti allo studio della materia e i laboratori si son rivelati esser di grande aiuto per i temi trattati nelle lezioni teoriche.
+L'unico punto da me non ben compreso sono gli aspetti riguardanti i pattern, il loro utilizzo e come riconoscere la necessità di utilizzarli.
+
+\subsection{Lorenzo Tagliani}
+Ho trovato molto interessante il corso, sia per la struttura che per l'esposizione degli argomenti da parte dei professori, i quali riuscivano a motivare, più di altri,
+allo studio. Personalmente ho avuto alcune difficoltà negli ultimi argomenti trattati quali Lambda e Stream.
+\appendix
+\chapter{Guida utente}
+
+Il gioco parte con una schermata inizale, navigabile con il mouse. 
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=\textwidth]{img/main_menu.pdf}
+	\caption{La schermata iniziale}
+\end{figure}
+Il tasto singleplayer fa partire il gioco vero e proprio. 
+Il tasto multiplayer porta ad una schermata di errore, perchè per motivi di tempo non è stato implementato. 
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=\textwidth]{img/options.pdf}
+	\caption{La schermata di opzioni}
+\end{figure}
+Il tasto opzioni porta alla schermata di opzioni, con due slider per musica e effetti sonori. Le opzioni sono salvabili su file, 
+ma per problemi implementativi non essendoci nel gioco ne' musica ne' effetti sonori, non cambiano nulla nel gioco.
+Il tasto exit fa uscire dall'applicazione.
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=\textwidth]{img/game_1.pdf}
+	\caption{La schermata di gioco}
+\end{figure}
+Il cannone, posto in basso e nel centro della schermata, si comanda con i tasti 'A' e 'D' che rispettivamente lo fanno girare verso destra e sinistra.
+La bolla viene fatta sparare con il tasto 'W'. La bolla una volta sparata viaggia in linea retta e rimbalza se colpisce le pareti del campo di gioco.
+Le bolle si uniscono alla griglia e al raggiungimento di 4 o più bolle dello stesso colore, scoppiano aumentando il punteggio. Se si formano gruppi di bolle "volanti" ovvero senza nessuna bolla che li collega alla cima dello schermo, quando si elimina l'ultima bolla di sostegno anche le bolle volanti scoppiano.
+Il gioco finisce quando le bolle raggiungono i 4/5 dello schermo. A game over, viene presentata una schermata per salvare il punteggio.
+Si viene poi riportati nella schermata iniziale
+\begin{figure}[H]
+	\centering{}
+	\includegraphics[width=\textwidth]{img/game_over.pdf}
+	\caption{Il messaggio di GameOver}
+\end{figure}
+
+\chapter{Esercitazioni di laboratorio}
+
+In questo capitolo ciascuno studente elenca gli esercizi di laboratorio che ha svolto
+(se ne ha svolti),
+elencando i permalink dei post sul forum dove è avvenuta la consegna.
+
+\subsection{Nicolò Guerra}
+\begin{itemize}
+	\item Laboratorio 07: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=88829#p137443}
+	\item Laboratorio 08: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=89272#p138741}
+\end{itemize}
+
+\subsection{Emma Leonardi}
+\begin{itemize}
+	\item Laboratorio 05: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=87881#p135211}
+	\item Laboratorio 06: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=87880#p135213}
+	\item Laboratorio 07: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=88829#p136445}
+	\item Laboratorio 08: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=89272#p138799}
+	\item Laboratorio 09: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=90125#p138800}
+	\item Laboratorio 10: \url{https://virtuale.unibo.it/mod/forum/discuss.php?d=91128#p139973}
+\end{itemize}
+
+\bibliographystyle{alpha}
+\bibliography{13-template}
+
+\end{document}
