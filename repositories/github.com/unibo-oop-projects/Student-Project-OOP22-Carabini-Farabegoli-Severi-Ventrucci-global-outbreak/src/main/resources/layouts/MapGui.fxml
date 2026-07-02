@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="globaloutbreak.view.scenecontroller.MapController">
+   <center>
+      <StackPane fx:id="mapPane"  BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="mapLab" onMouseClicked="#selectRegion" text="Label" />
+         </children>
+      </StackPane>
+   </center>
+   <bottom>
+      <HBox minHeight="-Infinity" spacing="6.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" spacing="6.0" HBox.hgrow="SOMETIMES">
+               <children>
+                  <Button fx:id="mutationBut" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#goToMutation" text="Malatttia" textFill="RED" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" spacing="6.0" HBox.hgrow="SOMETIMES">
+               <children>
+                  <Label text="Infetti" />
+                  <TextField fx:id="infectedText" editable="false">
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" spacing="6.0" HBox.hgrow="SOMETIMES">
+               <children>
+                  <Label text="Regione" />
+                  <TextField fx:id="regionText" editable="false">
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" spacing="6.0" HBox.hgrow="SOMETIMES">
+               <children>
+                  <Label text="Morti" />
+                  <TextField fx:id="deathText" editable="false">
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="6.0" HBox.hgrow="SOMETIMES">
+               <children>
+                  <Button fx:id="worldBut" mnemonicParsing="false" onMouseClicked="#goToGeneralGraph" text="Mondo" textFill="#003cff">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="6.0">
+               <children>
+                  <Button fx:id="playPausaBut" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#startStop" text="Play/Pausa" />
+                  <Button fx:id="openSettings" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#openSettings" text="Settings" />
+               </children>
+               <padding>
+                  <Insets bottom="6.0" right="6.0" top="6.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
