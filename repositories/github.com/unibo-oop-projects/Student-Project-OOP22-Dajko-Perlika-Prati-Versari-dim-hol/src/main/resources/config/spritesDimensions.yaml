@@ -1,0 +1,42 @@
+player:
+  - 48
+  - 48
+enemy:
+  - 32
+  - 32
+enemyMeleeAttack:
+  - 19
+  - 19
+coin: 
+  - 16
+  - 16
+heart:
+  - 21
+  - 21
+bullet:
+  - 35
+  - 35
+gate:
+  - 32
+  - 32
+shopHeart:
+  - 38
+  - 38
+shopSpeed:
+  - 38
+  - 38
+hudCoin:
+  - 8
+  - 10
+hudHeart:
+  - 11
+  - 11
+boss:
+  - 192
+  - 128
+fireball:
+  - 512
+  - 512
+shopkeeper:
+  - 48
+  - 48
