@@ -1,0 +1,61 @@
+#pane{
+    -fx-background-image: url('../sprites/space_background.jpg');
+}
+
+.simple-background {
+    -fx-background-color: #0d0e47;
+}
+
+.space-background {
+    -fx-background-image: url('../sprites/space_background.jpg');
+    -fx-background-repeat: repeat;
+}
+
+#p1{
+    -fx-image: url('../sprites/player_red.gif');
+    -fx-background-size: cover;
+}
+#p2{
+    -fx-image: url('../sprites/player_green.gif');
+    -fx-background-size: cover;
+}
+#p3{
+    -fx-image: url('../sprites/player_purple.gif');
+    -fx-background-size: cover;
+}
+#p4{
+    -fx-image: url('../sprites/player_yellow.gif');
+    -fx-background-size: cover;
+}
+#Speed{
+    -fx-image: url('../sprites/powerUp_speed.png');
+    -fx-background-size: cover;    
+}
+#Shield{
+    -fx-image: url('../sprites/powerUp_shield.png');
+    -fx-background-size: cover;
+}
+#Immortality{
+    -fx-image: url('../sprites/powerUp_immortality.png');
+    -fx-background-size: cover;
+}
+#Doubleshot{
+    -fx-image: url('../sprites/powerUp_doubleShot.png');
+    -fx-background-size: cover;
+}
+#Laser{
+    -fx-image: url('../sprites/obstacle_laser.png');
+    -fx-background-size: cover;
+}
+#BasicObstacle{
+    -fx-image: url('../sprites/obstacle_wall.png');
+    -fx-background-size: cover;
+}
+#UndestroyableObstacle {
+     -fx-image: url('../sprites/obstacle_undestroyable.png');
+    -fx-background-size: cover;
+}
+#Projectile{
+    -fx-image: url('../sprites/projectile.gif');
+    -fx-background-size: cover;
+}
