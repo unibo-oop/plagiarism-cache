@@ -1,0 +1,100 @@
+- !!it.unibo.storage.rooms.DataForRooms
+  doors: {}
+  enigmas: {}
+  id: room_finish
+  size: 15
+- !!it.unibo.storage.rooms.DataForRooms
+  doors:
+    ? &id001 {x: 5.0, y: 9.0}
+    : dstRoomId: room_finish
+      id: door_3_to_end
+      open: false
+      positionDoor: *id001
+  enigmas:
+    ? {x: 6.0, y: 6.0}
+    : correctOption: main()
+      id: inf_04
+      key: null
+      options: [start(), run(), main(), init()]
+      question: What is the method that indicates the entry point in a Java application?
+    ? {x: 7.0, y: 2.0}
+    : correctOption: Second
+      id: log_02
+      key: !!it.unibo.impl.templates.KeyTemplate
+        dst: !!it.unibo.impl.DoorImpl {id: door_3_to_end, open: false}
+        id: key_gold
+        name: golden key
+      options: [First, Second, Third, Last]
+      question: If you overtake the person in the second place in a race, what position
+        are you in?
+    ? {x: 5.0, y: 7.0}
+    : correctOption: RAM
+      id: inf_03
+      key: null
+      options: [RAM, ROM, SSD, HDD]
+      question: Which of this memory types is volatile?
+    ? {x: 3.0, y: 8.0}
+    : correctOption: '32'
+      id: mat_03
+      key: null
+      options: ['10', '25', '32', '64']
+      question: What is 2^5?
+  id: room_3
+  size: 10
+- !!it.unibo.storage.rooms.DataForRooms
+  doors:
+    ? &id002 {x: 7.0, y: 9.0}
+    : dstRoomId: room_3
+      id: door2_to_3
+      open: false
+      positionDoor: *id002
+  enigmas:
+    ? {x: 5.0, y: 8.0}
+    : correctOption: Stack
+      id: inf_02
+      key: !!it.unibo.impl.templates.KeyTemplate
+        dst: !!it.unibo.impl.DoorImpl {id: door2_to_3, open: false}
+        id: key_silver
+        name: silver key
+      options: [Queue, List, Stack, Tree]
+      question: Which of these data structures follows the LIFO principle?
+    ? {x: 7.0, y: 3.0}
+    : correctOption: '17'
+      id: mat_02
+      key: null
+      options: ['9', '15', '17', '21']
+      question: Which of this numbers is a prime number?
+    ? {x: 1.0, y: 7.0}
+    : correctOption: Maria
+      id: log_01
+      key: null
+      options: [Nunu, Nina, Anna, Maria]
+      question: 'Maria''s father has five daughters: Nana, Nene, Nini, and Nina. What''s
+        the fifth one''s name?'
+  id: room_2
+  size: 10
+- !!it.unibo.storage.rooms.DataForRooms
+  doors:
+    ? &id003 {x: 6.0, y: 9.0}
+    : dstRoomId: room_2
+      id: door1_to_2
+      open: false
+      positionDoor: *id003
+  enigmas:
+    ? {x: 4.0, y: 4.0}
+    : correctOption: '10'
+      id: inf_01
+      key: null
+      options: ['10', '12', '101', '20']
+      question: '1010 in decimal base equals to:'
+    ? {x: 1.0, y: 7.0}
+    : correctOption: '20'
+      id: mat_01
+      key: !!it.unibo.impl.templates.KeyTemplate
+        dst: !!it.unibo.impl.DoorImpl {id: door1_to_2, open: false}
+        id: key_bronze
+        name: bronze key
+      options: ['32', '20', '16', '64']
+      question: What is 4 + 4 * 4?
+  id: start_room
+  size: 10

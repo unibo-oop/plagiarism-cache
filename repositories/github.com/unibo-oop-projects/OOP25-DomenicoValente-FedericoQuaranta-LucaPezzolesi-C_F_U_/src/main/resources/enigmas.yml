@@ -1,0 +1,56 @@
+- !!it.unibo.storage.enigma.DataForEnigmas
+  correctOption: '10'
+  id: inf_01
+  key: null
+  options: ['10', '12', '101', '20']
+  question: '1010 in decimal base equals to:'
+- !!it.unibo.storage.enigma.DataForEnigmas
+  correctOption: Stack
+  id: inf_02
+  key: null
+  options: [Queue, List, Stack, Tree]
+  question: Which of these data structures follows the LIFO principle?
+- !!it.unibo.storage.enigma.DataForEnigmas
+  correctOption: RAM
+  id: inf_03
+  key: null
+  options: [RAM, ROM, SSD, HDD]
+  question: Which of this memory types is volatile?
+- !!it.unibo.storage.enigma.DataForEnigmas
+  correctOption: main()
+  id: inf_04
+  key: null
+  options: [start(), run(), main(), init()]
+  question: What is the method that indicates the entry point in a Java application?
+- !!it.unibo.storage.enigma.DataForEnigmas
+  correctOption: '20'
+  id: mat_01
+  key: null
+  options: ['32', '20', '16', '64']
+  question: What is 4 + 4 * 4?
+- !!it.unibo.storage.enigma.DataForEnigmas
+  correctOption: '17'
+  id: mat_02
+  key: null
+  options: ['9', '15', '17', '21']
+  question: Which of this numbers is a prime number?
+- !!it.unibo.storage.enigma.DataForEnigmas
+  correctOption: '32'
+  id: mat_03
+  key: null
+  options: ['10', '25', '32', '64']
+  question: What is 2^5?
+- !!it.unibo.storage.enigma.DataForEnigmas
+  correctOption: Maria
+  id: log_01
+  key: null
+  options: [Nunu, Nina, Anna, Maria]
+  question: 'Maria''s father has five daughters: Nana, Nene, Nini, and Nina. What''s
+    the fifth one''s name?'
+- !!it.unibo.storage.enigma.DataForEnigmas
+  correctOption: Second
+  id: log_02
+  key: null
+  options: [First, Second, Third, Last]
+  question: If you overtake the person in the second place in a race, what position
+    are you in?
