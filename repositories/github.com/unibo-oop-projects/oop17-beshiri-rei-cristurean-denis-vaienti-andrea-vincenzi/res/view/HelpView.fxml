@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="contentPane" styleClass="background" stylesheets="/stylesheet/myStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller.HelpViewController">
+   <center>
+      <GridPane id="HelpInfo" alignment="CENTER" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label id="lblSizeUp" text="How to play:" textAlignment="CENTER" wrapText="true" />
+            <Label id="lblSizeUp" text="How to win:" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+            <GridPane GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label id="lblHighlight" text="W A S D  " />
+                  <Label id="lblHelp" text="to move" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+                  <Label id="lblHighlight" text=" ARROW KEYS  " textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1" />
+                  <Label id="lblHelp" text="to shoot." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label id="lblHighlight" text="ITEMS  " GridPane.rowIndex="2" />
+                  <Label id="lblHelp" text="costs 500 points each" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label id="lblHelp" text="Enter, pick up some items," GridPane.rowIndex="4" />
+                  <Label id="lblHelp" text="Kill all enemies in each round" GridPane.rowIndex="1" />
+                  <Label id="lblHelp" text="There are 3 rounds" />
+                  <Label id="lblHelp" text="at the end of the 3rd round" GridPane.rowIndex="2" />
+                  <Label id="lblHelp" text="the shop room will be unlocked" GridPane.rowIndex="3" />
+                  <Label id="lblHelp" text="or not. Each item picked up" GridPane.rowIndex="5" />
+                  <Label id="lblHelp" text="costs you 500 points." GridPane.rowIndex="6" />
+               </children>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </GridPane>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+               <children>
+                  <Label id="lblSizeUp" text="How points are assigned:" />
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label id="lblHighlight" text="20'000" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label id="lblHighlight" text="5'000" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label id="lblHelp" text="Boss" GridPane.rowIndex="2">
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label id="lblHelp" text="Static Enemy" GridPane.rowIndex="1">
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label id="lblHighlight" text="3'000" GridPane.columnIndex="1" />
+                        <Label id="lblHelp" text="Enemy">
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </Label>
+                        <Label id="lblHelp" text="Get shot by enemy" GridPane.rowIndex="3">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label id="lblHighlight" text="- 1'000" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets top="15.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Label id="lblSizeUp" text="How to make points?" />
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label id="lblHelp" text="By killing enemies">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label id="lblHelp" text="and by NOT getting shot" GridPane.rowIndex="1">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label id="lblHelp" text="After you defeated the boss " GridPane.rowIndex="2">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label id="lblHelp" text="you will be awarded with " GridPane.rowIndex="3">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label id="lblHelp" text="some extra points based " GridPane.rowIndex="4">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label id="lblHelp" text="on the time you spent" GridPane.rowIndex="5">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets top="15.0" />
+               </padding>
+            </VBox>
+         </children>
+      </GridPane>
+   </center>
+   <bottom>
+      <Button fx:id="backButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#backButtonClick" text="Back" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <Label id="lblTitle" text="Help Menu" BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="contentPane" styleClass="background" stylesheets="/stylesheet/myStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller.OptionsMenuViewController">
+   <top>
+      <Label id="lblTitle" alignment="CENTER" contentDisplay="CENTER" styleClass="background" text="Options" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" />
+                <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="SOMETIMES" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label id="lblSizeUp" text="God Mode">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <CheckBox fx:id="godModeCheckBox" mnemonicParsing="false" selected="false" GridPane.columnIndex="1">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+                  <Label id="lblSizeUp" text="Survival Mode" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <CheckBox fx:id="survivalModeCheckBox" mnemonicParsing="false" selected="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </CheckBox>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </center>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" />
+          <ColumnConstraints hgrow="SOMETIMES" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="applyButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#applyButtonClick" text="Apply" />
+            <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#exitButtonClick" text="Exit" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+   </bottom>
+</BorderPane>

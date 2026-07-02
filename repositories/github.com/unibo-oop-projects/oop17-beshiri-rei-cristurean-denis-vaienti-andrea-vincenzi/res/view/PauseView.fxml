@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="contentPane" styleClass="background" stylesheets="/stylesheet/myStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller.PauseViewController">
+   <top>
+      <Label id="lblTitle" text="PAUSE" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="1.7976931348623157E308" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="resumeButton" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#resumeButtonClick" text="Resume" />
+            <Button fx:id="exitButton" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#exitButtonClick" text="Exit" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+   </bottom>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" text="Score: " />
+            <Label text="Damage: " GridPane.rowIndex="1" />
+            <Label text="Velocity: " GridPane.rowIndex="2" />
+            <Label text="Bullet Range: " GridPane.rowIndex="3" />
+            <Label fx:id="scoreLabel" text="Label" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></Label>
+            <Label fx:id="damageLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></Label>
+            <Label fx:id="velLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></Label>
+            <Label fx:id="bulletRangeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin></Label>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

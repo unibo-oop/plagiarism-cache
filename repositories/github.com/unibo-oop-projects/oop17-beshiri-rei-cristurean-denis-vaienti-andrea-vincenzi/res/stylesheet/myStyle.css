@@ -1,0 +1,122 @@
+@font-face {
+    font-family: Nasalization Rg;
+    src: url('nasalization-rg.ttf');
+}
+
+@font-face {
+    font-family: Magmawave Caps;
+    src: url('MagmaWaveCaps.otf');
+}
+
+@font-face {
+    font-family: Transformers Movie;
+    src: url('TransformersMovie.ttf');
+}
+
+.background {
+    -fx-background-color: #d8d8d8;
+}
+
+.label {
+    -fx-font-size: 30pt;
+    -fx-font-family: 'Magmawave Caps';
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+#lblTitle {
+    -fx-font-size: 65pt;
+    -fx-font-family: 'Transformers Movie';
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+#lblSizeUp {
+    -fx-font-size: 30pt;
+    -fx-font-family: 'Magmawave Caps';
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+#lblHighlight {
+    -fx-font-size: 15pt;
+    -fx-font-family: 'Nasalization Rg';
+    -fx-text-fill: red;
+    -fx-opacity: 1;
+}
+
+#lblHelp {
+    -fx-font-size: 15pt;
+    -fx-font-family: 'Nasalization Rg';
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+#lblPriorityInfo{
+    -fx-font-size: 30pt;
+    -fx-font-family: 'Nasalization Rg';
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+.text-input {
+    -fx-background-color: transparent;
+    -fx-font-size: 36pt;
+    -fx-font-family: 'Magmawave Caps';
+    -fx-text-fill: black;
+    -fx-border-color: #3e3e3e;
+	-fx-border-radius: 3px;
+}
+
+.button{
+    -fx-background-color: transparent;
+    -fx-border-color: #3e3e3e;
+	-fx-border-radius: 15px; 
+    -fx-font-family: 'Magmawave Caps';
+    -fx-font-size: 36pt;
+    -fx-text-fill: black;
+}
+
+.button:hover {
+    -fx-text-fill: #3e3e3e;
+}
+
+.combo-box-base {
+    -fx-background-color: #c8c8c8;
+    -fx-font-family: 'Magmawave Caps';
+    -fx-font-size: 15pt;
+    -fx-text-fill: black;
+}
+
+.combo-box-popup .list-view .list-cell {
+	-fx-background-color: transparent;
+    -fx-text-fill: black;
+	
+}
+
+.check-box .box {
+	-fx-background-color: transparent;
+	-fx-border-color: #3e3e3e;
+	-fx-border-radius: 3px; 
+}
+
+.check-box:selected .mark {
+	-fx-background-color: white;
+}
+
+.check-box:selected .box {
+	-fx-background-color: #c8c8c8;
+
+}
+
+.table-row-cell:selected {
+    -fx-background-color: yellow;
+}
+
+.table-column{
+    -fx-font-family: 'Magmawave Caps';
+    -fx-text-fill: black;
+	-fx-alignment: center;
+    -fx-border-color: white;
+    -fx-font-size: 30pt;
+}
