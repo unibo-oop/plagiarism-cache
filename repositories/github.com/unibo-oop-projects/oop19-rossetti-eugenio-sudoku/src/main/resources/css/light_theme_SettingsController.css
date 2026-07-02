@@ -1,0 +1,46 @@
+.root{
+    -fx-background-color: white
+}
+
+.toggle-button{
+    -fx-background-color: white;
+    -fx-background-radius: 30;
+	-fx-border-radius: 30;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: #113660;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.toggle-button:selected{
+	-fx-background-color: #113660;	
+	-fx-border-radius: 30;
+	-fx-background-radius: 30;
+	-fx-text-fill: white;
+	-fx-background-insets: 0,1,2,0;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.label{
+	-fx-text-fill: #113660;	
+	-fx-font-weight: bold;
+	-fx-background-color: transparent;
+	-fx-background-insets: 0,1,2,0;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.2) , 5, 0.0 , 0 , 1 );
+}
+
+#exitBtn{
+	-fx-background-color: transparent;
+	-fx-border-color: #113660;
+	-fx-border-radius: 30;
+    -fx-text-fill: #113660;
+	-fx-border-width: 3;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+#exitBtn:hover{
+	-fx-background-color: #113660;	
+	-fx-background-radius: 30;
+	-fx-border-width: 3;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+	-fx-text-fill: white;
+}

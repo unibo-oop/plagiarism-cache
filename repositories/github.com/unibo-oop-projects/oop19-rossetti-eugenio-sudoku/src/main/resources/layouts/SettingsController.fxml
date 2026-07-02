@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SettingsControllerImpl">
+   <children>
+      <BorderPane prefHeight="700.0" prefWidth="520.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Button fx:id="exitBtn" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onAction="#exitBtn" prefHeight="30.0" prefWidth="30.0" text="X" textAlignment="CENTER" BorderPane.alignment="TOP_RIGHT">
+               <font>
+                  <Font name="Corbel" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="450.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </BorderPane.margin>
+            </Button>
+         </top>
+         <center>
+            <VBox alignment="CENTER" prefHeight="744.0" prefWidth="520.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="darkThemeLabel" contentDisplay="CENTER" text="Dark Theme">
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Corbel" size="18.0" />
+                     </font>
+                  </Label>
+                  <ToggleButton fx:id="darkThemeBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#darkThemeBtnOnClick" prefHeight="60.0" prefWidth="60.0" text="OFF" textAlignment="CENTER">
+                     <font>
+                        <Font name="Corbel" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="13.0" left="13.0" right="13.0" top="13.0" />
+                     </padding></ToggleButton>
+                  <Label fx:id="assistsLabel" text="Assists">
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Corbel" size="18.0" />
+                     </font>
+                  </Label>
+                  <ToggleButton fx:id="assistsBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#assistsBtnOnClick" prefHeight="60.0" prefWidth="60.0" text="OFF" textAlignment="CENTER">
+                     <font>
+                        <Font name="Corbel" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="13.0" left="13.0" right="13.0" top="13.0" />
+                     </padding></ToggleButton>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="40.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

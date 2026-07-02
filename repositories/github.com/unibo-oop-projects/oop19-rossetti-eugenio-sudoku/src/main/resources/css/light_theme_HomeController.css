@@ -1,0 +1,91 @@
+.root{
+    -fx-background-color: white
+}
+.button{
+        -fx-background-color: transparent;	
+	-fx-font-weight: bold;
+	-fx-border-color:#113660;
+	-fx-border-radius: 30;
+	-fx-background-insets: 0,1,2,0;
+   	-fx-text-fill: #113660;
+   	-fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.2) , 5, 0.0 , 0 , 1 );
+ 	-fx-border-width: 2;
+}
+
+.button:hover{
+	-fx-background-color: #113660;	
+	-fx-font-weight: bold;
+	-fx-border-radius: 30;
+	-fx-background-radius: 30;
+	-fx-text-fill: white;
+}
+
+.label{
+	-fx-text-fill: #113660;
+	-fx-border-color:#113660;
+	-fx-border-radius: 30;
+	-fx-background-color: transparent;
+}
+
+.combo-box{
+	-fx-background-color: transparent;
+	-fx-alignment:center;	
+	-fx-font-weight: bold;
+	-fx-border-color:#113660;
+	-fx-border-radius: 30;
+	-fx-border-width: 2;
+	-fx-background-insets: 0,1,2,0;
+   	-fx-text-base-color: #113660;
+   	-fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.2) , 5, 0.0 , 0 , 1 );
+}
+
+.combo-box:hover{
+	-fx-background-color: #113660;	
+	-fx-font-weight: bold;
+	-fx-border-radius: 30;
+	-fx-background-radius: 30;
+	-fx-text-base-color: white;
+	-fx-background-insets: 0,1,2,0;
+	-fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.2) , 5, 0.0 , 0 , 1 );
+}
+
+.combo-box-popup .list-view {
+	-fx-border-radius: 30; 
+	-fx-background-insets: 0,1,2,0;
+	-fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.2) , 5, 0.0 , 0 , 1 ); 
+}
+
+.combo-box-popup .list-cell{    
+	-fx-background-color: white;  
+    -fx-text-fill: #113660;
+	-fx-padding: 15 15 15 15;
+	-fx-alignment:center;
+}
+
+.combo-box-popup .list-cell:hover{
+	-fx-background-color: #113660;    
+    -fx-text-fill: white;
+	-fx-background-insets: 0,1,2,0;
+}
+
+#homeImage{
+	-fx-image: url(../images/light/sudoku_icon.png);
+	-fx-background-insets: 0,1,2,0;
+	-fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+#settingsBtn{
+	-fx-background-image: url(../images/light/settings_icon.png);
+	-fx-background-size: 50px 50px;
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#settingsBtn:hover{
+	-fx-background-image: url(../images/light/settings_hover_icon.png);
+}
+
+
+
