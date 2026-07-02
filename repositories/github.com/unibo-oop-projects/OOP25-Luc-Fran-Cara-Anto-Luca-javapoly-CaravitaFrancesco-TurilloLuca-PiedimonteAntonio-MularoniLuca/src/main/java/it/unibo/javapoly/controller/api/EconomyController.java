@@ -1,0 +1,99 @@
+package it.unibo.javapoly.controller.api;
+
+import it.unibo.javapoly.model.api.Player;
+import it.unibo.javapoly.model.api.property.Property;
+
+/**
+ * Main controller interface for managing the economy of the game.
+ */
+public interface EconomyController {
+
+    /**
+     * Deposits money to a player from bank.
+     *
+     * @param player the player receiving money.
+     * @param amount the amount to deposit.
+     * @throws NullPointerException if {@code player} is {@code null}.
+     * @throws IllegalArgumentException if {@code amount} <= 0.
+     */
+    void depositToPlayer(Player player, int amount);
+
+    /**
+     * Withdraws money from a player to the bank.
+     *
+     * @param player the player from whom to withdraw.
+     * @param amount the amount to withdraw.
+     */
+    void withdrawFromPlayer(Player player, int amount);
+
+    /**
+     * Check if a player can afford to spend the specified amount. (Call before withdraw).
+     *
+     * @param player player to check.
+     * @param amount the amount to check.
+     * @return {@code true} if can afford, {@code false} otherwise.
+     */
+    boolean afford(Player player, int amount);
+
+    /**
+     * Transfer property ownership from bank to player.
+     *
+     * @param buyer future owner of the property.
+     * @param property to buy.
+     * @return {@code true} if successful, {@code false}.
+     */
+    boolean purchaseProperty(Player buyer, Property property);
+
+    /**
+     * Builds a house on a property.
+     *
+     * @param owner of the property.
+     * @param property where to build house.
+     * @return {@code true} if successful, {@code false} otherwise.
+     */
+    boolean purchaseHouse(Player owner, Property property);
+
+    /**
+     * Sell a house from a property to bank.
+     *
+     * @param owner of the property.
+     * @param property where to sell house.
+     * @return {@code true} if successful, {@code false} if insufficient funds (bankruptcy).
+     */
+    boolean sellHouse(Player owner, Property property);
+
+    /**
+     * Sell a property to bank.
+     *
+     * @param owner ex-owner of the property.
+     * @param property property to sell.
+     * @return {@code true} if successful, {@code false} otherwise.
+     */
+    boolean sellProperty(Player owner, Property property);
+
+    /**
+     * Pay rent to payee.
+     *
+     * @param payer the player who make payment.
+     * @param payeeId the player id who collect payment.
+     * @param property property where is the payer (owned by payee).
+     * @param diceRoll the dice roll used to calculate rent (especially for utilities).
+     */
+    void payRent(Player payer, Player payeeId, Property property, int diceRoll);
+
+    /**
+     * Method to pay payee of amount.
+     *
+     * @param payer the player making the payment.
+     * @param payee the player receiving the payment.
+     * @param amount to pay.
+     */
+    void payPlayer(Player payer, Player payee, int amount);
+
+    /**
+     * Set LiquidationObserver for manager before bankruptcy.
+     *
+     * @param observer of observer.
+     */
+    void setLiquidationObserver(LiquidationObserver observer);
+}
