@@ -1,0 +1,40 @@
+.root{
+    -fx-background-image: url("/images/Menu.jpg");
+    -fx-background-size: 100% 100%;
+}
+
+.button {
+    -fx-background-color: 
+        #a6b5c9,
+        linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),
+        linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 7 30 7 30;
+    -fx-text-fill: #242d35;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 30px;
+    -fx-text-fill: white;
+}
+
+.button Text {
+	-fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , -1 );
+}
+
+.button:pressed {
+	-fx-background-color: linear-gradient(deepskyblue 0%, royalblue 50%, #3661de 51%, royalblue 100%);
+	-fx-font-size: 35pt;
+	-fx-font-weight: bold;
+	-fx-pref-width: 200;
+}
+
+.button:hover {
+	-fx-font-size: 35pt;
+	-fx-font-weight: bold;
+	-fx-pref-width: 200;
+}
+
+#winPane {
+    -fx-background-image: url("/images/youWin.png");
+    -fx-background-size: 100% 100%;
+}

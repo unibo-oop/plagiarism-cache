@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane prefHeight="500.0" prefWidth="750.0" stylesheets="@../css/creditStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" percentHeight="15.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" percentHeight="15.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" percentHeight="25.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" percentHeight="4.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" percentHeight="8.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" percentHeight="8.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints minWidth="10.0" percentWidth="4.0" prefWidth="100.0" />
+      <ColumnConstraints minWidth="10.0" percentWidth="92.0" prefWidth="100.0" />
+      <ColumnConstraints minWidth="10.0" percentWidth="4.0" prefWidth="100.0" />
+   </columnConstraints>
+   <children>
+      <GridPane GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Pane fx:id="creditLabel" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Label text="Ahmed productions ®" textFill="WHITE" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Bauhaus 93" size="45.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" text="Back" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Pane fx:id="bitPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Label text="Developed by: Nicola Arpino, Simone Luzi," textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+         <font>
+            <Font name="Calibri" size="30.0" />
+         </font>
+      </Label>
+      <Label text="Michele Bachetti, Alessandra Morellini" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+         <font>
+            <Font name="Calibri" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</GridPane>

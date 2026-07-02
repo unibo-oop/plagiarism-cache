@@ -1,0 +1,35 @@
+#grid {
+	-fx-background-color: transparent;
+}
+
+.progress-bar {
+	-fx-background-radius: 10, 10, 10, 10;
+	-fx-box-border: black;
+}
+
+.progress-bar .track{
+    -fx-background-color: gray;
+    -fx-background-radius: 6, 6, 6, 6;
+}
+ 
+.progress-bar .bar { 
+    -fx-background-radius: 4, 4, 4, 4;
+    -fx-background-color: white;
+}
+
+Pane {
+	-fx-border-color: black;
+	-fx-border-width: 2.2 2.2 2.2 0;
+	-fx-background-color: white;
+}
+
+#pane1 {
+	-fx-border-radius: 10 0 0 10;
+	-fx-background-radius: 10 0 0 10;
+	-fx-border-width: 2.2 2.2 2.2 2.2;
+}
+
+#pane5 {
+	-fx-border-radius: 0 10 10 0;
+	-fx-background-radius: 0 10 10 0;
+}

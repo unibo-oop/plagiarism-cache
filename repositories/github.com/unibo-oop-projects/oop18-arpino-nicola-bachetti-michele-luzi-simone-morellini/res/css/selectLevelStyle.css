@@ -1,0 +1,60 @@
+.root{
+    -fx-background-image: url("/images/Menu.jpg");
+    -fx-background-size: 100% 100%;
+}
+
+.button {
+    -fx-background-color: 
+        #a6b5c9,
+        linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),
+        linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 7 30 7 30;
+    -fx-text-fill: #242d35;
+    -fx-font-family: "Helvetica";
+    -fx-font-size: 25px;
+    -fx-text-fill: white;
+}
+
+.button Text {
+	-fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , -1 );
+}
+
+.button:pressed {
+	-fx-background-color: linear-gradient(deepskyblue 0%, royalblue 50%, #3661de 51%, royalblue 100%)
+}
+
+.button:hover {
+	-fx-font-size: 28pt;
+	-fx-font-weight: bold;
+	-fx-pref-width: 210;
+}
+
+.button:pressed {
+	-fx-font-size: 28pt;
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(deepskyblue 0%, royalblue 50%, #3661de 51%, royalblue 100%);
+    -fx-pref-width: 210;
+}
+
+#backButton {
+	-fx-font-size: 16pt;
+}
+
+#backButton:hover {
+	-fx-font-size: 16pt;
+	-fx-font-weight: normal;
+	-fx-pref-width: 104;
+}
+
+#backButton:pressed {
+	-fx-font-weight: normal;
+	-fx-font-size: 16pt;
+	-fx-pref-width: 104;
+}
+
+#levelPane {
+    -fx-background-image: url("/images/chooseLevel.png");
+    -fx-background-size: 100% 100%;
+}

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="grid" cache="true" focusTraversable="true" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/hudStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+   <rowConstraints>
+      <RowConstraints maxHeight="60.8" minHeight="10.0" percentHeight="10.0" prefHeight="30.0" />
+      <RowConstraints maxHeight="60.8" minHeight="10.0" percentHeight="25.0" prefHeight="21.60001220703125" />
+      <RowConstraints maxHeight="52.80000610351562" minHeight="10.0" percentHeight="28.0" prefHeight="48.80000610351562" />
+      <RowConstraints maxHeight="52.80000610351562" minHeight="0.0" percentHeight="24.0" prefHeight="48.80000610351562" />
+      <RowConstraints maxHeight="25.59998168945313" minHeight="10.0" percentHeight="8.0" prefHeight="20.79999389648438" />
+      <RowConstraints maxHeight="25.59998168945313" minHeight="10.0" percentHeight="5.0" prefHeight="30.0" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints minWidth="10.0" percentWidth="5.0" prefWidth="100.0" />
+      <ColumnConstraints minWidth="10.0" percentWidth="22.0" prefWidth="100.0" />
+      <ColumnConstraints maxWidth="200.0" minWidth="10.0" percentWidth="46.0" prefWidth="95.20001220703125" />
+      <ColumnConstraints maxWidth="104.79998779296875" minWidth="0.0" percentWidth="22.0" prefWidth="104.79998779296875" />
+      <ColumnConstraints maxWidth="104.79998779296875" minWidth="10.0" percentWidth="5.0" prefWidth="104.79998779296875" />
+   </columnConstraints>
+   <children>
+      <GridPane GridPane.columnIndex="2" GridPane.rowIndex="4">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <StackPane GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                  <Pane fx:id="pane2" />
+                  <ImageView fx:id="item2" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <Pane fx:id="pane3" prefHeight="200.0" prefWidth="200.0" />
+                  <ImageView fx:id="item3" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <Pane fx:id="pane4" prefHeight="200.0" prefWidth="200.0" />
+                  <ImageView fx:id="item4" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4">
+               <children>
+                  <Pane fx:id="pane5" prefHeight="200.0" prefWidth="200.0" />
+                  <ImageView fx:id="item5" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="pane1" prefHeight="200.0" prefWidth="200.0" />
+                  <ImageView fx:id="item1" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
+         </children>
+      </GridPane>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/life.png" />
+               </image>
+            </ImageView>
+            <ProgressBar fx:id="life" minHeight="40.0" minWidth="80.0" prefHeight="40.0" prefWidth="80.0" progress="1.0" rotate="-90.0">
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
+            </ProgressBar>
+         </children>
+      </HBox>
+      <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
+         <children>
+            <Label fx:id="pointsLabel" text="000">
+               <font>
+                  <Font size="50.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/score.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label fx:id="dialogLabel" alignment="CENTER" lineSpacing="1.0" textAlignment="CENTER" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Algerian" size="48.0" />
+         </font></Label>
+   </children>
+</GridPane>
