@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" maxHeight="-Infinity"
+	maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+	prefHeight="400.0" prefWidth="600.0"
+	xmlns="http://javafx.com/javafx/8.0.171"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="view.MainWindowController">
+	<top>
+		<VBox BorderPane.alignment="CENTER">
+			<children>
+				<MenuBar>
+					<menus>
+						<Menu fx:id="menuFile" mnemonicParsing="false">
+							<items>
+								<MenuItem fx:id="menuOpen" mnemonicParsing="false"
+									onAction="#openImage">
+									<accelerator>
+										<KeyCodeCombination alt="UP" code="O"
+											control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+									</accelerator>
+								</MenuItem>
+								<MenuItem fx:id="menuSave" mnemonicParsing="false"
+									onAction="#saveHistory">
+									<accelerator>
+										<KeyCodeCombination alt="UP" code="S"
+											control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+									</accelerator>
+								</MenuItem>
+								<MenuItem fx:id="menuSaveAs" mnemonicParsing="false"
+									onAction="#saveImageAs">
+									<accelerator>
+										<KeyCodeCombination alt="UP" code="S"
+											control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+									</accelerator>
+								</MenuItem>
+								<MenuItem fx:id="menuQuit" mnemonicParsing="false"
+									onAction="#closeWindow">
+									<accelerator>
+										<KeyCodeCombination alt="UP" code="Q"
+											control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+									</accelerator>
+								</MenuItem>
+							</items>
+						</Menu>
+						<Menu fx:id="menuEdit" mnemonicParsing="false">
+							<items>
+								<MenuItem fx:id="menuUndo" mnemonicParsing="false"
+									onAction="#showPrevious">
+									<accelerator>
+										<KeyCodeCombination alt="UP" code="Z"
+											control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+									</accelerator>
+								</MenuItem>
+								<MenuItem fx:id="menuRedo" mnemonicParsing="false"
+									onAction="#showNext">
+									<accelerator>
+										<KeyCodeCombination alt="UP" code="Z"
+											control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+									</accelerator>
+								</MenuItem>
+							</items>
+						</Menu>
+						<Menu fx:id="menuHelp" mnemonicParsing="false">
+							<items>
+								<MenuItem fx:id="menuSettings" mnemonicParsing="false"
+									onAction="#openSettings" />
+								<MenuItem fx:id="menuAbout" mnemonicParsing="false"
+									onAction="#openCredits" />
+							</items>
+						</Menu>
+					</menus>
+				</MenuBar>
+			</children>
+		</VBox>
+	</top>
+	<center>
+		<BorderPane BorderPane.alignment="CENTER">
+			<top>
+				<HBox spacing="5.0" BorderPane.alignment="CENTER">
+					<children>
+						<Button fx:id="buttonFilter" mnemonicParsing="false"
+							onAction="#showFilterView">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="31.0"
+									pickOnBounds="true" preserveRatio="true">
+									<Image url="/icons/filters.png" />
+								</ImageView>
+							</graphic>
+						</Button>
+						<Button fx:id="buttonRegulation" mnemonicParsing="false"
+							onAction="#showRegolationView">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="31.0"
+									pickOnBounds="true" preserveRatio="true">
+									<Image url="/icons/regolations.png" />
+								</ImageView>
+							</graphic>
+						</Button>
+						<Button fx:id="buttonConvolution" mnemonicParsing="false"
+							onAction="#showConvolutionView">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="31.0"
+									pickOnBounds="true" preserveRatio="true">
+									<Image url="/icons/effects.png" />
+								</ImageView>
+							</graphic>
+						</Button>
+						<Region HBox.hgrow="ALWAYS" />
+						<Button fx:id="buttonUndo" onAction="#showPrevious">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="31.0"
+									pickOnBounds="true" preserveRatio="true">
+									<Image url="/icons/history_undo.png" />
+								</ImageView>
+							</graphic>
+						</Button>
+						<Region minWidth="5.0" prefWidth="5.0" />
+						<Button fx:id="buttonRedo" onAction="#showNext">
+							<graphic>
+								<ImageView fitHeight="25.0" fitWidth="31.0"
+									pickOnBounds="true" preserveRatio="true">
+									<Image url="/icons/history_redo.png" />
+								</ImageView>
+							</graphic>
+						</Button>
+					</children>
+					<opaqueInsets>
+						<Insets />
+					</opaqueInsets>
+					<padding>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</padding>
+				</HBox>
+			</top>
+			<center>
+				<StackPane onDragDropped="#handleDrop"
+					onDragOver="#handleDragOver" prefHeight="150.0" prefWidth="200.0"
+					BorderPane.alignment="CENTER">
+					<TabPane fx:id="tabPane" tabClosingPolicy="SELECTED_TAB">
+						<tabs>
+
+						</tabs>
+					</TabPane>
+					<VBox fx:id="welcomeScreen" alignment="CENTER"
+						prefHeight="200.0" prefWidth="100.0">
+						<children>
+							<Label text="Mustashi">
+								<font>
+									<Font size="50.0" />
+								</font>
+							</Label>
+							<ImageView fx:id="imageMustashi" fitHeight="300.0"
+								fitWidth="500.0" onMouseEntered="#mustashiEntered"
+								onMouseExited="#mustashiExited" onMousePressed="#mustashiPessed"
+								onMouseReleased="#mustashiReleased" pickOnBounds="true"
+								preserveRatio="true">
+								<image>
+									<Image url="@../icons/mustashiButton.png" />
+								</image>
+							</ImageView>
+							<Region VBox.vgrow="ALWAYS" />
+							<Label fx:id="labelWelcome" />
+						</children>
+						<padding>
+							<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+						</padding>
+					</VBox>
+					<padding>
+						<Insets bottom="10.0" left="10.0" right="10.0" />
+					</padding>
+				</StackPane>
+			</center>
+		</BorderPane>
+	</center>
+</BorderPane>
