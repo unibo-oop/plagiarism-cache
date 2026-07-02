@@ -1,0 +1,33 @@
+{
+  "month": "2021-03",
+  "reports": {
+    "GAS": {
+      "sum": 19.2,
+      "avg": 6.4
+    },
+    "GLASS": {
+      "sum": 19.2,
+      "avg": 6.4
+    },
+    "PAPER": {
+      "sum": 19.2,
+      "avg": 6.4
+    },
+    "ELECTRICITY": {
+      "sum": 19.2,
+      "avg": 6.4
+    },
+    "WATER": {
+      "sum": 19.2,
+      "avg": 6.4
+    },
+    "PLASTIC": {
+      "sum": 19.2,
+      "avg": 6.4
+    },
+    "MIXED": {
+      "sum": 19.2,
+      "avg": 6.4
+    }
+  }
+}

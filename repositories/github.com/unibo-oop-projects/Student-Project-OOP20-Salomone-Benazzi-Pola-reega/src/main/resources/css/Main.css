@@ -1,0 +1,50 @@
+.svc-card {
+    -fx-padding: 0.8125em;
+    -fx-alignment: center center;
+}
+
+.svc-header {
+    -fx-font-size: 2em;
+    -fx-font-weight: bold;
+}
+
+#servicesPane {
+    -fx-padding: 0.8125em;
+}
+
+#contractsPane > .check-box {
+    -fx-font-size: 0.875em;
+    -fx-text-fill: #ffffff;
+}
+
+#userEmail {
+    -fx-font-size: 2em;
+    -fx-text-fill: #ffffff;
+}
+
+.svc-peek, .svc-avg, .svc-tot {
+    -fx-font-size: 1.125em;
+}
+
+#logoutButton {
+    -fx-pref-height: 32px;
+    -fx-pref-width: 32px;
+    -fx-background-color: transparent;
+    -fx-background-image: url("/images/logoutIcon.png");
+    -fx-background-size: contain;
+    -fx-background-position: center bottom;
+    -fx-background-repeat: no-repeat no-repeat;
+}
+
+#logoutHBox {
+    -fx-padding: 0.8125em 0.8125em 0 0;
+}
+
+.back-button {
+	-fx-padding: 0 0.625em 0 0;
+}
+
+#managedUser {
+    -fx-font-size: 1.5em;
+    -fx-text-fill: #ff0000;
+}

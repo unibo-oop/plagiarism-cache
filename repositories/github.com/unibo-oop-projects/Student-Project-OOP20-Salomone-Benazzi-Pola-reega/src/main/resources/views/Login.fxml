@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+
+
+<?import reega.viewcomponents.MaxWidthButton?>
+<fx:root xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         type="GridPane"
+         prefHeight="400.0"
+         prefWidth="600.0"
+         alignment="CENTER"
+         stylesheets="@/css/Logo.css">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="25.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="50.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" halignment="CENTER" percentWidth="25.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints percentHeight="30.0"/>
+        <RowConstraints percentHeight="5.0"/>
+        <RowConstraints percentHeight="65.0"/>
+    </rowConstraints>
+    <children>
+    	<!-- Focus Traversable is set to true to auto-focus on the logo instead of the first TextField -->
+        <StackPane styleClass="logoImg" GridPane.columnIndex="1" GridPane.rowIndex="0" focusTraversable="true"/>
+
+        <VBox spacing="9" alignment="TOP_CENTER" styleClass="fieldsVBox" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <children>
+                <TextField fx:id="emailOrFiscalCodeField"
+                           promptText="Email or fiscal code"/>
+                <PasswordField fx:id="passwordField"
+                               promptText="Password"/>
+                <MaxWidthButton fx:id="loginButton">Login</MaxWidthButton>
+                <CheckBox fx:id="rememberMeCheckBox">Remember me</CheckBox>
+                <TextFlow textAlignment="CENTER" focusTraversable="false">
+                    <children>
+                        <Text>Don't have an account?</Text>
+                        <Hyperlink fx:id="jumpToRegistrationHyperLink">Click here</Hyperlink>
+                    </children>
+                </TextFlow>
+            </children>
+        </VBox>
+    	
+    </children>
+</fx:root>
