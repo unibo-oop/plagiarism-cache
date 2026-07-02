@@ -1,0 +1,19 @@
+#scene{
+    -fx-background-image: url("../images/bubbles_background.png");
+    -fx-background-repeat: none;
+    -fx-background-size: cover;
+}
+
+.button{
+    -fx-border-width: 2;
+    -fx-border-color: #5caac1;
+    -fx-border-radius: 20px;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20px;
+    -fx-background-color: #9ce8ff;
+	-fx-cursor: hand;
+}
+.button:hover{
+	-fx-background-color: #c8f2ff;
+}

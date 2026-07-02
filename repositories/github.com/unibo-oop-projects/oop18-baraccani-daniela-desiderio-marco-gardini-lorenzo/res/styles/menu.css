@@ -1,0 +1,47 @@
+#scene{
+    -fx-background-image: url("../images/bubbles_background.png");
+    -fx-background-repeat: none;
+    -fx-background-size: cover;
+}
+
+.title{
+    -fx-image: url("../images/title.png");
+	-fx-cursor: hand;
+}
+
+.raccoon{
+	-fx-cursor: hand;
+}
+
+.menuButton{
+    -fx-border-width: 2;
+    -fx-border-color:#5caac1;
+    -fx-border-radius: 20px;
+    -fx-background-color:#9ce8ff;
+    -fx-background-radius: 20px;
+    -fx-font-size: 2em; /* 12 */
+	-fx-cursor: hand;
+	-fx-font-weight: bold;
+}
+
+.menuButton:hover{
+	-fx-background-color: #c8f2ff;
+}
+
+
+/* for specific button*/
+#newgame{
+     -fx-text-fill: #d63776;
+}
+#scoreboard{
+     -fx-text-fill: #3f51b5;
+}
+#settings{
+     -fx-text-fill: #388e3c;
+}
+#credits{
+     -fx-text-fill: #ff9800;
+}
+#exit{
+     -fx-text-fill: #f44336;
+}

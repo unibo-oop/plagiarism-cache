@@ -1,0 +1,15 @@
+#gameContainer{
+    -fx-background-image: url("../images/city.jpg");
+    -fx-background-repeat: none;
+    -fx-background-size:cover;
+}
+
+.header{
+    -fx-background-color:#8fd7ff;
+}
+
+.label{
+    -fx-text-fill:white;
+    -fx-font-weight:bold;
+    -fx-font-size:16;
+}
