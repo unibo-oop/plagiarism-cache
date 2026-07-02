@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Bronze Sword",
+        "attack": 10,
+        "value": 1000
+    },
+    {
+        "name": "Iron Sword",
+        "attack": 25,
+        "value": 3000
+    },
+    {
+        "name": "Steel Sword",
+        "attack": 40,
+        "value": 5000
+    }
+]

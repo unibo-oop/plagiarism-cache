@@ -1,0 +1,27 @@
+[
+    {
+        "name":"Right Hook",
+        "attackMultiplier": 1.10,
+        "cooldown": 1,
+        "incProbCritical": false
+    },
+    {
+        "name":"Uppercut",
+        "attackMultiplier": 1.15,
+        "cooldown": 2,
+        "incProbCritical": false
+    },
+    {
+        "name":"Super Attack",
+        "attackMultiplier": 1.25,
+        "cooldown": 4,
+        "incProbCritical": true
+    },
+    {
+        "name":"Poisonus arrow",
+        "attackMultiplier": 1.10,
+        "cooldown": 2,
+        "possibleStatus": "POISONED",
+        "incProbCritical": false
+    }
+]

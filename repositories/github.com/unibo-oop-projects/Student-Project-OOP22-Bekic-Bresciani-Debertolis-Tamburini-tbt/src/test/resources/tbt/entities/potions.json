@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Basic Potion",
+        "healPower": 20,
+        "value": 100
+    },
+    {
+        "name": "Medium Potion",
+        "healPower": 35,
+        "value": 200
+    },
+    {
+        "name": "High Potion",
+        "healPower": 50,
+        "value": 300
+    }
+]

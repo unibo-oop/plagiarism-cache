@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Bronze Armor",
+        "defence": 10,
+        "value": 1000
+    },
+    {
+        "name": "Iron Armor",
+        "defence": 25,
+        "value": 3000
+    },
+    {
+        "name": "Steel Armor",
+        "defence": 40,
+        "value": 5000
+    }
+]
