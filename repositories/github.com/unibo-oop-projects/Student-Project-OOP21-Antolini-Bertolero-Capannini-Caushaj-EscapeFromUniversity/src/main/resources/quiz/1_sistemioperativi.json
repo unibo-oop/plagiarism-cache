@@ -1,0 +1,37 @@
+{
+    "teacher": "BOSS1",
+    "subject": "Sistemi Operativi",
+    "cfu": 18,
+    "quiz": [
+      {
+        "question": "Quale comando di bash ci permette di navigare tra le directory?",
+        "answers": ["man", "cd", "clear", "grep"],
+        "correct": 2
+      },
+       {
+        "question": "Quale di questi non è un algoritmo di scheduling?",
+        "answers": ["FCFS", "Round Robin", "Thread", "SJF"],
+        "correct": 3
+      },
+      {
+        "question": "Quali di questi non è un sistema operativo?",
+        "answers": ["Ubuntu", "Kali Linux", "Windows 10", "Daisy chaining"],
+        "correct": 4
+      },
+      {
+        "question": "Come si chiamano quei processi che rimangono senza padre?",
+        "answers": ["Zombie", "Orfani", "Primari", "Secondari"],
+        "correct": 2
+      },
+      {
+        "question": "Quando un processo non ottiene mai la CPU si chiama:",
+        "answers": ["Starvation", "Busywaiting", "Deadlock", "Liveness"],
+        "correct": 1
+      },
+      {
+        "question": "Quale di questi è un algoritmo si sostituzione delle pagine?",
+        "answers": ["LRA", "FIFA", "Second-Chance", "Belady"],
+        "correct": 3
+      }
+    ]
+  }
