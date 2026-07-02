@@ -1,0 +1,26 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.defaultFormatter": "redhat.java",
+    "[java]": {
+        "editor.insertSpaces": true
+    },
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.insertSpaces": true
+    },
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "cSpell.words": [
+        "Ceccarelli",
+        "enumeratore",
+        "randomicamente",
+        "Risik",
+        "Risiko",
+        "validatore",
+        "validatori"
+    ],
+}
