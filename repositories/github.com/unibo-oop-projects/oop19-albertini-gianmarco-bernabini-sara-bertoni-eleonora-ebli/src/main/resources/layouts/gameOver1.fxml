@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.gui.gameOver.GUIGameOver1ControllerImpl">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Pane layoutX="287.0" layoutY="71.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="scoreLbl" layoutX="358.0" layoutY="83.0" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Label>
+                  <Label fx:id="gameOverLbl" layoutX="168.0" layoutY="14.0" text="GAME OVER" textFill="#da1e92">
+                     <effect>
+                        <DropShadow color="#da1e92" />
+                     </effect>
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="image" fitHeight="335.0" fitWidth="287.0" layoutX="39.0" layoutY="65.0" opacity="0.75">
+                     <image>
+                        <Image url="@../images/sad2.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="timerLbl" layoutX="153.0" layoutY="79.0" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Label>
+                  <VBox fx:id="vrtBox" layoutX="255.0" layoutY="166.0" spacing="40.0">
+                     <children>
+                        <Button fx:id="reStartBtn" mnemonicParsing="false" onMouseClicked="#reStartBtnOnClickHandler" prefHeight="51.0" prefWidth="154.0" text="Re-Start">
+                           <effect>
+                              <DropShadow color="#da1e92" />
+                           </effect>
+                        </Button>
+                        <Button fx:id="leaderboardBtn" mnemonicParsing="false" onMouseClicked="#leaderBtnOnClickHandler" prefHeight="51.0" prefWidth="154.0" text="Leaderboard">
+                           <effect>
+                              <DropShadow color="#da1e92" />
+                           </effect>
+                        </Button>
+                        <Button fx:id="menuBtn" mnemonicParsing="false" onMouseClicked="#menuBtnOnClickHandler" prefHeight="51.0" prefWidth="154.0" text="Menu">
+                           <effect>
+                              <DropShadow color="#da1e92" />
+                           </effect>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <Label fx:id="nameLbl" layoutX="183.0" layoutY="113.0" prefHeight="34.0" prefWidth="77.0" text="Name:" textFill="#da1e92">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textText" layoutX="251.0" layoutY="120.0">
+                     <tooltip>
+                        <Tooltip fx:id="infoName" text="Max 10 char. Do not start with space. Press enter to save" />
+                     </tooltip>
+                  </TextField>
+                  <Button fx:id="saveBtn" layoutX="386.0" layoutY="120.0" mnemonicParsing="false" onMouseClicked="#saveBtnOnClickHandler" text="Save">
+                     <effect>
+                        <DropShadow color="#da1e92" />
+                     </effect>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.gui.exit.GUIExitControllerImpl">
+   <children>
+      <Pane prefHeight="730.0">
+         <children>
+            <Text fx:id="sureTxt" fill="#da1e92" layoutX="79.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure!?" wrappingWidth="228.453125">
+               <effect>
+                  <Glow />
+               </effect>
+               <font>
+                  <Font size="56.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="backgroundImage" fitHeight="283.0" fitWidth="236.0" layoutX="242.0" layoutY="82.0">
+               <image>
+                  <Image url="@../images/sad.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="noBtn" layoutX="79.0" layoutY="314.0" mnemonicParsing="false" onMouseClicked="#noBtnOnClickHandler" prefHeight="51.0" prefWidth="154.0" text="No...">
+               <effect>
+                  <DropShadow color="#da1e92" />
+               </effect></Button>
+            <Button fx:id="yesBtn" layoutX="267.0" layoutY="314.0" mnemonicParsing="false" onMouseClicked="#yesBtnOnClickHandler" prefHeight="51.0" prefWidth="154.0" text="YES">
+               <effect>
+                  <DropShadow color="#da1e92" />
+               </effect></Button>
+         </children>
+      </Pane>
+   </children>
+</HBox>

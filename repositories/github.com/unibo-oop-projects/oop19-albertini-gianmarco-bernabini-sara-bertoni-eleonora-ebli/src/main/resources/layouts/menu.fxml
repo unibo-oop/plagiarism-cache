@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.gui.menu.GUIMenuControllerImpl">
+   <children>
+      <ImageView fx:id="img" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/menuBackground.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" fillWidth="true" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label focusTraversable="false" text="UNICORN Type" textAlignment="CENTER" textFill="#da1e92" wrapText="true">
+                     <font>
+                        <Font size="74.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <Label text="Typing and Spelling">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <Button focusTraversable="false" onMouseClicked="#startBtnOnClickHandler" prefHeight="51.0" prefWidth="154.0" text="Start">
+                     <effect>
+                        <DropShadow color="#da1e92" />
+                     </effect>
+                  </Button>
+                  <Button focusTraversable="false" onMouseClicked="#leaderboardBtnOnClickHandler" prefHeight="51.0" prefWidth="154.0" text="Leaderboard">
+                     <effect>
+                        <DropShadow color="#da1e92" />
+                     </effect>
+                  </Button>
+                  <Button focusTraversable="false" onMouseClicked="#tutorialBtnOnClickHandler" prefHeight="51.0" prefWidth="154.0" text="Tutorial">
+                     <effect>
+                        <DropShadow color="#da1e92" />
+                     </effect>
+                  </Button>
+                  <Button focusTraversable="false" onMouseClicked="#settingsBtnOnClickHandler" prefHeight="51.0" prefWidth="154.0" text="Settings">
+                     <effect>
+                        <DropShadow color="#da1e92" />
+                     </effect>
+                  </Button>
+                  <Button focusTraversable="false" mnemonicParsing="false" onMouseClicked="#exitBtnOnClickHandler" prefHeight="51.0" prefWidth="154.0" text="Exit">
+                     <effect>
+                        <DropShadow color="#da1e92" />
+                     </effect>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

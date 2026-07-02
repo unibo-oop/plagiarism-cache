@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.gui.settings.GUISettingsControllerImpl">
+   <children>
+      <ImageView fx:id="img" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/leaderboardBackground.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" fillWidth="true" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+            <ComboBox fx:id="screenSizeBox" focusTraversable="false" onAction="#screenSizeSelection" prefHeight="41.0" prefWidth="154.0" promptText="Screen Size" />
+            <CheckBox fx:id="musicBox" mnemonicParsing="false" onAction="#setMusicSettings" selected="true" text="Music" />
+            <CheckBox fx:id="soundBox" mnemonicParsing="false" selected="true" text="Sound" />
+            <Button fx:id="exitBtn" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#exitBtnOnClickHandler" prefHeight="51.0" prefWidth="154.0" text="Save and exit">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
