@@ -1,0 +1,213 @@
+[
+    {
+        "effect": "Andate sino a Largo Colombo, se passate dal via ritirate 200 €",
+        "message": {
+            "action": "MOVE_CARD",
+            "data": 24
+        }
+    },
+    {
+        "effect": "Andate in prigione senza passare dal via",
+        "message": {
+            "action": "PRISON"
+        }
+    },
+    {
+        "effect": "Avete tutti i vostri stabili da riparare: pagate 40 € per ogni casa",
+        "message": {
+            "action": "CARD_PAYMENT"
+        }
+    },
+    {
+        "effect": "Fate 3 passi indietro (con tanti auguri)",
+        "message": {
+            "action": "MOVE_CARD",
+            "data": -3
+        }
+    },
+    {
+        "effect": "Andate sino a Via Accademia, se passate dal via ritirate 200 €",
+        "message": {
+            "action": "MOVE_CARD",
+            "data": 11
+        }
+    },
+    {
+        "effect": "Versate 20 € per beneficienza",
+        "message": {
+            "action": "CARD_PAYMENT",
+            "data": 20
+        }
+    },
+    {
+        "effect": "Andate sino a Stazione Nord, se passate dal via ritirate 200 €",
+        "message": {
+            "action": "MOVE_CARD",
+            "data": 25
+        }
+    },
+    {
+        "effect": "Multa di 15 € per aver pagato senza patente",
+        "message": {
+            "action": "CARD_PAYMENT",
+            "data": 15
+        }
+    },
+    {
+        "effect": "Andate sino a Parco della Vittoria",
+        "message": {
+            "action": "MOVE_CARD",
+            "data": 39
+        }
+    },
+    {
+        "effect": "Matrimonio in famiglia: spese impreviste 150 €",
+        "message": {
+            "action": "CARD_PAYMENT",
+            "data": 150
+        }
+    },
+    {
+        "effect": "Uscite gratis di prigione, se non ci siete: potete conservare questo cartoncino sino al momento di servirvene",
+        "message": {
+            "action": "FREE_CARD"
+        }
+    },
+    {
+        "effect": "Maturano le cedole delle vostre cartelle di rendita, ritirate 150 €",
+        "message": {
+            "action": "RECEIVE_CARD",
+            "data": 150
+        }
+    },
+    {
+        "effect": "La banca vi paga gli interessi del vostro conto corrente, ritirate 50 €",
+        "message": {
+            "action": "RECEIVE_CARD",
+            "data": 50
+        }
+    },
+    {
+        "effect": "Andate sino al Via",
+        "message": {
+            "action": "MOVE_CARD",
+            "data": 0
+        }
+    },
+    {
+        "effect": "Avete vinto un terno al lotto: ritirate 100 €",
+        "message": {
+            "action": "RECEIVE_CARD",
+            "data": 100
+        }
+    },
+    {
+        "effect": "Dovete pagare un contributo di miglioria stradale, 40 € per ogni casa",
+        "message": {
+            "action": "CARD_PAYMENT"
+        }
+    },
+    {
+        "effect": "Andate sino a Vicolo Corto, se passate dal via ritirate 200 €",
+        "message": {
+            "action": "MOVE_CARD",
+            "data": 1
+        }
+    },
+    {
+        "effect": "E' maturata la cedola delle vostre azioni: ritirate 25 €",
+        "message": {
+            "action": "RECEIVE_CARD",
+            "data": 25
+        }
+    },
+    {
+        "effect": "Rimborso tassa sul reddito: ritirate 20 €",
+        "message": {
+            "action": "RECEIVE_CARD",
+            "data": 20
+        }
+    },
+    {
+        "effect": "Avete vinto il secondo premio in un concorso di bellezza: ritirate 10 €",
+        "message": {
+            "action": "RECEIVE_CARD",
+            "data": 10
+        }
+    },
+    {
+        "effect": "Scade il vostro premio di assicurazioni: pagate 50 €",
+        "message": {
+            "action": "CARD_PAYMENT",
+            "data": 50
+        }
+    },
+    {
+        "effect": "Uscite gratis di prigione, se non ci siete: potete conservare questo cartoncino sino al momento di servirvene",
+        "message": {
+            "action": "FREE_CARD"
+        }
+    },
+    {
+        "effect": "Avete vinto un premio di consolazione alla lotteria di Merano: ritirate 100 €",
+        "message": {
+            "action": "RECEIVE_CARD",
+            "data": 100
+        }
+    },
+    {
+        "effect": "Andate sino al Via",
+        "message": {
+            "action": "MOVE_CARD",
+            "data": 0
+        }
+    },
+    {
+        "effect": "Pagate una multa di 10 €",
+        "message": {
+            "action": "CARD_PAYMENT",
+            "data": 10
+        }
+    },
+    {
+        "effect": "Siete creditori verso la banca di 200 €, ritirateli",
+        "message": {
+            "action": "RECEIVE_CARD",
+            "data": 200
+        }
+    },
+    {
+        "effect": "Avete perso una causa: pagate 100",
+        "message": {
+            "action": "CARD_PAYMENT",
+            "data": 100
+        }
+    },
+    {
+        "effect": "Andate in prigione senza passare dal via",
+        "message": {
+            "action": "PRISON"
+        }
+    },
+    {
+        "effect": "Avete ceduto delle azioni: ricavate 50 €",
+        "message": {
+            "action": "RECEIVE_CARD",
+            "data": 50
+        }
+    },
+    {
+        "effect": "Pagate il conto del dottore: 50 €",
+        "message": {
+            "action": "CARD_PAYMENT",
+            "data": 50
+        }
+    },
+    {
+        "effect": "Eriditate 100 € da un lontano parente",
+        "message": {
+            "action": "RECEIVE_CARD",
+            "data": 100
+        }
+    }
+]
