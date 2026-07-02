@@ -1,0 +1,150 @@
+[{
+    trackCommands: [{
+        sleep: 1,
+        coordinate: {
+            latitude: 44.139521,
+            longitude: 12.246623
+        }
+    }, {
+        sleep: 2,
+        coordinate: {
+            latitude: 44.138628,
+            longitude: 12.247996
+        }
+    }, {
+        sleep: 3,
+        coordinate: {
+            latitude: 44.141600,
+            longitude: 12.250013
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.143909,
+            longitude: 12.251301
+        }
+    }, {
+        sleep: 2,
+        coordinate: {
+            latitude: 44.145249,
+            longitude: 12.248404
+        }
+    }, {
+        sleep: 3,
+        coordinate: {
+            latitude: 44.142816,
+            longitude: 12.246816
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.143078,
+            longitude: 12.245743
+        }
+    }, {
+        sleep: 2,
+        coordinate: {
+            latitude: 44.141245,
+            longitude: 12.244692
+        }
+    }]
+}, {
+
+    trackCommands: [{
+        sleep: 1,
+        coordinate: {
+            latitude: 44.141758,
+            longitude: 12.252706
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.141073,
+            longitude: 12.254637
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.140211,
+            longitude: 12.254026
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.140088,
+            longitude: 12.254455
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.139857,
+            longitude: 12.253339
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.138971,
+            longitude: 12.252663
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.138163,
+            longitude: 12.252052
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.138648,
+            longitude: 12.250646
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.139102,
+            longitude: 12.249327
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.139595,
+            longitude: 12.249649
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.139587,
+            longitude: 12.248576
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.140134,
+            longitude: 12.247138
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.141974,
+            longitude: 12.248994
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.141681,
+            longitude: 12.249981
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.141327,
+            longitude: 12.250818
+        }
+    }, {
+        sleep: 1,
+        coordinate: {
+            latitude: 44.140888,
+            longitude: 12.252073
+        }
+    }]
+}]
