@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SimulationViewImpl">
+   <children>
+      <Pane fx:id="mapPane" layoutX="110.0" layoutY="134.0" prefHeight="436.0" prefWidth="436.0" />
+      <CheckBox fx:id="chkAlertState" layoutX="609.0" layoutY="356.0" mnemonicParsing="false" onAction="#checkAlertState" text="Alert State" />
+      <Label layoutX="602.0" layoutY="143.0" text="RunTime Setting" textFill="RED">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Slider fx:id="slHomeTendencyIncrement" layoutX="609.0" layoutY="316.0" max="50.0" prefHeight="14.0" prefWidth="113.0" />
+      <Label layoutX="609.0" layoutY="298.0" text="Home tendency Increment" />
+      <Label fx:id="lblHomeTendencyValue" layoutX="727.0" layoutY="315.0" text="0" />
+      <Text fontSmoothingType="LCD" layoutX="602.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To set the alert state: Chose a value from the Home Tendency slider then check the checkbox " textAlignment="CENTER" wrappingWidth="128.0" />
+      <Slider fx:id="slSimulationSpeed" layoutX="610.0" layoutY="478.0" min="1.0" max="40" prefHeight="14.0" prefWidth="113.0" />
+      <Label fx:id="lblSimulationSpeedValue" layoutX="727.0" layoutY="477.0" text="1" />
+      <Label layoutX="610.0" layoutY="460.0" text="Simulation Speed" />
+      <Label layoutX="794.0" layoutY="107.0" text="General info" textFill="RED">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="800.0" layoutY="148.0" text="People at home" />
+      <Label layoutX="802.0" layoutY="212.0" text="People Outside" />
+      <Label layoutX="780.0" layoutY="263.0" text="People in MeetingPlace" />
+      <Label layoutX="785.0" layoutY="324.0" text="People in the hospital" />
+      <Label layoutX="821.0" layoutY="375.0" text="Infected" />
+      <Label fx:id="lblPeopleAtHome" alignment="CENTER" contentDisplay="CENTER" layoutX="814.0" layoutY="173.0" prefHeight="27.0" prefWidth="56.0" style="-fx-border-color: black;" />
+      <Label fx:id="lblPeopleOutside" alignment="CENTER" contentDisplay="CENTER" layoutX="814.0" layoutY="229.0" prefHeight="27.0" prefWidth="56.0" style="-fx-border-color: black;" />
+      <Label fx:id="lblPeopleMeetingPlace" alignment="CENTER" contentDisplay="CENTER" layoutX="814.0" layoutY="285.0" prefHeight="27.0" prefWidth="56.0" style="-fx-border-color: black;" />
+      <Label fx:id="lblPeopleHospital" alignment="CENTER" contentDisplay="CENTER" layoutX="814.0" layoutY="343.0" prefHeight="27.0" prefWidth="56.0" style="-fx-border-color: black;" />
+      <Label fx:id="lblInfected" alignment="CENTER" contentDisplay="CENTER" layoutX="814.0" layoutY="392.0" prefHeight="27.0" prefWidth="56.0" style="-fx-border-color: black;" />
+      <Label fx:id="lblHealthy" alignment="CENTER" contentDisplay="CENTER" layoutX="814.0" layoutY="447.0" prefHeight="27.0" prefWidth="56.0" style="-fx-border-color: black;" />
+      <Label layoutX="822.0" layoutY="426.0" text="Healthy" />
+      <Label layoutX="811.0" layoutY="484.0" text="Virus Death" />
+      <Label fx:id="lblVirusDeath" alignment="CENTER" contentDisplay="CENTER" layoutX="814.0" layoutY="500.0" prefHeight="27.0" prefWidth="56.0" style="-fx-border-color: black;" />
+      <Label layoutX="814.0" layoutY="533.0" text="Recovered" />
+      <Label fx:id="lblRecovered" alignment="CENTER" contentDisplay="CENTER" layoutX="815.0" layoutY="550.0" prefHeight="27.0" prefWidth="56.0" style="-fx-border-color: black;" />
+   </children>
+</AnchorPane>

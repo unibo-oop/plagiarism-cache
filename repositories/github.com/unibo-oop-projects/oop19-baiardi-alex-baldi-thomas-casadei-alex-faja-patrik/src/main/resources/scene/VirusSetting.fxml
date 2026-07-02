@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import org.controlsfx.control.RangeSlider?> 
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="750.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.VirusSetupImpl">
+   <children>
+      <TextField fx:id="txtVirusName" layoutX="297.0" layoutY="240.0" promptText="Virus name" AnchorPane.leftAnchor="297.0" AnchorPane.topAnchor="240.0" />
+      <Slider fx:id="slInfectivity" layoutX="297.0" layoutY="305.0" AnchorPane.leftAnchor="297.0" AnchorPane.topAnchor="305.0" />
+      <Label layoutX="302.0" layoutY="286.0" text="Infectivity" AnchorPane.leftAnchor="302.0" AnchorPane.topAnchor="286.0" />
+      <Label layoutX="304.0" layoutY="320.0" text="Mortality" />
+      <Label layoutX="305.0" layoutY="356.0" text="Incubation Period" />
+      <Label layoutX="304.0" layoutY="391.0" text="Recovery Time" />
+      <Label fx:id="lblInfectivityValue" layoutX="445.0" layoutY="304.0" text="0" AnchorPane.leftAnchor="445.0" AnchorPane.topAnchor="304.0" />
+      <Label fx:id="lblMortalityValue" layoutX="445.0" layoutY="339.0" text="0" />
+      <Slider fx:id="slMortality" layoutX="297.0" layoutY="341.0" />
+      <RangeSlider fx:id="slIncubationPeriod" layoutX="297.0" layoutY="375.0" max="30" />
+      <Label fx:id="lblIncubationMaxValue" layoutX="445.0" layoutY="374.0" text="0" />
+      <RangeSlider fx:id="slRecoveryTime" layoutX="297.0" layoutY="408.0" max="50" />
+      <Label fx:id="lblRecoveryMaxValue" layoutX="445.0" layoutY="407.0" text="0" />
+      <ComboBox fx:id="cmbSelecVirus" layoutX="296.0" layoutY="181.0" onAction="#changeVirus" prefWidth="150.0" promptText="Seleziona..." />
+      <Button fx:id="btnSave" layoutX="297.0" layoutY="436.0" mnemonicParsing="false" onAction="#saveVirus" text="Salva Virus" />
+      <Label fx:id="lblIncubationMinValue" layoutX="273.0" layoutY="373.0" text="0" />
+      <Label fx:id="lblRecoveryMinValue" layoutX="273.0" layoutY="407.0" text="0" />
+   </children>
+</AnchorPane>
