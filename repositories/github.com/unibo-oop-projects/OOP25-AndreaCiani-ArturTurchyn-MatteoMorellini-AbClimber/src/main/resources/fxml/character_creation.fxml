@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="it.unibo.abyssclimber.ui.character.CharacterCreationController">
+
+    <top>
+        <HBox alignment="CENTER" style="-fx-padding: 18;">
+            <Label text="Character Creation" styleClass="title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="18" style="-fx-padding: 20;">
+
+            <Label fx:id="summaryLabel" text="Type: — | Class: —" styleClass="subtitle"/>
+
+            <VBox spacing="10" alignment="CENTER">
+                <Label text="Choose Type" styleClass="card-title"/>
+                <HBox spacing="10" alignment="CENTER">
+                    <ToggleButton fx:id="hydroBtn" text="Hydro" styleClass="primary-button"/>
+                    <ToggleButton fx:id="natureBtn" text="Nature" styleClass="primary-button"/>
+                    <ToggleButton fx:id="thunderBtn" text="Thunder" styleClass="primary-button"/>
+                    <ToggleButton fx:id="fireBtn" text="Fire" styleClass="primary-button"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="10" alignment="CENTER">
+                <Label text="Choose Class" styleClass="card-title"/>
+                <HBox spacing="10" alignment="CENTER">
+                    <ToggleButton fx:id="mageBtn" text="Mage" styleClass="secondary-button"/>
+                    <ToggleButton fx:id="soldierBtn" text="Soldier" styleClass="secondary-button"/>
+                    <ToggleButton fx:id="knightBtn" text="Knight" styleClass="secondary-button"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="10" alignment="CENTER">
+                <Label text="Select the difficulty:" styleClass="card-title"/>
+                <HBox spacing="10" alignment="CENTER">
+                    <ToggleButton fx:id="normalBtn" text="Normal" styleClass="move-toggle"/>
+                    <ToggleButton fx:id="hardBtn" text="Hard" styleClass="move-toggle"/>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox spacing="12" alignment="CENTER" style="-fx-padding: 18;">
+            <Button text="Back" onAction="#onBack" styleClass="secondary-button"/>
+            <Button text="Confirm" onAction="#onConfirm" styleClass="primary-button"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,106 @@
+.root {
+    -fx-font-family: "Verdana";
+}
+
+/* Bottom pane overlay (adjust opacity as needed) */
+#bottomPane {
+    -fx-background-color: rgb(77, 75, 75);
+}
+
+/* Optional: style the divider */
+.split-pane-divider {
+    -fx-background-color: rgba(0, 0, 0, 0.25);
+    -fx-padding: 0.5em;
+}
+
+/* Grey background for the combat log area */
+.combat-log {
+    -fx-background-color: #3a3a3a;      /* medium grey */
+    -fx-padding: 10px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-color: rgba(255, 255, 255, 0.15);
+    -fx-border-width: 1px;
+}
+
+.move-button { 
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-border-radius: 14;
+    
+    -fx-background-radius: 11;
+    -fx-background-insets: 3;
+    -fx-background-color: radial-gradient( center 50% 50%, radius 80%, derive(-fx-move-color, 40%) 0%, derive(-fx-move-color, -20%) 100% );
+}
+
+.move-button:hover {
+    -fx-opacity: 0.8
+}
+
+.move-button:pressed {
+    -fx-opacity: 0.6
+}
+
+.outlined-text {
+    -fx-text-fill: white;
+    -fx-stroke: black;
+    -fx-stroke-width: 1.2;
+}
+
+/* Conditional move button background*/
+.tipo-hydro {
+    -fx-move-color: #00BFFF; /* blue */
+}
+
+.tipo-fire {
+    -fx-move-color: #FF4500; /* red-orange */
+}
+
+.tipo-nature {
+    -fx-move-color: #32CD32; /* green */
+}
+
+.tipo-lightning {
+    -fx-move-color: #FFD700; /* yellow */
+}
+
+
+.combat-bg { -fx-background-color: transparent,black;
+    -fx-background-size: contain, auto;
+    -fx-background-repeat: no-repeat, no-repeat;
+    -fx-background-position: center, center;
+}
+
+.combat-bg-normal {
+    -fx-background-image: url("/assets/images/backgrounds/normal_fight.jpeg");
+}
+
+.combat-bg-elite {
+    -fx-background-image: url("/assets/images/backgrounds/elite_fight.jpeg");
+}
+
+.combat-bg-boss {
+    -fx-background-image: url("/assets/images/backgrounds/boss_fight.jpeg");
+}
+
+
+/* HP and MP and stat button display styles*/
+.label-button-like {
+    -fx-background-color: #4CAF50;
+    -fx-background-radius: 8;
+    -fx-padding: 5 10;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-font-size: 24px;
+}
+
+.drawer-label {
+    -fx-padding: 6 12;              /* space inside the label */
+    -fx-background-color: #3a3a3a;  /* medium grey */
+    -fx-background-radius: 6;       /* rounded corners */
+    -fx-text-fill: white;           /* readable text */
+    -fx-font-weight: bold;          /* optional, looks good for stats */
+    -fx-alignment: CENTER_LEFT;     /* align text nicely */
+}
+
