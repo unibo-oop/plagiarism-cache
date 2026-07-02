@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jwhale.view.controller.EnvSceneController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Operation">
+               <items>
+                  <MenuItem fx:id="createContainerItem" mnemonicParsing="false" text="Create container" />
+                  <Menu mnemonicParsing="false" text="Manage images">
+                    <items>
+                      <MenuItem fx:id="pullImage" mnemonicParsing="false" text="Pull image" />
+                        <MenuItem fx:id="removeImage" mnemonicParsing="false" text="Remove image" />
+                        <MenuItem fx:id="buildImage" mnemonicParsing="false" text="Build image from tar archive" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Manage networks">
+                    <items>
+                      <MenuItem fx:id="createNetwork" mnemonicParsing="false" text="Create network" />
+                        <MenuItem fx:id="removeNetwork" mnemonicParsing="false" text="Remove network" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Manage volumes">
+                    <items>
+                      <MenuItem fx:id="createVolume" mnemonicParsing="false" text="Create volume" />
+                        <MenuItem fx:id="removeVolume" mnemonicParsing="false" text="Remove volume" />
+                    </items>
+                  </Menu>
+                  <MenuItem fx:id="back" mnemonicParsing="false" text="Disconnect from Environment" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <ListView fx:id="listView" prefHeight="283.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem fx:id="inspectItem" mnemonicParsing="false" text="Inspect container..." />
+              </items>
+            </ContextMenu>
+         </contextMenu></ListView>
+   </center>
+   <bottom>
+      <HBox prefHeight="165.0" prefWidth="600.0" spacing="50.0" BorderPane.alignment="CENTER_LEFT">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <VBox spacing="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Playback container:" />
+                  <Button fx:id="start" disable="true" mnemonicParsing="false" text="Start" />
+                  <Button fx:id="stop" disable="true" mnemonicParsing="false" text="Stop" />
+                  <Button fx:id="restart" disable="true" mnemonicParsing="false" text="Restart" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" />
+               </padding>
+            </VBox>
+            <VBox spacing="10.0">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" />
+               </padding>
+               <children>
+                  <Button fx:id="remove" disable="true" mnemonicParsing="false" text="Remove">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="rename" disable="true" mnemonicParsing="false" text="Rename" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
