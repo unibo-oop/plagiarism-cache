@@ -1,0 +1,369 @@
+package it.unibo.wildenc.mvc.model.weaponary.projectiles;
+
+import java.util.LinkedHashSet;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import java.util.function.BiFunction;
+import java.util.function.Supplier;
+
+import org.joml.Vector2d;
+import org.joml.Vector2dc;
+
+import com.google.errorprone.annotations.Immutable;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import it.unibo.wildenc.mvc.model.Entity;
+import it.unibo.wildenc.mvc.model.weaponary.AttackContext;
+
+/**
+ * Class for managing the statistics for a Projectile. This is made for mantaining SRP and
+ * making a Projectile fully customizable on declaration of a specific weapon.
+ */
+@Immutable
+public class ProjectileStats {
+
+    private final Set<ProjStat> projStats = new LinkedHashSet<>();
+    private final double timeToLive;
+    private final String projID;
+    private final Supplier<Vector2d> ownerPosition;
+    private final String ownerName;
+    private final boolean immortal;
+    private final BiFunction<Double, AttackContext, Vector2d> projMovementFunction;
+
+    /**
+     * Constructor for the class. This will be passed to a Projectile when it will be generated,
+     * and it's used by the weapon to memorize which kind of projectile it can shoot.
+     * 
+     * @param baseDamage the base damage of the Projectile
+     * @param baseRadius the base radius of the hitbox of the Projectile
+     * @param baseVelocity the base movement velocity of the Projectile (could be angular in case of orbitals)
+     * @param ttl the time of life of the Projectile, after which it's considered gone
+     * @param id an identifier for the Projectile
+     * @param areProjImmortal specifies if projectiles are destroyed on collision
+     * @param ownedBy the {@link Entity} who generated this Projectile
+     * @param moveFunc the function that defines the Projectile's movement
+     */
+    public ProjectileStats(
+        final double baseDamage,
+        final double baseRadius,
+        final double baseVelocity,
+        final double ttl,
+        final String id,
+        final boolean areProjImmortal,
+        final Entity ownedBy,
+        final BiFunction<Double, AttackContext, Vector2d> moveFunc
+
+    ) {
+        projStats.add(new ProjStat(ProjStatType.DAMAGE, baseDamage));
+        projStats.add(new ProjStat(ProjStatType.HITBOX, baseRadius));
+        projStats.add(new ProjStat(ProjStatType.VELOCITY, baseVelocity));
+        this.timeToLive = ttl;
+        this.projID = id;
+        this.ownerPosition = () -> (Vector2d) ownedBy.getPosition();
+        this.ownerName = ownedBy.getName();
+        this.immortal = areProjImmortal;
+        this.projMovementFunction = moveFunc;
+    }
+
+    /**
+     * Getter method for returning a specific statistic of the Projectile,
+     * such as DAMAGE, VELOCITY...
+     * 
+     * @param statType the statistic (specified via a {@link StatType}) which value is needed
+     * @return the current value assumed by the statistic, or 0.0 if the stat wasn't found.
+     */
+    public double getStatValue(final ProjStatType statType) {
+        try {
+            return projStats.stream()
+            .filter(e -> e.getType() == statType)
+            .findFirst().get().getValue();
+        } catch (final NoSuchElementException statNotFound) {
+            return 0.0;
+        }
+    }
+
+    /**
+     * Getter method that returns the movement function of the projectile.
+     * The projectile will start in an initial position, and the informations
+     * used to move to a next position are passed in form of an {@link AttackMovementInfo}
+     * 
+     * @return a {@link BiFunction} representing the movement function of the Projectile
+     */
+    public BiFunction<Double, AttackContext, Vector2d> getMovementFunction() {
+        return this.projMovementFunction;
+    }
+
+    /**
+     * Getter method for the ID of the Projectile.
+     * Every Projectile has an ID because it will be useful to differentiate
+     * different kinds of projectiles.
+     * 
+     * @return a {@link String} containing the ID of the Projectile.
+     */
+    public String getID() {
+        return this.projID;
+    }
+
+    /**
+     * Getter method for the Time To Live of the projectile.
+     * The Time To Live is a statistic that represents an interval of time
+     * in which the Projectile is considered "alive". Once elapsed, the Projectile
+     * should be considered "dead" and removed from the game.
+     * 
+     * @return the "Time To Live" of the projectile, in seconds. 
+     */
+    public double getTTL() {
+        return this.timeToLive;
+    }
+
+    /**
+     * Method for knowing a projectile is immortal.
+     * 
+     * @return true if the projectile is immortal, false otherwise. 
+     */
+    public boolean isImmortal() {
+        return this.immortal;
+    }
+
+    /**
+     * Method for getting the position of the owner of the projectile.
+     * 
+     * @return the position of the owner of the projectile.
+     */
+    public Vector2dc getOwnerPosition() {
+        return ownerPosition.get();
+    }
+
+    /**
+     * Method for getting the name of the owner of the projectile.
+     * 
+     * @return the name of the owner of the projectile.
+     */
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    /**
+     * Setter method for changing the multiplier of a specific statistic
+     * of the projectile. This will be highly used when upgrading a Weapon.
+     * If the stat wasn't found, no change will be made.
+     * 
+     * @param statType the {@link ProjStat} which multiplier has to change
+     * @param newMult the new multiplier
+     */
+    public void setMultiplier(final ProjStatType statType, final double newMult) {
+        projStats.stream()
+            .filter(e -> e.getType() == statType)
+            .findFirst().get().setMult(newMult);
+    }
+
+    /**
+     * Method for getting a {@link ProjectileStats} builder.
+     * 
+     * @return a {@link ProjectileStats} builder
+     */
+    public static ProjStatsBuilder getBuilder() {
+        return new ProjStatsBuilder();
+    }
+
+    /**
+     * Enum for memorizing different Stats type.
+     * This was done to explicity differentiate every stat of a weapon.
+     */
+    public enum ProjStatType {
+        DAMAGE("Damage"),
+        VELOCITY("Velocity"),
+        HITBOX("Hitbox Radius"),
+        TTL("Time to Live");
+
+        private final String statName;
+
+        ProjStatType(final String name) {
+            this.statName = name;
+        }
+
+        /**
+         * toString() method for ProjStatType.
+         * 
+         * @return the name of the corresponding ProjStatType.
+         */
+        @Override
+        public String toString() {
+            return this.statName;
+        }
+    }
+
+    /**
+     * Class for managing a specific statistic of the projectile.
+     * Every statistic has a type, a base value, and a multiplier.
+     * When a Weapon will be upgraded, the multiplier will change
+     * according to the level of the weapon.
+     * Ex. Assuming the formula lvl * baseMult as the upgrade formula for a Weapon,
+     * if the base damage of a weapon is 10, at level 3 the effective damage will be 30.
+     */
+    private class ProjStat {
+        private final ProjStatType statType;
+        private final double baseValue;
+        private double currentMultiplier = 1.0;
+
+        /**
+         * Constructor for the class.
+         * 
+         * @param type the type of stat to memorize.
+         * @param val the base value for the specific stat.
+         */
+        ProjStat(final ProjStatType type, final double val) {
+            this.statType = type;
+            this.baseValue = val;
+        }
+
+        /**
+         * Getter method for the stat type.
+         * 
+         * @return the memorized stat type.
+         */
+        private ProjStatType getType() {
+            return this.statType;
+        }
+
+        /**
+         * Setter method for setting a new multiplier for the stat.
+         * 
+         * @param newMult the new multiplier that will be set.
+         */
+        private void setMult(final double newMult) {
+            this.currentMultiplier = newMult;
+        }
+
+        /**
+         * Getter method that gives the effective value of the statistic.
+         * 
+         * @return the effective value of the statistic (base value times multiplier)
+         */
+        private double getValue() {
+            return this.baseValue * currentMultiplier;
+        }
+    }
+
+    /**
+     * A builder for ProjectileStats. This was made to increase
+     * code readibility.
+     */
+    public static final class ProjStatsBuilder {
+        private double damage;
+        private double hbRadius;
+        private double velocity;
+        private double ttl;
+        private String id;
+        private boolean immortal;
+        private Entity owner;
+        private BiFunction<Double, AttackContext, Vector2d> moveFunc;
+
+        private ProjStatsBuilder() { }
+
+        /**
+         * Sets the damage for the projectile.
+         * 
+         * @param dmg the damage to be set
+         * @return this builder.
+         */
+        public ProjStatsBuilder damage(final double dmg) {
+            this.damage = dmg;
+            return this;
+        }
+
+        /**
+         * Sets the hitbox radius for the projectile.
+         * 
+         * @param rad the hitbox radius to be set
+         * @return this builder.
+         */
+        public ProjStatsBuilder radius(final double rad) {
+            this.hbRadius = rad;
+            return this;
+        }
+
+        /**
+         * Sets the velocity for the projectile.
+         * 
+         * @param vel the velocity to be set
+         * @return this builder.
+         */
+        public ProjStatsBuilder velocity(final double vel) {
+            this.velocity = vel;
+            return this;
+        }
+
+        /**
+         * Sets the time to live for the projectile.
+         * 
+         * @param timetolive the time to live to be set
+         * @return this builder.
+         */
+        public ProjStatsBuilder ttl(final double timetolive) {
+            this.ttl = timetolive;
+            return this;
+        }
+
+        /**
+         * Sets the id for the projectile.
+         * 
+         * @param pID the id to be set
+         * @return this builder.
+         */
+        public ProjStatsBuilder id(final String pID) {
+            this.id = pID;
+            return this;
+        }
+
+        /**
+         * Sets if the projectile is immortal or not.
+         * 
+         * @param immortality a boolean that specifies if the projectile is immortal or not.
+         * @return this builder.
+         */
+        public ProjStatsBuilder immortal(final boolean immortality) {
+            this.immortal = immortality;
+            return this;
+        }
+
+        /**
+         * Sets the projectile's owner.
+         * 
+         * @param owned the owner of the projectile.
+         * @return this builder.
+         */
+        @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2", 
+            justification = "The builder won't modify/expose the owner."
+        )
+        public ProjStatsBuilder owner(final Entity owned) {
+            this.owner = owned;
+            return this;
+        }
+
+        /**
+         * Sets the physics of the projectile.
+         * 
+         * @param mov the movement function of the projectile.
+         * @return this builder
+         */
+        public ProjStatsBuilder physics(final BiFunction<Double, AttackContext, Vector2d> mov) {
+            this.moveFunc = mov;
+            return this;
+        }
+
+        /**
+         * Builds a {@link ProjectileStats} as specified by using the methods above.
+         * 
+         * @return the built {@link ProjectileStats}
+         */
+        public ProjectileStats build() {
+            if (this.id == null) {
+                this.id = "noid";
+            }
+
+            return new ProjectileStats(damage, hbRadius, velocity, ttl, id, immortal, owner, moveFunc);
+        }
+    }
+}
