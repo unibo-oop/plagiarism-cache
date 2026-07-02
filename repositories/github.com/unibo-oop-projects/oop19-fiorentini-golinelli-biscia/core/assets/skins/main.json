@@ -1,0 +1,28 @@
+{
+	com.badlogic.gdx.graphics.Color: {
+		white: { r: 1, g: 1, b: 1, a: 1 },
+		grey: {a: 1, b: 0.32, g: 0.32, r: 0.32 },
+		red: { r: 1, g: 0, b: 0, a: 1 }
+	},
+	com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
+  		default: {font: arcade.ttf, fontColor: white },
+  		disabled: {font: arcade.ttf, fontColor: grey },
+  		over: {font: arcade.ttf, fontColor: red }
+  	},
+  	ProgressBarStyle: {
+		default-horizontal: { background: default-slider, knob: default-slider-knob },
+		default-vertical: { background: default-slider, knob: default-round-large }
+	},
+	SliderStyle: {
+		default-horizontal: { parent: default-horizontal },
+		default-vertical: { parent: default-vertical }
+	},
+	com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
+		default: {
+			font: arcade.ttf,
+			disabledFontColor:grey,
+			overFontColor: red,
+			fontColor: white
+		}
+	}
+}
