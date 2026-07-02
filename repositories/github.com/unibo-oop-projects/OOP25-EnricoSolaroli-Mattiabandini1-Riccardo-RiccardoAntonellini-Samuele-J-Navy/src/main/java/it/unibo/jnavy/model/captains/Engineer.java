@@ -1,0 +1,42 @@
+package it.unibo.jnavy.model.captains;
+
+import java.util.Optional;
+
+import it.unibo.jnavy.model.cell.Cell;
+import it.unibo.jnavy.model.grid.Grid;
+import it.unibo.jnavy.model.utilities.Position;
+
+/**
+ * Represents the Engineer captain.
+ * The Engineer's special ability allows the player to repair a damaged part of a ship.
+ */
+public final class Engineer extends AbstractCaptain {
+
+    public static final int COOLDOWN = 3;
+
+    @java.io.Serial
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * Constructs an Engineer with a cooldown of 3 turns.
+     */
+    public Engineer() {
+        super(COOLDOWN);
+    }
+
+    @Override
+    protected boolean executeEffect(final Grid grid, final Position p) {
+        final Optional<Cell> cell = grid.getCell(p);
+        return cell.isPresent() && grid.repair(p);
+    }
+
+    @Override
+    public boolean doesAbilityConsumeTurn() {
+        return false;
+    }
+
+    @Override
+    public boolean targetsEnemyGrid() {
+        return false;
+    }
+}

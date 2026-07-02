@@ -1,0 +1,40 @@
+package it.unibo.jnavy.view.components.captain;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import static it.unibo.jnavy.view.utilities.ViewConstants.FONT_FAMILY;
+import static it.unibo.jnavy.view.utilities.ViewConstants.FONT_SIZE_CTRL;
+import static it.unibo.jnavy.view.utilities.ViewConstants.FOREGROUND_COLOR;
+
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+/**
+ * A UI component that displays the name of the player's selected captain.
+ * This panel contains a formatted label indicating the current captain to the player.
+ */
+public final class CaptainNamePanel extends JPanel {
+
+    private static final int H_GAP = 15;
+    private static final int V_GAP = 0;
+
+    @java.io.Serial
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * Constructs a new {@code CaptainNamePanel} with the specified captain name.
+     *
+     * @param captainName the string representing the name of the selected captain to be displayed.
+     */
+    public CaptainNamePanel(final String captainName) {
+        super(new FlowLayout(FlowLayout.CENTER, H_GAP, V_GAP));
+        this.setOpaque(false);
+
+        final JLabel nameLabel = new JLabel("Captain: " + captainName);
+        nameLabel.setForeground(FOREGROUND_COLOR);
+        nameLabel.setFont(new Font(FONT_FAMILY, Font.BOLD, FONT_SIZE_CTRL));
+
+        this.add(nameLabel);
+    }
+}
