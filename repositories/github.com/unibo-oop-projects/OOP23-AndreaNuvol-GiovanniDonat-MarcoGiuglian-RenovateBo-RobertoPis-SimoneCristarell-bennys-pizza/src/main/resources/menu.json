@@ -1,0 +1,167 @@
+[{
+        "name": "4 stagioni",
+        "cost": 8.1,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "Artichokes",
+            "Sausages",
+            "Mushrooms",
+            "Olives"
+        ]
+    },
+
+    {
+        "name": "Diavola",
+        "cost": 4.4,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "Salami"
+        ]
+    },
+
+    {
+        "name": "Boscaiola",
+        "cost": 6,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "Sausages",
+            "Mushrooms"
+        ]
+    },
+
+    {
+        "name": "Capricciosa",
+        "cost": 7.7,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "Artichokes",
+            "Ham",
+            "Mushrooms",
+            "Olives"
+        ]
+    },
+
+    {
+        "name": "4 formaggi",
+        "cost": 6.2,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "Fontina",
+            "Parmesan",
+            "Gorgonzola"
+        ]
+    },
+
+    {
+        "name": "Americana",
+        "cost": 5.8,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "Wurstel",
+            "FrenchFries"
+        ]
+    },
+
+    {
+        "name": "Margherita",
+        "cost": 3.2,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella"
+        ]
+    },
+
+    {
+        "name": "Acciughina",
+        "cost": 5.4,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "Anchovies",
+            "Olives"
+        ]
+    },
+
+    {
+        "name": "Valdostana",
+        "cost": 5,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "Fontina",
+            "Ham"
+        ]
+    },
+
+    {
+        "name": "Puzzona",
+        "cost": 5.3,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "Tuna",
+            "Onions"
+        ]
+    },
+
+    {
+        "name": "Baby",
+        "cost": 3.7,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "FrenchFries"
+        ]
+    },
+
+    {
+        "name": "Estiva",
+        "cost": 4.8,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "Ham",
+            "Parmesan"
+        ]
+    },
+
+    {
+        "name": "Suprema",
+        "cost": 15.7,
+        "ingredients": [
+            "Dough",
+            "TomatoeSauce",
+            "Mozzarella",
+            "Anchovies",
+            "Artichokes",
+            "CherryTomatoes",
+            "FrenchFries",
+            "Ham",
+            "Olives",
+            "Onions",
+            "Parmesan",
+            "Salami",
+            "Sausages",
+            "Tuna",
+            "Wurstel"
+        ]
+    }
+]
