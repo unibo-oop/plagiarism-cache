@@ -1,0 +1,57 @@
+@font-face {
+    src: url("../fonts/darkforest.ttf");
+}
+
+.descriptions {
+    -fx-font-family: "dark forest";
+    -fx-text-fill: rgb(143,89,2);
+    -fx-background-color: #C3DC93;
+    -fx-max-width: infinity;
+    -fx-alignment: center;
+    -fx-background-radius: 1em;
+    -fx-border-radius: 1em;
+    -fx-max-height: infinity;
+}
+
+#slider {
+    -fx-block-increment: 5;
+    -fx-snap-to-ticks: true;
+    -fx-show-tick-labels: true;
+    -fx-minor-tick-count: 0;
+    -fx-major-tick-unit: 5;
+    -fx-tick-label-fill: floralwhite;
+}
+
+.slider .track {
+    -fx-background-color: rgb(233,185,110);
+    -fx-effect: innershadow(one-pass-box, rgb(143,89,2), 10, 0, 0, -2.5);
+}
+
+.slider .axis {
+    -fx-tick-label-fill: floralwhite;
+    -fx-effect: dropshadow(one-pass-box, #2D2926, 0, 0, 2, 2);
+}
+
+.slider .thumb {
+    -fx-background-color: rgb(233,185,110);
+    -fx-effect: dropshadow(one-pass-box, #2D2926, 5, 0, 1, 1);
+}
+
+#muteCheck {
+    -fx-max-width: infinity;
+    -fx-max-height: infinity;
+    -fx-background-color: rgb(208, 28, 31);
+    -fx-text-fill: floralwhite;
+}
+
+#muteCheck:hover {
+    -fx-background-color: derive(rgb(208, 28, 31), 20%);
+}
+
+#muteCheck:selected {
+    -fx-background-color: #1D6E2F;
+}
+
+#muteCheck:selected:hover {
+    -fx-background-color: derive(#1D6E2F, 20%);
+}

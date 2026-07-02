@@ -1,0 +1,15 @@
+@font-face {
+    src: url("../fonts/darkforest.ttf");
+}
+
+#background {
+    -fx-background-color: rgba(45, 41, 38, 0.75);
+}
+
+#message {
+    -fx-font-family: "dark forest";
+}
+
+.buttons {
+    -fx-max-width: infinity;
+}

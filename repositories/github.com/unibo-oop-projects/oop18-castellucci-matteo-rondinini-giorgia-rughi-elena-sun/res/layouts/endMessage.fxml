@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane xmlns="http://javafx.com/javafx/8"
+          xmlns:fx="http://javafx.com/fxml/1"
+          id="background">
+    <columnConstraints>
+        <ColumnConstraints percentWidth="20"></ColumnConstraints>
+        <ColumnConstraints percentWidth="39"></ColumnConstraints>
+        <ColumnConstraints percentWidth="2"></ColumnConstraints>
+        <ColumnConstraints percentWidth="39"></ColumnConstraints>
+        <ColumnConstraints percentWidth="20"></ColumnConstraints>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints percentHeight="25"></RowConstraints>
+        <RowConstraints percentHeight="35"></RowConstraints>
+        <RowConstraints percentHeight="15"></RowConstraints>
+        <RowConstraints percentHeight="25"></RowConstraints>
+    </rowConstraints>
+    <Text fx:id="message"
+          id="message"
+          GridPane.columnIndex="1"
+          GridPane.columnSpan="3"
+          GridPane.halignment="CENTER"
+          GridPane.rowIndex="1"
+          GridPane.valignment="CENTER">
+    </Text>
+    <Button fx:id="finalBackMenuButton"
+            styleClass="buttons"
+            GridPane.columnIndex="1"
+            GridPane.halignment="CENTER"
+            GridPane.rowIndex="2"
+            GridPane.valignment="CENTER">
+        Back to menu
+    </Button>
+    <Button fx:id="restartButton"
+            styleClass="buttons"
+            GridPane.columnIndex="3"
+            GridPane.halignment="CENTER"
+            GridPane.rowIndex="2"
+            GridPane.valignment="CENTER">
+        Restart game
+    </Button>
+    <stylesheets>
+      <URL value="@endMessage.css" />
+      <URL value="@buttons.css" />
+   </stylesheets>
+</GridPane>

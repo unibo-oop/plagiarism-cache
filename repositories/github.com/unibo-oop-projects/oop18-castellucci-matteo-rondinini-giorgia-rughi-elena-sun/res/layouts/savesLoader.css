@@ -1,0 +1,26 @@
+@font-face {
+    src: url("../fonts/darkforest.ttf");
+}
+
+.loadButtons {
+    -fx-max-width: infinity;
+    -fx-max-height: infinity;
+}
+
+.deleteButtons {
+    -fx-background-color: rgb(208, 28, 31);
+    -fx-text-fill: #ECDDC8;
+    -fx-font-family: "dark forest";
+    -fx-effect: dropshadow(one-pass-box, #2D2926, 20, 0, 5, 5);
+    -fx-max-height: infinity;
+}
+
+.deleteButtons:hover {
+    -fx-background-color: derive(rgb(208, 28, 31), 20%); 
+}
+
+.buttons:disabled, .deleteButtons:disabled {
+    -fx-opacity: 0.8;
+    -fx-background-color: grey;
+    -fx-text-fill: darkgrey;
+}

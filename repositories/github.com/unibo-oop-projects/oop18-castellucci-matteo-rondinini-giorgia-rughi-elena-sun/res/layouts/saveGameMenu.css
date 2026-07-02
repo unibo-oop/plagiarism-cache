@@ -1,0 +1,21 @@
+@font-face {
+    src: url("../fonts/darkforest.ttf");
+}
+
+#background {
+    -fx-background-color: rgba(45, 41, 38, 0.75);
+}
+
+.saveButtons {
+    -fx-max-width: infinity;
+    -fx-max-height: infinity;
+    -fx-alignment: center-left;
+    -fx-background-color: #C3DC93;
+    -fx-font-family: "dark forest";
+    -fx-text-fill: #1D6E2F;
+    -fx-effect: dropshadow(one-pass-box, #2D2926, 20, 0, 5, 5);
+}
+
+.saveButtons:hover {
+    -fx-background-color: derive(#C3DC93, 20%);
+}

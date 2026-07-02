@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Button?>
+<?import java.net.URL?>
+
+<GridPane xmlns="http://javafx.com/javafx/8"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:id="savesPage"
+          id="root">
+	<columnConstraints>
+		<ColumnConstraints percentWidth="2"></ColumnConstraints>
+		<ColumnConstraints percentWidth="8"></ColumnConstraints>
+		<ColumnConstraints percentWidth="80"></ColumnConstraints>
+		<ColumnConstraints percentWidth="8"></ColumnConstraints>
+		<ColumnConstraints percentWidth="2"></ColumnConstraints>
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints percentHeight="3.5"></RowConstraints>
+		<RowConstraints percentHeight="18"></RowConstraints>
+		<RowConstraints percentHeight="1"></RowConstraints>
+		<RowConstraints percentHeight="8"></RowConstraints>
+		<RowConstraints percentHeight="1"></RowConstraints>
+		<RowConstraints percentHeight="18"></RowConstraints>
+		<RowConstraints percentHeight="1"></RowConstraints>
+		<RowConstraints percentHeight="8"></RowConstraints>
+		<RowConstraints percentHeight="1"></RowConstraints>
+		<RowConstraints percentHeight="18"></RowConstraints>
+		<RowConstraints percentHeight="1"></RowConstraints>
+		<RowConstraints percentHeight="8"></RowConstraints>
+		<RowConstraints percentHeight="3.5"></RowConstraints>
+		<RowConstraints percentHeight="8"></RowConstraints>
+		<RowConstraints percentHeight="2"></RowConstraints>
+	</rowConstraints>
+    <Button fx:id="firstSave"
+	        styleClass="buttons, loadButtons"
+	        GridPane.columnIndex="2"
+	        GridPane.halignment="CENTER"
+            GridPane.rowIndex="1"
+            GridPane.valignment="CENTER"
+            alignment="CENTER_LEFT">
+    </Button>
+	<Button fx:id="firstDelete"
+		    styleClass="deleteButtons"
+		    GridPane.columnIndex="2"
+	        GridPane.halignment="RIGHT"
+            GridPane.rowIndex="3"
+            GridPane.valignment="CENTER">
+        Delete
+    </Button>
+    <Button fx:id="secondSave"
+	        styleClass="buttons, loadButtons"
+	        GridPane.columnIndex="2"
+	        GridPane.halignment="CENTER"
+            GridPane.rowIndex="5"
+            GridPane.valignment="CENTER"
+            alignment="CENTER_LEFT">
+    </Button>
+	<Button fx:id="secondDelete"
+	        styleClass="deleteButtons"
+		    GridPane.columnIndex="2"
+	        GridPane.halignment="RIGHT"
+            GridPane.rowIndex="7"
+            GridPane.valignment="CENTER">
+        Delete
+    </Button>
+	<Button fx:id="thirdSave"
+	        styleClass="buttons, loadButtons"
+	        GridPane.columnIndex="2"
+	        GridPane.halignment="CENTER"
+            GridPane.rowIndex="9"
+            GridPane.valignment="CENTER"
+            alignment="CENTER_LEFT">
+    </Button>
+	<Button fx:id="thirdDelete"
+	        styleClass="deleteButtons"
+		    GridPane.columnIndex="2"
+	        GridPane.halignment="RIGHT"
+            GridPane.rowIndex="11"
+            GridPane.valignment="CENTER">
+        Delete
+    </Button>
+    <Button fx:id="backSavesButton"
+            styleClass="buttons"
+            GridPane.columnIndex="1"
+	        GridPane.halignment="LEFT"
+            GridPane.rowIndex="13"
+            GridPane.valignment="BOTTOM"
+            GridPane.columnSpan="3">
+        Back to main menu
+    </Button>
+    <stylesheets>
+      <URL value="@savesLoader.css" />
+      <URL value="@background.css" />
+      <URL value="@buttons.css" />
+   </stylesheets>
+</GridPane>

@@ -1,0 +1,9 @@
+@font-face {
+    src: url("../fonts/darkforest.ttf");
+}
+
+#score {
+    -fx-font-family: "dark forest";
+    -fx-fill: floralwhite;
+    -fx-effect: dropshadow(one-pass-box, #2D2926, 0, 0, 0.4em, 0.4em);
+}

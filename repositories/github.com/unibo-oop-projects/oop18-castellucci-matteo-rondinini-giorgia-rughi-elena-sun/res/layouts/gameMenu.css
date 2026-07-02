@@ -1,0 +1,7 @@
+#background {
+    -fx-background-color: rgba(45, 41, 38, 0.75);
+}
+
+.buttons {
+    -fx-max-width: infinity;
+}
