@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<FlowPane fx:id="gameRoot" alignment="CENTER" columnHalignment="CENTER" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller.GameSceneControllerImpl">
+	<children>
+      		<AnchorPane fx:id="contents">
+      			<children>
+      				<Canvas fx:id="roomCanvas" height="450.0" width="800.0" />
+      				<Canvas fx:id="mapCanvas" height="100.0" layoutX="646.0" layoutY="14.0" opacity="0.5" width="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      			</children>
+      		</AnchorPane>
+	</children>
+</FlowPane>

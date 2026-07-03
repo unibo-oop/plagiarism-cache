@@ -1,0 +1,84 @@
+#darkGlassPane {
+	-fx-background-color: rgba(20, 20, 20, 0.7);
+}
+#windowFrame {
+	-fx-background-color: #48342B;
+	-fx-effect: dropshadow(three-pass-box, rgba(20, 20, 20, 1), 24, 0.3, 0, 0);
+	-fx-padding: 50 50 10 50;
+	-fx-border-width: 10;
+	-fx-border-color: #3E2A23;
+	-fx-border-insets: 5;
+}
+#windowHeader {
+    -fx-padding: 0 0 30 0;
+	-fx-font-size: 20;
+}
+#windowContent {
+}
+#windowFooter {
+    -fx-padding: 25 0 0 0;
+}
+#hugeTitle {
+	-fx-padding: 50 0 0 0;
+	-fx-font-size: 30;
+}
+#subTitle {
+	-fx-font-size: 16;
+}
+#sentence {
+	-fx-padding: 10 0 0 0;
+}
+#sector {
+	-fx-padding: 10 10 10 10;
+}
+#sector:hover {
+	-fx-background-color: #725C51;
+}
+
+.root {
+	-fx-background-color: #3E2A23;
+	-fx-font-family: "Upheaval TT (BRK)";
+}
+Button {
+	-fx-background-color: transparent;
+	-fx-text-fill: #C69E49;
+	-fx-font-size: 23;
+}
+Button:hover {
+	-fx-text-fill: #A67E29;
+}
+Label {
+	-fx-text-fill: #C69E49;
+}
+BorderPane {
+	-fx-padding: 10;
+}
+/* --- COMBOBOX --- */
+.combo-box-base {
+    -fx-background-color: transparent;
+}
+.combo-box-popup .list-view .list-cell {
+	-fx-background-color: transparent;
+	
+}
+.list-view {
+	-fx-background-color: #3E2A23;
+}
+.list-cell {
+	-fx-text-fill: #C69E49;
+}
+.arrow {
+    -fx-background-color: #C69E49;
+}
+/* --- CHECKBOX --- */
+.check-box .box {
+	-fx-background-color: transparent;
+	-fx-border-color: #C69E49;
+	-fx-border-radius: 3px; 
+}
+.check-box:selected .mark {
+	-fx-background-color:  #3E2A23;
+}
+.check-box:selected .box {
+	-fx-background-color:  #C69E49;
+}

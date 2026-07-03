@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+
+		<BorderPane id="windowFrame" fx:id="contents" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller.OptionsSceneController">
+			<top>
+				<Label id="windowHeader" graphicTextGap="0.0" text="Options" BorderPane.alignment="CENTER" />
+			</top>
+			<center>
+				<GridPane id="windowContent" alignment="CENTER" hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
+					<columnConstraints>
+						<ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" />
+						<ColumnConstraints halignment="CENTER" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints vgrow="SOMETIMES" />
+						<RowConstraints vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+					</rowConstraints>
+					<children>
+						<Label alignment="CENTER" text="Risoluzione" />
+						<Label text="FPS" GridPane.rowIndex="1" />
+						<ComboBox fx:id="resolutionComboBox" GridPane.columnIndex="1">
+							<items>
+								<FXCollections fx:factory="observableArrayList">
+									<String fx:value="800x450" />
+									<String fx:value="1280x720" />
+									<String fx:value="1600x900" />
+								</FXCollections>
+							</items>
+							<value>
+								<String fx:value="800x450" />
+							</value>
+						</ComboBox>
+						<ComboBox fx:id="fpsComboBox" GridPane.columnIndex="1" GridPane.rowIndex="1">
+							<items>
+								<FXCollections fx:factory="observableArrayList">
+									<String fx:value="30" />
+									<String fx:value="60" />
+									<String fx:value="120" />
+									<String fx:value="240" />
+								</FXCollections>
+							</items>
+							<value>
+								<String fx:value="60" />
+							</value>
+						</ComboBox>
+						<CheckBox fx:id="godModeCheckBox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+						<Label text="God Mode" GridPane.rowIndex="2" />
+
+					</children>
+					<BorderPane.margin>
+						<Insets />
+					</BorderPane.margin>
+				</GridPane>
+			</center>
+			<bottom>
+				<VBox id="windowFooter" alignment="CENTER" BorderPane.alignment="CENTER">
+					<children>
+						<Button fx:id="applyButton" mnemonicParsing="false" onAction="#applyButtonPressed" text="Apply" />
+						<Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonPressed" text="Exit" />
+					</children>
+				</VBox>
+			</bottom>
+		</BorderPane>
