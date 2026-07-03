@@ -1,0 +1,30 @@
+#panel {
+    -fx-background-image: url(/images/Settings1c.jpg);
+    -fx-background-size: 100% 100%;
+}
+
+.button {
+    -fx-font: 38px Verdana;
+}
+
+.label {
+    -fx-font: 30px Verdana;
+    -fx-color: black;
+    -fx-font-weight: bold;
+}
+
+#toggleFullScreenButton {
+    -fx-font-size: 16px;
+}
+
+
+
+#settingsLabel{
+    -fx-text-fill: #953205;
+    -fx-font-weight: bold;
+    -fx-font: 54px Verdana;
+}
+
+.choice-box .menu-item .label { 
+    -fx-text-fill: black; 
+    }
