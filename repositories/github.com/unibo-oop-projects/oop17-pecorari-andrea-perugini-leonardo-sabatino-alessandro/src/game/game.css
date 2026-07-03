@@ -1,0 +1,19 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.background {
+    -fx-background-image: url("/res/images/galassia.gif");
+}
+
+ 
+@font-face {
+	fx-font-family: 'Grinched';
+    src: url('fonts/GrinchedRegular.otf');
+}
+
+
+.label {
+    -fx-font-size: 40.0pt;
+    -fx-font-family: "Grinched";
+    -fx-text-color:#fff600;
+    -fx-opacity: 1.0;
+}

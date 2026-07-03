@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Group xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.GameViewImpl">
+   <children>
+      <Pane maxHeight="1440.0" maxWidth="2560.0" prefHeight="792.0" prefWidth="1444.0" styleClass="background" stylesheets="@game.css">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="672.0" layoutY="75.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/images/Bound.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="672.0" layoutY="691.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/images/Bound.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="lifesImage" fitHeight="75.0" fitWidth="75.0" layoutX="12.0" layoutY="24.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/images/Life.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="171.0" layoutY="24.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/images/WumpaFruit.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="75.0" fitWidth="334.0" layoutX="555.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/images/DodgeLogoGameBig.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</Group>

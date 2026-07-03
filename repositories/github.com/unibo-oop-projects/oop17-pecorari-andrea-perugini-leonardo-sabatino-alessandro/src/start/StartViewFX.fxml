@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Group xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="start.StartViewImpl">
+   <children>
+      <Pane maxHeight="1440.0" maxWidth="2560.0" prefHeight="768.0" prefWidth="1444.0" styleClass="background" stylesheets="@application.css">
+         <children>
+            <Button layoutX="555.0" layoutY="303.0" mnemonicParsing="false" onAction="#doButtonStart" prefHeight="81.0" prefWidth="335.0" text="Start - Crystal Mode" textFill="#ff078f">
+               <font>
+                  <Font name="Grinched" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="218.0" fitWidth="224.0" layoutX="446.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/images/Dodge.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="234.0" fitWidth="264.0" layoutX="760.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/images/Cortex.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="81.0" fitWidth="544.0" layoutX="451.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/images/DodgeLogoGameBig.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</Group>

@@ -1,0 +1,31 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.background {
+    -fx-background-image: url("/res/images/galassia.gif");
+}
+
+@font-face {
+	fx-font-family: 'Grinched';
+    src: url('fonts/GrinchedRegular.otf');
+}
+
+.label {
+    -fx-font-size: 30pt;
+    -fx-font-family: "Grinched";
+    -fx-text-color:#fff600;
+    -fx-opacity: 1;
+}
+
+.button { 
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-font-family: "Grinched";
+    -fx-text-color:#ff078f;
+    -fx-font-size: 20pt;
+}
+
+.button:hover {
+    -fx-background-color: #fff600;
+}
