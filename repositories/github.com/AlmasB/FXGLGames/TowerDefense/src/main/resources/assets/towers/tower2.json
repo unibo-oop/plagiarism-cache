@@ -1,0 +1,10 @@
+{
+  "name": "Tower 2",
+  "imageName": "towers/tower2.png",
+  "attack": 18,
+  "attackRate": 0.8,
+  "cost": 85,
+  "effects": [
+    "crit,25,1.2"
+  ]
+}

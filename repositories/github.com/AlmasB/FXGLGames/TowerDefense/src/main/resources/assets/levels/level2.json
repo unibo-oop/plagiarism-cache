@@ -1,0 +1,37 @@
+{
+  "name": "L2 - More Enemies",
+  "map": "td1.tmx",
+  "startMoney": 150,
+  "waves": [
+    {
+      "index": 1,
+      "enemy": "enemy1.json",
+      "amount": 10,
+      "interval": 0.5,
+      "way": "way1",
+      "reward": 10
+    },
+    {
+      "index": 1,
+      "enemy": "enemy1.json",
+      "amount": 10,
+      "interval": 0.33,
+      "way": "way1",
+      "reward": 10
+    },
+    {
+      "index": 2,
+      "enemy": "enemy1.json",
+      "amount": 20,
+      "interval": 0.25,
+      "way": "way1"
+    },
+    {
+      "index": 2,
+      "enemy": "enemy1.json",
+      "amount": 20,
+      "interval": 0.15,
+      "way": "way1"
+    }
+  ]
+}

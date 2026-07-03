@@ -1,0 +1,47 @@
+{
+  "name": "L3 - New Strategy",
+  "map": "td1.tmx",
+  "startMoney": 200,
+  "waves": [
+    {
+      "index": 1,
+      "enemy": "enemy1.json",
+      "amount": 50,
+      "interval": 0.2,
+      "way": "way1",
+      "reward": 350
+    },
+    {
+      "index": 2,
+      "enemy": "enemy2.json",
+      "amount": 55,
+      "interval": 0.2,
+      "way": "way1",
+      "reward": 175
+    },
+    {
+      "index": 2,
+      "enemy": "enemy2.json",
+      "amount": 55,
+      "interval": 0.2,
+      "way": "way1",
+      "reward": 175
+    },
+    {
+      "index": 3,
+      "enemy": "enemy1.json",
+      "amount": 100,
+      "interval": 0.1,
+      "way": "way1",
+      "reward": 0
+    },
+    {
+      "index": 3,
+      "enemy": "enemy2.json",
+      "amount": 100,
+      "interval": 0.2,
+      "way": "way1",
+      "reward": 0
+    }
+  ]
+}
