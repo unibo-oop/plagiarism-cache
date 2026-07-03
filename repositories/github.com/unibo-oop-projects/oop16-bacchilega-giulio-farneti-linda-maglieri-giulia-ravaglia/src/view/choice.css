@@ -1,0 +1,12 @@
+.root {
+	-fx-background-image : url("/Menu/little-wallpaper.png") ;
+	-fx-border-color: "#331900";
+	-fx-border-width: 3;
+}
+
+.button {
+	-fx-background-color :"#EBDDE2"  ;
+	-fx-border-color :"#483C32" ; 
+	-fx-border-width : 1.5 ;
+	
+}

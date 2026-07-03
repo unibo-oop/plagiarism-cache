@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="680.0" prefWidth="1083.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RulesBook.RulesBookController">
+   <children>
+      <ImageView fitHeight="680.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/RulesBook/rules.jpg" />
+         </image>
+      </ImageView>
+      <BorderPane layoutX="14.0" layoutY="14.0" prefHeight="664.0" prefWidth="540.0">
+         <bottom>
+            <Button fx:id="previousPage" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#doButtonPrevious" prefHeight="75.0" prefWidth="92.0" style="-fx-background-color: transparent; -fx-border-radius: 50;" BorderPane.alignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/RulesBook/arrowL.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </bottom>
+         <top>
+            <Button fx:id="returnIndex" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#openIndex" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent;" textAlignment="RIGHT" BorderPane.alignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/RulesBook/bookIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <BorderPane.margin>
+                  <Insets right="430.0" />
+               </BorderPane.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </top>
+      </BorderPane>
+      <BorderPane layoutX="554.0" layoutY="14.0" prefHeight="664.0" prefWidth="520.0">
+         <bottom>
+            <Button fx:id="nextPage" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#doButtonNext" prefHeight="75.0" prefWidth="92.0" style="-fx-background-color: transparent; -fx-border-radius: 50;" BorderPane.alignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/RulesBook/arrowR.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </bottom>
+         <top>
+            <Button fx:id="returnGame" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#openGame" prefHeight="68.0" prefWidth="73.0" style="-fx-background-color: transparent;" textAlignment="RIGHT" BorderPane.alignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/RulesBook/gameIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <BorderPane.margin>
+                  <Insets left="410.0" />
+               </BorderPane.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

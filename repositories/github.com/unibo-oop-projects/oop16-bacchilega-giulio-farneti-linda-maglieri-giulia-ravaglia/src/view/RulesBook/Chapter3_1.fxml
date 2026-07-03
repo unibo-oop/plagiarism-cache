@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <BorderPane layoutX="14.0" layoutY="72.0" prefHeight="532.0" prefWidth="540.0">
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="72.0" prefWidth="507.0" text="3.1 How to Promote a Pawn in Chess" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="26.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets left="20.0" />
+               </BorderPane.margin>
+            </Label>
+         </top>
+         <center>
+            <Label alignment="TOP_CENTER" prefHeight="388.0" prefWidth="413.0" text="Pawns have another special ability and that&#10;is that if a pawn reaches the other side of&#10;the board it can become any other chess &#10;piece (called promotion). &#10;A pawn may be promoted to any piece.&#10;A common misconception is that pawns may&#10;only be exchanged for a piece that has been&#10;captured. That is NOT true. &#10;A pawn is usually promoted to a queen. &#10;Only pawns may be promoted." BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="330.0" fitWidth="330.0" layoutX="651.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../CheckMate_Repository4/image/RulesBook/cap3_1.gif" />
+         </image>
+      </ImageView>
+	</children>
+</AnchorPane>

@@ -1,0 +1,18 @@
+.root {
+	-fx-background-image : url("/Menu/little-wallpaper.png");
+	-fx-border-color : "#994C00";
+	-fx-border-width : 1.5;
+}
+
+.button {
+	-fx-background-color : "#FFFFCC" ;
+	-fx-border-color : "#994C00" ;
+		-fx-border-width : 1.5;
+}
+
+.label {
+	-fx-font-size: 18px;
+	-fx-font-family: "Kristen ITC";
+	-fx-text-fill: "#FFFFFF";
+	-fx-font-weight: bold;
+}

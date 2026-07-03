@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <BorderPane layoutX="14.0" layoutY="66.0" prefHeight="538.0" prefWidth="540.0">
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="102.0" prefWidth="530.0" text="5. Review the Rules of How to&#10;    Win a Game of Chess" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="28.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="BOTTOM_CENTER" prefHeight="88.0" prefWidth="530.0" text="There are two ways to end a game of chess: by&#10;checkmate, or with a draw.">
+                     <font>
+                        <Font name="Kristen ITC" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="84.0" prefWidth="530.0" text="5.1 How to Checkmate in Chess">
+                     <font>
+                        <Font name="Kristen ITC" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="305.0" prefWidth="528.0" text="The purpose of the game is to checkmate the&#10;opponent's king. This happens when the king is&#10;put into check and cannot get out of check.&#10;There are only three ways a king can get out of&#10;check: move out of the way (though he cannot&#10;castle!), block the check with another piece,&#10;or capture the piece threatening the king.&#10;If a king cannot escape checkmate.&#10;If a king cannot escape checkmate&#10;then the game is over.">
+                     <font>
+                        <Font name="Kristen ITC" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+      <VBox layoutX="598.0" layoutY="61.0" prefHeight="559.0" prefWidth="385.0">
+         <children>
+            <Label text="Customarily the king is not captured or&#10;removed from the board,the game is simply &#10;declared over.">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="330.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="50.0">
+               <image>
+                  <Image url="@../../../../CheckMate_Repository4/image/RulesBook/cap5_1.gif" />
+               </image>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </ImageView>
+         </children>
+      </VBox>
+	</children>
+</AnchorPane>

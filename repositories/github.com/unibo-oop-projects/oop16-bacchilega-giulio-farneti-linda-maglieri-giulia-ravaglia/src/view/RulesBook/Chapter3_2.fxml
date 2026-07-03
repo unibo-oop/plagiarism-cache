@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <BorderPane layoutX="14.0" layoutY="71.0" prefHeight="533.0" prefWidth="540.0">
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="49.0" prefWidth="530.0" text="3.2 How to Castle in Chess&#10;" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="26.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <Label alignment="TOP_CENTER" prefHeight="471.0" prefWidth="479.0" text="One other special chess rule is called castling.&#10;This move allows you to do two important things&#10;all in one move: get your king to safety&#10;(hopefully), and get your rook out of the corner&#10;and into the game. On a player's turn he may move&#10;this king two squares over to one side and then&#10;move the rook from that side's corner to right next&#10;to the king on the opposite side. (See the example)&#10;However, in order to castle, the following&#10;conditions must be met:&#10;&#9;-  it must be that king's very first move&#10;&#9;-  it must be that rook's very first move&#10;&#9;-  there cannot be any pieces between&#10;           the king and rook to move&#10;&#9;-  the king may not be in check or pass&#10;           through check" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <VBox layoutX="610.0" layoutY="55.0" prefHeight="542.0" prefWidth="401.0">
+         <children>
+            <Label prefHeight="212.0" prefWidth="397.0" text="Notice that when you castle one direction &#10;the king is closer to the side of the board.&#10;That is called castling &quot;kingside&quot;.&#10;Castling to the other side, through where&#10;the queen sat, is called castling &quot;queenside&quot;.&#10;Regardless of which side, the king&#10;always moves only two squares when castling.">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <ImageView fitHeight="331.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true" translateX="40.0" translateY="20.0">
+               <image>
+                  <Image url="@../../../../CheckMate_Repository4/image/RulesBook/cap3_3.gif" />
+               </image>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </ImageView>
+         </children>
+      </VBox>
+	</children>
+</AnchorPane>

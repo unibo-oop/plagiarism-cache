@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <VBox layoutX="91.0" layoutY="73.0" prefHeight="545.0" prefWidth="443.0">
+         <children>
+            <Label text="Control the Center of the Chessboard">
+               <font>
+                  <Font name="Kristen ITC" size="22.0" />
+               </font>
+            </Label>
+            <Label prefHeight="253.0" prefWidth="429.0" text="You should try and control the center of the&#10;board with your pieces and pawns. &#10;If you control the center, you will have more&#10;room to move your pieces and will make it &#10;harder for your opponent to find good squares&#10;for his pieces. In the example above white makes&#10;good moves to control the center while black &#10;plays bad moves.">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="53.0" prefWidth="443.0" text="Use All of your Chess Pieces">
+               <font>
+                  <Font name="Kristen ITC" size="22.0" />
+               </font>
+            </Label>
+            <Label text="In the example above white got all of his&#10;pieces in the game! Your pieces don't do any good&#10;when they are sitting back on the first row. Try&#10;and develop all of your pieces so that you have&#10;more to use when you attack the king. Using one or&#10;two pieces to attack will not work against any&#10;decent opponent.">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+	</children>
+</AnchorPane>

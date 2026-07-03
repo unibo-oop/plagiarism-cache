@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <BorderPane layoutX="14.0" layoutY="69.0" prefHeight="535.0" prefWidth="540.0">
+         <top>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="TOP" prefHeight="42.0" prefWidth="431.0" text="Don't Give Pieces Away" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="22.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <Label alignment="TOP_CENTER" prefHeight="571.0" prefWidth="431.0" text="Don't carelessly lose your pieces! Each piece is&#10;valuable and you can't win a game without pieces&#10;to checkmate. There is an easy system that most&#10;players use to keep track of the relative value of&#10;each chess piece. How much are the chess&#10;pieces worth?&#10;&#9;- A pawn is worth 1&#10;&#9;- A knight is worth 3&#10;&#9;- A bishop is worth 3&#10;&#9;- A rook is worth 5&#10;&#9;- A queen is worth 9&#10;&#9;- The king is infinitely valuable&#10;At the end of the game these points don't mean&#10;anything – it is simply a system you can use&#10;to make decisions while playing, helping you&#10;know when to capture, exchange, or make&#10;other moves." BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="330.0" fitWidth="330.0" layoutX="650.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../CheckMate_Repository4/image/RulesBook/cap6_2.gif" />
+         </image>
+      </ImageView>
+	</children>
+</AnchorPane>

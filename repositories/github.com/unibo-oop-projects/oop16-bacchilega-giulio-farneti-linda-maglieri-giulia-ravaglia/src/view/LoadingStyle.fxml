@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="560.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/Menu/LoadingImage.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="178.0" layoutY="14.0" text="CheckMate!">
+         <font>
+            <Font name="Kristen ITC" size="40.0" />
+         </font></Label>
+      <ProgressIndicator layoutX="259.0" layoutY="88.0" prefHeight="77.0" prefWidth="82.0" />
+      <Label layoutX="247.0" layoutY="400.0" text="Loading..." textFill="WHITE">
+         <font>
+            <Font name="Kristen ITC" size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <BorderPane layoutX="14.0" layoutY="59.0" prefHeight="560.0" prefWidth="540.0">
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="28.0" prefWidth="530.0" text="5.2 How to Draw a Chess Game" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="26.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <Label alignment="TOP_CENTER" prefHeight="522.0" prefWidth="462.0" text="Occasionally chess games do not end with a&#10;winner, but with a draw. There are 5 reasons&#10;why a chess game may end in a draw:&#10; -  The position reaches a stalemate where it&#10;    is one player's turn to move, but his king&#10;    is NOT in check and yet he does not have&#10;    another legal move&#10; -  The players may simply agree to a draw and&#10;    stop playing&#10; -  There are not enough pieces on the board to&#10;    force a checkmate (example: a king and a&#10;    bishop vs.a king)&#10; -  A player declares a draw if the same exact &#10;    position is repeated three times (though not&#10;    necessarily three times in a row)&#10; -  Fifty consecutive moves have been played&#10;    where neither player has moved a pawn or&#10;    captured a piece" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <BorderPane layoutX="557.0" layoutY="77.0" prefHeight="527.0" prefWidth="512.0">
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="42.0" prefWidth="512.0" text="6. Study Basic Chess Strategies" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="28.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <VBox prefHeight="590.0" prefWidth="519.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="BOTTOM_CENTER" prefHeight="77.0" prefWidth="511.0" text="There are four simple things that chess should&#10;know:">
+                     <font>
+                        <Font name="Kristen ITC" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_CENTER" prefHeight="80.0" prefWidth="279.0" text="Protect your King">
+                     <font>
+                        <Font name="Kristen ITC" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_CENTER" prefHeight="196.0" prefWidth="530.0" text="Get your king to the corner of the board&#10;where he is usually safer. Don't put off castling.&#10;You should usually castle as quickly as possible.&#10;Remember, it doesn't matter how close you are&#10;to checkmating your opponent if your own&#10;king is checkmated first!">
+                     <font>
+                        <Font name="Kristen ITC" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+	</children>
+</AnchorPane>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RulesBook.ChaptersController">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <BorderPane layoutX="14.0" layoutY="69.0" prefHeight="535.0" prefWidth="540.0">
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="113.0" prefWidth="530.0" text="3. Discover the Special Rules&#10;    of Chess" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="28.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <VBox prefHeight="540.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="BOTTOM_CENTER" prefHeight="149.0" prefWidth="530.0" text="There are a few special rules in chess that&#10;may not seem logical at first. &#10;They were created to make the game &#10;more fun and interesting.">
+                     <font>
+                        <Font name="Kristen ITC" size="18.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="BOTTOM_CENTER" prefHeight="151.0" prefWidth="540.0">
+                     <children>
+                        <Button fx:id="btn13" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#doSetPage" prefHeight="41.0" prefWidth="349.0" style="-fx-background-color: transparent;" text="3.1 How to Promote a Pawn in Chess">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Kristen ITC" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn14" alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="51.0" mnemonicParsing="false" onAction="#doSetPage" prefHeight="41.0" prefWidth="347.0" style="-fx-background-color: transparent;" text="3.2 How to Castle in Chess">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Kristen ITC" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="447.0" fitWidth="449.0" layoutX="587.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/RulesBook/chess1.png" />
+         </image>
+      </ImageView>
+	</children>
+</AnchorPane>

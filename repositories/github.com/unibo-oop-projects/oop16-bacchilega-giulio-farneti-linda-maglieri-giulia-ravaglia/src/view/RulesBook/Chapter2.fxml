@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RulesBook.ChaptersController">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <BorderPane layoutX="14.0" layoutY="70.0" prefHeight="534.0" prefWidth="540.0">
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="64.0" prefWidth="530.0" text="2. How the Chess Pieces Move" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="28.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <Label alignment="TOP_CENTER" prefHeight="386.0" prefWidth="447.0" text="Each of the 6 different kinds of pieces moves&#10;differently. Pieces cannot move through other&#10;pieces (though the knight can jump over other&#10;pieces), and can never move onto a square with&#10;one of their own pieces. However, they can be&#10;moved to take the place of an opponent's piece&#10;which is then captured. Pieces are generally&#10;moved into positions where they can capture&#10;other pieces (by landing on their square and then&#10;replacing them), defend their own pieces in case&#10;of capture, or control important squares in&#10;the game." BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <VBox layoutX="634.0" layoutY="208.0" prefHeight="258.0" prefWidth="358.0">
+         <children>
+            <Button fx:id="btn7" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#doSetPage" prefHeight="41.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="2.1 How to Move the King in Chess">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn8" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#doSetPage" prefHeight="41.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="2.2 How to Move the Queen in Chess">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn9" alignment="TOP_LEFT" layoutX="10.0" layoutY="51.0" mnemonicParsing="false" onAction="#doSetPage" prefHeight="41.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="2.3 How to Move the Rook in Chess">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn10" alignment="TOP_LEFT" layoutX="10.0" layoutY="92.0" mnemonicParsing="false" onAction="#doSetPage" prefHeight="41.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="2.4 How to Move the Bishop in Chess">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn11" alignment="TOP_LEFT" layoutX="10.0" layoutY="133.0" mnemonicParsing="false" onAction="#doSetPage" prefHeight="41.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="2.5 How to Move the Knight in Chess">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn12" alignment="TOP_LEFT" layoutX="10.0" layoutY="174.0" mnemonicParsing="false" onAction="#doSetPage" prefHeight="41.0" prefWidth="400.0" style="-fx-background-color: transparent;" text="2.6 How to Move the Pawn in Chess">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+	</children>
+</AnchorPane>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <BorderPane layoutX="14.0" layoutY="67.0" prefHeight="537.0" prefWidth="540.0">
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="120.0" prefWidth="530.0" text="4. Find out Who Makes the First&#10;   Move in Chess" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="28.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <Label alignment="TOP_CENTER" prefHeight="354.0" prefWidth="413.0" text="The player with the white pieces always moves &#10;first. Therefore, players generally decide who&#10;will get to be white by chance or luck such as&#10;flipping a coin or having one player guess the&#10;color of the hidden pawn in the other player's&#10;hand. White then makes a move, followed by&#10;black, then white again, then black and so on&#10;until the end of the game. &#10;Being able to move first is a tiny advantage &#10;which gives the white player an opportunity to &#10;attack right away." BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="369.0" fitWidth="351.0" layoutX="637.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/RulesBook/chess5.jpg" />
+         </image>
+      </ImageView>
+	</children>
+</AnchorPane>

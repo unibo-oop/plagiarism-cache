@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <BorderPane layoutX="14.0" layoutY="74.0" prefHeight="530.0" prefWidth="540.0">
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="65.0" prefWidth="530.0" text="2.3 How to Move the Rook in Chess" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="26.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <Label alignment="TOP_CENTER" prefHeight="316.0" prefWidth="413.0" text="The rook may move as far as it wants,&#10;but only forward, backward, and to the sides.&#10;The rooks are particularly powerful pieces &#10;when they are protecting each other &#10;and working together!" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="330.0" fitWidth="330.0" layoutX="648.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../CheckMate_Repository4/image/RulesBook/cap2_3.gif" />
+         </image>
+      </ImageView>
+	</children>
+</AnchorPane>

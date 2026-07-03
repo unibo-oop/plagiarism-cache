@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <BorderPane layoutX="14.0" layoutY="71.0" prefHeight="533.0" prefWidth="540.0">
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="62.0" prefWidth="520.0" text="2.4 How to Move the Bishop in Chess" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="26.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets left="20.0" />
+               </BorderPane.margin>
+            </Label>
+         </top>
+         <center>
+            <Label alignment="TOP_CENTER" prefHeight="319.0" prefWidth="413.0" text="The bishop may move as far as it wants,&#10;but only diagonally. Each bishop starts on&#10;one color (light or dark) and must always stay&#10;on that color.&#10;Bishops work well together because they cover&#10;up each other's weaknesses." BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="330.0" fitWidth="330.0" layoutX="649.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../CheckMate_Repository4/image/RulesBook/cap2_4.gif" />
+         </image>
+      </ImageView>
+	</children>
+</AnchorPane>

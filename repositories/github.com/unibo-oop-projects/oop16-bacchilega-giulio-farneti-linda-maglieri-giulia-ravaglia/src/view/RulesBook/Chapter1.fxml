@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<fx:include fx:id="RulesBookBase" source="RulesBookBase.fxml" />
+      <BorderPane layoutX="14.0" layoutY="71.0" prefHeight="533.0" prefWidth="540.0">
+         <top>
+            <Label alignment="BOTTOM_CENTER" contentDisplay="TOP" prefHeight="64.0" prefWidth="530.0" text="1. How to Setup the Chessboard" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="28.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <Label alignment="TOP_CENTER" prefHeight="357.0" prefWidth="413.0" text="At the beginning of the game the chessboard&#10;is laid tout so that each player has the white&#10;(or light) color square in the bottom right-hand&#10;side. The chess pieces are then arranged the&#10;same way each time.&#10;The second row (or rank) is filled with pawns.&#10;The rooks go in the corners, then the knights&#10;next to them, followed by the bishops, and&#10;finally the queen, who always goes on her own&#10;matching color (white queen on white, black&#10;queen on black), and the king on the remaining&#10;square." BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Kristen ITC" size="18.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <ImageView fitHeight="330.0" fitWidth="330.0" layoutX="644.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../CheckMate_Repository4/image/RulesBook/cap1.gif" />
+         </image>
+      </ImageView>
+	</children>
+</AnchorPane>

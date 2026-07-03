@@ -1,0 +1,59 @@
+.root {
+	-fx-background-image: url("/Menu/blueWallpaper.jpg");
+	
+}
+#button {
+	
+	-fx-background-color : none ;
+	/*-fx-opacity: 0.2 ;*/
+	
+}
+#light-chess-button {
+	-fx-background-color : "#CCE5FF";
+	
+}
+
+#dark-chess-button {
+	-fx-background-color : "#003366";
+}
+
+#vertical-menu {
+	-fx-background-color : #000000 ;
+	-fx-background-image: none ;
+	
+}
+
+#pawns-removed {
+	-fx-background-color : "#CCE5FF" ;
+	-fx-border-color : "#003366" ;
+	-fx-border-width : 10 ;
+
+}
+
+#button-listener {
+	-fx-background-color : linear-gradient(#CCFFFF , #000066);
+	-fx-background-radius: 50 ;
+	-fx-border-radius: 50;
+	-fx-border-color: "#000000";
+	
+	
+}
+
+.label {
+	-fx-font-size: 30px;
+	-fx-font-family: "Kristen ITC";
+	-fx-text-fill: "#FFFFFF";
+	-fx-font-weight: bold;
+}
+
+#button-allowedMoves{
+	-fx-background-color : "#66FF66";
+	-fx-border-color : "#003300" ;
+	-fx-border-width : 0.3 ;
+}
+
+#button-threatenedPawns {
+	-fx-background-color : "#D21313";
+	-fx-border-color : "#660000" ;
+	-fx-border-width : 0.3 ;
+}
