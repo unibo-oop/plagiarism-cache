@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox stylesheets="org/gitgud/styles/style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gitgud.application.diff.DiffDetailsFxmlController">
+   <children>
+      <Label fx:id="detailsTitle" styleClass="diff-details-title" />
+      <HBox>
+         <children>
+            <HBox fx:id="authorContainer">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin></HBox>
+            <VBox HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox fx:id="commitContainer" alignment="TOP_RIGHT" VBox.vgrow="ALWAYS" />
+                  <HBox fx:id="parentsContainer" alignment="TOP_RIGHT" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox>
+         <children>
+            <HBox fx:id="mailContainer" />
+            <HBox fx:id="dateContainer" alignment="TOP_RIGHT" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <TextArea fx:id="commitMessage" editable="false" maxHeight="60.0" minHeight="60.0" styleClass="diff-details-message,light-scroll" wrapText="true">
+         <VBox.margin>
+            <Insets bottom="15.0" top="20.0" />
+         </VBox.margin>
+      </TextArea>
+   </children>
+</VBox>

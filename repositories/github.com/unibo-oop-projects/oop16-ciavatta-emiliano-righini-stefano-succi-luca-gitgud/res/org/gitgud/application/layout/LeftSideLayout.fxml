@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox styleClass="left-side-container" stylesheets="org/gitgud/styles/style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.30" styleClass="left-side-split-container" VBox.vgrow="ALWAYS">
+         <items>
+         	<ScrollPane fitToHeight="true" fitToWidth="true" maxWidth="450.0" minWidth="250.0" styleClass="layout-scroll">
+               <content>
+                  <VBox styleClass="left-scroll-content">
+                     <children>
+                        <VBox styleClass="left-content" VBox.vgrow="ALWAYS" fx:id="leftContent" />
+                     </children></VBox>
+               </content>
+            </ScrollPane>
+            <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="layout-scroll">
+               <content>
+                  <VBox styleClass="center-scroll-content">
+                     <children>
+                        <VBox styleClass="center-content" VBox.vgrow="ALWAYS" fx:id="centerContent">
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="0.0" right="15.0" top="15.0" />
+                           </VBox.margin></VBox>
+                     </children></VBox>
+               </content>
+            </ScrollPane>
+         </items>
+      </SplitPane>
+   </children>
+</VBox>

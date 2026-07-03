@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox stylesheets="org/gitgud/styles/style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gitgud.application.stage.CommitAreaFxmlController">
+   <children>
+      <VBox styleClass="margin-all">
+         <children>
+	        <HBox fx:id="hbCommitterInfoLeft" VBox.vgrow="ALWAYS" />
+	        <HBox fx:id="hbCommitterInfoRight" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+      <VBox>
+         <children>
+            <HBox styleClass="margin-top">
+		       <children>
+		          <Label styleClass="commit-area-message-title" text="%label.commit.message" HBox.hgrow="ALWAYS" />
+		          <Region HBox.hgrow="ALWAYS" />
+		       </children>
+		    </HBox>
+            <HBox styleClass="margin-bottom">
+               <children>
+                  <TextArea fx:id="taCommit" prefHeight="100.0" prefWidth="200.0" styleClass="commit-area-message-text" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <VBox VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox styleClass="commit-buttons-bar">
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <CheckBox fx:id="chkAmend" styleClass="commit-area-chkamend" text="%label.commit.chkbox.amend" />
+                        <Region prefWidth="15.0" />
+                        <Button fx:id="btnCommit" styleClass="commit-button" mnemonicParsing="false" text="%label.commit.button.commit" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

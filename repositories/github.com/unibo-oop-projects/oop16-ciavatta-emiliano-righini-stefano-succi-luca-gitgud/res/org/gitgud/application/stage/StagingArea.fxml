@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox stylesheets="org/gitgud/styles/style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gitgud.application.stage.StagingAreaFxmlController">
+   <children>
+      <HBox>
+         <children>
+            <Label styleClass="stage-title" text="%label.stage.area" HBox.hgrow="ALWAYS">
+               
+	               <graphic>
+	                <HBox styleClass="stage-icon">
+	                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+	                     <image>
+	                        <Image url="org/gitgud/icons/dark/stage.png" />
+	                     </image>
+	                  </ImageView>
+	                </HBox>
+	               </graphic>
+               
+            </Label>
+         </children>
+      </HBox>
+      <VBox styleClass="stage-sector" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox fx:id="hbSectorHeaderBar" styleClass="stage-sector-header-bar">
+               <children>
+                  <Label fx:id="lUntracked" styleClass="stage-sector-title" text="">
+                  	<graphic>
+	                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+	                     <image>
+	                        <Image url="org/gitgud/icons/folder.png" />
+	                     </image>
+	                  </ImageView>
+	               </graphic>
+	              </Label>
+	              <Region prefWidth="10.0" />
+	              <Button fx:id="btnAddAllUntracked" mnemonicParsing="false" styleClass="stage-button-green" text="%label.stage.button.addall" HBox.hgrow="ALWAYS" />
+	              <Region prefWidth="10.0" />
+                  <Button fx:id="btnCleanAllUntracked" mnemonicParsing="false" styleClass="stage-button-red" text="%label.stage.button.cleanall" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <VBox VBox.vgrow="ALWAYS">
+               <children>
+                  <ScrollPane fx:id="spUntracked" prefHeight="200.0" styleClass="stage-files-container" VBox.vgrow="ALWAYS">
+                     <content>
+                        <VBox fx:id="vbUntracked" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox styleClass="stage-sector" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox fx:id="hbSectorHeaderBar" styleClass="stage-sector-header-bar">
+               <children>
+                  <Label fx:id="lNotStaged" styleClass="stage-sector-title" text="">
+                  	<graphic>
+	                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+	                     <image>
+	                        <Image url="org/gitgud/icons/error.png" />
+	                     </image>
+	                  </ImageView>
+	               </graphic>
+	              </Label>
+	              <Region prefWidth="10.0" />
+	              <Button fx:id="btnAddAllNotStaged" mnemonicParsing="false" styleClass="stage-button-green" text="%label.stage.button.addall" HBox.hgrow="ALWAYS" />
+	              <Region prefWidth="10.0" />
+                  <Button fx:id="btnRemoveAllNotStaged" mnemonicParsing="false" styleClass="stage-button-yellow" text="%label.stage.button.removeall" HBox.hgrow="ALWAYS" />
+                  <Region prefWidth="10.0" />
+                  <Button fx:id="btnDeleteAllNotStaged" mnemonicParsing="false" styleClass="stage-button-red" text="%label.stage.button.deleteall" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <VBox VBox.vgrow="ALWAYS">
+               <children>
+                  <ScrollPane fx:id="spNotStaged" prefHeight="200.0" styleClass="stage-files-container" VBox.vgrow="ALWAYS">
+                     <content>
+                        <VBox fx:id="vbNotStaged" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox styleClass="stage-sector" VBox.vgrow="ALWAYS">
+         <children>
+             <HBox fx:id="hbSectorHeaderBar" styleClass="stage-sector-header-bar">
+               <children>
+                  <Label fx:id="lStaged" styleClass="stage-sector-title" text="">
+                  	<graphic>
+	                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+	                     <image>
+	                        <Image url="org/gitgud/icons/success.png" />
+	                     </image>
+	                  </ImageView>
+	               </graphic>
+	              </Label>
+	              <Region prefWidth="10.0" />
+	              <Button fx:id="btnRemoveAllStaged" mnemonicParsing="false" styleClass="stage-button-yellow" text="%label.stage.button.removeall" HBox.hgrow="ALWAYS" />
+	              <Region prefWidth="10.0" />
+                  <Button fx:id="btnDeleteAllStaged" mnemonicParsing="false" styleClass="stage-button-red" text="%label.stage.button.deleteall" HBox.hgrow="ALWAYS" />
+                  <Region prefWidth="10.0" />
+                  <Button fx:id="btnResetAllStaged" mnemonicParsing="false" styleClass="stage-button-blue" text="%label.stage.button.resetall" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <VBox VBox.vgrow="ALWAYS">
+               <children>
+                  <ScrollPane fx:id="spStaged" prefHeight="200.0" styleClass="stage-files-container" VBox.vgrow="ALWAYS">
+                     <content>
+                        <VBox fx:id="vbStaged" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

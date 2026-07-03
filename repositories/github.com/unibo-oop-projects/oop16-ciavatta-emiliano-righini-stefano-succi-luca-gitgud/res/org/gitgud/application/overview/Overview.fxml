@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox styleClass="overview-container" stylesheets="org/gitgud/styles/style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gitgud.application.overview.OverviewFxmlController">
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" styleClass="overview-scroll-container" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox styleClass="overview-scroll-content">
+               <children>
+                  <VBox styleClass="overview-scroll-content-header">
+                     <children>
+                        <HBox styleClass="overview-repository-name">
+                           <children>
+                              <Label fx:id="lRepositoryName" text="%overview.repository.noname">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+	                                    <image>
+		                                    <Image url="org/gitgud/icons/colored/folder.png" />
+		                                 </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox styleClass="overview-navigation">
+                           <children>
+                              <Label text="%overview.navigation.label" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox styleClass="overview-tab" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox onMouseClicked="#toggleGroup" styleClass="overview-tab-header,closed" fx:id="branchTabHeader">
+                           <children>
+                              <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="org/gitgud/icons/light/branch.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label styleClass="overview-tab-header-title" text="%titledpane.branches" />
+                           </children>
+                        </HBox>
+                        <VBox fx:id="branchesTabContent" minHeight="-Infinity" styleClass="overview-tab-content" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="overview-tab" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox onMouseClicked="#toggleGroup" styleClass="overview-tab-header,closed" fx:id="remoteTabHeader">
+                           <children>
+                              <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="org/gitgud/icons/light/remote.png" />
+                                 </image>
+                              </ImageView>
+                              <Label styleClass="overview-tab-header-title" text="%titledpane.remotes" />
+                           </children>
+                        </HBox>
+                        <VBox fx:id="remotesTabContent" minHeight="-Infinity" styleClass="overview-tab-content" />
+                     </children>
+                  </VBox>
+                  <VBox styleClass="overview-tab" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox onMouseClicked="#toggleGroup" styleClass="overview-tab-header,closed" fx:id="tagTabHeader">
+                           <children>
+                              <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="org/gitgud/icons/light/tag.png" />
+                                 </image>
+                              </ImageView>
+                              <Label styleClass="overview-tab-header-title" text="%titledpane.tags" />
+                           </children>
+                        </HBox>
+                        <VBox fx:id="tagsTabContent" minHeight="-Infinity" styleClass="overview-tab-content" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

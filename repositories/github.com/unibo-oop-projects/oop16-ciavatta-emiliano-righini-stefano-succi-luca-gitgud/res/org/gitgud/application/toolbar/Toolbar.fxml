@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+
+<HBox prefHeight="400.0" prefWidth="600.0" styleClass="frame" stylesheets="org/gitgud/styles/style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gitgud.application.toolbar.ToolbarFxmlController">
+   <children>
+      <HBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0">
+      	<children>
+      		<Button mnemonicParsing="false" onAction="#onRepositoryAction" styleClass="toolbar-action-button" text="Repository">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/repository.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+
+            <Button mnemonicParsing="false" onAction="#onMergeModeAction" styleClass="toolbar-action-button" text="Merge Mode">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/merge-mode.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+
+      <Region HBox.hgrow="ALWAYS" />
+
+      <HBox>
+         <children>
+			<Button mnemonicParsing="false" onAction="#onStageAction" styleClass="toolbar-action-button" text="Stage">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/stage.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+
+            <Button mnemonicParsing="false" onAction="#onLogAction" styleClass="toolbar-action-button" text="Log">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/log.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+
+            <Button mnemonicParsing="false" onAction="#onDiffAction" styleClass="toolbar-action-button" text="Diff">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/diff.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+
+            <Pane prefWidth="2.0" styleClass="toolbar-action-separator" />
+
+            <Button mnemonicParsing="false" onAction="#onBranchAction" styleClass="toolbar-action-button" text="Branch">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/branch.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+
+            <Button mnemonicParsing="false" onAction="#onRemoteAction" styleClass="toolbar-action-button" text="Remote">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/remote.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+
+            <Button mnemonicParsing="false" onAction="#onTagAction" styleClass="toolbar-action-button" text="Tag">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/tag.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+
+            <Pane prefWidth="2.0" styleClass="toolbar-action-separator" />
+
+            <Button mnemonicParsing="false" onAction="#onRebaseAction" styleClass="toolbar-action-button" text="Rebase">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/rebase.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+
+            <Button mnemonicParsing="false" onAction="#onStashAction" styleClass="toolbar-action-button" text="Stash">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/stash.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+
+            <Pane prefWidth="2.0" styleClass="toolbar-action-separator" />
+
+            <Button mnemonicParsing="false" onAction="#onPushAction" styleClass="toolbar-action-button" text="Push">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/push.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+
+            <Button mnemonicParsing="false" onAction="#onPullAction" styleClass="toolbar-action-button" text="Pull">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/pull.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+
+      <Region HBox.hgrow="ALWAYS" />
+
+      <HBox alignment="TOP_RIGHT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0">
+         <children>
+         	<Button mnemonicParsing="false" onAction="#onUserAction" styleClass="toolbar-action-button" text="User">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/user.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+
+            <Button mnemonicParsing="false" onAction="#onSettingsAction" styleClass="toolbar-action-button" text="Settings">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/settings.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</HBox>

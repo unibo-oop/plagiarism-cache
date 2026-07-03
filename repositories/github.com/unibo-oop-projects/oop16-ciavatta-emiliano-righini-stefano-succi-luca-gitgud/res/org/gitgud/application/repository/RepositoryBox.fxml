@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane prefHeight="900.0" prefWidth="1250.0" styleClass="overlay,frame" stylesheets="org/gitgud/styles/style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gitgud.application.repository.RepositoryBoxFxmlController">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="box,repository-box">
+         <children>
+            <HBox prefHeight="400.0" styleClass="box-wrapper" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox prefWidth="200.0" styleClass="sidebar">
+                     <children>
+                        <Region prefHeight="50.0" prefWidth="200.0" styleClass="dark-region" />
+                        <Label styleClass="sector-title" text="%label.repository.operations" />
+                        <Button fx:id="btnSectionOpen" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" onAction="#btnChangeSectionOnCommand" styleClass="sector-button,active" text="%label.repository.open" />
+                        <Button fx:id="btnSectionClone" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" onAction="#btnChangeSectionOnCommand" styleClass="sector-button" text="%label.repository.clone" />
+                        <Button fx:id="btnSectionInit" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" onAction="#btnChangeSectionOnCommand" styleClass="sector-button" text="%label.repository.init" />
+                     </children></VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" styleClass="box-container" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" styleClass="topbar">
+                           <children>
+                              <Label text="%label.repository.title" />
+                              <Region prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                              <Button mnemonicParsing="false" onAction="#btnCloseOnAction" styleClass="btn-close" text="%button.repository.close">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin></Button>
+                           </children>
+                        </HBox>
+                        <VBox fx:id="paneContainer" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <VBox fx:id="errorSection" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label />
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="section" />
+                                    <String fx:value="error-section" />
+                                 </styleClass>
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox fx:id="progressSection" prefHeight="200.0" prefWidth="100.0" styleClass="section">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label styleClass="text-field-title" text="%label.cloning.title" />
+                                          <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                          <Label fx:id="lCurrentOperation" styleClass="progress-text" text="%label.cloning.current.operation" />
+                                       </children>
+                                    </HBox>
+                                    <ProgressBar fx:id="pbCloningProgress" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" progress="0.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </ProgressBar>
+                                    <Label styleClass="section-description" text="%label.cloning.stop.message" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox fx:id="openSection" prefHeight="100.0" prefWidth="200.0" styleClass="section">
+                                 <children>
+                                    <Label styleClass="text-field-title" text="%label.repository.repository" />
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="tfRepository" HBox.hgrow="ALWAYS">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <Button styleClass="btn-bigger,btn-secondary" fx:id="btnBrowseRepository" mnemonicParsing="false" onAction="#btnBrowseOnCommand" text="%button.repository.browse" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" styleClass="btn-action">
+                                       <children>
+                                          <Button styleClass="btn-biggest,btn-primary" mnemonicParsing="false" onAction="#btnOpenOnCommand" text="%button.repository.open" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="40.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox fx:id="cloneSection" prefHeight="100.0" prefWidth="200.0" styleClass="section">
+                                 <children>
+                                    <Label styleClass="text-field-title" text="%label.repository.url" />
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="tfUrl" HBox.hgrow="ALWAYS">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <Button fx:id="btnPasteUrl" styleClass="btn-bigger,btn-secondary" mnemonicParsing="false" onAction="#btnPasteOnCommand" text="%button.repository.paste" />
+                                       </children>
+                                    </HBox>
+                                    <Label styleClass="text-field-title" text="%label.repository.destination">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin></Label>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="tfDestination" HBox.hgrow="ALWAYS">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <Button styleClass="btn-bigger,btn-secondary" fx:id="btnBrowseDestination" mnemonicParsing="false" onAction="#btnBrowseOnCommand" text="%button.repository.browse" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label styleClass="text-field-title,horizontal" text="%label.repository.username" />
+                                          <TextField fx:id="tfUsername" promptText="%prompt.repository.field.optional" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label styleClass="text-field-title,horizontal" text="%label.repository.password" />
+                                          <TextField fx:id="tfPassword" promptText="%prompt.repository.field.optional" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" styleClass="btn-action">
+                                       <children>
+                                          <Button styleClass="btn-biggest,btn-primary" mnemonicParsing="false" onAction="#btnCloneOnCommand" text="%button.repository.clone" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="40.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox fx:id="initSection" prefHeight="100.0" prefWidth="200.0" styleClass="section">
+                                 <children>
+                                    <Label styleClass="text-field-title" text="%label.repository.path" />
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="tfPath" HBox.hgrow="ALWAYS">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <Button styleClass="btn-bigger,btn-secondary" fx:id="btnBrowsePath" mnemonicParsing="false" onAction="#btnBrowseOnCommand" text="%button.repository.browse" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label styleClass="text-field-title,horizontal" text="%label.repository.gitignore" />
+                                          <TextField fx:id="tfGitignore" promptText="%prompt.repository.field.optional" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label styleClass="text-field-title,horizontal" text="%label.repository.license" />
+                                          <TextField fx:id="tfLicense" promptText="%prompt.repository.field.optional" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" styleClass="btn-action">
+                                       <children>
+                                          <Button styleClass="btn-biggest,btn-primary" mnemonicParsing="false" onAction="#btnInitOnCommand" text="%button.repository.init" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="40.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children></VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

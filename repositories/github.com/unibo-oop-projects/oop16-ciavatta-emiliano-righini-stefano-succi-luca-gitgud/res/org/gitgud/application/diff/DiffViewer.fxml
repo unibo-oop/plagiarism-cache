@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox styleClass="diff-viewer-container" stylesheets="org/gitgud/styles/style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gitgud.application.diff.DiffViewerFxmlController">
+   <children>
+      <HBox>
+         <children>
+            <Label styleClass="layout-main-title" text="%diff.file.differences">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/dark/diff.png" />
+                     </image></ImageView>
+               </graphic>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#onIgnoreWhiteSpace" styleClass="layout-main-action-button">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/light/whitespace.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Ignore white space" />
+               </tooltip>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onIgnoreFirstLineChar" styleClass="layout-main-action-button">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                  	 <image>
+                        <Image url="org/gitgud/icons/light/first-char.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Ignore first line char" />
+               </tooltip>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox fx:id="fileInfoContainer" alignment="CENTER_LEFT" styleClass="diff-file-header">
+         <children>
+            <Label fx:id="fileName" styleClass="diff-file-name">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic></Label>
+            <HBox fx:id="additionalsInfoContainer" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="additionalsInfo" styleClass="diff-additional-info">
+                     <HBox.margin>
+                        <Insets left="5.0" right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <HBox fx:id="changeTypeContainer" alignment="CENTER_LEFT" />
+               </children>
+            </HBox>
+            <Label fx:id="linesAdded" styleClass="diff-lines-added" wrapText="true" />
+            <Label fx:id="linesRemoved" styleClass="diff-lines-removed" wrapText="true">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin></Label>
+         </children>
+      </HBox>
+      <VBox fx:id="diffContainer" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </VBox>
+      <VBox fx:id="oldBinaryImageViewer">
+         <children>
+            <HBox styleClass="hunk-header">
+               <children>
+                  <Label text="Old image" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#onSaveOldBinaryImage" styleClass="hunk-header-button">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="org/gitgud/icons/dark/save.png" />
+                           </image></ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <ScrollPane fx:id="oldBinaryImageViewerScroll" VBox.vgrow="ALWAYS">
+               <content>
+                  <VBox fx:id="oldBinaryImageViewerContainer" prefHeight="200.0" styleClass="diff-binary-container" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      <VBox fx:id="newBinaryImageViewer">
+         <children>
+            <HBox styleClass="hunk-header">
+               <children>
+                  <Label text="New image" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#onSaveNewBinaryImage" styleClass="hunk-header-button">
+                     <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="org/gitgud/icons/dark/save.png" />
+                           </image></ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <ScrollPane fx:id="newBinaryImageViewerScroll" VBox.vgrow="ALWAYS">
+               <content>
+                  <VBox fx:id="newBinaryImageViewerContainer" prefHeight="200.0" styleClass="diff-binary-container" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</VBox>

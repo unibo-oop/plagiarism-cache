@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="800.0" prefWidth="1200.0" styleClass="body-container"
+	stylesheets="org/gitgud/styles/style.css" xmlns="http://javafx.com/javafx/8.0.111"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<VBox prefHeight="40.0" styleClass="toolbar-wrapper" fx:id="toolbarWrapper" />
+		<SplitPane dividerPositions="0.3" VBox.vgrow="ALWAYS">
+			<items>
+				<VBox maxWidth="300.0" minWidth="150.0" styleClass="overview-wrapper"
+					fx:id="overviewWrapper" />
+				<VBox styleClass="main-wrapper" fx:id="mainWrapper" />
+			</items>
+		</SplitPane>
+	</children>
+</VBox>

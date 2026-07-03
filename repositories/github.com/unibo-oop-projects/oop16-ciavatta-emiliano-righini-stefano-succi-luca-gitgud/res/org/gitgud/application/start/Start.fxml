@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefWidth="400.0" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets top="40.0" />
+         </VBox.margin>
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="80.0">
+               <children>
+                  <Label alignment="TOP_LEFT" text="Hi my friend!" />
+                  <Label text="Here some tips for getting started to use GitGud. Are you ready?" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label text="1. Choose a repository first of all. You can:" />
+                  <Label text="Clone a repository" />
+                  <Label text="Open an existing repository" />
+                  <Label text="Init a new repository" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

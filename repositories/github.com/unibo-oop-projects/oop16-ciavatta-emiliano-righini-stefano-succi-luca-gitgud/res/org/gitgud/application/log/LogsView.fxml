@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="mainVbox" stylesheets="org/gitgud/styles/style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.gitgud.application.log.LogsFxmlController">
+   <children>
+      <HBox styleClass="log-title">
+         <children>
+            <Label text="%logs.graph.view">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="org/gitgud/icons/dark/logs.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Label>
+         </children>
+      </HBox>
+      <HBox>
+         <children>
+            <VBox fx:id="canvasVbox" />
+            <VBox fx:id="logVbox" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <HBox fx:id="bottom" alignment="CENTER" onMouseClicked="#onPrintMore" styleClass="log-bottom-line">
+         <children>
+            <Label alignment="CENTER" text="%logs.print.more" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
