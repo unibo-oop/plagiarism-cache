@@ -1,0 +1,170 @@
+/*
+ *	Apply google Roboto font to all UI components 
+ */
+
+
+.side-menu{
+	-fx-padding: 20.0,10.0;
+	-fx-font-size: 15.0;
+	-fx-font-weight: NORMAL;
+	-fx-text-fill: #444;
+}
+
+.jfx-slider{
+	-jfx-indicator-position: RIGHT;
+}
+                                                                          
+/* JFX Hamburger Icon */                                                         
+
+
+.jfx-hamburger{
+	-fx-padding: 10.0;
+	-fx-spacing: 4px;
+	-fx-cursor: hand;
+}
+
+.jfx-hamburger StackPane{
+	-fx-pref-width: 30px;
+	-fx-pref-height: 4px;
+	-fx-background-color: #FFF ;
+	-fx-background-radius: 5px;	
+}
+
+/* JFX ToolBar Hamburger Container      */
+
+.jfx-tool-bar{
+	-fx-font-size: 20.0;
+	-fx-font-weight: BOLD;
+	-fx-background-color: #5bae52;
+	-fx-pref-width: 100.0%;
+	-fx-pref-height: 64.0px;
+}
+
+.jfx-tool-bar HBox {
+	-fx-alignment:center;
+	-fx-spacing: 25.0;
+	-fx-padding: 0.0 10.0;
+}
+
+.jfx-tool-bar Label{
+	-fx-text-fill: WHITE;
+}
+
+.jfx-tool-bar .jfx-options-burger{
+	-fx-padding: 22px;
+}
+.jfx-tool-bar .jfx-options-burger StackPane{
+	-fx-pref-width:4px;
+}
+
+/* JFX Rippler (Hamburger Blink) */    
+ 
+.jfx-tool-bar .jfx-rippler {
+	-jfx-rippler-fill: WHITE;
+}
+
+/* Side Menu List */
+.option-list-view {
+  	-fx-pref-width: 160.0px;
+  	-fx-background-color: WHITE ;
+}
+
+/* POPUP ICON COLOR */
+
+.option-jfx-list-view-icon {
+	-fx-text-fill: #2ea510;
+	-fx-padding: 0.0 10.0 0.0 5.0 ;
+	-fx-cursor: hand;
+}
+
+
+.jfx-list-cell {
+	-fx-background-insets: 0.0 ; 
+	-fx-text-fill: BLACK; 
+}
+.jfx-list-cell:odd, 
+.jfx-list-cell:even {
+	-fx-background-color:  WHITE;
+}
+.jfx-list-cell:filled:hover,
+.jfx-list-cell:selected .label{
+	-fx-text-fill: black;
+}
+
+.jfx-list-cell .jfx-rippler {
+	-jfx-rippler-fill: #2ea510;
+}
+
+.jfx-list-cell:odd:selected > .jfx-rippler > StackPane,
+.jfx-list-cell:even:selected > .jfx-rippler > StackPane{ 
+	-fx-background-color: rgba(26,255,0,0.2);
+}
+
+.jfx-list-view {
+	-fx-background-insets: 0.0;
+  	-jfx-cell-horizontal-margin: 0.0;
+  	-jfx-cell-vertical-margin: 5.0;
+  	-jfx-vertical-gap : 10.0;
+  	-jfx-expanded : false;
+}
+
+.custom-jfx-list-view .jfx-list-cell:odd:selected > .jfx-rippler > StackPane,
+.custom-jfx-list-view .jfx-list-cell:even:selected > .jfx-rippler > StackPane{ 
+	-fx-background-color: rgba(255,0,0,0.2) ;
+}
+
+.custom-jfx-list-view{
+	-fx-background-insets: 0.0;
+  	-jfx-cell-horizontal-margin: 0.0;
+  	-jfx-cell-vertical-margin: 5.0;
+  	-jfx-expanded : false;
+  	-fx-max-width : 200.0px;   	
+  	-fx-background-color:TRANSPARENT;
+}
+.custom-jfx-list-view .jfx-rippler {
+	-jfx-rippler-fill : RED;
+}
+
+.custom-jfx-list-view1{
+	-jfx-vertical-gap : 10.0;
+  	-fx-pref-width: 150px;
+  	-fx-background-color: transparent ;
+}
+
+.custom-jfx-list-view-icon,
+.jfx-list-cell:selected .label .custom-jfx-list-view-icon {
+	-fx-text-fill: #5264AE;
+	-fx-padding: 0.0 10.0 0.0 5.0  ;
+	-fx-cursor: hand;
+}
+.custom-jfx-list-view-icon-container{
+	-fx-pref-width:40px;
+}
+
+
+.custom-jfx-list-view .sublist-item {
+	-fx-border-color: #e0e0e0;
+	-fx-border-width: 1 0 1 0;
+}
+
+.custom-jfx-list-view .jfx-list-cell .sublist-header > .drop-icon{
+	-fx-background-color: GRAY;
+}
+.custom-jfx-list-view .jfx-list-cell:filled:hover .sublist-header > .drop-icon{
+	-fx-background-color: BLACK;
+}
+
+
+/* Decorator (Window) */
+
+.jfx-decorator {
+	-fx-decorator-color: derive(#366031,-20%);
+}
+.jfx-decorator .jfx-decorator-buttons-container{
+	-fx-background-color:-fx-decorator-color;
+}
+.jfx-decorator .resize-border{
+	-fx-border-color:-fx-decorator-color;
+	-fx-border-width: 0 4 4 4;
+}
+

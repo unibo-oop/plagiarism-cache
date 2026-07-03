@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="254.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="280.0" prefWidth="578.0">
+         <children>
+            <JFXSlider fx:id="lightIntensity">
+               <HBox.margin>
+                  <Insets left="31.0" />
+               </HBox.margin>
+            </JFXSlider>
+         </children>
+         <StackPane.margin>
+            <Insets left="10.0" />
+         </StackPane.margin>
+      </HBox>
+      <Label text="Intensità Luce" StackPane.alignment="CENTER_LEFT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="47.0" top="-91.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Luce Specchio" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="1.0" right="54.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Luce Principale" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="45.0" top="91.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Serranda" StackPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="-112.0" left="316.0" right="85.0" top="8.0" />
+         </StackPane.margin>
+      </Label>
+      <JFXButton fx:id="mirrorLightOn" buttonType="RAISED" ripplerFill="#47ab2c" style="-fx-background-color: WHITE;" text="Accendi" StackPane.alignment="TOP_CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="230.0" top="41.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXButton fx:id="mirrorLightOff" buttonType="RAISED" ripplerFill="#e43222" style="-fx-background-color: WHITE;" text="Spegni" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="11.0" top="41.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXButton fx:id="mainLightOn" buttonType="RAISED" ripplerFill="#47ab2c" style="-fx-background-color: WHITE;" text="Accendi" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="98.0" top="130.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXButton fx:id="mainLightOff" buttonType="RAISED" ripplerFill="#e43222" style="-fx-background-color: WHITE;" text="Spegni" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="11.0" top="130.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXButton fx:id="openShutter" buttonType="RAISED" style="-fx-background-color: WHITE;" text="Apri" StackPane.alignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="-200.0" left="209.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXButton fx:id="closeShutter" buttonType="RAISED" style="-fx-background-color: WHITE;" text="Chiudi" StackPane.alignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="-200.0" left="412.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXToggleButton fx:id="mainSwitch" text="On" toggleColor="#0a8f00" toggleLineColor="#3db96a" unToggleLineColor="#b51212" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="66.0" top="25.0" />
+         </StackPane.margin>
+      </JFXToggleButton>
+      <Label text="Generale" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="57.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Off" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="45.0" top="44.0" />
+         </StackPane.margin>
+      </Label>
+   </children>
+</StackPane>

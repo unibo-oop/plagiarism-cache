@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="254.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="226.0">
+         <children>
+            <JFXSlider fx:id="bulbDimmer" style="-fx-indicator-position: RIGHT;">
+               <HBox.margin>
+                  <Insets left="17.0" top="10.0" />
+               </HBox.margin>
+            </JFXSlider>
+         </children>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+      </HBox>
+      <Label text="Luce TV" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="138.0" top="50.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Luce Cucina" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="105.0" top="125.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Serranda" StackPane.alignment="BOTTOM_RIGHT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="40.0" right="129.0" />
+         </StackPane.margin>
+      </Label>
+      <JFXButton fx:id="turnOnCeiling" alignment="TOP_RIGHT" buttonType="RAISED" ripplerFill="#7ddd57" style="-fx-background-color: WHITE;" text="Accendi" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="112.0" top="10.0" />
+         </StackPane.margin>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="turnOffCeiling" buttonType="RAISED" ripplerFill="#da3434" style="-fx-background-color: White;" text="Spegni" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="10.0" top="10.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXButton fx:id="turnOnTVLight" buttonType="RAISED" ripplerFill="#7ddd57" style="-fx-background-color: WHITE;" text="Accendi" StackPane.alignment="TOP_CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="-204.0" top="83.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXButton fx:id="turnOffTVLight" buttonType="RAISED" ripplerFill="#da3434" style="-fx-background-color: WHITE;" text="Spegni">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="9.0" right="-408.0" top="-57.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXButton fx:id="turnOnKitchen" buttonType="RAISED" ripplerFill="#7ddd57" style="-fx-background-color: WHITE;" text="Accendi">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="204.0" top="81.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXButton fx:id="turnOffKitchen" buttonType="RAISED" ripplerFill="#da3434" style="-fx-background-color: WHITE;" text="Spegni">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="418.0" top="81.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXButton fx:id="openShutter" buttonType="RAISED" style="-fx-background-color: WHITE;" text="Apri" StackPane.alignment="BOTTOM_CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="183.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXButton fx:id="closeShutter" buttonType="RAISED" style="-fx-background-color: WHITE;" text="Chiudi" StackPane.alignment="BOTTOM_CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="418.0" />
+         </StackPane.margin>
+      </JFXButton>
+      <JFXToggleButton fx:id="generalPower" prefHeight="83.0" prefWidth="191.0" text=" " toggleColor="#5cd934" unToggleLineColor="#da3434" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets left="-19.0" top="-160.0" />
+         </StackPane.margin>
+      </JFXToggleButton>
+      <Label text="Intensità Luce " StackPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <StackPane.margin>
+            <Insets bottom="52.0" left="-325.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Generale" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="25.0" top="-32.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="off" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="10.0" right="5.0" top="39.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="on" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="118.0" top="39.0" />
+         </StackPane.margin>
+      </Label>
+      <Label text="Luce Primaria" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="89.0" top="-28.0" />
+         </StackPane.margin>
+      </Label>
+   </children>
+</StackPane>
