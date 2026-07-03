@@ -1,0 +1,50 @@
+package view.scenes.game;
+
+import javafx.stage.Stage;
+import view.ViewImpl;
+import view.pawn.AvailableColor;
+import view.pawn.PawnsColor;
+
+/**
+ * It manages the tool bar shown in the screen in a single player game.
+ */
+public class SinglePlayerToolbar  extends ToolbarImpl {
+
+    private static final String CPU = " CPU";
+
+    private void setPlayers() {
+        this.getPawnList().get(SinglePlayerGame.getUserIndex()).getSecond().setText(ViewImpl.getUsername());
+        this.getPawnList().get(SinglePlayerGame.getCPUIndex()).getSecond().setText(CPU);
+    }
+
+    /**
+     * It updates the language of the elements of this class.
+     */
+    public void updateLanguage() {
+        super.updateLanguage();
+        this.setPlayers();
+    }
+
+    /**
+     * Getter of the box' s width.
+     * @return
+     *     The width of the box
+     */
+    public static double getBoxWidth() {
+        return ToolbarImpl.getBoxWidth();
+    }
+
+    /**
+     * It links the stage that contains the game scene to the one of this class.
+     * @param stage
+     *     The stage to link
+     */
+    public static void setStage(final Stage stage) {
+        ToolbarImpl.setStage(stage);
+    }
+
+    @Override
+    protected AvailableColor getColorFromMode(final int i) {
+        return PawnsColor.get().getSingleColor(i);
+    }
+}
