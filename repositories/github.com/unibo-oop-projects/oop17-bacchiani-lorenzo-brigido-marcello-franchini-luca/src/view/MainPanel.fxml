@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="1322.0" style="-fx-background-color: #0099ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.MainPanelController">
+   <children>
+      <Label layoutX="332.0" layoutY="-94.0" prefHeight="263.0" prefWidth="710.0" text="HOSPITAL MANAGER" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="60" />
+         </font>
+         <effect>
+            <DropShadow color="WHITE" spread="0.91" />
+         </effect>
+      </Label>
+      <JFXButton fx:id="btnAccessoMedici" layoutX="86.0" layoutY="302.0" onAction="#btnOnClickHandler" prefHeight="68.0" prefWidth="228.0" style="-fx-background-color: #ff0000;" text="PERSONAL LOGIN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView layoutX="88.0" layoutY="320.0">
+         <image>
+            <Image url="@../../res/dati/Croce.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnAreaPazienti" layoutX="86.0" layoutY="516.0" onAction="#btnOnClickHandlerP" prefHeight="62.0" prefWidth="229.0" style="-fx-background-color: #ff0000;" text="   PATIENT INFORMATION" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView layoutX="86.0" layoutY="534.0">
+         <image>
+            <Image url="@../../res/dati/Croce.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="25.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login to your personal account to access all available features" wrappingWidth="353.99999513477087">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="24.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Simply read all the information about the patients" wrappingWidth="380.99999513477087">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Text>
+      <Label layoutX="547.0" layoutY="45.0" prefHeight="111.0" prefWidth="600.0" text="HOMEPAGE" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="41.0" />
+         </font>
+         <effect>
+            <DropShadow color="WHITE" spread="0.91" />
+         </effect>
+      </Label>
+      <Hyperlink fx:id="hAboutUs" layoutX="10.0" layoutY="621.0" onAction="#hlAboutUs" style="-fx-background-color: #00ff;" text="ABOUT US">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <ImageView fitHeight="458.0" fitWidth="962.0" layoutX="414.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/dati/homepage.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="252.0" fitWidth="277.0" layoutX="1022.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/dati/IconaH2.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="341.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;The best manager for hospitals on the market&quot;" wrappingWidth="900.9999951347709">
+         <font>
+            <Font name="System Bold Italic" size="30.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

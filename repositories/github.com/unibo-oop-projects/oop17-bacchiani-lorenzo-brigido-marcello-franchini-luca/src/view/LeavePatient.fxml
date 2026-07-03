@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="598.0" prefWidth="842.0" style="-fx-background-color: #0099ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.LeavePatientController">
+   <center>
+      <HBox alignment="CENTER" prefHeight="337.0" prefWidth="706.0" style="-fx-background-color: #0099ff;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane maxHeight="506.0" maxWidth="1000.0" minHeight="200.0" minWidth="350.0" prefHeight="506.0" prefWidth="735.0">
+               <children>
+                  <JFXButton fx:id="btnConfirm" layoutX="22.0" layoutY="433.0" onAction="#btnOnConfirm" prefHeight="45.0" prefWidth="253.0" style="-fx-background-color: #ff0000;" text="CONFIRM" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXComboBox fx:id="comboBoxCF" cache="true" layoutX="14.0" layoutY="103.0" prefHeight="33.0" prefWidth="272.0" promptText="FISCAL CODE PATIENT" style="-fx-background-color: #5463;">
+                     <effect>
+                        <Lighting surfaceScale="1.03">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="BLACK" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXComboBox>
+                  <Label layoutX="191.0" layoutY="-69.0" prefHeight="168.0" prefWidth="478.0" text="Leave Patient" textFill="RED">
+                     <font>
+                        <Font name="System Bold Italic" size="50.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="WHITE" spread="0.91" />
+                     </effect>
+                  </Label>
+                  <JFXDatePicker fx:id="dateOfDismiss" defaultColor="BLUE" layoutX="14.0" layoutY="221.0" prefHeight="41.0" prefWidth="276.0" />
+                  <Label layoutX="14.0" layoutY="180.0" prefHeight="62.0" prefWidth="221.0" text="Date Of Dismiss" textFill="#5e4a4a">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="textFieldReason" layoutX="14.0" layoutY="314.0" maxWidth="268.0" minWidth="268.0" prefHeight="57.0" prefWidth="268.0" promptText="Reason for dismissal" unFocusColor="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <focusColor>
+                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </RadialGradient>
+                     </focusColor>
+                  </JFXTextField>
+                  <ImageView fitHeight="454.0" fitWidth="404.0" layoutX="351.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/dati/LeavePatients.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <Hyperlink fx:id="hMenù" onAction="#hlBack" prefHeight="25.0" prefWidth="277.0" style="-fx-background-color: #00ff;" text="Back to the ManagePatient menù" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Hyperlink>
+   </bottom>
+</BorderPane>

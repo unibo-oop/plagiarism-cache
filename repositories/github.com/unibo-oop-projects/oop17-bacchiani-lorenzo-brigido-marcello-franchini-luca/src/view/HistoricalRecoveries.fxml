@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="1282.0" style="-fx-background-color: #0099ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.HistoricalRecoveriesController">
+   <children>
+      <Label layoutX="243.0" layoutY="-15.0" prefHeight="186.0" prefWidth="1000.0" text="Historical Recoveries" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="62.0" />
+         </font>
+         <effect>
+            <DropShadow color="WHITE" spread="0.91" />
+         </effect>
+      </Label>
+      <ImageView fitHeight="121.0" fitWidth="92.0" layoutX="919.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/dati/Lista.jpg" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="hMenù" layoutX="12.0" layoutY="535.0" onAction="#hlBack" style="-fx-background-color: #00ff;" text="Return to the PatientArea menù">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <TableView fx:id="tableViewHistoricalRecoveries" editable="true" layoutX="9.0" layoutY="189.0" prefHeight="325.0" prefWidth="1264.0" tableMenuButtonVisible="true">
+        <columns>
+          <TableColumn fx:id="tableViewFiscalCode" prefWidth="234.0" text="PatientFiscalCode" />
+          <TableColumn fx:id="tableViewRecoveryCode" prefWidth="152.0" text="RecoveryCode" />
+            <TableColumn fx:id="tableViewDepartment" prefWidth="173.0" text="HospitalDepartment" />
+            <TableColumn fx:id="tableViewRoom" prefWidth="92.0" text="Room" />
+            <TableColumn fx:id="tableViewBed" prefWidth="91.0" text="Bed" />
+            <TableColumn fx:id="tableViewReasonRecovery" prefWidth="304.0" text="ReasonForRecovery" />
+            <TableColumn fx:id="tableViewState" prefWidth="239.0" text="RecoveryState" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

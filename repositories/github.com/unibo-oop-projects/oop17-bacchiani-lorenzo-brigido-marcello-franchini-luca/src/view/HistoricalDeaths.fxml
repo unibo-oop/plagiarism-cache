@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="1182.0" style="-fx-background-color: #0099ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.HistoricalDeathsController">
+   <children>
+      <Label layoutX="305.0" layoutY="-15.0" prefHeight="186.0" prefWidth="572.0" text="Historical Deaths" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="50.0" />
+         </font>
+         <effect>
+            <DropShadow color="WHITE" spread="0.91" />
+         </effect>
+      </Label>
+      <ImageView fitHeight="132.0" fitWidth="97.0" layoutX="765.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/dati/Lista.jpg" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="hMenù" layoutX="18.0" layoutY="515.0" onAction="#hlBack" style="-fx-background-color: #00ff;" text="Return to the DeceasedPatients menù">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Hyperlink>
+      <TableView fx:id="tableViewHistoricalDeaths" editable="true" layoutX="19.0" layoutY="185.0" prefHeight="301.0" prefWidth="1144.0" tableMenuButtonVisible="true">
+        <columns>
+          <TableColumn fx:id="tableViewGender" prefWidth="155.0" text="Gender Identity" />
+          <TableColumn fx:id="tableViewName" prefWidth="172.0" text="Name" />
+            <TableColumn fx:id="tableViewSurname" prefWidth="166.0" text="Surname" />
+            <TableColumn fx:id="tableViewIFiscalCode" prefWidth="215.0" text="FiscalCode" />
+            <TableColumn fx:id="tableViewDateDeath" prefWidth="133.0" text="DateOfDeath" />
+            <TableColumn fx:id="tableViewReasonDeath" prefWidth="287.0" text="ReasonOfDeath" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

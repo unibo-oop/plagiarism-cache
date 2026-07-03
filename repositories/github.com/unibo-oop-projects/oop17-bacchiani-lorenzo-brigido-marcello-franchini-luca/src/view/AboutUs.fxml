@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="924.0" style="-fx-background-color: #0099ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.AboutUsController">
+   <children>
+      <AnchorPane layoutX="30.0" layoutY="55.0" prefHeight="504.0" prefWidth="860.0" style="-fx-background-color: #00ff;">
+         <children>
+            <ImageView fitHeight="384.0" fitWidth="401.0" layoutX="490.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/dati/HappyDoctor.gif" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="43.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Bacchiani Lorenzo" wrappingWidth="347.99999513477087">
+               <font>
+                  <Font name="System Italic" size="24.0" />
+               </font>
+            </Text>
+            <Label layoutX="296.0" layoutY="-45.0" prefHeight="90.0" prefWidth="600.0" text="About Us" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="62.0" />
+               </font>
+               <effect>
+                  <DropShadow color="WHITE" spread="0.91" />
+               </effect>
+            </Label>
+            <Text fill="WHITE" layoutX="22.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In alphabetical order:" wrappingWidth="347.99999513477087">
+               <font>
+                  <Font name="System Italic" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="62.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lorenzo.bacchiani@studio.unibo.it" wrappingWidth="347.99999513477087">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="62.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Target: Model - ControllerFX" wrappingWidth="347.99999513477087">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="43.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Brigido Marcello" wrappingWidth="347.99999513477087">
+               <font>
+                  <Font name="System Italic" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="62.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="marcello.brigido@studio.unibo.it" wrappingWidth="347.99999513477087">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="62.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Target: View - ControllerFX " wrappingWidth="347.99999513477087">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="43.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Franchini Luca" wrappingWidth="347.99999513477087">
+               <font>
+                  <Font name="System Italic" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="62.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="luca.franchini6@studio.unibo.it" wrappingWidth="347.99999513477087">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="62.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Target: Control - Model" wrappingWidth="347.99999513477087">
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Hyperlink fx:id="hMenù" layoutX="30.0" layoutY="585.0" onAction="#hlBack" style="-fx-background-color: #00ff;" text="Return to the HomePage">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</AnchorPane>

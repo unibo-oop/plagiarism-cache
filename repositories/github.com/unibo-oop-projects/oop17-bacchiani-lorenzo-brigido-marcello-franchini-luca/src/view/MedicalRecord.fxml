@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="654.0" prefWidth="1308.0" style="-fx-background-color: #0099ff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.MedicalRecordController">
+   <children>
+      <Label fx:id="labelPatient" layoutX="166.0" layoutY="-4.0" prefHeight="112.0" prefWidth="1200.0" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="58.0" />
+         </font>
+         <effect>
+            <DropShadow color="WHITE" spread="0.91" />
+         </effect>
+      </Label>
+      <Hyperlink fx:id="hMenù" layoutX="8.0" layoutY="614.0" onAction="#hlBack" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: #00ff;" text="Close this window">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <TableView fx:id="tableViewPersonalData" editable="true" layoutX="9.0" layoutY="125.0" prefHeight="60.0" prefWidth="1290.0" tableMenuButtonVisible="true">
+        <columns>
+            <TableColumn fx:id="tableViewGender" prefWidth="127.0" text="Gender" />
+          <TableColumn fx:id="tableViewName" prefWidth="202.0" text="Name" />
+          <TableColumn fx:id="tableViewSurname" prefWidth="156.0" text="Surname" />
+            <TableColumn fx:id="tableViewIFiscalCode" prefWidth="246.0" text="FiscalCode" />
+            <TableColumn fx:id="tableViewBirth" prefWidth="157.0" text="DateOfBirth" />
+            <TableColumn fx:id="tableViewBirthPlace" minWidth="0.0" prefWidth="193.0" text="BirthPlace" />
+            <TableColumn fx:id="tableViewRecidencyPlace" prefWidth="192.6666259765625" text="RecidencyPlace" />
+        </columns>
+      </TableView>
+      <Text fill="WHITE" layoutX="9.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- PERSONAL DATA" wrappingWidth="329.00000604987144">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableViewRecoveriesData" editable="true" layoutX="9.0" layoutY="215.0" prefHeight="150.0" prefWidth="1290.0" tableMenuButtonVisible="true">
+         <columns>
+            <TableColumn fx:id="tableViewRecoveryCode" prefWidth="152.0" text="RecoveryCode" />
+            <TableColumn fx:id="tableViewDepartment" prefWidth="342.0" text="HospitalDepartment" />
+            <TableColumn fx:id="tableViewRoom" prefWidth="114.0" text="Room" />
+            <TableColumn fx:id="tableViewBed" prefWidth="79.0" text="Bed" />
+            <TableColumn fx:id="tableViewReasonRecovery" minWidth="0.0" prefWidth="237.3333740234375" text="ReasonForRecovery" />
+            <TableColumn fx:id="tableViewStartDate" minWidth="0.0" prefWidth="157.6666259765625" text="StartDate" />
+            <TableColumn fx:id="tableViewEndDate" minWidth="0.0" prefWidth="192.6666259765625" text="EndDate" />
+         </columns>
+      </TableView>
+      <Text fill="WHITE" layoutX="9.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- RECOVERIES DATA" wrappingWidth="329.00000604987144">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableViewExamsData" editable="true" layoutX="8.0" layoutY="399.0" prefHeight="200.0" prefWidth="600.0" tableMenuButtonVisible="true">
+         <columns>
+            <TableColumn fx:id="tableViewExamDoctorFC" prefWidth="166.0" text="DoctorFiscalCode" />
+            <TableColumn fx:id="tableViewExamName" prefWidth="180.0" text="ExamName" />
+            <TableColumn fx:id="tableViewDate" prefWidth="120.0" text="Date" />
+            <TableColumn fx:id="tableViewTime" prefWidth="120.0" text="Time" />
+         </columns>
+      </TableView>
+      <Text fill="WHITE" layoutX="8.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- EXAMS DATA" wrappingWidth="329.00000604987144">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableViewMedicinesData" editable="true" layoutX="660.0" layoutY="399.0" prefHeight="200.0" prefWidth="600.0" tableMenuButtonVisible="true">
+         <columns>
+            <TableColumn fx:id="tableViewMedicineDoctorFC" prefWidth="166.0" text="DoctorFiscalCode" />
+            <TableColumn fx:id="tableViewMedicineName" prefWidth="170.0" text="MedicineName" />
+            <TableColumn fx:id="tableViewRecipeCode" prefWidth="130.0" text="RecipeCode" />
+            <TableColumn fx:id="tableViewPrice" prefWidth="110.0" text="Price" />
+         </columns>
+      </TableView>
+      <Text fill="WHITE" layoutX="660.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- PRESCRIBED MEDICINES DATA" wrappingWidth="400.00000604987144">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

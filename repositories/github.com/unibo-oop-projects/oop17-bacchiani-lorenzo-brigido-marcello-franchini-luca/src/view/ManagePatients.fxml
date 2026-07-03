@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="1114.0" style="-fx-background-color: #0099ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.ManagePatientsController">
+   <children>
+      <ImageView fitHeight="385.0" fitWidth="816.0" layoutX="284.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/dati/ManagePatients.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="359.0" layoutY="-25.0" prefHeight="164.0" prefWidth="560.0" text="Manage Patients" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="50.0" />
+         </font>
+         <effect>
+            <DropShadow color="WHITE" spread="0.91" />
+         </effect>
+      </Label>
+      <JFXButton fx:id="btnDeceasedPatient" layoutX="25.0" layoutY="493.0" onAction="#btnOnDeceasedPatients" prefHeight="45.0" prefWidth="236.0" style="-fx-background-color: #ff0000;" text="Deceased Patients" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnNewRecovery" layoutX="25.0" layoutY="239.0" onAction="#btnNewRecovery" prefHeight="45.0" prefWidth="236.0" style="-fx-background-color: #ff0000;" text="New Recovery" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnNewExam" layoutX="25.0" layoutY="322.0" onAction="#btnNewExam" prefHeight="45.0" prefWidth="236.0" style="-fx-background-color: #ff0000;" text="New Exam" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Hyperlink fx:id="hMenù" layoutX="868.0" layoutY="525.0" onAction="#hlBack" style="-fx-background-color: #00ff;" text="Return to the management menù">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Hyperlink>
+      <JFXButton fx:id="btnExamDay" layoutX="25.0" layoutY="60.0" onAction="#btnExamsOnDay" prefHeight="45.0" prefWidth="236.0" style="-fx-background-color: #ff0000;" text="Exams of the day" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnDismissPazient" layoutX="25.0" layoutY="408.0" onAction="#btnDismissPatient" prefHeight="45.0" prefWidth="236.0" style="-fx-background-color: #ff0000;" text="Leave Patient" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnNewPrescription" layoutX="25.0" layoutY="147.0" onAction="#btnNewPrescription" prefHeight="45.0" prefWidth="236.0" style="-fx-background-color: #ff0000;" text="New Prescription" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

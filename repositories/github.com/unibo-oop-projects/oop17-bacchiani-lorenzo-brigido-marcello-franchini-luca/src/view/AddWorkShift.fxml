@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="630.0" prefWidth="867.0" style="-fx-background-color: #0099ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.AddWorkShiftController">
+   <center>
+      <HBox alignment="CENTER" prefHeight="337.0" prefWidth="706.0" style="-fx-background-color: #0099ff;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane maxHeight="688.0" maxWidth="1000.0" minHeight="200.0" minWidth="350.0" prefHeight="688.0" prefWidth="956.0">
+               <children>
+                  <JFXButton fx:id="btnConfirm" layoutX="50.0" layoutY="506.0" onAction="#btnOnConfirm" prefHeight="45.0" prefWidth="253.0" style="-fx-background-color: #ff0000;" text="CONFIRM" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="240.0" layoutY="-32.0" prefHeight="168.0" prefWidth="600.0" text="Add Work Shift" textFill="RED">
+                     <font>
+                        <Font name="System Bold Italic" size="54.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="WHITE" spread="0.91" />
+                     </effect>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="256.0" prefHeight="62.0" prefWidth="221.0" text="Start Time" textFill="#5e4a4a">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="362.0" fitWidth="435.0" layoutX="393.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/dati/WorkShiftChange.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="42.0" layoutY="356.0" prefHeight="62.0" prefWidth="500.0" text="End Time" textFill="#544141">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <JFXTimePicker fx:id="selectEndTime" defaultColor="BLUE" editable="true" layoutX="41.0" layoutY="403.0" prefHeight="43.0" prefWidth="276.0" />
+                  <JFXTimePicker fx:id="selectStartTime" defaultColor="BLUE" editable="true" layoutX="39.0" layoutY="298.0" prefHeight="43.0" prefWidth="276.0" />
+                  <JFXComboBox fx:id="comboBoxDepartment" cache="true" layoutX="41.0" layoutY="204.0" prefHeight="33.0" prefWidth="272.0" promptText="HOSPITAL DEPARTMENT" style="-fx-background-color: #5463;">
+                     <effect>
+                        <Lighting surfaceScale="1.03">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="BLACK" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXComboBox>
+                  <Text fill="WHITE" layoutX="131.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter the working time and the department for the worker" wrappingWidth="667.9999951347709">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <Hyperlink fx:id="hMenù" onAction="#hlBack" prefHeight="35.0" prefWidth="264.0" style="-fx-background-color: #00ff;" text="Back to the ManageStaff menù" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="1246.0" style="-fx-background-color: #0099ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.WorkShiftsController">
+   <children>
+      <Label layoutX="459.0" layoutY="-15.0" prefHeight="186.0" prefWidth="372.0" text="Work Shifts" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="50.0" />
+         </font>
+         <effect>
+            <DropShadow color="WHITE" spread="0.91" />
+         </effect>
+      </Label>
+      <ImageView fitHeight="116.0" fitWidth="85.0" layoutX="791.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/dati/Lista.jpg" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="hMenù" layoutX="19.0" layoutY="503.0" onAction="#hlBack" style="-fx-background-color: #00ff;" text="Return to the ManageStaff menù">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <TableView fx:id="tableViewWorkShifts" editable="true" layoutX="18.0" layoutY="187.0" prefHeight="301.0" prefWidth="1214.0" tableMenuButtonVisible="true">
+        <columns>
+            <TableColumn fx:id="tableViewOccupation" prefWidth="152.0" text="Occupation" />
+          <TableColumn fx:id="tableViewName" prefWidth="137.0" text="Name" />
+            <TableColumn fx:id="tableViewSurname" prefWidth="167.0" text="Surname" />
+            <TableColumn fx:id="tableViewIFiscalCode" prefWidth="150.0" text="FiscalCode" />
+            <TableColumn fx:id="tableViewDepartment" prefWidth="154.0" text="Department" />
+            <TableColumn fx:id="tableViewStartTime" prefWidth="165.0" text="StartTime" />
+            <TableColumn fx:id="tableViewEndTime" prefWidth="137.0" text="EndTime" />
+            <TableColumn fx:id="tableViewState" prefWidth="141.0" text="State" />   
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btnChangeWorkShifts" layoutX="18.0" layoutY="134.0" onAction="#btnOnChangeWorkShifts" prefHeight="45.0" prefWidth="301.0" style="-fx-background-color: #ff0000;" text="Change The Work Shifts" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

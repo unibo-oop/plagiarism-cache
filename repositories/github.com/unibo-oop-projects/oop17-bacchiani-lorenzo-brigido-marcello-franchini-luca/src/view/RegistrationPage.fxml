@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="639.0" prefWidth="851.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.RegistrationPageController">
+   <center>
+      <HBox alignment="CENTER" prefHeight="646.0" prefWidth="851.0" style="-fx-background-color: #0099ff;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane maxHeight="506.0" maxWidth="1000.0" minHeight="200.0" minWidth="350.0" prefHeight="506.0" prefWidth="735.0">
+               <children>
+                  <JFXTextField fx:id="textFieldUser" focusColor="WHITE" layoutX="-4.0" layoutY="108.0" prefHeight="54.0" prefWidth="253.0" promptText="Username" unFocusColor="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXPasswordField fx:id="textFieldPass" focusColor="WHITE" layoutX="-5.0" layoutY="215.0" prefHeight="54.0" prefWidth="253.0" promptText="Password" unFocusColor="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </JFXPasswordField>
+                  <JFXPasswordField fx:id="textFieldRePass" focusColor="WHITE" layoutX="-5.0" layoutY="318.0" prefHeight="54.0" prefWidth="253.0" promptText="Re-Type Password" unFocusColor="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </JFXPasswordField>
+                  <JFXButton fx:id="btnSignup" layoutX="-5.0" layoutY="447.0" onAction="#btnOnSignup" prefHeight="45.0" prefWidth="253.0" style="-fx-background-color: #ff0000;" text="REGISTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="466.0" fitWidth="468.0" layoutX="295.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/dati/RegistrationPage.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="201.0" layoutY="-94.0" prefHeight="168.0" prefWidth="550.0" text="Registration" textFill="RED">
+                     <font>
+                        <Font name="System Bold Italic" size="54.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="WHITE" spread="0.91" />
+                     </effect>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

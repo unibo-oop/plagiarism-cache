@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="593.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.DeceasedPatientsController">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="851.0" style="-fx-background-color: #00ff;" BorderPane.alignment="CENTER">
+         <children>
+            <Hyperlink fx:id="hMenù" onAction="#hlBack" text="Back to the ManagePatient menù">
+               <HBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <HBox alignment="CENTER" prefHeight="656.0" prefWidth="810.0" style="-fx-background-color: #0099ff;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane maxHeight="563.0" maxWidth="1000.0" minHeight="200.0" minWidth="350.0" prefHeight="563.0" prefWidth="735.0">
+               <children>
+                  <JFXButton fx:id="btnConfirm" layoutX="36.0" layoutY="436.0" onAction="#btnOnConfirm" prefHeight="45.0" prefWidth="273.0" style="-fx-background-color: #ff0000;" text="CONFIRM" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXComboBox fx:id="comboBoxCF" cache="true" layoutX="34.0" layoutY="132.0" prefHeight="33.0" prefWidth="272.0" promptText="FISCAL CODE PATIENT" style="-fx-background-color: #5463;">
+                     <effect>
+                        <Lighting surfaceScale="1.03">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant color="BLACK" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXComboBox>
+                  <Label layoutX="154.0" layoutY="-20.0" prefHeight="168.0" prefWidth="600.0" text="Deceased Patients" textFill="RED">
+                     <font>
+                        <Font name="System Bold Italic" size="50.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="WHITE" spread="0.91" />
+                     </effect>
+                  </Label>
+                  <JFXDatePicker fx:id="dateOfDeath" defaultColor="BLUE" layoutX="36.0" layoutY="250.0" prefHeight="41.0" prefWidth="271.0" />
+                  <Label layoutX="33.0" layoutY="206.0" prefHeight="62.0" prefWidth="221.0" text="Date Of Death" textFill="#5e4a4a">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="textFieldReason" layoutX="36.0" layoutY="329.0" maxWidth="268.0" minWidth="268.0" prefHeight="57.0" prefWidth="268.0" promptText="Reason of death" unFocusColor="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <focusColor>
+                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </RadialGradient>
+                     </focusColor>
+                  </JFXTextField>
+                  <JFXButton fx:id="btnHDeceased" layoutX="434.0" layoutY="323.0" onAction="#btnGoHDeceased" prefHeight="45.0" prefWidth="278.0" style="-fx-background-color: #ff0000;" text="Deceased Patients List" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </JFXButton>
+                  <Text fill="WHITE" layoutX="455.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shows the history of deceased patients" wrappingWidth="300.99999513477087">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="551.0" layoutY="294.0" rotate="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--&gt;" wrappingWidth="42.999991320073605">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="159.0" layoutY="360.0" rotate="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="----------------------------------" wrappingWidth="440.99999245256186">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

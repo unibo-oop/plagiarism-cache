@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="934.0" style="-fx-background-color: #0099ff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllerfx.NewPrescriptionController">
+   <children>
+      <ImageView fitHeight="408.0" fitWidth="645.0" layoutX="404.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/dati/PrescriviMedicinali.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="225.0" layoutY="14.0" prefHeight="124.0" prefWidth="804.0" text="Prescribes Medicinal" textFill="RED">
+         <font>
+            <Font name="System Bold Italic" size="50.0" />
+         </font>
+         <effect>
+            <DropShadow color="WHITE" spread="0.91" />
+         </effect>
+      </Label>
+      <Hyperlink fx:id="hMenù" layoutX="631.0" layoutY="582.0" onAction="#hlBack" style="-fx-background-color: #00ff;" text="Back to the ManagePatients menù">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <JFXButton fx:id="btnSavePrescrition" layoutX="43.0" layoutY="552.0" onAction="#btnOnSavePrescrition" prefHeight="45.0" prefWidth="253.0" style="-fx-background-color: #ff0000;" text="CONFIRM" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="comboBoxMedicineName" cache="true" layoutX="43.0" layoutY="252.0" onAction="#chooseMedicine" prefHeight="33.0" prefWidth="253.0" promptText="MEDICINE NAME" style="-fx-background-color: #5463;">
+         <effect>
+            <Lighting surfaceScale="1.03">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="BLACK" />
+               </light>
+            </Lighting>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXComboBox>
+      <JFXComboBox fx:id="comboBoxCodeRecipe" cache="true" layoutX="43.0" layoutY="341.0" prefHeight="33.0" prefWidth="253.0" promptText="MEDICAL RECIPE CODE" style="-fx-background-color: #5463;">
+         <effect>
+            <Lighting surfaceScale="1.03">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="BLACK" />
+               </light>
+            </Lighting>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXComboBox>
+      <JFXTextField fx:id="textFieldPrice" editable="false" layoutX="43.0" layoutY="422.0" maxWidth="268.0" minWidth="253.0" prefHeight="57.0" prefWidth="253.0" promptText="Price" unFocusColor="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <focusColor>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </focusColor>
+      </JFXTextField>
+      <JFXComboBox fx:id="comboBoxCFPatient" cache="true" layoutX="43.0" layoutY="162.0" prefHeight="33.0" prefWidth="253.0" promptText="PATIENT FISCAL CODE" style="-fx-background-color: #5463;">
+         <effect>
+            <Lighting surfaceScale="1.03">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="BLACK" />
+               </light>
+            </Lighting>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXComboBox>
+      
+   </children>
+</AnchorPane>
