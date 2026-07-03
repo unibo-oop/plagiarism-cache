@@ -1,0 +1,418 @@
+[
+  {
+    "name": "Alessandro",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "BLACK"
+    },
+    "beardColor": {},
+    "mustacheColor": {
+      "value": "BLACK"
+    },
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "CURLY",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Alessandro.png"
+  },
+  {
+    "name": "Alfredo",
+    "male": true,
+    "eyeColor": "BLUE",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "BROWN"
+    },
+    "beardColor": {},
+    "mustacheColor": {
+      "value": "BROWN"
+    },
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "STRAIGHT",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Alfredo.png"
+  },
+  {
+    "name": "Anita",
+    "male": false,
+    "eyeColor": "BLUE",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "YELLOW"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "STRAIGHT",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Anita.png"
+  },
+  {
+    "name": "Anna",
+    "male": false,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "BLACK"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": true,
+    "glasses": false,
+    "hairType": "CURLY",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Anna.png"
+  },
+  {
+    "name": "Bernardo",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "BROWN"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": true,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "STRAIGHT",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Bernardo.png"
+  },
+  {
+    "name": "Carlo",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "YELLOW"
+    },
+    "beardColor": {},
+    "mustacheColor": {
+      "value": "YELLOW"
+    },
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "STRAIGHT",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Carlo.png"
+  },
+  {
+    "name": "Chiara",
+    "male": false,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "BROWN"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": true,
+    "earrings": false,
+    "glasses": true,
+    "hairType": "CURLY",
+    "dressType": "SHIRT",
+    "picPath": "/images/pack2/Chiara.png"
+  },
+  {
+    "name": "Davide",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "YELLOW"
+    },
+    "beardColor": {
+      "value": "YELLOW"
+    },
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "CURLY",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Davide.png"
+  },
+  {
+    "name": "Ernesto",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "YELLOW"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": true,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "CURLY",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Ernesto.png"
+  },
+  {
+    "name": "Filippo",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "BLACK"
+    },
+    "beardColor": {
+      "value": "BLACK"
+    },
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "CURLY",
+    "dressType": "SHIRT",
+    "picPath": "/images/pack2/Filippo.png"
+  },
+  {
+    "name": "Giacomo",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {},
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "BALD",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Giacomo.png"
+  },
+  {
+    "name": "Giorgio",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {},
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": true,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "BALD",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Giorgio.png"
+  },
+  {
+    "name": "Giuseppe",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "YELLOW"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": true,
+    "hairType": "CURLY",
+    "dressType": "SHIRT",
+    "picPath": "/images/pack2/Giuseppe.png"
+  },
+  {
+    "name": "Guglielmo",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {},
+    "beardColor": {
+      "value": "YELLOW"
+    },
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "BALD",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Guglielmo.png"
+  },
+  {
+    "name": "Manuele",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "BROWN"
+    },
+    "beardColor": {},
+    "mustacheColor": {
+      "value": "BROWN"
+    },
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "CURLY",
+    "dressType": "SWEATSHIRT",
+    "picPath": "/images/pack2/Manuele.png"
+  },
+  {
+    "name": "Marco",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "BROWN"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "CURLY",
+    "dressType": "JACKET",
+    "picPath": "/images/pack2/Marco.png"
+  },
+  {
+    "name": "Maria",
+    "male": false,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "BROWN"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": true,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "STRAIGHT",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Maria.png"
+  },
+  {
+    "name": "Paolo",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "WHITE"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": true,
+    "hairType": "CURLY",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Paolo.png"
+  },
+  {
+    "name": "Pietro",
+    "male": true,
+    "eyeColor": "BLUE",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "WHITE"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "CURLY",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Pietro.png"
+  },
+  {
+    "name": "Riccardo",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "BROWN"
+    },
+    "beardColor": {
+      "value": "BROWN"
+    },
+    "mustacheColor": {
+      "value": "BROWN"
+    },
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "BALD",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Riccardo.png"
+  },
+  {
+    "name": "Roberto",
+    "male": true,
+    "eyeColor": "BLUE",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "BROWN"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "STRAIGHT",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Roberto.png"
+  },
+  {
+    "name": "Samuele",
+    "male": true,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {},
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": true,
+    "hairType": "BALD",
+    "dressType": "SHIRT",
+    "picPath": "/images/pack2/Samuele.png"
+  },
+  {
+    "name": "Susanna",
+    "male": false,
+    "eyeColor": "BROWN",
+    "skinColor": "PINK",
+    "hairColor": {
+      "value": "WHITE"
+    },
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": false,
+    "hairType": "STRAIGHT",
+    "dressType": "SHIRT",
+    "picPath": "/images/pack2/Susanna.png"
+  },
+  {
+    "name": "Tommaso",
+    "male": true,
+    "eyeColor": "BLUE",
+    "skinColor": "PINK",
+    "hairColor": {},
+    "beardColor": {},
+    "mustacheColor": {},
+    "hat": false,
+    "earrings": false,
+    "glasses": true,
+    "hairType": "BALD",
+    "dressType": "TSHIRT",
+    "picPath": "/images/pack2/Tommaso.png"
+  }
+]
