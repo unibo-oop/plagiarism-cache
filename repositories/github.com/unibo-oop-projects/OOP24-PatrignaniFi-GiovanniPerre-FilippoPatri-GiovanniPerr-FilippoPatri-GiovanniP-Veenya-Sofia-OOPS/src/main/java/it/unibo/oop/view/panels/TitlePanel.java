@@ -1,0 +1,65 @@
+package it.unibo.oop.view.panels;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import it.unibo.oop.utils.GameState;
+import it.unibo.oop.view.window.ViewManager;
+/**
+ * 
+ */
+@SuppressFBWarnings(value = {"EI2", "DM_EXIT"},
+justification = "The purpose of this class is to interact with the game window,"
+              + "so it needs to be able to use drawView to change the state of the game."
+              + "System.exit(0) is used to close all the Threads when the quit button is pressed.")
+public class TitlePanel extends MyPanel {
+    @SuppressWarnings("unused") // TEMPORARY
+    private static final double serialVersionUID = getSerialVersionUID();
+    private final ViewManager drawView;
+
+    /**
+     * @param screenWidth
+     * @param screenHeight
+     * @param drawView to handle game state changes
+     */
+    public TitlePanel(final int screenWidth, final int screenHeight, final ViewManager drawView) {
+        super.setPreferredSize(new Dimension(screenWidth, screenHeight));
+        super.setLayout(new BorderLayout());
+        this.drawView = drawView;
+
+        final JLabel titleLabel = new JLabel("OOP Survivors", SwingConstants.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, FONT_SIZE));
+        super.add(titleLabel, BorderLayout.NORTH);
+
+        final JPanel buttonPanel = new JPanel(new GridLayout(ROWS, COLUMNS, GAP, GAP));
+        buttonPanel.
+        setBorder(BorderFactory.createEmptyBorder(VERTICAL_BORDER, HORIZONTAL_BORDER, VERTICAL_BORDER, HORIZONTAL_BORDER));
+
+        final JButton newGameButton = new JButton("New Game");
+        final JButton settingsButton = new JButton("Settings");
+        final JButton quitButton = new JButton("Quit");
+
+        newGameButton.addActionListener(e -> this.drawView.changeGameState(GameState.PLAYSTATE));
+        settingsButton.addActionListener(e -> this.drawView.changeGameState(GameState.TITLEOPTIONSTATE));
+        quitButton.addActionListener(e -> {
+            SwingUtilities.getWindowAncestor(quitButton).dispose();
+            System.exit(0);
+        });
+
+        buttonPanel.add(newGameButton);
+        buttonPanel.add(settingsButton);
+        buttonPanel.add(quitButton);
+
+        super.add(buttonPanel, BorderLayout.CENTER);
+    }
+}
