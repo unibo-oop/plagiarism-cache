@@ -1,0 +1,159 @@
+package it.unibo.heavypocket.mvc.view.panels.impl;
+
+import javafx.scene.control.TextField;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import javafx.scene.control.Label;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.text.Text;
+import javafx.geometry.Pos;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.UUID;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
+import it.unibo.heavypocket.mvc.dto.TransactionDTO;
+import it.unibo.heavypocket.mvc.model.Tag;
+import it.unibo.heavypocket.mvc.model.TransactionType;
+import it.unibo.heavypocket.mvc.view.panels.AddTransactionPanel;
+
+/**
+ * Implementation of the AddTransactionPanel interface.
+ */
+public final class AddTransactionPanelImpl implements AddTransactionPanel {
+
+    private static final int SPACING = 10;
+
+    private final VBox rootPanel = new VBox();
+    private final Label addTransactionTitle = new Label("Manage your transactions:");
+    private final Label typeLabel = new Label("Type:");
+    private final ChoiceBox<TransactionType> typeField = new ChoiceBox<>();
+    private final TextField amountField = new TextField();
+    private final Text currency = new Text("€");
+    private final DatePicker datePicker = new DatePicker();
+    private final TextField descriptionField = new TextField();
+    private final Label tagLabel = new Label("Tag:");
+    private final ComboBox<Tag> filterTag = new ComboBox<>();
+    private final Button addButton = new Button();
+    private final Button resetButton = new Button();
+    private UUID editTransactionId;
+    private Consumer<TransactionDTO> addListener;
+    private BiConsumer<UUID, TransactionDTO> editListener;
+
+    /**
+     * Constructor for AddTransactionPanelImpl. It initializes the fields and
+     * creates the layout of the panel.
+     */
+    public AddTransactionPanelImpl() {
+        initializeFields();
+        createLayout();
+    }
+
+    @Override
+    public Region getRoot() {
+        return rootPanel;
+    }
+
+    @Override
+    public void setTagList(final List<Tag> tags) {
+        filterTag.getItems().clear();
+        filterTag.getItems().addAll(tags);
+    }
+
+    @Override
+    public void setOnAdd(final Consumer<TransactionDTO> addListener) {
+        this.addListener = addListener;
+    }
+
+    @Override
+    public void editTransaction(final UUID id, final TransactionDTO transactionDTO) {
+        editTransactionId = id;
+        amountField.setText(transactionDTO.amount());
+        datePicker.setValue(transactionDTO.date());
+        descriptionField.setText(transactionDTO.description());
+        typeField.setValue(transactionDTO.type());
+        filterTag.setValue(transactionDTO.tag());
+    }
+
+    @Override
+    public void setOnEdit(final BiConsumer<UUID, TransactionDTO> editListener) {
+        this.editListener = editListener;
+    }
+
+    @Override
+    public void resetFields() {
+        amountField.setText(null);
+        datePicker.setValue(LocalDate.now());
+        descriptionField.clear();
+        typeField.setValue(null);
+        filterTag.setValue(null);
+        editTransactionId = null;
+    }
+
+    private void initializeFields() {
+        amountField.setPromptText("0.01");
+        typeField.getItems().addAll(TransactionType.values());
+        typeField.setValue(null);
+        amountField.setEditable(true);
+        datePicker.setValue(LocalDate.now());
+        descriptionField.setPromptText("Short description");
+        addButton.setText("Save");
+        resetButton.setText("Reset");
+        addButton.setOnAction(e -> handleAction());
+        resetButton.setOnAction(e -> resetFields());
+    }
+
+    private void handleAction() {
+        if (editTransactionId != null) {
+            handleEdit(editTransactionId);
+            editTransactionId = null;
+        } else {
+            handleAdd();
+        }
+        resetFields();
+    }
+
+    private void handleAdd() {
+        if (addListener != null) {
+            addListener.accept(
+                    new TransactionDTO(
+                            typeField.getValue(),
+                            amountField.getText(),
+                            datePicker.getValue(),
+                            descriptionField.getText(),
+                            filterTag.getValue()));
+        }
+    }
+
+    private void handleEdit(final UUID id) {
+        if (editListener != null) {
+            editListener.accept(id,
+                    new TransactionDTO(
+                            typeField.getValue(),
+                            amountField.getText(),
+                            datePicker.getValue(),
+                            descriptionField.getText(),
+                            filterTag.getValue()));
+        }
+    }
+
+    private void createLayout() {
+        rootPanel.setSpacing(SPACING);
+        rootPanel.setAlignment(Pos.CENTER);
+        final HBox typeAmountRow = new HBox(SPACING, typeLabel, typeField, amountField, currency);
+        typeAmountRow.setAlignment(Pos.CENTER);
+        final HBox dateTagRow = new HBox(SPACING, datePicker, tagLabel, filterTag);
+        dateTagRow.setAlignment(Pos.CENTER);
+        final HBox descriptionRow = new HBox(SPACING, descriptionField);
+        descriptionRow.setAlignment(Pos.CENTER);
+        final HBox buttonRow = new HBox(SPACING, addButton, resetButton);
+        buttonRow.setAlignment(Pos.CENTER);
+        rootPanel.getChildren().addAll(addTransactionTitle, typeAmountRow, dateTagRow, descriptionRow, buttonRow);
+    }
+}
