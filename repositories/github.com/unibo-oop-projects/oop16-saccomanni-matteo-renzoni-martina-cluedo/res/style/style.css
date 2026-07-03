@@ -1,0 +1,19 @@
+.root {
+    -fx-base: rgb(250, 250, 250);
+    -fx-background: rgb(250, 250, 250);
+    -fx-font: 16px "Serif";
+}
+
+.button {
+    -fx-padding: 10;
+}
+
+.title {
+	-fx-font-size: 20pt;
+	-fx-font-weight: bold;
+}
+
+.subtitle {
+	-fx-font-size: 12pt;
+	-fx-font-style: italic;
+}
