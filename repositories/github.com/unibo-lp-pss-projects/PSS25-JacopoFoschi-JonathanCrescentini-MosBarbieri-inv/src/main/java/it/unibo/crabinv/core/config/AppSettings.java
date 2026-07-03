@@ -1,0 +1,36 @@
+package it.unibo.crabinv.core.config;
+
+import it.unibo.crabinv.model.core.i18n.SupportedLocales;
+
+/**
+ * Helper class that copies the current state of volume and localization to
+ * be then read by {@link SettingsFileManager} to save the state before app closing.
+ * It has the explicit purpose of streamlining the saving procedure by making it easier.
+ *
+ * @param bgmVolume the volume of the background music
+ * @param sfxVolume the volume of the sound effects
+ * @param isBGMMuted tells if the bgm is muted or not
+ * @param isSFXMuted tells if the sfx are muted or not
+ * @param locales the currently set locale
+ */
+public record AppSettings(
+        int bgmVolume,
+        int sfxVolume,
+        boolean isBGMMuted,
+        boolean isSFXMuted,
+        SupportedLocales locales) {
+    /**
+     * Constructs the record while ensuring that parameters are correct.
+     */
+    public AppSettings {
+        if (bgmVolume < 0 || bgmVolume > 100) {
+            throw new IllegalArgumentException("bgmVolume must be between 0 and 100");
+        }
+        if (sfxVolume < 0 || sfxVolume > 100) {
+            throw new IllegalArgumentException("sfxVolume must be between 0 and 100");
+        }
+        if (locales == null) {
+            locales = SupportedLocales.ENGLISH;
+        }
+    }
+}
