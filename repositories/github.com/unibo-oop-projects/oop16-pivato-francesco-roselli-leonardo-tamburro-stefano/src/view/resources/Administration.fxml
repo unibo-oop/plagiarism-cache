@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.AdministrationHandler">
+   <center>
+      <TabPane prefHeight="523.0" prefWidth="814.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Balance">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <LineChart fx:id="balanceGraph" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="0.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                        <VBox alignment="CENTER" prefWidth="200.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="Select the period to show." wrapText="true" />
+                              <ChoiceBox fx:id="balancePeriod" prefWidth="150.0" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="Users statistic">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <BarChart fx:id="employeesGraph" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="0.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <VBox alignment="CENTER" prefWidth="200.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="Select the period to show." wrapText="true" />
+                              <ChoiceBox fx:id="employeesPeriod" prefWidth="150.0" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="Employees list">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="employeesTable" onMouseClicked="#copyRow" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="nameCol" editable="false" prefWidth="100.0" text="Name" />
+                              <TableColumn fx:id="surnameCol" editable="false" prefWidth="100.0" text="Surname" />
+                              <TableColumn fx:id="birthdateCol" editable="false" prefWidth="100.0" text="Date of birth" />
+                              <TableColumn fx:id="taxCodeCol" editable="false" prefWidth="100.0" text="Tax Code" />
+                              <TableColumn fx:id="phoneCol" editable="false" prefWidth="100.0" text="Phone Number" />
+                              <TableColumn fx:id="emailCol" editable="false" prefWidth="100.0" text="Email" />
+                              <TableColumn fx:id="signinCol" editable="false" prefWidth="100.0" text="Sign in date" />
+                              <TableColumn fx:id="contractTypeCol" editable="false" prefWidth="100.0" text="Contract Type" />
+                              <TableColumn fx:id="salaryCol" editable="false" prefWidth="100.0" text="Salary" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" prefHeight="31.0" prefWidth="70.0" text="back">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="addEmployeeBtn" mnemonicParsing="false" onAction="#addEmployee" text="add employee" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

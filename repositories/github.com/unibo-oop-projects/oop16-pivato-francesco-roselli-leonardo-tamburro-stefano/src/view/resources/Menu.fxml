@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane id="mainPane" fx:id="mainPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.MenuHandler">
+   <center>
+      <StackPane id="menuPane" minHeight="400.0" minWidth="400.0" prefHeight="600.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <TilePane alignment="CENTER" hgap="30.0" maxHeight="1060.0" maxWidth="576.0" prefHeight="600.0" prefWidth="576.0" vgap="30.0" StackPane.alignment="CENTER">
+               <children>
+                  <Button id="usersListBtn" fx:id="usersListBtn" mnemonicParsing="false" onAction="#showUsersTable" prefHeight="200.0" prefWidth="200.0" styleClass="menuBtn" text="Users list" />
+                  <Button id="addUserBtn" fx:id="addUserBtn" mnemonicParsing="false" onAction="#showUserProfile" prefHeight="200.0" prefWidth="200.0" styleClass="menuBtn" text="Add User" />
+                  <Button id="warehouseBtn" fx:id="warehouseBtn" mnemonicParsing="false" onAction="#showWarehouse" prefHeight="200.0" prefWidth="200.0" styleClass="menuBtn" text="Warehouse" />
+                  <Button id="utilsBtn" fx:id="administrationBtn" mnemonicParsing="false" onAction="#showAdminPage" prefHeight="200.0" prefWidth="200.0" styleClass="menuBtn" text="Administration" />
+               </children>
+            </TilePane>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

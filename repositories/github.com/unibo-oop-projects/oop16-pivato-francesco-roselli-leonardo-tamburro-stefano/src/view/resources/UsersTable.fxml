@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.UsersTableHandler">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="usersTable" onMouseClicked="#copyRow" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn fx:id="firstName" editable="false" prefWidth="100.0" text="Name" />
+                <TableColumn fx:id="lastName" editable="false" prefWidth="100.0" text="Surname" />
+                  <TableColumn fx:id="birthDate" editable="false" prefWidth="100.0" text="Birth date" />
+                  <TableColumn fx:id="taxCode" editable="false" prefWidth="100.0" text="Tax Code" />
+                  <TableColumn fx:id="phoneNumber" prefWidth="100.0" text="Phone Number" />
+                  <TableColumn fx:id="email" prefWidth="100.0" text="Email" />
+                  <TableColumn fx:id="subscriptionType" prefWidth="100.0" text="Subscription Type" />
+                  <TableColumn fx:id="startValidity" prefWidth="100.0" text="Start validity" />
+                  <TableColumn fx:id="endValidity" prefWidth="100.0" text="End validity" />
+                  <TableColumn fx:id="paymentDate" prefWidth="100.0" text="Payment date" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" text="back">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

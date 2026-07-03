@@ -1,0 +1,35 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.button{
+    -fx-cursor: hand;
+    -fx-background-radius: 20;
+}
+
+
+
+#menuPane{
+	-fx-background-image: url("/view/resources/images/background1.jpg");
+	-fx-background-size: cover;
+}
+
+#userProfilePane{
+	-fx-background-image: url("/view/resources/images/background2.jpg");
+	-fx-background-size: cover;
+}
+
+#employeePane {
+    -fx-background-image: url("/view/resources/images/background3.jpg");
+    -fx-background-size: cover;
+}
+
+#label{
+	-fx-padding: 3px 10px 3px 10px;
+	-fx-background-radius: 15px;
+	-fx-background-color:  linear-gradient( from 100.0% 0.0% to 100.0% 100.0%, rgb(242,242,242) 0.0, rgb(255,175,71) 100.0)
+	
+}
+
+.menuBtn {
+	-fx-font-size: 15pt;
+	-fx-font-weight: bold;
+    -fx-border-radius: 5.0; 
+}

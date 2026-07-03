@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane id="userProfilePane" fx:id="mainPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.UserProfileHandler">
+   <center>
+      <TilePane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefWidth="550.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane hgap="10.0" minWidth="330.0" prefWidth="500.0" vgap="5.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label id="label" text="Name" />
+                  <TextField fx:id="nameField" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="15.0" />
+                     </GridPane.margin></TextField>
+                  <Label id="label" text="Surname" GridPane.rowIndex="2" />
+                  <Label id="label" text="Phone number" GridPane.rowIndex="6" />
+                  <Label id="label" text="E-mail" GridPane.rowIndex="8" />
+                  <Label id="label" text="Tax code" GridPane.rowIndex="10" />
+                  <TextField fx:id="surnameField" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="15.0" />
+                     </GridPane.margin></TextField>
+                  <TextField fx:id="phoneField" GridPane.columnSpan="2" GridPane.rowIndex="7">
+                     <GridPane.margin>
+                        <Insets bottom="15.0" />
+                     </GridPane.margin></TextField>
+                  <TextField fx:id="emailField" GridPane.columnSpan="2" GridPane.rowIndex="9">
+                     <GridPane.margin>
+                        <Insets bottom="15.0" />
+                     </GridPane.margin></TextField>
+                  <TextField fx:id="cfField" GridPane.columnSpan="2" GridPane.rowIndex="11">
+                     <GridPane.margin>
+                        <Insets bottom="15.0" />
+                     </GridPane.margin></TextField>
+                  <Label id="label" text="Subscription type" GridPane.rowIndex="12" />
+                  <Label id="label" text="Valid from" GridPane.rowIndex="14" />
+                  <Label id="label" text="To" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                  <Label id="label" text="Payment date" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                  <DatePicker fx:id="signinDateField" GridPane.rowIndex="15">
+                     <GridPane.margin>
+                        <Insets bottom="15.0" />
+                     </GridPane.margin></DatePicker>
+                  <DatePicker fx:id="expirationDateField" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                     <GridPane.margin>
+                        <Insets bottom="15.0" />
+                     </GridPane.margin></DatePicker>
+                  <DatePicker fx:id="paymentDateField" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                     <GridPane.margin>
+                        <Insets bottom="15.0" />
+                     </GridPane.margin></DatePicker>
+                  <Label id="label" text="Birth date" GridPane.rowIndex="4" />
+                  <DatePicker fx:id="birthdateField" prefHeight="25.0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets bottom="15.0" />
+                     </GridPane.margin></DatePicker>
+                  <ChoiceBox fx:id="subscriptionType" prefWidth="150.0" GridPane.rowIndex="13">
+                     <GridPane.margin>
+                        <Insets bottom="15.0" />
+                     </GridPane.margin></ChoiceBox>
+               </children>
+            </GridPane>
+         </children>
+      </TilePane>
+   </center>
+   <right>
+      <VBox alignment="CENTER" prefWidth="230.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="showUserListBtn" fx:id="usersListBtn" mnemonicParsing="false" onAction="#showUsersList" prefHeight="50.0" prefWidth="180.0" text="Show users list">
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin></Button>
+            <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#save" prefHeight="50.0" prefWidth="180.0" text="Save">
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#delete" prefHeight="50.0" prefWidth="180.0" text="Delete">
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" prefHeight="50.0" prefWidth="180.0" text="Back">
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+   <left>
+      <VBox alignment="CENTER" minWidth="200.0" prefHeight="600.0" prefWidth="230.0" spacing="40.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="profileImage" fitHeight="202.0" fitWidth="216.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/blank-profile-picture.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button fx:id="loadImageBtn" mnemonicParsing="false" onAction="#loadImage" prefHeight="50.0" prefWidth="180.0" text="Load new image">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="deleteImageBtn" mnemonicParsing="false" onAction="#deleteImage" prefHeight="50.0" prefWidth="180.0" text="Delete image">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="showTableBtn" mnemonicParsing="false" onAction="#viewWorkoutTable" prefHeight="50.0" prefWidth="180.0" text="Show workout table">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

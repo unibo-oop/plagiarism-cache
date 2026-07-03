@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="mainPane" prefHeight="486.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controllers.LoginHandler">
+   <center>
+      <AnchorPane id="loginPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <center>
+                  <VBox alignment="CENTER_LEFT" maxWidth="300.0" prefHeight="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Username" />
+                        <TextField fx:id="userId" prefHeight="25.0" prefWidth="300.0" promptText="user" />
+                        <Label text="Password" />
+                        <PasswordField fx:id="password" prefHeight="25.0" prefWidth="300.0" promptText="password" />
+                     </children>
+                  </VBox>
+               </center>
+               <bottom>
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="loginBtn" defaultButton="true" mnemonicParsing="false" onAction="#actionLogin" prefHeight="50.0" prefWidth="200.0" text="Login" />
+                     </children>
+                  </HBox>
+               </bottom>
+               <top>
+                  <ImageView id="title" fx:id="title" fitHeight="109.0" fitWidth="249.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@images/newclubsportman-title.gif" />
+                     </image>
+                  </ImageView>
+               </top>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
