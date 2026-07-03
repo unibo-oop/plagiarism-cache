@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="pnlLocalRemote" prefHeight="351.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="lblLocalRemote" alignment="CENTER" layoutX="89.0" layoutY="14.0" prefHeight="49.0" prefWidth="363.0" text="Local or Remote">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="rbtLocal" layoutX="89.0" layoutY="137.0" mnemonicParsing="false" selected="true" text="Local">
+         <toggleGroup>
+            <ToggleGroup fx:id="location" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="rbtRemote" layoutX="89.0" layoutY="193.0" mnemonicParsing="false" text="Remote" toggleGroup="$location" />
+      <RadioButton fx:id="rbtPathDB" layoutX="89.0" layoutY="85.0" mnemonicParsing="false" toggleGroup="$location" />
+      <TextField fx:id="txfPathDB" layoutX="118.0" layoutY="81.0" prefHeight="27.0" prefWidth="377.0" />
+      <TextField fx:id="txfRemote" layoutX="113.0" layoutY="223.0" prefHeight="27.0" prefWidth="377.0" />
+      <Button fx:id="btnOKLocalRemote" layoutX="436.0" layoutY="289.0" mnemonicParsing="false" text="OK" />
+   </children>
+</AnchorPane>
