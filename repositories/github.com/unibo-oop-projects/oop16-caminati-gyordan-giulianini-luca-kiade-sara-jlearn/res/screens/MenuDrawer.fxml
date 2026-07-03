@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="drawerBackground" fx:id="menuDrawerPane" cache="true" cacheHint="SPEED" maxHeight="550.0" minWidth="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <effect>
+      <Blend />
+   </effect>
+   <center>
+      <JFXTabPane fx:id="tabPane" BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab closable="false" text="">
+              <content>
+                  <AnchorPane id="personBorder" fx:id="playerLoginMainPane" cache="true" cacheHint="SPEED" minHeight="500.0" minWidth="400.0">
+                     <children>
+                        <HBox cache="true" cacheHint="SPEED" layoutX="150.0" layoutY="300.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="200.0" />
+                        <AnchorPane id="drawerBackgroundImage" fx:id="backgroundLoginPlayerPane" cache="true" cacheHint="SPEED" minHeight="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <StackPane cache="true" cacheHint="SPEED" layoutX="140.0" layoutY="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Pane id="paneImageView" fx:id="paneImageView" cache="true" cacheHint="SPEED" maxHeight="130.0" maxWidth="150.0" />
+                                    <JFXDrawer fx:id="personPhotoDrawer" cache="true" cacheHint="SPEED" defaultDrawerSize="150.0" direction="BOTTOM" maxHeight="130.0" maxWidth="150.0" />
+                                 </children>
+                              </StackPane>
+                              <JFXButton id="webCamButton" fx:id="webCamButtonLoginPlayer" cache="true" cacheHint="SPEED" contentDisplay="CENTER" ellipsisString="" onAction="#openDrawerPhoto" prefHeight="40.0" prefWidth="40.0" AnchorPane.bottomAnchor="-20.0" AnchorPane.rightAnchor="40.0" />
+                              <Label fx:id="nameLoginPlayer" alignment="CENTER" cache="true" cacheHint="SPEED" contentDisplay="CENTER" layoutX="98.0" layoutY="128.0" prefHeight="20.0" prefWidth="100.0" text="Player" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <StackPane id="stackPaneBottom" fx:id="backgroundBottomPane" cache="true" cacheHint="SPEED" layoutY="200.0" maxHeight="150.0" maxWidth="200.0" minHeight="150.0" minWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="230.0">
+                           <children>
+                              <ImageView id="drawerBackgroundBottom" cache="true" cacheHint="SPEED" fitHeight="225.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </StackPane>
+                        <HBox id="lineChartHBox" fx:id="hBoxMode" cache="true" cacheHint="SPEED" layoutX="150.0" layoutY="200.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="210.0">
+                           <children>
+                              <JFXComboBox id="exercise-combo-box" fx:id="comboModality" cache="true" cacheHint="SPEED" focusColor="#405aa800" minHeight="30.0" minWidth="100.0" onAction="#selectedModality" promptText="Mode" style="-fx-text-fill: white;" unFocusColor="#4d4d4d00" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab closable="false" text="">
+              <content>
+                <AnchorPane cache="true" cacheHint="SPEED" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXScrollPane fx:id="scrollPane" cache="true" cacheHint="SPEED" layoutX="137.0" layoutY="131.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+                           <children>
+                              <JFXListView fx:id="playersListView" cache="true" cacheHint="SPEED" />
+                           </children></JFXScrollPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab closable="false" text="">
+               <content>
+                  <AnchorPane id="personBorder" fx:id="registerPlayerMainPane" cache="true" cacheHint="SPEED" minHeight="500.0" minWidth="400.0">
+                     <children>
+                        <AnchorPane id="signInBackgroundImage" fx:id="backgroundLoginPlayerRegisterPane" cache="true" cacheHint="SPEED" minHeight="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <StackPane cache="true" cacheHint="SPEED" layoutX="120.0" layoutY="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <ImageView fx:id="imageViewSignPlayer" cache="true" cacheHint="SPEED" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </StackPane>
+                              <Label fx:id="nameRegisterPlayer" alignment="CENTER" cache="true" cacheHint="SPEED" contentDisplay="CENTER" layoutX="98.0" layoutY="128.0" prefHeight="20.0" prefWidth="100.0" text="Sign In" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="labelName" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="250.0" text="Name" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="250.0" />
+                        <Label fx:id="labelSurname" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="270.0" text="Surname" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="280.0" />
+                        <Label fx:id="labelNickname" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="290.0" text="Nickname" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="310.0" />
+                        <Separator cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="310.0" prefWidth="200.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="340.0" />
+                        <Label fx:id="labelAge" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="330.0" text="Age" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="360.0" />
+                        <Label fx:id="labelEmail" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="350.0" text="Email" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="390.0" />
+                        <Label fx:id="labelTelephone" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="370.0" text="Telephone" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="420.0" />
+                        <Separator cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="390.0" prefWidth="200.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="450.0" />
+                        <JFXTextField fx:id="nameTextField" cache="true" cacheHint="SPEED" layoutX="175.0" layoutY="246.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="235.0" />
+                        <JFXTextField fx:id="surnameTextField" cache="true" cacheHint="SPEED" layoutX="185.0" layoutY="256.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="265.0" />
+                        <JFXTextField fx:id="nicknameTextField" cache="true" cacheHint="SPEED" layoutX="195.0" layoutY="266.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="295.0" />
+                        <JFXTextField fx:id="ageTextField" cache="true" cacheHint="SPEED" layoutX="205.0" layoutY="276.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="345.0" />
+                        <JFXTextField fx:id="emailTextField" cache="true" cacheHint="SPEED" layoutX="215.0" layoutY="286.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="375.0" />
+                        <JFXTextField fx:id="telephoneTextField" cache="true" cacheHint="SPEED" layoutX="225.0" layoutY="296.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="405.0" />
+                        <JFXButton id="register-button" fx:id="buttonRegisterPlayer" alignment="CENTER" cache="true" cacheHint="SPEED" contentDisplay="CENTER" ellipsisString="" graphicTextGap="0.0" layoutX="171.0" layoutY="459.0" onAction="#signUser" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </center>
+</BorderPane>

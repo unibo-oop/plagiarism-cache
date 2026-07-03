@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import jfxtras.scene.layout.HBox?>
+
+<BorderPane fx:id="mainBorderPanel" cache="true" cacheHint="SPEED" minHeight="600.0" minWidth="500.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <BorderPane id="exercise-bar" fx:id="toolbarBorder" cache="true" cacheHint="SPEED" minHeight="40.0" BorderPane.alignment="CENTER">
+         <left>
+            <HBox id="exercise-menu-bar" alignment="CENTER" cache="true" cacheHint="SPEED" focusTraversable="true" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXHamburger id="exercise-hamburger" fx:id="hamburgerMenu" cache="true" cacheHint="SPEED" onMouseClicked="#handleBackMenu" onMouseEntered="#handleBackMenu" onMouseExited="#handleBackMenu" />
+                  <JFXButton id="exercise-menu-button" fx:id="menuButton" cache="true" cacheHint="SPEED" />
+               </children>
+            </HBox>
+         </left>
+      </BorderPane>
+   </top>
+   <bottom>
+      <BorderPane id="exercise-bar" cache="true" cacheHint="SPEED" BorderPane.alignment="CENTER">
+         <center>
+            <HBox id="exercise-bar" alignment="CENTER_RIGHT" cache="true" cacheHint="SPEED" minHeight="48.0" nodeOrientation="LEFT_TO_RIGHT" />
+         </center>
+      </BorderPane>
+   </bottom>
+   <center>
+      <JFXTabPane fx:id="tabPane" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#tabPaneClicked" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="">
+               <content>
+                  <JFXScrollPane id="scroll-pane-stats" fx:id="scrollo" cache="true" cacheHint="SPEED" />
+               </content>
+            </Tab>
+          <Tab text="">
+               <content>
+                  <VBox alignment="TOP_RIGHT" cache="true" cacheHint="SPEED">
+                     <children>
+                        <BarChart fx:id="barChart" cache="true" cacheHint="SPEED" title="Score by mode">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab>
+               <content>
+                  <VBox alignment="TOP_RIGHT" cache="true" cacheHint="SPEED">
+                     <children>
+                        <StackPane cache="true" cacheHint="SPEED" maxHeight="50.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <HBox id="lineChartHBox" fx:id="lineHBox" alignment="CENTER" cache="true" cacheHint="SPEED" maxHeight="45.0" maxWidth="200.0" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0" StackPane.alignment="CENTER">
+                                 <children>
+                                    <JFXComboBox id="exercise-combo-box" fx:id="comboLineLevels" cache="true" cacheHint="SPEED" focusColor="#405aa800" onAction="#lineChartComboLevelSelected" promptText="Choose the level" unFocusColor="#ffffff00">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </JFXComboBox>
+                                    <JFXButton id="lineChartButton" fx:id="buttonClearLineChart" alignment="CENTER" cache="true" cacheHint="SPEED" contentDisplay="CENTER" ellipsisString="" graphicTextGap="0.0" onAction="#clearLineChart" prefHeight="40.0" prefWidth="40.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </StackPane>
+                        <LineChart fx:id="lineChart" cache="true" cacheHint="SPEED" title="Scores">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+          <Tab text="">
+               <content>
+                  <VBox alignment="TOP_RIGHT" cache="true" cacheHint="SPEED">
+                     <children>
+                        <StackPane cache="true" cacheHint="SPEED" maxHeight="50.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <HBox id="lineChartHBox" fx:id="pieHBox" alignment="CENTER" cache="true" cacheHint="SPEED" maxHeight="45.0" maxWidth="320.0" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0" StackPane.alignment="CENTER">
+                                 <children>
+                                    <JFXComboBox id="exercise-combo-box" fx:id="comboPieModality" cache="true" cacheHint="SPEED" focusColor="#405aa800" minWidth="120.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#updatePie" promptText="Mode" unFocusColor="#4d4d4d00">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </JFXComboBox>
+                                    <JFXComboBox id="exercise-combo-box" fx:id="comboPieLevel" cache="true" cacheHint="SPEED" focusColor="#405aa800" nodeOrientation="LEFT_TO_RIGHT" onAction="#updatePie" promptText="Choose level" unFocusColor="#4d4d4d00">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </JFXComboBox>
+                                    <JFXButton id="lineChartButton" fx:id="buttonPieChart" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" graphicTextGap="0.0" onAction="#clearPieChart" prefHeight="40.0" prefWidth="40.0" cache="true" cacheHint="SPEED" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </StackPane>
+                        <PieChart fx:id="pieChart" cache="true" cacheHint="SPEED" prefWidth="500.0" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+        </tabs>
+      </JFXTabPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="personBorder" fx:id="mainPersonPane" cache="true" cacheHint="SPEED" minHeight="500.0" minWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane fx:id="personBackgroundImage" cache="true" cacheHint="SPEED" minHeight="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane id="paneImageView" fx:id="paneImageView" cache="true" cacheHint="QUALITY" maxHeight="130.0" maxWidth="150.0" />
+            <JFXDrawer fx:id="personPhotoDrawer" cache="true" cacheHint="SPEED" defaultDrawerSize="150.0" direction="BOTTOM" maxHeight="130.0" maxWidth="150.0" />
+            <Label fx:id="nicknamePhotoImage" alignment="CENTER" cache="true" cacheHint="SPEED" contentDisplay="CENTER" text="Luca Giulianini" textFill="WHITE" translateY="80.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <Label fx:id="labelName" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="250.0" minWidth="100.0" text="Luca " AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="250.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="labelSurname" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="270.0" minWidth="100.0" text="Giulianini" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="270.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="labelNickname" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="290.0" minWidth="100.0" text="Nini" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="290.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Separator cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="310.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="310.0" />
+      <Label fx:id="labelAge" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="330.0" text="22" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="330.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="labelEmail" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="350.0" minWidth="200.0" text="luca201194@gmail.com" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="350.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="labelTelephone" cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="370.0" minWidth="100.0" text="333 876 3452" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="370.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Separator cache="true" cacheHint="SPEED" layoutX="25.0" layoutY="390.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="390.0" />
+      <Label cache="true" cacheHint="SPEED" layoutX="45.0" layoutY="420.0" text="Easy" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="420.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label cache="true" cacheHint="SPEED" layoutX="45.0" layoutY="440.0" text="Medium" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="440.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label cache="true" cacheHint="SPEED" layoutX="45.0" layoutY="460.0" text="Hard" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="460.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <JFXToggleButton fx:id="showPhotoButton" cache="true" cacheHint="SPEED" contentDisplay="RIGHT" layoutX="178.0" layoutY="241.0" maxWidth="150.0" onAction="#showPhoto" text="Photo" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="190.0" />
+      <Label cache="true" cacheHint="SPEED" layoutX="66.0" layoutY="213.0" text="Bios" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="230.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label cache="true" cacheHint="SPEED" layoutX="136.0" layoutY="403.0" minWidth="100.0" text="Achivements" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="400.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="easyLabel" cache="true" cacheHint="SPEED" layoutX="145.0" layoutY="420.0" minWidth="20.0" text="0" AnchorPane.leftAnchor="240.0" AnchorPane.topAnchor="420.0" />
+      <Label fx:id="mediumLabel" cache="true" cacheHint="SPEED" layoutX="145.0" layoutY="440.0" minWidth="20.0" text="0" AnchorPane.leftAnchor="240.0" AnchorPane.topAnchor="440.0" />
+      <Label fx:id="hardLabel" cache="true" cacheHint="SPEED" layoutX="145.0" layoutY="460.0" minWidth="20.0" text="0" AnchorPane.leftAnchor="240.0" AnchorPane.topAnchor="460.0" />
+   </children>
+</AnchorPane>

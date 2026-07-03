@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane id="appMenu" fx:id="nodeBorderMenu" cache="true" cacheHint="SPEED" focusTraversable="true" minHeight="600.0" minWidth="500.0" nodeOrientation="LEFT_TO_RIGHT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <ToolBar cache="true" cacheHint="SPEED" focusTraversable="false" nodeOrientation="RIGHT_TO_LEFT" opacity="0.5" BorderPane.alignment="CENTER">
+              <items>
+                  <JFXToggleButton fx:id="buttonCredits" maxHeight="30.0" onAction="#handleButtonCredits" prefHeight="30.0" />
+                  <HBox cache="true" cacheHint="SPEED" />
+              </items>
+            </ToolBar>
+         </top>
+         <center>
+            <VBox fx:id="vboxCenter" alignment="CENTER" cache="true" cacheHint="SPEED" onMouseClicked="#handleBackground" BorderPane.alignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <children>
+                  <HBox fx:id="hboxCenter" alignment="CENTER" cache="true" cacheHint="SPEED" nodeOrientation="RIGHT_TO_LEFT" VBox.vgrow="NEVER" />
+               </children>
+            </VBox>
+         </center>
+         <right>
+            <JFXDrawer fx:id="menuDrawer" alignment="CENTER_RIGHT" cache="true" cacheHint="SPEED" defaultDrawerSize="400.0" direction="RIGHT" maxHeight="550.0" resizableOnDrag="true" />
+         </right>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </BorderPane>
+      <JFXButton fx:id="menuButton" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0" />
+      <Label fx:id="fpsLabel" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+   </children>
+</AnchorPane>
