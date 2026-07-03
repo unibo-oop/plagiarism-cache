@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="button" fx:id="nodeBorderMenu" minHeight="500.0" minWidth="500.0" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: #090a0c,        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),        linear-gradient(#20262b, #191d22),        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <GridPane alignment="CENTER" BorderPane.alignment="TOP_CENTER">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="294.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <JFXButton fx:id="btnfilm" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#goMovies" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #a6b5c9,        linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),        linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%); -fx-background-radius: 8; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );" text="MOVIES" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="OCR A Extended" size="12.0" />
+               </font></JFXButton>
+            <JFXButton id="button" disable="true" onAction="#goTvSeries" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #a6b5c9,        linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),        linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%); -fx-background-radius: 8; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );" text="TV SERIES" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="OCR A Extended" size="12.0" />
+               </font></JFXButton>
+            <JFXTextField disable="true" focusColor="#f80000" maxWidth="290.0" minWidth="112.0" prefHeight="31.0" prefWidth="162.0" unFocusColor="#f2eded" GridPane.columnIndex="4" />
+            <Label disable="true" text="SEARCH:" textFill="#f8f7f7" GridPane.columnIndex="3">
+               <font>
+                  <Font name="OCR A Extended" size="12.0" />
+               </font></Label>
+            <JFXButton disable="true" prefHeight="25.0" prefWidth="70.0" text=" " GridPane.columnIndex="5">
+               <graphic>
+                  <ImageView fx:id="imgSearch" fitHeight="29.0" fitWidth="31.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" />
+               </graphic></JFXButton>
+            <JFXButton fx:id="btnRefresh" onAction="#refresh" prefHeight="25.0" prefWidth="70.0" text=" " GridPane.columnIndex="6">
+               <graphic>
+                  <ImageView fx:id="imgRefresh" fitHeight="29.0" fitWidth="31.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" />
+               </graphic></JFXButton>
+            <JFXButton fx:id="btnSettings" prefHeight="25.0" prefWidth="70.0" text=" " GridPane.columnIndex="8">
+               <graphic>
+                  <ImageView fx:id="imgSetting" fitHeight="29.0" fitWidth="31.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" />
+               </graphic></JFXButton>
+            <JFXButton fx:id="btnHome" disable="true" prefHeight="25.0" prefWidth="70.0" text=" ">
+               <graphic>
+                  <ImageView fx:id="imgHome" fitHeight="29.0" fitWidth="31.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" />
+               </graphic></JFXButton>
+            <JFXButton fx:id="btnReload" onAction="#reload" prefHeight="25.0" prefWidth="70.0" text=" " GridPane.columnIndex="7">
+               <graphic>
+                  <ImageView fx:id="imgHardRefresh" fitHeight="29.0" fitWidth="31.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" />
+               </graphic></JFXButton>
+         </children>
+      </GridPane>
+   </top>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <StackPane layoutX="265.0" layoutY="67.0" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="264.0" AnchorPane.topAnchor="67.0">
+               <children>
+                  <ImageView id="img_logo" fx:id="imgLogo" fitHeight="247.0" fitWidth="256.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <HBox fx:id="settingsmenu" alignment="CENTER" disable="true" opacity="0.0" prefHeight="20.0" prefWidth="763.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="SELECT MOVIE PATH:" textFill="#fcf9f9">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="moviesFolder" editable="false">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </TextField>
+            <JFXButton onAction="#selectMoviesPath" style="-fx-background-color: #a6b5c9,        linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),        linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%); -fx-background-radius: 8; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );" text="SELECT">
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin></JFXButton>
+            <Label disable="true" text="SELECT TV SERIES PATH:" textFill="#fcf9f9">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tvSeriesFolder" disable="true" editable="false">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </TextField>
+            <JFXButton disable="true" style="-fx-background-color: #a6b5c9,        linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),        linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%); -fx-background-radius: 8; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );" text="SELECT" />
+            <JFXButton onAction="#save" style="-fx-background-color: #a6b5c9,        linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),        linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%); -fx-background-radius: 8; -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );" text="SAVE CHANGES">
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>
