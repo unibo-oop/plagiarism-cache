@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.canvas.Canvas?>
+<?import com.almasb.fxgl.ui.ProgressBar?>
+
+<Pane fx:id="root" prefWidth="840" prefHeight="440"
+      xmlns="http://javafx.com/javafx/8.0.60"
+      xmlns:fx="http://javafx.com/fxml/1">
+
+
+	<Label fx:id="labelScore"  translateY="0.5" textFill="white" />
+
+	<Label fx:id="labelLives"  translateY="0.01" translateX="770" textFill="white" />
+
+	<Label fx:id="labelWeed"  translateY="70" translateX="780" textFill="white" />
+
+</Pane>
