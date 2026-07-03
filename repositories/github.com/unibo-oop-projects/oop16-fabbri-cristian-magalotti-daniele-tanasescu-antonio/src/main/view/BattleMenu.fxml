@@ -1,0 +1,1207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.BattleMenuController">
+   <children>
+      <BorderPane prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <SplitPane dividerPositions="0.5588972431077694" prefHeight="1080.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+              <items>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1165.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5296846011131725" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="798.0" prefWidth="710.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane fx:id="ancorPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1162.0">
+                                 <children>
+                                    <StackPane prefHeight="300.0" prefWidth="664.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <AnchorPane layoutX="541.0" layoutY="184.0" AnchorPane.bottomAnchor="-15.0" AnchorPane.rightAnchor="135.0">
+                                                   <children>
+                                                      <ImageView fx:id="enemySprite" fitHeight="450.0" fitWidth="450.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="175.0" layoutY="259.0" AnchorPane.bottomAnchor="-120.0" AnchorPane.leftAnchor="200.0">
+                                                   <children>
+                                                      <ImageView fx:id="playerSprite" fitHeight="450.0" fitWidth="450.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </StackPane>
+                                    <VBox alignment="TOP_CENTER" layoutX="657.0" layoutY="10.0" prefHeight="448.0" prefWidth="61.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                       <children>
+                                          <ImageView fx:id="playerBall1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="playerBall2" fitHeight="30.0" fitWidth="30.0" layoutX="26.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="playerBall3" fitHeight="30.0" fitWidth="30.0" layoutX="26.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="playerBall4" fitHeight="30.0" fitWidth="30.0" layoutX="26.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="playerBall5" fitHeight="30.0" fitWidth="30.0" layoutX="26.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="playerBall6" fitHeight="30.0" fitWidth="30.0" layoutX="26.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" layoutX="647.0" prefHeight="448.0" prefWidth="61.0" spacing="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <ImageView fx:id="enemyBall1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="enemyBall2" fitHeight="30.0" fitWidth="30.0" layoutX="26.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="enemyBall3" fitHeight="30.0" fitWidth="30.0" layoutX="26.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="enemyBall4" fitHeight="30.0" fitWidth="30.0" layoutX="26.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="enemyBall5" fitHeight="30.0" fitWidth="30.0" layoutX="26.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="enemyBall6" fitHeight="30.0" fitWidth="30.0" layoutX="26.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <HBox alignment="TOP_CENTER" prefHeight="584.0" prefWidth="1066.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <GridPane alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="300.0">
+                                             <children>
+                                                <HBox alignment="CENTER" style="-fx-background-color: #ff0000;">
+                                                   <children>
+                                                      <Label contentDisplay="CENTER" text="Weather">
+                                                         <font>
+                                                            <Font name="Segoe Print Bold" size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1">
+                                                   <children>
+                                                      <Label fx:id="weather" contentDisplay="CENTER">
+                                                         <font>
+                                                            <Font name="Segoe Print" size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="96.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="204.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                          <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="264.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="300.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="50.0" prefWidth="111.0" style="-fx-background-color: #adff2f;">
+                                                   <children>
+                                                      <Label contentDisplay="CENTER" text="Terrain">
+                                                         <font>
+                                                            <Font name="Segoe Print Bold" size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1">
+                                                   <children>
+                                                      <Label fx:id="terrain" contentDisplay="CENTER">
+                                                         <font>
+                                                            <Font name="Segoe Print" size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="93.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="207.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="353.0" prefWidth="708.0">
+                                 <children>
+                                    <BorderPane prefHeight="394.0" prefWidth="708.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <top>
+                                          <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="900.0" spacing="15.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <Label alignment="TOP_LEFT" text="MOVES" textFill="#3d12ff">
+                                                   <font>
+                                                      <Font name="Rockwell" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="500.0" spacing="50.0">
+                                                   <children>
+                                                      <Button fx:id="move1" layoutX="192.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#requestMove1" prefHeight="100.0" prefWidth="500.0" style="-fx-border-color: #000000;">
+                                                         <font>
+                                                            <Font size="9.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <BorderPane prefHeight="100.0" prefWidth="200.0">
+                                                               <center>
+                                                                  <Label fx:id="moveName1" BorderPane.alignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Marlett" size="30.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </center>
+                                                               <left>
+                                                                  <ImageView fx:id="moveCategory1" fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+                                                               </left>
+                                                               <right>
+                                                                  <HBox alignment="BOTTOM_RIGHT" prefHeight="20.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+                                                                     <children>
+                                                                        <Label fx:id="movePP1">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="235.0" layoutY="89.0" text=" / ">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label fx:id="moveMaxPP1" layoutX="235.0" layoutY="89.0">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </right>
+                                                            </BorderPane>
+                                                         </graphic>
+                                                         <tooltip>
+                                                            <Tooltip fx:id="tooltipMove1" contentDisplay="TOP">
+                                                               <font>
+                                                                  <Font name="High Tower Text" size="20.0" />
+                                                               </font>
+                                                            </Tooltip>
+                                                         </tooltip>
+                                                      </Button>
+                                                      <Button fx:id="move2" layoutX="368.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#requestMove2" prefHeight="100.0" prefWidth="500.0" style="-fx-border-color: #000000;">
+                                                         <font>
+                                                            <Font size="9.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <BorderPane prefHeight="100.0" prefWidth="200.0">
+                                                               <center>
+                                                                  <Label fx:id="moveName2" BorderPane.alignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Marlett" size="30.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </center>
+                                                               <left>
+                                                                  <ImageView fx:id="moveCategory2" fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+                                                               </left>
+                                                               <right>
+                                                                  <HBox alignment="BOTTOM_RIGHT" prefHeight="20.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+                                                                     <children>
+                                                                        <Label fx:id="movePP2">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="235.0" layoutY="89.0" text=" / ">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label fx:id="moveMaxPP2" layoutX="235.0" layoutY="89.0">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </right>
+                                                            </BorderPane>
+                                                         </graphic>
+                                                         <tooltip>
+                                                            <Tooltip fx:id="tooltipMove2" contentDisplay="TOP">
+                                                               <font>
+                                                                  <Font name="High Tower Text" size="20.0" />
+                                                               </font>
+                                                            </Tooltip>
+                                                         </tooltip>
+                                                      </Button>
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="500.0" spacing="50.0" AnchorPane.bottomAnchor="290.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <Button fx:id="move3" mnemonicParsing="false" onMouseClicked="#requestMove3" prefHeight="100.0" prefWidth="500.0" style="-fx-border-color: #000000;">
+                                                         <font>
+                                                            <Font size="9.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <BorderPane prefHeight="100.0" prefWidth="200.0">
+                                                               <center>
+                                                                  <Label fx:id="moveName3" BorderPane.alignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Marlett" size="30.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </center>
+                                                               <left>
+                                                                  <ImageView fx:id="moveCategory3" fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+                                                               </left>
+                                                               <right>
+                                                                  <HBox alignment="BOTTOM_RIGHT" prefHeight="20.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+                                                                     <children>
+                                                                        <Label fx:id="movePP3">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="235.0" layoutY="89.0" text=" / ">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label fx:id="moveMaxPP3" layoutX="235.0" layoutY="89.0">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </right>
+                                                            </BorderPane>
+                                                         </graphic>
+                                                         <tooltip>
+                                                            <Tooltip fx:id="tooltipMove3" contentDisplay="TOP">
+                                                               <font>
+                                                                  <Font name="High Tower Text" size="20.0" />
+                                                               </font>
+                                                            </Tooltip>
+                                                         </tooltip>
+                                                      </Button>
+                                                      <Button fx:id="move4" layoutX="192.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#requestMove4" prefHeight="100.0" prefWidth="500.0" style="-fx-border-color: #000000;">
+                                                         <font>
+                                                            <Font size="9.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <BorderPane prefHeight="100.0" prefWidth="200.0">
+                                                               <center>
+                                                                  <Label fx:id="moveName4" BorderPane.alignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Marlett" size="30.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </center>
+                                                               <left>
+                                                                  <ImageView fx:id="moveCategory4" fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+                                                               </left>
+                                                               <right>
+                                                                  <HBox alignment="BOTTOM_RIGHT" prefHeight="20.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+                                                                     <children>
+                                                                        <Label fx:id="movePP4">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label layoutX="235.0" layoutY="89.0" text=" / ">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label fx:id="moveMaxPP4" layoutX="235.0" layoutY="89.0">
+                                                                           <font>
+                                                                              <Font name="Palatino Linotype" size="18.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </right>
+                                                            </BorderPane>
+                                                         </graphic>
+                                                         <tooltip>
+                                                            <Tooltip fx:id="tooltipMove4" contentDisplay="TOP">
+                                                               <font>
+                                                                  <Font name="High Tower Text" size="20.0" />
+                                                               </font>
+                                                            </Tooltip>
+                                                         </tooltip>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <BorderPane.margin>
+                                                <Insets />
+                                             </BorderPane.margin>
+                                          </VBox>
+                                       </top>
+                                       <bottom>
+                                          <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="1163.0" spacing="15.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <Label alignment="TOP_LEFT" text="SWITCH" textFill="#4c06ff">
+                                                   <font>
+                                                      <Font name="Rockwell" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1163.0" spacing="30.0">
+                                                   <children>
+                                                      <Button fx:id="switch1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#requestSwitch1" prefHeight="70.0" prefWidth="250.0" style="-fx-border-color: #000000;" text="Fletchinder " textAlignment="CENTER">
+                                                         <font>
+                                                            <Font name="Perpetua Bold" size="24.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ImageView fx:id="ally1" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#requestSwitch1" pickOnBounds="true" AnchorPane.leftAnchor="0.0">
+                                                               <viewport>
+                                                                  <Rectangle2D />
+                                                               </viewport>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <tooltip>
+                                                            <Tooltip fx:id="tooltipAlly1" text="Empty Tooltip" />
+                                                         </tooltip>
+                                                      </Button>
+                                                      <Button fx:id="switch2" alignment="CENTER" layoutX="467.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#requestSwitch2" prefHeight="70.0" prefWidth="250.0" style="-fx-border-color: #000000;" text="Fletchinder " textAlignment="CENTER">
+                                                         <font>
+                                                            <Font name="Perpetua Bold" size="24.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ImageView fx:id="ally2" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#requestSwitch2" pickOnBounds="true" AnchorPane.leftAnchor="0.0">
+                                                               <viewport>
+                                                                  <Rectangle2D />
+                                                               </viewport>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <tooltip>
+                                                            <Tooltip fx:id="tooltipAlly2" text="Empty Tooltip" />
+                                                         </tooltip>
+                                                      </Button>
+                                                      <Button fx:id="switch3" alignment="CENTER" layoutX="607.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#requestSwitch3" prefHeight="70.0" prefWidth="250.0" style="-fx-border-color: #000000;" text="Fletchinder " textAlignment="CENTER">
+                                                         <font>
+                                                            <Font name="Perpetua Bold" size="24.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ImageView fx:id="ally3" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#requestSwitch3" pickOnBounds="true" AnchorPane.leftAnchor="0.0">
+                                                               <viewport>
+                                                                  <Rectangle2D />
+                                                               </viewport>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <tooltip>
+                                                            <Tooltip fx:id="tooltipAlly3" text="Empty Tooltip" />
+                                                         </tooltip>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1016.0" spacing="50.0">
+                                                   <children>
+                                                      <Button fx:id="switch4" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#requestSwitch4" prefHeight="70.0" prefWidth="250.0" style="-fx-border-color: #000000;" text="Fletchinder " textAlignment="CENTER">
+                                                         <font>
+                                                            <Font name="Perpetua Bold" size="24.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ImageView fx:id="ally4" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#requestSwitch4" pickOnBounds="true" AnchorPane.leftAnchor="0.0">
+                                                               <viewport>
+                                                                  <Rectangle2D />
+                                                               </viewport>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <tooltip>
+                                                            <Tooltip fx:id="tooltipAlly4" text="Empty Tooltip" />
+                                                         </tooltip>
+                                                      </Button>
+                                                      <Button fx:id="switch5" alignment="CENTER" layoutX="393.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#requestSwitch5" prefHeight="70.0" prefWidth="250.0" style="-fx-border-color: #000000;" text="Fletchinder " textAlignment="CENTER">
+                                                         <font>
+                                                            <Font name="Perpetua Bold" size="24.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ImageView fx:id="ally5" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#requestSwitch5" pickOnBounds="true" AnchorPane.leftAnchor="0.0">
+                                                               <viewport>
+                                                                  <Rectangle2D />
+                                                               </viewport>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <tooltip>
+                                                            <Tooltip fx:id="tooltipAlly5" text="Empty Tooltip" />
+                                                         </tooltip>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <BorderPane.margin>
+                                                <Insets top="10.0" />
+                                             </BorderPane.margin>
+                                          </VBox>
+                                       </bottom>
+                                    </BorderPane>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1078.0" prefWidth="580.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5669144981412639" orientation="VERTICAL" prefHeight="1078.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="573.0" prefWidth="522.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.5" prefHeight="601.0" prefWidth="522.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <BorderPane prefHeight="513.0" prefWidth="256.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <top>
+                                                      <AnchorPane maxWidth="-Infinity" prefHeight="40.0" prefWidth="368.0" BorderPane.alignment="CENTER">
+                                                         <children>
+                                                            <ImageView fx:id="playerMiniSprite" fitHeight="109.0" fitWidth="116.0" layoutX="126.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="126.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </top>
+                                                   <bottom>
+                                                      <Label text="You" textFill="#2200ff" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="Eras Medium ITC" size="30.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </bottom>
+                                                   <center>
+                                                      <GridPane alignment="CENTER" gridLinesVisible="true" prefHeight="468.0" prefWidth="368.0" BorderPane.alignment="CENTER">
+                                                         <children>
+                                                            <HBox alignment="CENTER">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Name">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                               <GridPane.margin>
+                                                                  <Insets />
+                                                               </GridPane.margin>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="177.0" GridPane.columnIndex="1">
+                                                               <children>
+                                                                  <Label fx:id="playerName" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ImageView fx:id="playerGender" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Level">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                               <children>
+                                                                  <Label fx:id="playerLevel" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Hp">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                               <children>
+                                                                  <Label fx:id="playerActualHP" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text=" / ">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label fx:id="playerMaxHP" contentDisplay="CENTER" layoutX="57.0" layoutY="18.0" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipPlayerEVIVHP" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Atk">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                               <children>
+                                                                  <Label fx:id="playerAtk" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipPlayerEVIVAtk" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Def">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                               <children>
+                                                                  <Label fx:id="playerDef" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipPlayerEVIVDef" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="8">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="SpA">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                               <children>
+                                                                  <Label fx:id="playerSpA" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipPlayerEVIVSpA" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="9">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="SpD">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                                               <children>
+                                                                  <Label fx:id="playerSpD" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipPlayerEVIVSpD" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="10">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Spe">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                                               <children>
+                                                                  <Label fx:id="playerSpe" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipPlayerEVIVSpe" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="13">
+                                                               <children>
+                                                                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="69.0" text="Status">
+                                                                           <font>
+                                                                              <Font name="Ebrima Bold" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                                               <children>
+                                                                  <Label fx:id="playerStatus" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipPlayerStatus" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Type">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                               <children>
+                                                                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <Label fx:id="playerType1" contentDisplay="CENTER" text="Label">
+                                                                           <font>
+                                                                              <Font name="Ebrima" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label fx:id="playerTypeSlash" contentDisplay="CENTER" layoutX="51.0" layoutY="14.0" text="Label">
+                                                                           <font>
+                                                                              <Font name="Ebrima" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label fx:id="playerType2" contentDisplay="CENTER" layoutX="74.0" layoutY="14.0" text="Label">
+                                                                           <font>
+                                                                              <Font name="Ebrima" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="12">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Elusion">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                                               <children>
+                                                                  <Label fx:id="playerElusion" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="11">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Accuracy">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                                               <children>
+                                                                  <Label fx:id="playerAccuracy" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Ability">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                               <children>
+                                                                  <Label fx:id="playerAbility" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipPlayerAbility" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Nature">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                               <children>
+                                                                  <Label fx:id="playerNature" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipPlayerNature" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                         <BorderPane.margin>
+                                                            <Insets top="15.0" />
+                                                         </BorderPane.margin>
+                                                      </GridPane>
+                                                   </center>
+                                                </BorderPane>
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <BorderPane prefHeight="513.0" prefWidth="256.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <top>
+                                                      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="108.0" prefWidth="366.0" BorderPane.alignment="CENTER">
+                                                         <children>
+                                                            <ImageView fx:id="enemyMiniSprite" fitHeight="106.0" fitWidth="114.0" layoutX="126.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="126.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </top>
+                                                   <bottom>
+                                                      <Label fx:id="enemyTrainer" text="Label" textFill="RED" BorderPane.alignment="CENTER">
+                                                         <font>
+                                                            <Font name="Eras Medium ITC" size="30.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </bottom>
+                                                   <center>
+                                                      <GridPane alignment="CENTER" gridLinesVisible="true" BorderPane.alignment="CENTER">
+                                                         <children>
+                                                            <HBox alignment="CENTER">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Name">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                                               <children>
+                                                                  <Label fx:id="enemyName" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ImageView fx:id="enemyGender" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Level">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                               <children>
+                                                                  <Label fx:id="enemyLevel" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Hp">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                               <children>
+                                                                  <Label fx:id="enemyActualHP" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text=" / ">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label fx:id="enemyMaxHP" contentDisplay="CENTER" layoutX="57.0" layoutY="18.0" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipEnemyEVIVHP" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Atk">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                               <children>
+                                                                  <Label fx:id="enemyAtk" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipEnemyEVIVAtk" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Def">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                               <children>
+                                                                  <Label fx:id="enemyDef" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipEnemyEVIVDef" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="8">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="SpA">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                               <children>
+                                                                  <Label fx:id="enemySpA" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipEnemyEVIVSpA" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="9">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="SpD">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                                               <children>
+                                                                  <Label fx:id="enemySpD" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipEnemyEVIVSpD" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="10">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Spe">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                                               <children>
+                                                                  <Label fx:id="enemySpe" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipEnemyEVIVSpe" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="13">
+                                                               <children>
+                                                                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <Label alignment="CENTER" contentDisplay="CENTER" text="Status">
+                                                                           <font>
+                                                                              <Font name="Ebrima Bold" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                                               <children>
+                                                                  <Label fx:id="enemyStatus" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipEnemyStatus" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Type">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                               <children>
+                                                                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <Label fx:id="enemyType1" contentDisplay="CENTER" text="Label">
+                                                                           <font>
+                                                                              <Font name="Ebrima" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label fx:id="enemyTypeSlash" contentDisplay="CENTER" layoutX="51.0" layoutY="14.0" text="Label">
+                                                                           <font>
+                                                                              <Font name="Ebrima" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <Label fx:id="enemyType2" contentDisplay="CENTER" layoutX="74.0" layoutY="14.0" text="Label">
+                                                                           <font>
+                                                                              <Font name="Ebrima" size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="12">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Elusion">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                                               <children>
+                                                                  <Label fx:id="enemyElusion" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="11">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Accuracy">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                                               <children>
+                                                                  <Label fx:id="enemyAccuracy" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Ability">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                               <children>
+                                                                  <Label fx:id="enemyAbility" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipEnemyAbility" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                                                               <children>
+                                                                  <Label contentDisplay="CENTER" text="Nature">
+                                                                     <font>
+                                                                        <Font name="Ebrima Bold" size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                               <children>
+                                                                  <Label fx:id="enemyNature" contentDisplay="CENTER" text="Label">
+                                                                     <font>
+                                                                        <Font name="Ebrima" size="20.0" />
+                                                                     </font>
+                                                                     <tooltip>
+                                                                        <Tooltip fx:id="tooltipEnemyNature" text="Empty Tooltip" />
+                                                                     </tooltip>
+                                                                  </Label>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="100.0" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                         <BorderPane.margin>
+                                                            <Insets top="15.0" />
+                                                         </BorderPane.margin>
+                                                      </GridPane>
+                                                   </center>
+                                                </BorderPane>
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <ListView fx:id="listView" prefHeight="463.0" prefWidth="743.0" style="-fx-background-color: #ffffff; -fx-fixed-cell-size: 50;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

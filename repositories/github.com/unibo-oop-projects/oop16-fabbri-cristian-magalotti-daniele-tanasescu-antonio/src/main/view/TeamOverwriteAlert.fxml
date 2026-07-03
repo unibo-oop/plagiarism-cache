@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.TeamOverwriteAlertController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="message" text="Label&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Constantia" size="36.0" />
+               </font>
+            </Label>
+            <Label text="(Attention : this action can't be undone.)" />
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" layoutY="244.0" prefHeight="56.0" prefWidth="500.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="244.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#answerYes" prefHeight="50.0" prefWidth="100.0" text="Yes" />
+            <Button mnemonicParsing="false" onMouseClicked="#answerNo" prefHeight="50.0" prefWidth="100.0" text="No" />
+         </children>
+      </HBox>
+      <ImageView fx:id="ball1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <ImageView fx:id="ball2" fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <ImageView fx:id="ball3" fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+      <ImageView fx:id="ball4" fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   </children>
+</AnchorPane>

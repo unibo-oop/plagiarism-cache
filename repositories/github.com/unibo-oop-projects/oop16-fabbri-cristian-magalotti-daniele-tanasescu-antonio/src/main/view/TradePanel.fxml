@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.TradePanelController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="900.0" spacing="25.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#player1">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="player1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="playerName1" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button layoutX="400.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#player2">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="player2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="playerName2" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button layoutX="473.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#player3">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="player3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="playerName3" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button layoutX="545.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#player4">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="player4" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="playerName4" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button layoutX="618.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#player5">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="player5" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="playerName5" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button layoutX="690.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#player6">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="player6" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="playerName6" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="900.0" spacing="25.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#enemy1">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="enemy1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="enemyName1" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button layoutX="400.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#enemy2">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="enemy2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="enemyName2" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button layoutX="473.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#enemy3">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="enemy3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="enemyName3" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button layoutX="545.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#enemy4">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="enemy4" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="enemyName4" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button layoutX="618.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#enemy5">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="enemy5" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="enemyName5" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button layoutX="690.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#enemy6">
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="enemy6" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="enemyName6" text="Label" />
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <left>
+      <Label text="Your Team" textFill="#0138ff" BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets top="15.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </Label>
+   </left>
+   <right>
+      <Label fx:id="enemyTeamName" text="Label" textFill="#ff0707" BorderPane.alignment="BOTTOM_RIGHT">
+         <BorderPane.margin>
+            <Insets bottom="15.0" />
+         </BorderPane.margin>
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </right>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+               <children>
+                  <Label text="Your Offer" textFill="#0011ff">
+                     <font>
+                        <Font name="Corbel Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="yourOffer" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <ImageView fx:id="arrows" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+               <children>
+                  <Label text="Choice" textFill="RED">
+                     <font>
+                        <Font name="Corbel Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="choice" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

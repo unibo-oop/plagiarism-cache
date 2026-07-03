@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="main.view.AdieuTeamMemberSelectController">
+   <children>
+      <Label layoutX="53.0" layoutY="83.0" text="Choose the Pokemon you're going to freed :  " textFill="#ffb700" AnchorPane.topAnchor="83.0">
+         <font>
+            <Font name="Corbel Bold" size="36.0" />
+         </font>
+      </Label>
+      <VBox layoutY="189.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="800.0" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="189.0">
+         <children>
+            <HBox alignment="TOP_CENTER" prefHeight="125.0" prefWidth="800.0" spacing="50.0">
+               <children>
+                  <Button alignment="TOP_CENTER" mnemonicParsing="false" onMouseClicked="#choose1" prefHeight="128.0" prefWidth="181.0">
+                     <graphic>
+                        <ImageView fx:id="pokemon1" fitHeight="125.0" fitWidth="125.0" onMouseClicked="#choose1" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button alignment="TOP_CENTER" layoutX="320.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#choose2" prefHeight="128.0" prefWidth="181.0">
+                     <graphic>
+                        <ImageView fx:id="pokemon2" fitHeight="125.0" fitWidth="125.0" onMouseClicked="#choose2" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button alignment="TOP_CENTER" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#choose3" prefHeight="128.0" prefWidth="181.0">
+                     <graphic>
+                        <ImageView fx:id="pokemon3" fitHeight="125.0" fitWidth="125.0" onMouseClicked="#choose3" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="125.0" prefWidth="800.0" spacing="50.0">
+               <children>
+                  <Button alignment="TOP_CENTER" mnemonicParsing="false" onMouseClicked="#choose4" prefHeight="128.0" prefWidth="181.0">
+                     <graphic>
+                        <ImageView fx:id="pokemon4" fitHeight="125.0" fitWidth="125.0" onMouseClicked="#choose4" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button alignment="TOP_CENTER" layoutX="320.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#choose5" prefHeight="128.0" prefWidth="181.0">
+                     <graphic>
+                        <ImageView fx:id="pokemon5" fitHeight="125.0" fitWidth="125.0" onMouseClicked="#choose5" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+                  <Button alignment="TOP_CENTER" layoutX="410.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#choose6" prefHeight="128.0" prefWidth="181.0">
+                     <graphic>
+                        <ImageView fx:id="pokemon6" fitHeight="125.0" fitWidth="125.0" onMouseClicked="#choose6" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Label layoutX="208.0" layoutY="145.0" text="(Attention: your choice will be immediate! Think carefully!)" />
+   </children>
+</AnchorPane>

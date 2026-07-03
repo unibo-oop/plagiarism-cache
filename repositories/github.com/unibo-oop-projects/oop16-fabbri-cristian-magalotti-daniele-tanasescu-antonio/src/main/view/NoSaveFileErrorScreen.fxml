@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.NoSaveFileErrorScreenController">
+   <bottom>
+      <Button mnemonicParsing="false" onMouseClicked="#requestBackToMainMenu" text="Ok" BorderPane.alignment="BASELINE_CENTER" />
+   </bottom>
+   <center>
+      <Label text="There's no save data! :c" textFill="#ff0404" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+   </center>
+</BorderPane>

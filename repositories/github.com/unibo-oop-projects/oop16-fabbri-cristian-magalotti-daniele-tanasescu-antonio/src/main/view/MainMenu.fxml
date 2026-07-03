@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.MainMenuController">
+   <children>
+      <BorderPane prefHeight="242.0" prefWidth="907.435546875" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Label alignment="CENTER" text="JAVAMON" textFill="#ff8c00" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Papyrus" size="100.0" />
+               </font>
+            </Label>
+         </top>
+         <bottom>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#requestQuit" text="      QUIT      " BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets bottom="50.0" />
+               </BorderPane.margin>
+            </Button>
+         </bottom>
+         <left>
+            <Button mnemonicParsing="false" onMouseClicked="#requestNewGame" text="NEW GAME" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets left="50.0" />
+               </BorderPane.margin>
+            </Button>
+         </left>
+         <right>
+            <Button mnemonicParsing="false" onMouseClicked="#requestLoadGame" text="LOAD GAME" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets right="50.0" />
+               </BorderPane.margin>
+            </Button>
+         </right>
+         <center>
+            <ImageView fx:id="imageView" fitHeight="246.0" fitWidth="459.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,121 @@
+package pokemon;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import abilities.Ability;
+import abilities.firstturn.Pressure;
+import moves.Move;
+import moves.damagingmove.physical.AerialAce;
+import moves.damagingmove.physical.Astonish;
+import moves.damagingmove.physical.BrickBreak;
+import moves.damagingmove.physical.Bulldoze;
+import moves.damagingmove.physical.Earthquake;
+import moves.damagingmove.physical.Facade;
+import moves.damagingmove.physical.FirePunch;
+import moves.damagingmove.physical.IcePunch;
+import moves.damagingmove.physical.Lick;
+import moves.damagingmove.physical.RockSlide;
+import moves.damagingmove.physical.RockTomb;
+import moves.damagingmove.physical.ShadowPunch;
+import moves.damagingmove.physical.Thief;
+import moves.damagingmove.physical.ThunderPunch;
+import moves.damagingmove.physical.variablepriority.Pursuit;
+import moves.damagingmove.special.Blizzard;
+import moves.damagingmove.special.DarkPulse;
+import moves.damagingmove.special.EnergyBall;
+import moves.damagingmove.special.IceBeam;
+import moves.damagingmove.special.Psychic;
+import moves.damagingmove.special.ShadowBall;
+import moves.damagingmove.special.sleeprequired.DreamEater;
+import moves.status.Attract;
+import moves.status.CalmMind;
+import moves.status.ConfuseRay;
+import moves.status.Curse;
+import moves.status.DoubleTeam;
+import moves.status.Growl;
+import moves.status.Haze;
+import moves.status.Leer;
+import moves.status.MeanLook;
+import moves.status.Memento;
+import moves.status.PsychUp;
+import moves.status.RainDance;
+import moves.status.Rest;
+import moves.status.ScaryFace;
+import moves.status.Spite;
+import moves.status.SunnyDay;
+import moves.status.Swagger;
+import moves.status.Toxic;
+import moves.status.WillOWisp;
+import moves.status.protecting.Protect;
+import types.Ghost;
+import types.Type;
+
+public class Dusclops extends Pokemon {
+
+	public Dusclops(int level) {
+		super(level,
+                20,		                                                              			//hp
+                40,		                                                              			//atk
+                90,		                                                              			//def
+                25,		                                                              			//speed
+                30,		                                                              			//spa
+                95,		                                                              			//spd
+                new Type[]{new Ghost(), null},					                                //tipo
+                Ability.getRandomAbility(new Ability[]{new Pressure()}),     					//ability
+                30,	                                                                      		        //weight(kg)
+                1,                                                                                              //miniFrontSizeScale
+                Gender.getRandomGender(),	                                              		        //gender
+                new HashSet<Move>(                                                            	                //learnable moves
+                        Arrays.asList(
+                                new Move[]{
+                                        new Lick(),
+                                        new Leer(),
+                                        //new ShadowSneak(),
+                                        new Astonish(),
+                                        new Growl(),
+                                        new Pursuit(),
+                                        new CalmMind(),
+                                        new IcePunch(),
+                                        new ShadowPunch(),
+                                        new FirePunch(),
+                                        new ThunderPunch(),
+                                        new Bulldoze(),
+                                        new RockSlide(),
+                                        new RockTomb(),
+                                        new BrickBreak(),
+                                        new Earthquake(),
+                                        new IceBeam(),
+                                        new Blizzard(),
+                                        new AerialAce(),
+                                        new Spite(),
+                                        new MeanLook(),
+                                        new Curse(new Type[]{new Ghost(), null}),
+                                        new ConfuseRay(),
+                                        new ShadowBall(),
+                                        new DarkPulse(),
+                                        new Toxic(),
+                                        new SunnyDay(),
+                                        new Protect(),
+                                        new RainDance(),
+                                        new Psychic(),
+                                        new ShadowBall(),
+                                        new DoubleTeam(),
+                                        new Facade(),
+                                        new Rest(),
+                                        new Attract(),
+                                        new Thief(),
+                                        new EnergyBall(),
+                                        new WillOWisp(),
+                                        new Memento(),
+                                        new PsychUp(),
+                                        new DreamEater(),
+                                        new Swagger(),
+                                        new Haze(),
+                                        new ScaryFace(),
+                                }
+                        )
+                )
+        );
+	}
+
+}

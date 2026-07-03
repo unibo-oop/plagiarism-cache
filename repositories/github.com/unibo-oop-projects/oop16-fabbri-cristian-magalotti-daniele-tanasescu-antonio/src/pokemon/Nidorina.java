@@ -1,0 +1,98 @@
+package pokemon;
+
+import java.util.Arrays;
+import java.util.HashSet;
+
+import abilities.Ability;
+import abilities.firstturn.Hustle;
+import abilities.movecondition.PoisonPoint;
+import abilities.movecondition.Rivalry;
+import moves.Move;
+import moves.damagingmove.physical.Bite;
+import moves.damagingmove.physical.Facade;
+import moves.damagingmove.physical.IronTail;
+import moves.damagingmove.physical.PoisonJab;
+import moves.damagingmove.physical.PoisonSting;
+import moves.damagingmove.physical.PoisonTail;
+import moves.damagingmove.physical.Scratch;
+import moves.damagingmove.physical.ShadowClaw;
+import moves.damagingmove.physical.Thief;
+import moves.damagingmove.physical.counterattacking.Counter;
+import moves.damagingmove.physical.multistrike.two.DoubleKick;
+import moves.damagingmove.physical.multistrike.twotofive.FuryAttack;
+import moves.damagingmove.physical.selfrecoil.TakeDown;
+import moves.damagingmove.special.Blizzard;
+import moves.damagingmove.special.Confusion;
+import moves.damagingmove.special.IceBeam;
+import moves.damagingmove.special.SludgeBomb;
+import moves.damagingmove.special.Thunder;
+import moves.damagingmove.special.Thunderbolt;
+import moves.status.Amnesia;
+import moves.status.Attract;
+import moves.status.DoubleTeam;
+import moves.status.RainDance;
+import moves.status.Rest;
+import moves.status.SunnyDay;
+import moves.status.Supersonic;
+import moves.status.Swagger;
+import moves.status.TailWhip;
+import moves.status.Toxic;
+import moves.status.protecting.Protect;
+import types.Poison;
+import types.Type;
+
+public class Nidorina extends Pokemon{
+
+    public Nidorina(int level) {
+        super(  level,                                                                                          //level
+                70,                                                                                             //baseHP 
+                62,                                                                                             //baseAtk 
+                67,                                                                                             //baseDef 
+                56,                                                                                             //baseSpe
+                55,                                                                                             //baseSpA 
+                55,                                                                                             //baseSpD 
+                new Type[]{new Poison(), null},                                                                 //type
+                Ability.getRandomAbility(new Ability[]{new PoisonPoint(), new Rivalry(), new Hustle()}),                  
+                20,                                                                                           	//weight (Kg) 
+                1,                                                                                              //miniFrontSizeScale
+                Gender.FEMALE,                                                                                  //gender  
+                new HashSet<Move>(                                                                              //learnable moves
+                        Arrays.asList(
+                                new Move[]{
+                                        new Scratch(),
+                                        new TailWhip(),
+                                        new DoubleKick(),
+                                        new PoisonSting(),
+                                        new Bite(),
+                                        new FuryAttack(),
+                                        new PoisonJab(),
+                                        new Toxic(),
+                                        new SunnyDay(),
+                                        new IceBeam(),
+                                        new Blizzard(),
+                                        new Protect(),
+                                        new RainDance(),
+                                        new Thunderbolt(),
+                                        new Thunder(),
+                                        new DoubleTeam(),
+                                        new SludgeBomb(),
+                                        new Facade(),
+                                        new Rest(),
+                                        new Attract(),
+                                        new Thief(),
+                                        new ShadowClaw(),
+                                        new Swagger(),
+                                        new Amnesia(),
+                                        new Confusion(),
+                                        new Counter(),
+                                        new IronTail(),
+                                        new PoisonTail(),
+                                        new Supersonic(),
+                                        new TakeDown(),
+                                }
+                                )
+                        )
+                );
+    }
+
+}

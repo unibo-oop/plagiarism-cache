@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.LoseScreenController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="300.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="269.0" prefWidth="600.0" spacing="20.0">
+               <children>
+                  <ImageView fx:id="leftFace" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="265.0" prefWidth="911.0" text="You lost! :c" textAlignment="CENTER" textFill="RED">
+                           <font>
+                              <Font name="SansSerif Regular" size="70.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="336.0" prefWidth="760.0" text="(Your points have been halved...)" textAlignment="CENTER">
+                           <font>
+                              <Font name="SansSerif Regular" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="rightFace" fitHeight="150.0" fitWidth="150.0" layoutX="82.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#requestGoToGameMenu" prefHeight="70.0" prefWidth="200.0" text="Continue">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font name="Baskerville Old Face" size="36.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

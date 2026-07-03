@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.NewGameAlertController">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#requestNewGame" prefHeight="40.0" prefWidth="100.0" text="Yes" />
+            <Button mnemonicParsing="false" onMouseClicked="#requestBackToMainMenu" prefHeight="40.0" prefWidth="100.0" text="No" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <Label alignment="CENTER" prefHeight="202.0" prefWidth="506.0" text="Overwrite previous save data?" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Century" size="30.0" />
+         </font>
+      </Label>
+   </center>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="image1" fitHeight="50.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image2" fitHeight="50.0" fitWidth="46.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image3" fitHeight="50.0" fitWidth="46.0" layoutX="56.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image4" fitHeight="50.0" fitWidth="46.0" layoutX="102.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image5" fitHeight="50.0" fitWidth="46.0" layoutX="148.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image6" fitHeight="50.0" fitWidth="46.0" layoutX="194.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image7" fitHeight="50.0" fitWidth="46.0" layoutX="240.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image8" fitHeight="50.0" fitWidth="46.0" layoutX="286.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image9" fitHeight="50.0" fitWidth="46.0" layoutX="332.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image10" fitHeight="50.0" fitWidth="46.0" layoutX="378.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image11" fitHeight="50.0" fitWidth="46.0" layoutX="424.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image12" fitHeight="50.0" fitWidth="46.0" layoutX="470.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image13" fitHeight="50.0" fitWidth="46.0" layoutX="516.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
