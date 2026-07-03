@@ -1,0 +1,296 @@
+{
+    "rule": ["Non toccare mai le corna di Signor Cervo.", "Non entrare nella biblioteca.", "Vai nel bosco solo di giorno, segui il sentiero.", "Non svegliare il Signor Cervo.", "Signor Cervo detesta le persone maleducate", "Se Signor Cervo ti regala un libro rosso, non aprirlo.","Il carillon e' pericoloso: non ascoltarlo mai."],
+    "members": [
+        {
+            "dialog": "Vuoi giocare a Signor Cervo?",
+            "item": [],
+            "img": "signorcervo.jpg",
+            "respons": [
+                {
+                    "resp": "si",
+                    "replay": "Missione annullata!\nLa porta di ingresso si apre.\nSignor Cervo e' tornato a casa e ti informa che ci saranno degli ospiti a cena.",
+                    "die": false
+                },
+                {
+                    "resp": "no",
+                    "replay": "morto",
+                    "die": true
+                }
+            ]
+        },
+        {
+            "dialog": "Puoi Scegliere cosa metterti, a patto che non gli faccia fare brutta figura:",
+            "item": [{
+                "name" : "Salopette",
+                "number" : -1
+            },
+            {
+                "name": "Maglione",
+                "number" : -1
+            },
+            {
+                "name": "Minigonna",
+                "number" : -1
+            },
+            {
+                "name": "Maglioncino e shorts",
+                "number" : -1
+            },
+            {
+                "name": "Gonna",
+                "number" : -1
+            },
+            {
+                "name": "Completo",
+                "number" : -1
+            },
+            {
+                "name": "Maglione di lana",
+                "number" : -1
+            },
+            {
+                "name": "Shorts di jeans",
+                "number" : -1
+            }
+        ],
+            "img": "vestiti.png",
+            "respons": [
+            ]
+        },
+        {
+            "dialog": "Ottima scelta!\nSignor Cervo ti chiede di aiutarlo a sceglire cosa cucinare.",
+            "item": [],
+            "img": "signorcervo.jpg",
+            "respons": [
+                {
+                    "resp": "Non ti interessa, va bene qualsiasi cosa.",
+                    "replay": "Signor Cervo ti ha chiesto di scegliere.\nTi riempie la gola di noci e bacche finche' non soffochi.",
+                    "die": true
+                },
+                {
+                    "resp": "Uno stufato e la crostata di mele come dessert.",
+                    "replay": "Ottima scelta!\nGli ospiti saranno entusiasti.",
+                    "die": false
+                },
+                {
+                    "resp": "Una zuppa.",
+                    "replay": "Avete mangiato la zuppa ieri sera.\nLa prossima volta presta piu' attenzione.",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "Gli ospiti sono arrivati.\nTi fanno i complimenti per la scelta dei vestiti.",
+            "item": [],
+            "img": "ospiti.png",
+            "respons": [
+                {
+                    "resp": "Continua",
+                    "replay": "",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "Il cibo e' delizioso.\nSignor Volpe cerca do fare conversazione e chiede a Signor Cervo come sta.\nSignor Cervo non risponde.\nStai per richiamare la sua attenzione quando Signora Pecora ti passa un bigliettino sotto il tavolo:",
+            "item": [],
+            "img": "ospiti.png",
+            "respons": [
+                {
+                    "resp": "Continua",
+                    "replay": "",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "",
+            "item": [],
+            "img": "biglietto.png",
+            "respons": [
+                {
+                    "resp": "Continua",
+                    "replay": "",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "La cena e' finita: e' buio e Singor Cervo decide di uscire a fare una passeggiata nel bosco con gli ospiti prima che se ne vadano.\nHai poco tempo:",
+            "item": [],
+            "img": "signorcervo.jpg",
+            "respons": [
+                {
+                    "resp": "Corri in biblioteca mentre lui e' fuori",
+                    "replay": "La porta e' spalancata.\nSignor Cervo e' ancora nel bosco.",
+                    "die": false
+                },
+                {
+                    "resp": "Pulisci la cucina e i piatti",
+                    "replay": "Quando finisci Signor Cervo non e' ancora rientrato.\nDecidi di andare in bibblioteca.",
+                    "die": false
+                },
+                {
+                    "resp": "Segui Signor Cervo e gli ospiti nel bosco",
+                    "replay": "Sei andato nel bosco di notte.\nLa Creature di ieri non e' piu' cosi' clemente e questa volta non ti lascia andare via.",
+                    "die": true
+                }
+            ]
+        },
+        {
+            "dialog": "La biblioteca e' molto grande, ma non vuoi che lui ti scopra.\nVeloce, cosa ispezioni?",
+            "item": [],
+            "img": "signorcervo.jpg",
+            "respons": [
+                {
+                    "resp": "La scrivania: e' pieni di scartoffie e potrebbe esserci qualcosa di interessante.",
+                    "replay": "Che intuito! Tra i fogli torvi qualcosa di starno...",
+                    "die": false
+                },
+                {
+                    "resp": "I libri! GLi scaffali ne sono peini.",
+                    "replay": "Sono troppi.\nNon c'e' tempo scegli qualcos'altro e guardi nella scrivania",
+                    "die": false
+                },
+                {
+                    "resp": "I cassetti, chissa' cosa ci nasconde.",
+                    "replay": "Accidenti, i cassetti sono chiusi a chiave.\nScegli un altro posto, guardi nella scrivania.",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "",
+            "item": [],
+            "img": "cartolina.png",
+            "respons": [
+                {
+                    "resp": "Continua",
+                    "replay": "",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "Ti accorgi subito che la donna nella foto è la persona della Stanza delle Fotografie.\nContinui a guardarti intorno: su cosa ti concentri?",
+            "item": [],
+            "img": "signorcervo.jpg",
+            "respons": [
+                {
+                    "resp": "Il soffitto.",
+                    "replay": "Ci hai messo troppo.\nSignor Cervo è tornato e ti ha folgorato.",
+                    "die": true
+                },
+                {
+                    "resp": "Il pavimento.",
+                    "replay": "Ci hai messo troppo.\nSignor Cervo è tornato e sei stato bruciato vivo.",
+                    "die": true
+                },
+                {
+                    "resp": "Le librerie.",
+                    "replay": "Che strano.\nQuella al centro sembra un pò storta...",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "Oh no! Senti il rumore delle chiavi nella serratura.",
+            "item": [],
+            "img": "signorcervo.jpg",
+            "respons": [
+                {
+                    "resp": "Prendi la foto, il biglietto e corri nella tua stanza.",
+                    "replay": "Sei stato imprudente\nSignor Cervo si accorge che mancano e vieni lobotomizzato.",
+                    "die": true
+                },
+                {
+                    "resp": "Lasci tutto come hai trovato.",
+                    "replay": "Hai fatto bene.\n Signor Cervo non si accorge di niente.",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "Signor Cervo è tornato.\nVai a salutarlo e noti che è macchiato di rosso.",
+            "item": [],
+            "img": "signorcervo.jpg",
+            "respons": [
+                {
+                    "resp": "Gli chiedi cos'è successo.",
+                    "replay": "È una domanda personale. Non avresti dovuto.\nOra in mezzo al liquido rosso sui suoi vestiti c'è anche il tuo.",
+                    "die": true
+                },
+                {
+                    "resp": "Fai finta di niente.",
+                    "replay": "Molto bene. A Signor Cervo non piacciono gli impiccioni.",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "È stata una giornata pesante. È ora di andare a dormire.\nMentre percorri il corridoio noti qualcosa sul pavimento, una chiave:",
+            "item": [],
+            "img": "",
+            "respons": [
+                {
+                    "resp": "Strano. Decidi di portarla a Signor Cervo a andare a letto.",
+                    "replay": "Sai troppo. Signor Cervo ti affoga infilandoti la testa dentro un secchio pieno d' acqua.",
+                    "die": true
+                },
+                {
+                    "resp": "Raccogli la chiave e la nascondi nella tua stanza.\nPrimao poi troverai cià che apre.",
+                    "replay": "Non succede nulla: Signor Cervo crede di aver perso la chiave nel bosco.",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "Stai per addormentarti ma senti un rumore... c'è qualcuno fuori dalla finestra.",
+            "item": [],
+            "img": "signorcervo.jpg",
+            "respons": [
+                {
+                    "resp": "Continua",
+                    "replay": "",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "",
+            "item": [],
+            "img": "fuori_dalla_finestra1.png",
+            "respons": [
+                {
+                    "resp": "Continua",
+                    "replay": "",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "",
+            "item": [],
+            "img": "fuori_dalla_finestra2.png",
+            "respons": [
+                {
+                    "resp": "Continua",
+                    "replay": "",
+                    "die": false
+                }
+            ]
+        },
+        {
+            "dialog": "",
+            "item": [],
+            "img": "fuori_dalla_finestra3.png",
+            "respons": [
+                {
+                    "resp": "Continua",
+                    "replay": "",
+                    "die": false
+                }
+            ]
+        }
+    ]
+}
