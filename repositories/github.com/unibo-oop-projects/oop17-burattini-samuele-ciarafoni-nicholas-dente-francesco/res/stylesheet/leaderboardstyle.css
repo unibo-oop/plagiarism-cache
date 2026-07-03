@@ -1,0 +1,38 @@
+.table-view {
+	-fx-font-size: 25px;
+	-fx-font-family: 'Press Start 2P';
+}
+
+*:disabled{
+    -fx-opacity: 1;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: red;
+}
+
+.table-column {
+	-fx-text-fill: white;
+	-fx-alignment: center;
+}
+
+* {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header-background .label {
+	-fx-text-fill: yellow;
+    -fx-font-size: 35px;
+	-fx-font-family: 'Karmatic Arcade';
+}
+
+.button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+.button:hover {
+    -fx-text-fill: yellow;
+}

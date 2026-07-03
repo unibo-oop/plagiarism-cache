@@ -1,0 +1,34 @@
+.text-field {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: white;
+}
+
+#single, #multi, #survival, #arcade {
+    -fx-background-color: black;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-size: 65%;
+    -fx-background-position: center center;
+}
+
+#single {
+    -fx-background-image: url("singleplayer.png");
+}
+
+#multi {
+    -fx-background-image: url("multiplayer.png");
+}
+
+#survival {
+    -fx-background-image: url("survivalmode.png");
+}
+
+#arcade {
+    -fx-background-image: url("tourmode.png");
+}
+
+#single:hover, #survival:hover, #arcade:hover,#multi:hover {
+    -fx-background-size: 60%;
+}
