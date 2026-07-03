@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Main game interface containing the Sudoku grid, inventory, and HUD. -->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="view.controller.GameController" styleClass="root-pane">
+
+    <top>
+        <StackPane prefHeight="110.0" minHeight="110.0" maxHeight="110.0" snapToPixel="true">
+            <ImageView fx:id="headerImageView" fitHeight="110.0" fitWidth="1920.0" preserveRatio="false" smooth="true" mouseTransparent="true">
+                <image>
+                    <Image url="@../assets/backgrounds/menu/header-game.png" />
+                </image>
+            </ImageView>
+            <AnchorPane pickOnBounds="false">
+                <VBox alignment="CENTER" spacing="5.0" AnchorPane.topAnchor="35.0" 
+                      AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0">
+                    <Label fx:id="levelLabel" text="LEVEL 1" styleClass="level-label" />
+                    <Label fx:id="difficultyLabel" text="DIFFICULTY: EASY" styleClass="difficulty-label" />
+                </VBox>
+                
+
+                <Button fx:id="itemSelectionButton" AnchorPane.topAnchor="38.0" AnchorPane.rightAnchor="110.0"
+                        onAction="#handleItemSelectionClick" styleClass="menu-button" focusTraversable="false"
+                        style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-background-radius: 0; -fx-border-color: transparent; -fx-focus-color: transparent; -fx-faint-focus-color: transparent;">
+                    <graphic>
+                        <ImageView fitHeight="60.0" preserveRatio="true" smooth="true">
+                            <image>
+                                <Image url="@../assets/icons/items/noItem.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="skipButton" AnchorPane.topAnchor="38.0" AnchorPane.rightAnchor="30.0"
+                        styleClass="menu-button" focusTraversable="false"
+                        style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-background-radius: 0; -fx-border-color: transparent; -fx-focus-color: transparent; -fx-faint-focus-color: transparent;">
+                    <graphic>
+                        <ImageView fitHeight="65.0" preserveRatio="true" smooth="true">
+                            <image>
+                                <Image url="@../assets/icons/utils/settings.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <HBox fx:id="livesHBox" alignment="CENTER_LEFT" spacing="6.0"
+                      AnchorPane.topAnchor="28.0" AnchorPane.leftAnchor="130.0" />
+
+                <HBox fx:id="inventorySlotsHBox" alignment="CENTER_LEFT" spacing="10.0"
+                      AnchorPane.topAnchor="41.0" AnchorPane.rightAnchor="350.0" />
+            </AnchorPane>
+            <Pane fx:id="headerDimmer" visible="false" styleClass="endgame-overlay" />
+        </StackPane>
+    </top>
+
+    <center>
+        <StackPane fx:id="mainGameArea" prefHeight="1000.0" prefWidth="1920.0" style="-fx-background-color: black;" snapToPixel="true">
+            <ImageView fx:id="backgroundImageView" fitWidth="1920.0" preserveRatio="false" smooth="true" />
+
+            <AnchorPane fx:id="gameContentPane" prefHeight="1000.0" prefWidth="1920.0">
+
+                <VBox fx:id="characterSpriteBox" alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="80.0">
+                    <ImageView fx:id="characterSpriteView" preserveRatio="true" smooth="true" />
+                </VBox>
+
+                <VBox fx:id="enemySpriteBox" alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="50.0">
+                    <ImageView fx:id="enemySpriteView" preserveRatio="true" smooth="true" />
+                </VBox>
+
+                <StackPane fx:id="sudokuAreaStack" alignment="CENTER" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <GridPane fx:id="sudokuGridContainer" alignment="CENTER"
+                              styleClass="sudoku-grid-container" prefHeight="650.0" prefWidth="650.0"
+                              minHeight="650.0" minWidth="650.0" maxHeight="650.0" maxWidth="650.0" />
+                </StackPane>
+                
+            </AnchorPane>
+            
+            <StackPane fx:id="modalContainer" styleClass="modal-overlay" visible="false" />
+        </StackPane>
+    </center>
+
+    <bottom>
+        <StackPane prefHeight="110.0" minHeight="110.0" maxHeight="110.0" snapToPixel="true">
+            <ImageView fx:id="footerImageView" fitHeight="110.0" fitWidth="1920.0" preserveRatio="false" smooth="true" mouseTransparent="true">
+                <image>
+                    <Image url="@../assets/backgrounds/menu/footer-game.png" />
+                </image>
+            </ImageView>
+            <HBox fx:id="inputControlHBox" alignment="CENTER" spacing="10.0" StackPane.alignment="CENTER">
+                <StackPane.margin>
+                    <Insets bottom="25.0" />
+                </StackPane.margin>
+            </HBox>
+            <Pane fx:id="footerDimmer" visible="false" styleClass="endgame-overlay" />
+        </StackPane>
+    </bottom>
+</BorderPane>
