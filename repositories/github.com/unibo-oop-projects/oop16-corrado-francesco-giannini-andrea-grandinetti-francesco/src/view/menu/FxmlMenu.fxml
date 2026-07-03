@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.menu.ViewMenuImpl">
+   <children>
+      <HBox fx:id="firstPage" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="350.0" prefWidth="290.0" spacing="15.0">
+               <children>
+                  <ImageView fitHeight="117.0" fitWidth="200.0">
+                     <image>
+                        <Image url="@/logo.png" />
+                     </image>
+                  </ImageView>
+                  <CheckBox fx:id="onlyRace" mnemonicParsing="false" text="Solo gara" />
+                  <HBox alignment="CENTER" prefHeight="25.0" prefWidth="162.0" spacing="10.0">
+                     <children>
+                        <Label text="Circuito:" HBox.hgrow="NEVER" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <ChoiceBox fx:id="circuits" HBox.hgrow="NEVER" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="25.0" prefWidth="162.0" spacing="10.0">
+                     <children>
+                        <Label text="Num. Giocatori:" HBox.hgrow="NEVER" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <ChoiceBox fx:id="numPlayer" HBox.hgrow="NEVER">
+                        </ChoiceBox>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#toSecond" text="Avanti" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox fx:id="secondPage" alignment="CENTER" layoutX="150.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" text="Indietro" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+   </children>
+</AnchorPane>

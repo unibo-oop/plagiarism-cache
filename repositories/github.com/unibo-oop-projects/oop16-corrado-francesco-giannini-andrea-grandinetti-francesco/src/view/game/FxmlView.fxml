@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.game.ViewGameImpl">
+   <children>
+      <SplitPane dividerPositions="0.0" layoutY="1.0" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane maxWidth="270.0" minWidth="270.0" prefWidth="270.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <SplitPane dividerPositions="0.6" layoutY="-5.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="270.0" prefWidth="176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <content>
+                                    <AnchorPane>
+                                       <children>
+                                          <GridPane fx:id="ranking" gridLinesVisible="true" prefHeight="288.0" prefWidth="246.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="46.0" />
+                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="254.0" minWidth="10.0" prefWidth="250.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="25.0" text="Pos." />
+                                                <Label text="Pilota" GridPane.columnIndex="1" />
+                                                <Label text="1" GridPane.rowIndex="1" />
+                                                <Label text="2" GridPane.rowIndex="2" />
+                                                <Label text="3" GridPane.rowIndex="3" />
+                                                <Label text="4" GridPane.rowIndex="4" />
+                                                <Label text="5" GridPane.rowIndex="5" />
+                                                <Label text="6" GridPane.rowIndex="6" />
+                                                <Label text="7" GridPane.rowIndex="7" />
+                                                <Label text="8" GridPane.rowIndex="8" />
+                                                <Label text="9" GridPane.rowIndex="9" />
+                                                <Label text="10" GridPane.rowIndex="10" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <VBox fx:id="panel" layoutX="14.0" layoutY="14.0" prefHeight="275.0" prefWidth="245.0" spacing="10.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                                 <children>
+                                    <GridPane layoutX="14.0" layoutY="14.0" vgap="5.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="105.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="95.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label fx:id="tyreType" layoutX="85.0" layoutY="74.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Label fx:id="driverRound" layoutX="85.0" layoutY="14.0" GridPane.columnIndex="1" />
+                                          <Label layoutX="14.0" layoutY="102.0" text="Usura Gomme:" GridPane.rowIndex="5" />
+                                          <Label fx:id="placement" layoutX="85.0" layoutY="43.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label layoutX="14.0" layoutY="74.0" text="Pneumatici:" GridPane.rowIndex="4" />
+                                          <Label layoutX="14.0" layoutY="172.0" text="Punti telaio:" GridPane.rowIndex="6" />
+                                          <Label layoutX="14.0" layoutY="43.0" text="Posizione:" GridPane.rowIndex="3" />
+                                          <Label layoutX="14.0" layoutY="14.0" text="È il turno di" />
+                                          <Label fx:id="tyreDecay" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label fx:id="pointShell" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <Label text="Pilota:" GridPane.rowIndex="1" />
+                                          <Label text="Scuderia:" GridPane.rowIndex="2" />
+                                          <Label fx:id="driverCell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label fx:id="team" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                       </children>
+                                    </GridPane>
+                                    <Region VBox.vgrow="ALWAYS" />
+                                    <HBox fx:id="direction" spacing="5.0" visible="false">
+                                       <children>
+                                          <Button fx:id="left" mnemonicParsing="false" onAction="#goLeft">
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@/freccia.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button fx:id="straight" mnemonicParsing="false" onAction="#goStraight">
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true" rotate="90.0">
+                                                   <image>
+                                                      <Image url="@/freccia.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button fx:id="right" mnemonicParsing="false" onAction="#goRight">
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true" rotate="180.0">
+                                                   <image>
+                                                      <Image url="@/freccia.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="boxButton" disable="true" mnemonicParsing="false" onAction="#goBox" text="Box" />
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="40.0" layoutY="205.0" spacing="5.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                                       <children>
+                                          <Button fx:id="throwDiceButton" disable="true" layoutX="40.0" layoutY="205.0" mnemonicParsing="false" onAction="#throwDice" text="Lancia il dado" HBox.hgrow="NEVER" />
+                                          <Label fx:id="outDice" contentDisplay="CENTER" prefHeight="25.0" prefWidth="31.0" textAlignment="CENTER" visible="false" />
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Button layoutX="156.0" layoutY="205.0" mnemonicParsing="false" visible="false" onAction="#test" text="Test" HBox.hgrow="NEVER" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <Pane fx:id="gamePanel" prefHeight="1080.0" prefWidth="1920.0" />
+                     </content>
+                  </ScrollPane>
+                  <HBox fx:id="lapPanel" alignment="CENTER" layoutX="618.0" layoutY="19.0" prefHeight="25.0" prefWidth="48.0" visible="false" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+                     <children>
+                        <Label fx:id="remainingLaps" />
+                        <Label text="/" />
+                        <Label fx:id="laps" />
+                     </children>
+                  </HBox>
+                  <StackPane prefHeight="35.0" prefWidth="104.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <Button fx:id="zoomOutButton" mnemonicParsing="false" onAction="#zoomOut" prefWidth="25.0" text="-" />
+                              <Label text="Zoom" />
+                              <Button fx:id="zoomInButton" mnemonicParsing="false" onAction="#zoomIn" prefWidth="25.0" text="+" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
